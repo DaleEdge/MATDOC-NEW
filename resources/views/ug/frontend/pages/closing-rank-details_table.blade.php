@@ -15,12 +15,8 @@
              
               <td>{{$data->college}}</td>
               <td>{{strtoupper($data->category)}}</td>
-              @for($i=1;$i<=$round;$i++)
-             @php  
-             $r='r'.$i.'_air';
-             $m='r'.$i.'_marks';
-             @endphp
-              <td>@if(!empty($data->$r)) {{$data->$r}}   @else {{'-'}}  @endif   @if(!empty($data->$m)) ({{$data->$m}})   @else {{'-'}}  @endif  </td>
+              @for($i=0;$i<$round;$i++)
+              <td>@if(!empty(json_decode($data->rank)[$i])) {{json_decode($data->rank)[$i]}}   @else {{'-'}}  @endif</td>
               @endfor
           </tr>
       @endforeach

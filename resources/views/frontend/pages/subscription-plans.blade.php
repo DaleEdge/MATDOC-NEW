@@ -31,7 +31,7 @@
                                 <div class="single-pricing active">
                                     <div class="pricig-header">
                                         <h3 class="title">Subsciption</h3>
-                                        <p>₹<span>1990</span> + 18% tax/-</p>
+                                        <p>₹<span>3999</span> + 18% tax/-</p>
                                         <hr>
                                     </div>
 
@@ -54,10 +54,12 @@
                                     </div><br><br>
                                     <div class="pricig-header">
                                         @if (empty(optional(Auth::user()->payment)->user_id))
-                                            <a class="btn btn-white btn-hover-heading-color" id="pay-btn">Pay
+                                            <a class="btn btn-white btn-hover-heading-color" href="{{route('subscription_plans_pay')}}" id="pay-btn">Pay
                                                 Now</a>
                                         @else
-                                            <a class="btn btn-white btn-hover-heading-color">Subscribed</a>
+                                        @if (optional(Auth::user()->payment)->plan_name=='Plan of 2359')
+                                        <a class="btn btn-white btn-hover-heading-color">Subscribed</a>
+                                     @endif
                                         @endif
                                     </div>
 
@@ -94,8 +96,14 @@
                                         </ul>
                                         </ul>
                                         <div class="pricig-header">
-                                            <a class="btn btn-white btn-hover-heading-color1" href="tel:+91-9561485956">Call
+                                            @if (empty(optional(Auth::user()->payment)->user_id))
+                                            <a class="btn btn-white btn-hover-heading-color" href="{{route('subscription_plans_pay')}}" id="pay-btn">Pay
                                                 Now</a>
+                                        @else
+                                         @if (optional(Auth::user()->payment)->plan_name=='Plan of 24999')
+                                            <a class="btn btn-white btn-hover-heading-color">Subscribed</a>
+                                         @endif
+                                        @endif
                                         </div>
                                     </div>
                                 </div>

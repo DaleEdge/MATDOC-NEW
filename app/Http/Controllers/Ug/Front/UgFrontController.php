@@ -1063,13 +1063,13 @@ public function student_report_closing_rank_details(Request $request){
             $round=1;
           }
           
-          if( $state=='assams' ||  $state=='chhattisgarhs' || $state=='himachal_pradeshes'|| $state=='karnatakas'  || $state=='pondicherries' || $state=='punjabs' || $state=='tripuras' || $state=='uttar_pradeshes'){
+          if( $state=='assams'||  $state=='bihars' || $state=='haryanas' || $state=='jharkhands' ||  $state=='chhattisgarhs' || $state=='himachal_pradeshes'|| $state=='karnatakas'   || $state=='tripuras' ){
            
             $round=2;
           }
           
-          if( $state=='andhra_pradeshes'  || $state=='gujarats' || $state=='haryanas' || $state=='jammu_and_kashmirs' || $state=='jharkhands' || $state=='keralas' || $state=='madhya_pradeshes' || $state=='maharashtras' || $state=='telanganas' || $state=="uttarakhands" || $state=='west_bengals' || $state=="deemeds" ){
-            $round=2;
+          if( $state=='gujarats'  || $state=='jammu_and_kashmirs'  || $state=='keralas' || $state=='madhya_pradeshes' || $state=='maharashtras' || $state=='telanganas' || $state=="uttarakhands" || $state=='west_bengals' || $state=="deemeds" || $state=='pondicherries'  || $state=='punjabs' || $state=='uttar_pradeshes'){
+            $round=3;
            
           }
       
@@ -1149,205 +1149,25 @@ if(!empty($request->submit)){
        }
        
        if($request->type=='state_other'){
-        $list =  DB::table('ug_'.$state)->orderBy('id');
-       
-        
-         if($state=='andhra_pradeshes'){
-              $category= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','MGT');
-                })->groupBy('category')->get();
-              $college= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','MGT');
-                })->groupBy('college')->get();
-            $list=$list->where(function($query) use ($request) {
-                            $query->where('category','MGT');
-                });
-          }
-         if($state=='chhattisgarhs'){
-              $category= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','MGT')->orwhere('category','MGT OBC FEM')->orwhere('category','MGT OBC NC')->orwhere('category','MGT SC FEM')->orwhere('category','MGT SC NC')->orwhere('category','MGT ST FEM')->orwhere('category','MGT ST NC')->orwhere('category','MGT UR FEM')->orwhere('category','MGT UR NC');
-                })->groupBy('category')->get();
-              $college= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                             $query->where('category','MGT')->orwhere('category','MGT OBC FEM')->orwhere('category','MGT OBC NC')->orwhere('category','MGT SC FEM')->orwhere('category','MGT SC NC')->orwhere('category','MGT ST FEM')->orwhere('category','MGT ST NC')->orwhere('category','MGT UR FEM')->orwhere('category','MGT UR NC');
-                })->groupBy('college')->get();
-            $list=$list->where(function($query) use ($request) {
-                            $query->where('category','MGT')->orwhere('category','MGT OBC FEM')->orwhere('category','MGT OBC NC')->orwhere('category','MGT SC FEM')->orwhere('category','MGT SC NC')->orwhere('category','MGT ST FEM')->orwhere('category','MGT ST NC')->orwhere('category','MGT UR FEM')->orwhere('category','MGT UR NC');
-                });
-          }
-          
-         if($state=='haryanas'){
-              $category= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','MGT');
-                })->groupBy('category')->get();
-              $college= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','MGT');
-                })->groupBy('college')->get();
-            $list=$list->where(function($query) use ($request) {
-                            $query->where('category','MGT');
-                });
-          } 
-           if($state=='himachal_pradeshes'){
-              $category= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','UR');
-                })->groupBy('category')->get();
-              $college= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','UR');
-                })->groupBy('college')->get();
-            $list=$list->where(function($query) use ($request) {
-                            $query->where('category','UR');
-                });
-          } 
-          
-           if($state=='karnatakas'){
-              $category= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','NRI')->orwhere('category','OPEN')->orwhere('category','OTHERS');
-                })->groupBy('category')->get();
-              $college= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','NRI')->orwhere('category','OPEN')->orwhere('category','OTHERS');
-                })->groupBy('college')->get();
-            $list=$list->where(function($query) use ($request) {
-                            $query->where('category','NRI')->orwhere('category','OPEN')->orwhere('category','OTHERS');
-                });
-          } 
-          
-          if($state=='keralas'){
-              $category= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','SM');
-                })->groupBy('category')->get();
-              $college= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','SM');
-                })->groupBy('college')->get();
-            $list=$list->where(function($query) use ($request) {
-                            $query->where('category','SM');
-                });
-          } 
-           if($state=='madhya_pradeshes'){
-              $category= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','NRI')->orwhere('category','UR');
-                })->groupBy('category')->get();
-              $college= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','NRI')->orwhere('category','UR');
-                })->groupBy('college')->get();
-            $list=$list->where(function($query) use ($request) {
-                            $query->where('category','NRI')->orwhere('category','UR');
-                });
-          } 
-          if($state=='pondicherries'){
-              $category= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','MGT');
-                })->groupBy('category')->get();
-              $college= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','MGT');
-                })->groupBy('college')->get();
-            $list=$list->where(function($query) use ($request) {
-                             $query->where('category','MGT');
-                });
-          } 
-          if($state=='telanganas'){
-              $category= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','MGT')->orwhere('category','MGT_MSM');
-                })->groupBy('category')->get();
-              $college= DB::table($state)->where(function($query) use ($request) {
-                            $query->where('category','MGT')->orwhere('category','MGT_MSM');
-                })->groupBy('college')->get();
-            $list=$list->where(function($query) use ($request) {
-                             $query->where('category','MGT')->orwhere('category','MGT_MSM');
-                });
-          } 
-            if($state=='uttar_pradeshes'){
-              $category= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','UROP');
-                })->groupBy('category')->get();
-              $college= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','UROP');
-                })->groupBy('college')->get();
-            $list=$list->where(function($query) use ($request) {
-                             $query->where('category','UROP');
-                });
-          } 
-              if($state=='uttarkhands'){
-              $category= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','MGT');
-                })->groupBy('category')->get();
-              $college= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','MGT');
-                })->groupBy('college')->get();
-            $list=$list->where(function($query) use ($request) {
-                             $query->where('category','MGT');
-                });
-          }
-          if($state=='west_bengals'){
-              $category= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','MGT');
-                })->groupBy('category')->get();
-              $college= DB::table('ug_'.$state)->where(function($query) use ($request) {
-                            $query->where('category','MGT');
-                })->groupBy('college')->get();
-            $list=$list->where(function($query) use ($request) {
-                             $query->where('category','MGT');
-                });
-          } 
-       
-          
-        
-        if( $state=='rajasthans' || $state=='tamil_nadus' ){
-          
-            $round=1;
-          }
-          
-          if( $state=='assams' ||  $state=='chhattisgarhs' || $state=='himachal_pradeshes'|| $state=='karnatakas'  || $state=='pondicherries' || $state=='punjabs' || $state=='tripuras' || $state=='uttar_pradeshes'){
-           
-            $round=2;
-          }
-          
-          if( $state=='andhra_pradeshes'  || $state=='gujarats' || $state=='haryanas' || $state=='jammu_and_kashmirs' || $state=='jharkhands' || $state=='keralas' || $state=='madhya_pradeshes' || $state=='maharashtras' || $state=='telanganas' || $state=="uttarakhands" || $state=='west_bengals' || $state=="deemeds" ){
-            $round=3;
-           
-          }
-      
-           if($state=="all_indias" || $state== "aiims" ){
-        $round=5;
-        }
-       }
-       
-        if($request->type=='aiims'){
+     
+
         $list =  DB::table('ug_'.$state)->orderBy('id');
         $category= DB::table('ug_'.$state)->groupBy('category')->get();
         $college= DB::table('ug_'.$state)->groupBy('college')->get();
         
-        if( $state=='rajasthans' || $state=='tamil_nadus' ){
+        
+        
+         if( $state=='rajasthans' || $state=='tamil_nadus' ){
           
             $round=1;
           }
           
-          if( $state=='assams' ||  $state=='chhattisgarhs' || $state=='himachal_pradeshes'|| $state=='karnatakas'  || $state=='pondicherries' || $state=='punjabs' || $state=='tripuras' || $state=='uttar_pradeshes'){
+          if( $state=='assams'||  $state=='bihars' || $state=='haryanas' || $state=='jharkhands' ||  $state=='chhattisgarhs' || $state=='himachal_pradeshes'|| $state=='karnatakas'   || $state=='tripuras' ){
            
             $round=2;
           }
           
-          if( $state=='andhra_pradeshes'  || $state=='gujarats' || $state=='haryanas' || $state=='jammu_and_kashmirs' || $state=='jharkhands' || $state=='keralas' || $state=='madhya_pradeshes' || $state=='maharashtras' || $state=='telanganas' || $state=="uttarakhands" || $state=='west_bengals' || $state=="deemeds" ){
-            $round=3;
-           
-          }
-      
-           if($state=="all_indias" || $state== "aiims" ){
-        $round=5;
-        }
-       }
-       
-       
-
-     if( $state=='rajasthans' || $state=='tamil_nadus' ){
-          
-            $round=1;
-          }
-          
-          if( $state=='assams' ||  $state=='chhattisgarhs' || $state=='himachal_pradeshes'|| $state=='karnatakas'  || $state=='pondicherries' || $state=='punjabs' || $state=='tripuras' || $state=='uttar_pradeshes'){
-           
-            $round=2;
-          }
-          
-          if( $state=='andhra_pradeshes'  || $state=='gujarats' || $state=='haryanas' || $state=='jammu_and_kashmirs' || $state=='jharkhands' || $state=='keralas' || $state=='madhya_pradeshes' || $state=='maharashtras' || $state=='telanganas' || $state=="uttarakhands" || $state=='west_bengals' || $state=="deemeds" ){
+          if( $state=='gujarats'  || $state=='jammu_and_kashmirs'  || $state=='keralas' || $state=='madhya_pradeshes' || $state=='maharashtras' || $state=='telanganas' || $state=="uttarakhands" || $state=='west_bengals' || $state=="deemeds" || $state=='pondicherries'  || $state=='punjabs' || $state=='uttar_pradeshes'){
             $round=3;
            
           }
@@ -1357,12 +1177,13 @@ if(!empty($request->submit)){
         }
 
       $condition_category=[];
-       $condition_college=[];
+      $condition_college=[];
 
 
       $categories=$request->category;
     
-       $colleges=$request->college;
+       
+         $colleges=$request->college;
        
 
       if(!empty($request->category))
@@ -1378,23 +1199,22 @@ if(!empty($request->submit)){
                         }
                         });
       }
-   
 
+   
+     
      if(!empty($request->college))
      {
          foreach($colleges as $college)
          {
              array_push($condition_college,['college'=>$college]);
          }
-      $list=$list->where(function ($query) use ($condition_college){
+        $list=$list->where(function ($query) use ($condition_college){
          foreach ($condition_college as $key=>$value)
          {
              $query->orWhere($value);
          }
          });
-     }
-
-    
+     } 
        
     $new_array=[];
       $list=$list->get();
@@ -1428,6 +1248,7 @@ if(!empty($request->submit)){
        
       
     }
+}
 
 
 public function mark_vs_rank(Request $request){

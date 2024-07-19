@@ -51,6 +51,11 @@ class FrontController extends Controller
         return view('frontend.pages.subscription-plans');
     }
 
+    public function subscription_plans_pay()
+    {
+        return view('frontend.pages.subscription-plans-pay');
+    }
+
     public function deemed_fees()
     {
         $list =  DB::table('new_deemds')->get();

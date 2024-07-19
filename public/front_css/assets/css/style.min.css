@@ -13093,3 +13093,9 @@ only screen and (max-width: 575px) {
 .search-form span a:hover {
 	color: #EB5353
 }
+.payment-card{
+		background: #ffffff;
+		box-shadow: 0px 6px 34px rgba(215, 216, 222, 0.41);
+		padding: 30px;
+		border-radius: 6px;
+}

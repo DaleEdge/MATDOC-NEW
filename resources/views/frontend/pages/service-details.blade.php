@@ -306,19 +306,14 @@
         </div>
     </div>
 
-            <!-- Pricing Start -->
+            <!-- Pricing Start --
             <div class="section section-padding bg-color-1">
                 <div class="container">
-                    <!-- Section Title Start -->
                     <div class="section-title text-center">
                         <h2 class="title">Campus Bull Packages Price</h2>
                     </div>
-                    <!-- Section Title End -->
-    
-                    <!-- Pricing Wrapper End -->
                     <div class="row justify-content-center mt-5">
                         <div class="col-lg-4 col-md-8">
-                            <!-- Single Pricing Start -->
                             <div class="single-pricing">
                                 <div class="pricig-header">
                                     <h3 class="title">Basic</h3>
@@ -338,10 +333,8 @@
                                 </div>
                                 <a class="btn btn-primary btn-hover-heading-color w-100 mt-3" href="#">Start For Free</a>
                             </div>
-                            <!-- Single Pricing End -->
                         </div>
                         <div class="col-lg-4 col-md-8">
-                            <!-- Single Pricing Start -->
                             <div class="single-pricing active">
                                 <div class="pricig-header">
                                     <h3 class="title">Professional</h3>
@@ -361,10 +354,8 @@
                                     <a class="btn btn-white btn-hover-heading-color mt-3 w-100" href="#">Start For Free</a>
                                 </div>
                             </div>
-                            <!-- Single Pricing End -->
                         </div>
                         <div class="col-lg-4 col-md-8">
-                            <!-- Single Pricing Start -->
                             <div class="single-pricing">
                                 <div class="pricig-header">
                                     <h3 class="title">Advanced</h3>
@@ -384,26 +375,18 @@
                                 </div>
                             </div>
                             <a class="btn btn-primary btn-hover-heading-color w-100 mt-3" href="#">Start For Free</a>
-                            <!-- Single Pricing End -->
                         </div>
                     </div>
-                    <!-- Pricing Wrapper End -->
-    
                 </div>
             </div>
-            <!-- Pricing End -->
+             Pricing End -->
 
-            <!-- Gallery Start -->
-            <div class="section pb-4 pt-5">
+            {{-- <div class="section pb-4 pt-5">
                 <div class="container">
-                    <!-- Section Title Start -->
                     <div class="section-title text-center">
                         <h2 class="title">Our Gallery</h2>
                     </div>
-                    <!-- Section Title End -->
                 </div>
-    
-                <!-- Gallery Image Start -->
                 <div class="gallery-img-wrapper conatiner">
                     <div class="row g-0">
                         <div class="col-md-3 col-6">
@@ -472,16 +455,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- Gallery Image End -->
-            </div>
-            <!-- Gallery End -->
+            </div> --}}
             <section class="section section-padding bg-color-1">
                 <div class="container">
-                    <!-- Section Title Start -->
                     <div class="section-title text-center">
                         <h2 class="title"><span>How We Work just 4 simple Steps</span> </h2><br>
                     </div>
-                    <!-- Section Title End -->
                 </div>
             <div class="container aos-init aos-animate" data-aos="fade-up">
                 <div class="rs-process">

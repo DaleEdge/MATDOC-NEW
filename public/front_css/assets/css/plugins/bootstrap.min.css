@@ -5376,7 +5376,6 @@ fieldset:disabled .btn {
 	z-index: 3;
 	border-color: #86b7fe;
 	outline: 0;
-	box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25)
 }
 
 .accordion-header {
@@ -5389,8 +5388,8 @@ fieldset:disabled .btn {
 }
 
 .accordion-item:first-of-type {
-	border-top-left-radius: .25rem;
-	border-top-right-radius: .25rem
+	/* border-top-left-radius: .25rem;
+	border-top-right-radius: .25rem */
 }
 
 .accordion-item:first-of-type .accordion-button {
@@ -5403,8 +5402,8 @@ fieldset:disabled .btn {
 }
 
 .accordion-item:last-of-type {
-	border-bottom-right-radius: .25rem;
-	border-bottom-left-radius: .25rem
+	/* border-bottom-right-radius: .25rem;
+	border-bottom-left-radius: .25rem */
 }
 
 .accordion-item:last-of-type .accordion-button.collapsed {
@@ -5426,21 +5425,24 @@ fieldset:disabled .btn {
 }
 
 .accordion-flush .accordion-item {
-	border-right: 0;
-	border-left: 0;
-	border-radius: 0
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    border-collapse: collapse;
 }
 
 .accordion-flush .accordion-item:first-child {
-	border-top: 0
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
 }
 
-.accordion-flush .accordion-item:last-child {
+/* .accordion-flush .accordion-item:last-child {
 	border-bottom: 0
-}
+} */
 
 .accordion-flush .accordion-item .accordion-button {
-	border-radius: 0
+	border-radius: 0;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 .breadcrumb {
