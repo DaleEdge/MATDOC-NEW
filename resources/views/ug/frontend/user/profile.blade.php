@@ -14,9 +14,9 @@
                         <div class="sidebar-details-video-description">
                             <div class="sidebar-video">
                                 @if(empty(Auth::user()->profile_img))
-                                  <img src="{{ asset('public/front_css/assets/images/profile.png')}}" alt="User Profile">
+                                  <img src="{{ asset('front_css/assets/images/profile.png')}}" alt="User Profile">
                                 @else
-                                <img src="{{ asset('public/front_css/assets/images/'.Auth::user()->id.'/'.Auth::user()->customer->profile_image) }}" alt="User Profile">
+                                <img src="{{ asset('front_css/assets/images/'.Auth::user()->id.'/'.Auth::user()->customer->profile_image) }}" alt="User Profile">
                                 @endif
                             </div>
                             <div class="sidebar-description">

@@ -19,7 +19,7 @@
                                                 <div class="image_block mb-2">
                                                     <a href="#">
                                                         <img class="border_radius5" quality="100"
-                                                            src="{{ asset('public/front_css/assets/images/college.png')}}"
+                                                            src="{{ asset('front_css/assets/images/college.png')}}"
                                                             alt="{{$value->name}}" width="62" height="62">
                                                     </a>
                                                 </div>

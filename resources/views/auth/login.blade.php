@@ -8,17 +8,17 @@
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
-<link rel="stylesheet" href="{{asset('public/dashboard_css/plugins/fontawesome-free/css/all.min.css')}}">
+<link rel="stylesheet" href="{{asset('dashboard_css/plugins/fontawesome-free/css/all.min.css')}}">
 
-<link rel="stylesheet" href="{{asset('public/dashboard_css/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('dashboard_css/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
 
-<link rel="stylesheet" href="{{asset('public/dashboard_css/dist/css/adminlte.min.css?v=3.2.0')}}">
+<link rel="stylesheet" href="{{asset('dashboard_css/dist/css/adminlte.min.css?v=3.2.0')}}">
 </head>
-<body class="hold-transition login-page" style="background: url('{{asset('public/dashboard_css/dist/img/bg.jpg')}}');background-repeat: no-repeat; background-size: cover;">
+<body class="hold-transition login-page" style="background: url('{{asset('dashboard_css/dist/img/bg.jpg')}}');background-repeat: no-repeat; background-size: cover;">
 <div class="login-box">
 <div class="card card-outline card-danger">
     <div class="card-header text-center">
-        <img src="{{asset('public/front_css/assets/images/logo.png')}}" class="img-fluid" style="height: 100px;">
+        <img src="{{asset('front_css/assets/images/logo.png')}}" class="img-fluid" style="height: 100px;">
     </div>
 <div class="card-body login-card-body">
 <p class="login-box-msg">Sign in to start your session</p>
@@ -73,10 +73,10 @@ Remember Me
 </div>
 
 
-<script src="{{asset('public/dashboard_css/plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('dashboard_css/plugins/jquery/jquery.min.js')}}"></script>
 
-<script src="{{asset('public/dashboard_css/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('dashboard_css/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
-<script src="{{asset('public/dashboard_css/dist/js/adminlte.min.js?v=3.2.0')}}"></script>
+<script src="{{asset('dashboard_css/dist/js/adminlte.min.js?v=3.2.0')}}"></script>
 </body>
 </html>

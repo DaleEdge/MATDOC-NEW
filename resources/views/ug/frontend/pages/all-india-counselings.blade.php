@@ -30,7 +30,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="#">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                         <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @endif  Choice Filling</span>
                                                     </a>
                                                 </div>
@@ -40,7 +40,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('ug.all_india_closing_rank_details','state=all_indias&type=all')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                         <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @endif  Year-Wise Cutoff</span>
                                                     </a>
                                                 </div>
@@ -49,7 +49,7 @@
                                             <div class="col-lg-3 col-sm-6 col-xs-6">
                                                 <div class="single-category-item">
                                                     <a data-toggle="modal" data-target="#myModal_bond">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                         <span class="title">Bond Details</span>
                                                     </a>
                                                 </div>
@@ -59,7 +59,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('ug.all_india_fee_details','state=all_indias&type=all')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                         <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @endif  Fee Structure</span>
                                                     </a>
                                                 </div>
@@ -80,7 +80,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a data-toggle="modal" data-target="#myModal">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                         <span class="title">Document Required</span>
                                                     </a>
                                                 </div>
@@ -100,7 +100,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="#">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                         <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @endif  Choice Filling</span>
                                                     </a>
                                                 </div>
@@ -110,7 +110,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('all_india_closing_rank_details','state=deemeds&type=deemed')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                         <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @endif  Year-Wise Cutoff</span>
                                                     </a>
                                                 </div>
@@ -130,7 +130,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('all_india_fee_details','state=deemeds&type=deemed')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                         <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @endif  Fee Structure</span>
                                                     </a>
                                                 </div>
@@ -151,7 +151,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a data-toggle="modal" data-target="#myModal">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                         <span class="title">Document Required</span>
                                                     </a>
                                                 </div>
@@ -181,7 +181,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="#">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                         <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @endif  Choice Filling</span>
                                                     </a>
                                                 </div>
@@ -191,7 +191,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('all_india_closing_rank_details','state=all_indias&type=dnb')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                         <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @endif Year-Wise Cutoff</span>
                                                     </a>
                                                 </div>
@@ -200,8 +200,8 @@
                                             <div class="col-lg-3 col-sm-6 col-xs-6">
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
-                                                    <a href="{{asset('public/bond.pdf')}}" target="_blank">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                                    <a href="{{asset('bond.pdf')}}" target="_blank">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                         <span class="title">Bond Details</span>
                                                     </a>
                                                 </div>
@@ -211,7 +211,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('all_india_fee_details','state=all_indias&type=dnb')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                         <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @endif Fee Structure</span>
                                                     </a>
                                                 </div>
@@ -221,7 +221,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('all_india_stipend_details','state=all_indias&type=dnb')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                         <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @endif Stipend Details</span>
                                                     </a>
                                                 </div>
@@ -232,7 +232,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a data-toggle="modal" data-target="#myModal">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                         <span class="title">Document Required</span>
                                                     </a>
                                                 </div>

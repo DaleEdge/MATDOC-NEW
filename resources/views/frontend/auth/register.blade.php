@@ -35,7 +35,7 @@
                     <div class="row">
                         <div class="col-lg-6 mb-3">
                             <div class="bg-light">
-                              <img src="{{asset('public/front_css/assets/images/register.png')}}" class="auth-side-image img-fluid">
+                              <img src="{{asset('front_css/assets/images/register.png')}}" class="auth-side-image img-fluid">
                             </div>
                         </div>
                         <div class="col-lg-6 m-auto">

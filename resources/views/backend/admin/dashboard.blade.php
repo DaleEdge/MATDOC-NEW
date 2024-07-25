@@ -26,7 +26,7 @@
                 <div class="col-md-3 stretch-card grid-margin">
                     <div class="card bg-gradient-danger card-img-holder text-white small-box">
                       <div class="card-body">
-                        <img src="{{asset('public/backend/circle.svg')}}" class="card-img-absolute" alt="circle-image">
+                        <img src="{{asset('backend/circle.svg')}}" class="card-img-absolute" alt="circle-image">
                         <h3><span class="counter-value">{{App\Models\Collage::get()->count()}}</span></h3>
                         <h6 class="card-text">College</h6>
                       </div>
@@ -36,7 +36,7 @@
                 <div class="col-md-3 stretch-card grid-margin">
                     <div class="card bg-gradient-success card-img-holder text-white small-box">
                       <div class="card-body">
-                        <img src="{{asset('public/backend/circle.svg')}}" class="card-img-absolute" alt="circle-image">
+                        <img src="{{asset('backend/circle.svg')}}" class="card-img-absolute" alt="circle-image">
                         <h3><span class="counter-value">{{App\Models\Course::get()->count()}}</span></h3>
                         <h6 class="card-text">Course</h6>
                       </div>
@@ -46,7 +46,7 @@
                 <div class="col-md-3 stretch-card grid-margin">
                     <div class="card bg-gradient-secondary card-img-holder text-white small-box">
                       <div class="card-body">
-                        <img src="{{asset('public/backend/circle.svg')}}" class="card-img-absolute" alt="circle-image">
+                        <img src="{{asset('backend/circle.svg')}}" class="card-img-absolute" alt="circle-image">
                         <h3><span class="counter-value">{{App\Models\User::where('user_type','customer')->get()->count()}}</span></h3>
                         <h6 class="card-text">Users</h6>
                       </div>
@@ -56,7 +56,7 @@
                 <div class="col-md-3 stretch-card grid-margin">
                     <div class="card bg-gradient-info card-img-holder text-white small-box">
                       <div class="card-body">
-                        <img src="{{asset('public/backend/circle.svg')}}" class="card-img-absolute" alt="circle-image">
+                        <img src="{{asset('backend/circle.svg')}}" class="card-img-absolute" alt="circle-image">
                         <h3><span class="counter-value">{{App\Models\Enquiry::get()->count()}}</span></h3>
                         <h6 class="card-text">Enquiry</h6>
                       </div>

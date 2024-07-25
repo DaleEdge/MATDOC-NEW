@@ -6,7 +6,7 @@
 			<div class="col-md-6 col-sm-8 m_hide">
 				<!-- Slider Images Start -->
 				<div class="slider-images">
-					<div class="image"> <img src="{{asset('public/front_css/assets/images/hero-1.png')}}" alt="NEET UG Counselling"> </div>
+					<div class="image"> <img src="{{asset('front_css/assets/images/hero-1.png')}}" alt="NEET UG Counselling"> </div>
 				</div>
 				<!-- Slider Images End -->
 			</div>
@@ -35,7 +35,7 @@
 				<div class="col-lg-12">
 					<!-- Single Banner Start -->
 					<div class="single-banner">
-						<div class="banner-images"> <img src="{{asset('public/front_css/assets/images/banner-01.jpg')}}" alt="NEET UG Counselling"> </div>
+						<div class="banner-images"> <img src="{{asset('front_css/assets/images/banner-01.jpg')}}" alt="NEET UG Counselling"> </div>
 						<div class="banner-content">
 							<h6><a href="#">To Acess all the Preious Years Cutoffs, Fees, Stipend, Statewise Bond and all the details. LOGIN.</a></h6> <a href="{{route('user-login')}}" class="btn btn-primary btn-hover-heading-color w-50 zoom-in-out-box">Login Now</a> </div>
 					</div>
@@ -57,7 +57,7 @@
 					<!-- Single Counter Start -->
 					<div class="single-counter">
 						<div class="counter-box">
-							<div class="counter-icon"> <img src="{{asset('public/front_css/assets/images/icon-1.png')}}" alt="NEET UG Counselling"> </div>
+							<div class="counter-icon"> <img src="{{asset('front_css/assets/images/icon-1.png')}}" alt="NEET UG Counselling"> </div>
 							<div class="counter-content"> <span class="count value" data-count="95">0</span><span class="count">%</span>
 								<p>Success Rate</p>
 							</div>
@@ -69,7 +69,7 @@
 					<!-- Single Counter Start -->
 					<div class="single-counter">
 						<div class="counter-box">
-							<div class="counter-icon"> <img src="{{asset('public/front_css/assets/images/icon-2.png')}}" alt="NEET UG Counselling"> </div>
+							<div class="counter-icon"> <img src="{{asset('front_css/assets/images/icon-2.png')}}" alt="NEET UG Counselling"> </div>
 							<div class="counter-content"> <span class="count value" data-count="1000">0</span><span class="count">%</span>
 								<p>Complete Guidance</p>
 							</div>
@@ -81,7 +81,7 @@
 					<!-- Single Counter Start -->
 					<div class="single-counter">
 						<div class="counter-box">
-							<div class="counter-icon"> <img src="{{asset('public/front_css/assets/images/icon-3.png')}}" alt="NEET UG Counselling"> </div>
+							<div class="counter-icon"> <img src="{{asset('front_css/assets/images/icon-3.png')}}" alt="NEET UG Counselling"> </div>
 							<div class="counter-content"> <span class="count value" data-count="100">0</span><span class="count">%</span>
 								<p>Responsible</p>
 							</div>
@@ -93,7 +93,7 @@
 					<!-- Single Counter Start -->
 					<div class="single-counter">
 						<div class="counter-box">
-							<div class="counter-icon"> <img src="{{asset('public/front_css/assets/images/icon-4.png')}}" alt="NEET UG Counselling"> </div>
+							<div class="counter-icon"> <img src="{{asset('front_css/assets/images/icon-4.png')}}" alt="NEET UG Counselling"> </div>
 							<div class="counter-content"> <span class="count value" data-count="1200">0</span><span class="count">+</span>
 								<p>Candidates Counseled </p>
 							</div>
@@ -121,7 +121,7 @@
 					<!-- Single Courses Start -->
 					<div class="single-course">
 						<div class="courses-image">
-							<a href="course-details.html"><img src="{{asset('public/front_css/assets/images/blog/blog-1.png')}}" alt="NEET UG Counselling 2022"></a>
+							<a href="course-details.html"><img src="{{asset('front_css/assets/images/blog/blog-1.png')}}" alt="NEET UG Counselling 2022"></a>
 						</div>
 						<div class="courses-content">
 							<h3 class="title">100% Complete Admission Guidance</h3>
@@ -134,7 +134,7 @@
 					<!-- Single Courses Start -->
 					<div class="single-course">
 						<div class="courses-image">
-							<a href="course-details.html"><img src="{{asset('public/front_css/assets/images/blog/blog-2.png')}}" alt="NEET UG Counselling 2022"></a>
+							<a href="course-details.html"><img src="{{asset('front_css/assets/images/blog/blog-2.png')}}" alt="NEET UG Counselling 2022"></a>
 						</div>
 						<div class="courses-content">
 							<h3 class="title">Collegewise Hospital Details for better Choice Filling</h3>
@@ -157,7 +157,7 @@
 					<!-- Single Courses Start -->
 					<div class="single-course">
 						<div class="courses-image">
-							<a href="course-details.html"><img src="{{asset('public/front_css/assets/images/blog/blog-3.png')}}" alt="NEET UG Counselling 2022"></a>
+							<a href="course-details.html"><img src="{{asset('front_css/assets/images/blog/blog-3.png')}}" alt="NEET UG Counselling 2022"></a>
 						</div>
 						<div class="courses-content">
 							<h3 class="title">Personalized Student Report</h3>
@@ -172,7 +172,7 @@
 					<!-- Single Courses Start -->
 					<div class="single-course">
 						<div class="courses-image">
-							<a href="course-details.html"><img src="{{asset('public/front_css/assets/images/blog/blog-4.png')}}" alt="NEET UG Counselling 2022"></a>
+							<a href="course-details.html"><img src="{{asset('front_css/assets/images/blog/blog-4.png')}}" alt="NEET UG Counselling 2022"></a>
 						</div>
 						<div class="courses-content">
 							<h3 class="title"> One to One Counselling Support, and All Doubts & queries answering.</h3>
@@ -211,7 +211,7 @@
                                 </div>
                                 <div class="testimonial-meta">
                                     <div class="testimonial-quote">
-                                      <img src="{{asset('public/front_css/assets/images/profile.png')}}" alt="NEET PG Counselling 2022">
+                                      <img src="{{asset('front_css/assets/images/profile.png')}}" alt="NEET PG Counselling 2022">
                                     </div>
                                     <div class="meta-content">
                                          <h5 class="name">Dr. Aditya Bedia </h5>
@@ -231,7 +231,7 @@
                                 </div>
                                 <div class="testimonial-meta">
                                     <div class="testimonial-quote">
-                                        <img src="{{asset('public/front_css/assets/images/profile.png')}}" alt="NEET PG Counselling 2022">
+                                        <img src="{{asset('front_css/assets/images/profile.png')}}" alt="NEET PG Counselling 2022">
                                     </div>
                                     <div class="meta-content">
                                      <h5 class="name">Dr. Praneetha Modumudi</h5>
@@ -251,7 +251,7 @@
                                 </div>
                                 <div class="testimonial-meta">
                                     <div class="testimonial-quote">
-                                        <img src="{{asset('public/front_css/assets/images/profile.png')}}" alt="NEET PG Counselling 2022">
+                                        <img src="{{asset('front_css/assets/images/profile.png')}}" alt="NEET PG Counselling 2022">
                                     </div>
                                     <div class="meta-content">
                                      <h5 class="name">Dr.Priyanka Thakur</h5>
@@ -271,7 +271,7 @@
                                 </div>
                                 <div class="testimonial-meta">
                                     <div class="testimonial-quote">
-                                        <img src="{{asset('public/front_css/assets/images/profile.png')}}" alt="NEET PG Counselling 2022">
+                                        <img src="{{asset('front_css/assets/images/profile.png')}}" alt="NEET PG Counselling 2022">
                                     </div>
                                     <div class="meta-content">
                                     <h5 class="name">Dr. Salman Khan</h5>
@@ -291,7 +291,7 @@
                                 </div>
                                 <div class="testimonial-meta">
                                     <div class="testimonial-quote">
-                                        <img src="{{asset('public/front_css/assets/images/profile.png')}}" alt="NEET PG Counselling 2022">
+                                        <img src="{{asset('front_css/assets/images/profile.png')}}" alt="NEET PG Counselling 2022">
                                     </div>
                                     <div class="meta-content">
                                     <h5 class="name">Dr. Sajal Goyal </h5>

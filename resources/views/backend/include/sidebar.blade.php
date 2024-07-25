@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-        <img src="{{asset('public/front_css/assets/images/logo.png')}}" alt="NEET PG Counseling Logo"
+        <img src="{{asset('front_css/assets/images/logo.png')}}" alt="NEET PG Counseling Logo"
             class="brand-image">
     </a>
 

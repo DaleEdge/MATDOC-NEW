@@ -12,8 +12,8 @@
                                     <div class="col-lg-3 col-sm-6 col-xs-6">
                                         <!-- Category Item Start -->
                                         <div class="single-category-item">
-                                            <a href="{{asset('public/pdf/ANAESTHESIA.pdf')}}" target="_blank">
-                                                <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                            <a href="{{asset('pdf/ANAESTHESIA.pdf')}}" target="_blank">
+                                                <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                 <span class="title">ANAESTHESIA</span>
                                             </a>
                                         </div>
@@ -22,8 +22,8 @@
                                     <div class="col-lg-3 col-sm-6 col-xs-6">
                                         <!-- Category Item Start -->
                                         <div class="single-category-item">
-                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('public/pdf/DERMA.pdf')}}" target="_blank" @endif  >
-                                                <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('pdf/DERMA.pdf')}}" target="_blank" @endif  >
+                                                <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                 <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @else @endif DERMA</span>
                                             </a>
                                         </div>
@@ -32,8 +32,8 @@
                                     <div class="col-lg-3 col-sm-6 col-xs-6">
                                         <!-- Category Item Start -->
                                         <div class="single-category-item">
-                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('public/pdf/ENT.pdf')}}" target="_blank" @endif   >
-                                                <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('pdf/ENT.pdf')}}" target="_blank" @endif   >
+                                                <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                 <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @else @endif ENT</span>
                                             </a>
                                         </div>
@@ -42,8 +42,8 @@
                                      <div class="col-lg-3 col-sm-6 col-xs-6">
                                         <!-- Category Item Start -->
                                         <div class="single-category-item">
-                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('public/pdf/GENERALMEDICINE.pdf')}}" target="_blank" @endif>
-                                                <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('pdf/GENERALMEDICINE.pdf')}}" target="_blank" @endif>
+                                                <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                 <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @else @endif GENERAL MEDICINE</span>
                                             </a>
                                         </div>
@@ -52,8 +52,8 @@
                                     <div class="col-lg-3 col-sm-6 col-xs-6">
                                         <!-- Category Item Start -->
                                         <div class="single-category-item">
-                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('public/pdf/GENERALSURGERY.pdf')}}" target="_blank" @endif>
-                                                <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('pdf/GENERALSURGERY.pdf')}}" target="_blank" @endif>
+                                                <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                 <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @else @endif GENERAL SURGERY</span>
                                             </a>
                                         </div>
@@ -62,8 +62,8 @@
                                     <div class="col-lg-3 col-sm-6 col-xs-6">
                                         <!-- Category Item Start -->
                                         <div class="single-category-item">
-                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('public/pdf/OBGY.pdf')}}" target="_blank" @endif>
-                                                <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('pdf/OBGY.pdf')}}" target="_blank" @endif>
+                                                <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                 <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @else @endif OBGY</span>
                                             </a>
                                         </div>
@@ -73,8 +73,8 @@
                                     <div class="col-lg-3 col-sm-6 col-xs-6">
                                         <!-- Category Item Start -->
                                         <div class="single-category-item">
-                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('public/pdf/ORTHAL.pdf')}}" target="_blank" @endif>
-                                                <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('pdf/ORTHAL.pdf')}}" target="_blank" @endif>
+                                                <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                 <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @else @endif ORTHAL</span>
                                             </a>
                                         </div>
@@ -83,8 +83,8 @@
                                     <div class="col-lg-3 col-sm-6 col-xs-6">
                                         <!-- Category Item Start -->
                                         <div class="single-category-item">
-                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('public/pdf/ORTHO.pdf')}}" target="_blank" @endif>
-                                                <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('pdf/ORTHO.pdf')}}" target="_blank" @endif>
+                                                <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                 <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @else @endif ORTHO</span>
                                             </a>
                                         </div>
@@ -93,8 +93,8 @@
                                     <div class="col-lg-3 col-sm-6 col-xs-6">
                                         <!-- Category Item Start -->
                                         <div class="single-category-item">
-                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('public/pdf/PAEDEATRICS.pdf')}}" target="_blank" @endif>
-                                                <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('pdf/PAEDEATRICS.pdf')}}" target="_blank" @endif>
+                                                <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                 <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @else @endif PAEDEATRICS</span>
                                             </a>
                                         </div>
@@ -103,8 +103,8 @@
                                     <div class="col-lg-3 col-sm-6 col-xs-6">
                                         <!-- Category Item Start -->
                                         <div class="single-category-item">
-                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('public/pdf/PSYCHIATRY.pdf')}}" target="_blank" @endif>
-                                                <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('pdf/PSYCHIATRY.pdf')}}" target="_blank" @endif>
+                                                <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                 <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @else @endif PSYCHIATRY</span>
                                             </a>
                                         </div>
@@ -113,8 +113,8 @@
                                     <div class="col-lg-3 col-sm-6 col-xs-6">
                                         <!-- Category Item Start -->
                                         <div class="single-category-item">
-                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('public/pdf/RADIO.pdf')}}" target="_blank" @endif>
-                                                <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('pdf/RADIO.pdf')}}" target="_blank" @endif>
+                                                <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                 <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @else @endif RADIO</span>
                                             </a>
                                         </div>
@@ -123,8 +123,8 @@
                                     <div class="col-lg-3 col-sm-6 col-xs-6">
                                         <!-- Category Item Start -->
                                         <div class="single-category-item">
-                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('public/pdf/TB&CHEST.pdf')}}" target="_blank" @endif>
-                                                <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                            <a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @else href="{{asset('pdf/TB&CHEST.pdf')}}" target="_blank" @endif>
+                                                <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                 <span class="title">@if(empty(optional(Auth::user()->payment)->user_id)) <i class="fa fa-lock"></i> @else @endif TB & CHEST</span>
                                             </a>
                                         </div>

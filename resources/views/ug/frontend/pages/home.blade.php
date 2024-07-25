@@ -20,7 +20,7 @@
                               </ul>
                               
                            </div>
-                           <div class="col-md-4"><img src="{{asset('public/front_css/assets/images/neet-home-img.png')}}" class="home-page-img"></div>
+                           <div class="col-md-4"><img src="{{asset('front_css/assets/images/neet-home-img.png')}}" class="home-page-img"></div>
                         </div>
 
                         <div class="row mb-5">

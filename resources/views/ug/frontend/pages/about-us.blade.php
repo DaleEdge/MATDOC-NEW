@@ -2,8 +2,8 @@
 @section('content')
         <!-- Page Banner Start -->
         <div class="section page-banner-section bg-color-1">
-         <img class="shape-4" src="{{asset('public/front_css/assets/images/shape/shape-21.png')}}" alt="shape">
-         <img class="shape-5" src="{{asset('public/front_css/assets/images/shape/shape-21.png')}}" alt="shape">
+         <img class="shape-4" src="{{asset('front_css/assets/images/shape/shape-21.png')}}" alt="shape">
+         <img class="shape-5" src="{{asset('front_css/assets/images/shape/shape-21.png')}}" alt="shape">
 
          <div class="container">
              <!-- Page Banner Content Start -->
@@ -28,7 +28,7 @@
                    <div class="about-images">
                      <div class="">
                         <div class="image">
-                           <img src="{{asset('public/front_css/assets/images/hero-1.png')}}" alt="Hero">
+                           <img src="{{asset('front_css/assets/images/hero-1.png')}}" alt="Hero">
                         </div>
                      </div>
                    </div>
@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="testimonial-meta">
                                     <div class="testimonial-quote">
-                                      <img src="{{asset('public/front_css/assets/images/profile.png')}}" alt="NEET PG Counselling 2022">
+                                      <img src="{{asset('front_css/assets/images/profile.png')}}" alt="NEET PG Counselling 2022">
                                     </div>
                                     <div class="meta-content">
                                          <h5 class="name">Dr. Aditya Bedia </h5>
@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="testimonial-meta">
                                     <div class="testimonial-quote">
-                                        <img src="{{asset('public/front_css/assets/images/profile.png')}}" alt="NEET PG Counselling 2022">
+                                        <img src="{{asset('front_css/assets/images/profile.png')}}" alt="NEET PG Counselling 2022">
                                     </div>
                                     <div class="meta-content">
                                      <h5 class="name">Dr. Praneetha Modumudi</h5>
@@ -114,7 +114,7 @@
                                 </div>
                                 <div class="testimonial-meta">
                                     <div class="testimonial-quote">
-                                        <img src="{{asset('public/front_css/assets/images/profile.png')}}" alt="NEET PG Counselling 2022">
+                                        <img src="{{asset('front_css/assets/images/profile.png')}}" alt="NEET PG Counselling 2022">
                                     </div>
                                     <div class="meta-content">
                                      <h5 class="name">Dr.Priyanka Thakur</h5>
@@ -134,7 +134,7 @@
                                 </div>
                                 <div class="testimonial-meta">
                                     <div class="testimonial-quote">
-                                        <img src="{{asset('public/front_css/assets/images/profile.png')}}" alt="NEET PG Counselling 2022">
+                                        <img src="{{asset('front_css/assets/images/profile.png')}}" alt="NEET PG Counselling 2022">
                                     </div>
                                     <div class="meta-content">
                                     <h5 class="name">Dr. Salman Khan</h5>
@@ -154,7 +154,7 @@
                                 </div>
                                 <div class="testimonial-meta">
                                     <div class="testimonial-quote">
-                                        <img src="{{asset('public/front_css/assets/images/profile.png')}}" alt="NEET PG Counselling 2022">
+                                        <img src="{{asset('front_css/assets/images/profile.png')}}" alt="NEET PG Counselling 2022">
                                     </div>
                                     <div class="meta-content">
                                     <h5 class="name">Dr. Sajal Goyal </h5>

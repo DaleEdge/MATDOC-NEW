@@ -29,7 +29,7 @@
                                     <!-- Single Blog Start -->
                                     <div class="single-blog single-blog-02">
                                         <div class="blog-image">
-                                            <a href="{{route('service_details')}}"><img src="{{ asset('public/front_css/assets/images/blog/blog-1.png')}}" alt="Blog"></a>
+                                            <a href="{{route('service_details')}}"><img src="{{ asset('front_css/assets/images/blog/blog-1.png')}}" alt="Blog"></a>
                                             <span class="tags">Education</span>
                                         </div>
                                         <div class="blog-content">
@@ -42,7 +42,7 @@
                                     <!-- Single Blog Start -->
                                     <div class="single-blog single-blog-02">
                                         <div class="blog-image">
-                                            <a href="{{route('service_details')}}"><img src="{{ asset('public/front_css/assets/images/blog/blog-1.png')}}" alt="Blog"></a>
+                                            <a href="{{route('service_details')}}"><img src="{{ asset('front_css/assets/images/blog/blog-1.png')}}" alt="Blog"></a>
                                             <span class="tags">Education</span>
                                         </div>
                                         <div class="blog-content">

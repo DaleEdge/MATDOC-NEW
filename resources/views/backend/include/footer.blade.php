@@ -13,56 +13,56 @@
     <!-- ./wrapper -->
 
         <!-- jQuery -->
-        <script src="{{asset('public/dashboard_css/plugins/jquery/jquery.min.js')}}"></script>
+        <script src="{{asset('dashboard_css/plugins/jquery/jquery.min.js')}}"></script>
 
-        <script src="{{ asset('public/assets/js/vendors.js') }}"></script>
-        <script src="{{ asset('public/assets/js/aiz-core.js') }}"></script>
+        <script src="{{ asset('assets/js/vendors.js') }}"></script>
+        <script src="{{ asset('assets/js/aiz-core.js') }}"></script>
 
         <!-- jQuery UI 1.11.4 -->
-        <script src="{{asset('public/dashboard_css/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+        <script src="{{asset('dashboard_css/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
         <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
         <script>
         $.widget.bridge('uibutton', $.ui.button)
         </script>
         <!-- Bootstrap 4 -->
-        <script src="{{asset('public/dashboard_css/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{asset('dashboard_css/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <!-- ChartJS -->
-        <script src="{{asset('public/dashboard_css/plugins/chart.js/Chart.min.js')}}"></script>
+        <script src="{{asset('dashboard_css/plugins/chart.js/Chart.min.js')}}"></script>
         
         <!-- jQuery Knob Chart -->
-        <script src="{{asset('public/dashboard_css/plugins/jquery-knob/jquery.knob.min.js')}}"></script>
+        <script src="{{asset('dashboard_css/plugins/jquery-knob/jquery.knob.min.js')}}"></script>
         <!-- daterangepicker -->
-        <script src="{{asset('public/dashboard_css/plugins/moment/moment.min.js')}}"></script>
-        <script src="{{asset('public/dashboard_css/plugins/daterangepicker/daterangepicker.js')}}"></script>
+        <script src="{{asset('dashboard_css/plugins/moment/moment.min.js')}}"></script>
+        <script src="{{asset('dashboard_css/plugins/daterangepicker/daterangepicker.js')}}"></script>
         <!-- Tempusdominus Bootstrap 4 -->
-        <script src="{{asset('public/dashboard_css/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+        <script src="{{asset('dashboard_css/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
         <!-- Summernote -->
-        <script src="{{asset('public/dashboard_css/plugins/summernote/summernote-bs4.min.js')}}"></script>
+        <script src="{{asset('dashboard_css/plugins/summernote/summernote-bs4.min.js')}}"></script>
         <!-- overlayScrollbars -->
-        <script src="{{asset('public/dashboard_css/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+        <script src="{{asset('dashboard_css/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
         <!-- SweetAlert2 -->
         <!-- Bootstrap Switch -->
-        <script src="{{asset('public/dashboard_css/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}"></script>
-        <script src="{{asset('public/dashboard_css/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
+        <script src="{{asset('dashboard_css/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}"></script>
+        <script src="{{asset('dashboard_css/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
         <!-- Toastr -->
-        <script src="{{asset('public/dashboard_css/plugins/toastr/toastr.min.js')}}"></script>
+        <script src="{{asset('dashboard_css/plugins/toastr/toastr.min.js')}}"></script>
         <!-- AdminLTE App -->
-        <script src="{{asset('public/dashboard_css/dist/js/adminlte.js')}}"></script>
+        <script src="{{asset('dashboard_css/dist/js/adminlte.js')}}"></script>
         
         <!-- Select2 -->
-        <script src="{{asset('public/dashboard_css/plugins/select2/js/select2.full.min.js')}}"></script>
+        <script src="{{asset('dashboard_css/plugins/select2/js/select2.full.min.js')}}"></script>
 
         <!-- bs-custom-file-input -->
-        <script src="{{asset('public/dashboard_css/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>  
+        <script src="{{asset('dashboard_css/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>  
 
         <!-- jquery-validation -->
-        <script src="{{asset('public/dashboard_css/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
-        <script src="{{asset('public/dashboard_css/plugins/jquery-validation/additional-methods.min.js')}}"></script>
+        <script src="{{asset('dashboard_css/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
+        <script src="{{asset('dashboard_css/plugins/jquery-validation/additional-methods.min.js')}}"></script>
 
         <!-- Ekko Lightbox -->
-        <script src="{{asset('public/dashboard_css/plugins/ekko-lightbox/ekko-lightbox.min.js')}}"></script>
+        <script src="{{asset('dashboard_css/plugins/ekko-lightbox/ekko-lightbox.min.js')}}"></script>
         <!-- Filterizr-->
-        <script src="{{asset('public/dashboard_css/plugins/filterizr/jquery.filterizr.min.js')}}"></script>
+        <script src="{{asset('dashboard_css/plugins/filterizr/jquery.filterizr.min.js')}}"></script>
         <script>
             $(function () {
                 $("input[data-bootstrap-switch]").each(function(){

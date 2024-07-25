@@ -25,8 +25,8 @@
 
 <!-- Page Banner Start -->
 <div class="section page-banner-section bg-color-1 fixed">
-  <img class="shape-4" src="{{asset('public/front_css/assets/images/shape/shape-21.png')}}" alt="shape">
-  <img class="shape-5" src="{{asset('public/front_css/assets/images/shape/shape-21.png')}}" alt="shape">
+  <img class="shape-4" src="{{asset('front_css/assets/images/shape/shape-21.png')}}" alt="shape">
+  <img class="shape-5" src="{{asset('front_css/assets/images/shape/shape-21.png')}}" alt="shape">
 
   <div class="container">
     <!-- Page Banner Content Start -->
@@ -137,11 +137,11 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <img class="shape-4" src="{{asset('public/front_css/assets/images/F2.jpg')}}" alt="shape">
+        <img class="shape-4" src="{{asset('front_css/assets/images/F2.jpg')}}" alt="shape">
       </div>
 
       <div class="col-md-6">
-        <img class="shape-4" src="{{asset('public/front_css/assets/images/F3.jpg')}}" alt="shape">
+        <img class="shape-4" src="{{asset('front_css/assets/images/F3.jpg')}}" alt="shape">
       </div>
 
       <div class="col-md-12 text-center mt-4">

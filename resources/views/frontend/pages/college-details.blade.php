@@ -26,8 +26,8 @@
     </style>
     <!-- Page Banner Start -->
     <div class="section page-banner-section bg-color-1">
-        <img class="shape-4" src="{{ asset('public/front_css/assets/images/shape/shape-21.png') }}" alt="shape">
-        <img class="shape-5" src="{{ asset('public/front_css/assets/images/shape/shape-21.png') }}" alt="shape">
+        <img class="shape-4" src="{{ asset('front_css/assets/images/shape/shape-21.png') }}" alt="shape">
+        <img class="shape-5" src="{{ asset('front_css/assets/images/shape/shape-21.png') }}" alt="shape">
         <div class="container">
             <!-- Course Details Banner Content Start -->
             <div class="course-details-banner-content mb-4">
@@ -200,7 +200,7 @@
                         </form>
                     </div>
                     <div class="col-md-6">
-                        <img src="{{ asset('public/front_css/assets/images/Book-Free-Study-Counselling-Session.png') }}"
+                        <img src="{{ asset('front_css/assets/images/Book-Free-Study-Counselling-Session.png') }}"
                             alt="img" class="img-fluid">
                     </div>
                 </div>

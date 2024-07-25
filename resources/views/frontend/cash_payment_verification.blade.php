@@ -30,7 +30,7 @@
                                     After Payment share screenshot and registered email id on given number.
                                 </h5>
                                 <div class="text-center">
-                                    <img src="{{ asset('public/front_css/assets/images/qr-code.png') }}" alt="" class="img-fluid">
+                                    <img src="{{ asset('front_css/assets/images/qr-code.png') }}" alt="" class="img-fluid">
                                     <p class="text-center" style="color: #372d7a;font-size:12px;font-weight:600;margin-top:5px;">Scan QR Code</p>
                                 </div>
                                 <h5 class="text-center mb-2">

@@ -31,7 +31,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('choice_filling_deemed')}}?type=all_india">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-13.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-13.png')}}" alt="">
                                                         <span class="title">  Choice Filling</span>
                                                     </a>
                                                 </div>
@@ -41,7 +41,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('all_india_closing_rank_details','state=all_indias&type=all')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-14.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-14.png')}}" alt="">
                                                         <span class="title">  Year-Wise Cutoff</span>
                                                     </a>
                                                 </div>
@@ -51,7 +51,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('bond_details','state=all_indias&type=all')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                         <span class="title">Bond Details</span>
                                                     </a>
                                                 </div>
@@ -61,7 +61,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('all_india_fee_details','state=all_indias&type=all')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-11.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-11.png')}}" alt="">
                                                         <span class="title">  Fee Structure</span>
                                                     </a>
                                                 </div>
@@ -71,7 +71,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('all_india_stipend_details','state=all_indias&type=all')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-12.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-12.png')}}" alt="">
                                                         <span class="title">  Stipend Details</span>
                                                     </a>
                                                 </div>
@@ -82,7 +82,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a data-toggle="modal" data-target="#myModal">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-12.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-12.png')}}" alt="">
                                                         <span class="title">Document Required</span>
                                                     </a>
                                                 </div>
@@ -102,7 +102,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('choice_filling_deemed')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-13.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-13.png')}}" alt="">
                                                         <span class="title">  Choice Filling</span>
                                                     </a>
                                                 </div>
@@ -112,7 +112,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('all_india_closing_rank_details','state=all_indias&type=deemed')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-14.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-14.png')}}" alt="">
                                                         <span class="title">  Year-Wise Cutoff</span>
                                                     </a>
                                                 </div>
@@ -122,7 +122,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('bond_details','state=all_indias&type=deemed')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/bond.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/bond.png')}}" alt="">
                                                         <span class="title">Bond Details</span>
                                                     </a>
                                                 </div>
@@ -132,7 +132,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('all_india_fee_details','state=all_indias&type=deemed')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-11.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-11.png')}}" alt="">
                                                         <span class="title">  Fee Structure</span>
                                                     </a>
                                                 </div>
@@ -142,7 +142,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('all_india_stipend_details','state=all_indias&type=deemed')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-12.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-12.png')}}" alt="">
                                                         <span class="title">  Stipend Details</span>
                                                     </a>
                                                 </div>
@@ -153,7 +153,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a data-toggle="modal" data-target="#myModal">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-12.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-12.png')}}" alt="">
                                                         <span class="title">Document Required</span>
                                                     </a>
                                                 </div>
@@ -163,7 +163,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('deemed_hospital_details')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-12.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-12.png')}}" alt="">
                                                         <span class="title"> Collage Hospital Details</span>
                                                     </a>
                                                 </div>
@@ -183,7 +183,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('choice_filling_deemed')}}?type=dnb">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-13.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-13.png')}}" alt="">
                                                         <span class="title">  Choice Filling</span>
                                                     </a>
                                                 </div>
@@ -193,7 +193,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('all_india_closing_rank_details','state=all_indias&type=dnb')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-14.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-14.png')}}" alt="">
                                                         <span class="title"> Year-Wise Cutoff</span>
                                                     </a>
                                                 </div>
@@ -203,7 +203,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('bond_details','state=all_indias&type=deemed')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                         <span class="title">Bond Details</span>
                                                     </a>
                                                 </div>
@@ -213,7 +213,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('all_india_fee_details','state=all_indias&type=dnb')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-11.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-11.png')}}" alt="">
                                                         <span class="title"> Fee Structure</span>
                                                     </a>
                                                 </div>
@@ -223,7 +223,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('all_india_stipend_details','state=all_indias&type=dnb')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-12.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-12.png')}}" alt="">
                                                         <span class="title"> Stipend Details</span>
                                                     </a>
                                                 </div>
@@ -234,7 +234,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a data-toggle="modal" data-target="#myModal">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-12.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-12.png')}}" alt="">
                                                         <span class="title">Document Required</span>
                                                     </a>
                                                 </div>
@@ -254,7 +254,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('choice_filling_deemed')}}?type=nbe">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-13.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-13.png')}}" alt="">
                                                         <span class="title">  Choice Filling</span>
                                                     </a>
                                                 </div>
@@ -264,7 +264,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('all_india_closing_rank_details','state=all_indias&type=nbe')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-14.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-14.png')}}" alt="">
                                                         <span class="title"> Year-Wise Cutoff</span>
                                                     </a>
                                                 </div>
@@ -274,7 +274,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('bond_details','state=all_indias&type=nbe')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                         <span class="title">Bond Details</span>
                                                     </a>
                                                 </div>
@@ -284,7 +284,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('all_india_fee_details','state=all_indias&type=nbe')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-11.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-11.png')}}" alt="">
                                                         <span class="title"> Fee Structure</span>
                                                     </a>
                                                 </div>
@@ -294,7 +294,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a href="{{route('all_india_stipend_details','state=all_indias&type=nbe')}}">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-12.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-12.png')}}" alt="">
                                                         <span class="title"> Stipend Details</span>
                                                     </a>
                                                 </div>
@@ -305,7 +305,7 @@
                                                 <!-- Category Item Start -->
                                                 <div class="single-category-item">
                                                     <a data-toggle="modal" data-target="#myModal">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-12.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-12.png')}}" alt="">
                                                         <span class="title">Document Required</span>
                                                     </a>
                                                 </div>

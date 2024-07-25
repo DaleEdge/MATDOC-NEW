@@ -14,39 +14,39 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{asset('public/dashboard_css/plugins/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard_css/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="{{asset('public/dashboard_css/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard_css/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
     <!-- iCheck -->
-    <link rel="stylesheet" href="{{asset('public/dashboard_css/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard_css/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
     <!-- JQVMap -->
-    <link rel="stylesheet" href="{{asset('public/dashboard_css/plugins/jqvmap/jqvmap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard_css/plugins/jqvmap/jqvmap.min.css')}}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{asset('public/dashboard_css/dist/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard_css/dist/css/adminlte.min.css')}}">
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="{{asset('public/dashboard_css/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard_css/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
     <!-- Daterange picker -->
-    <link rel="stylesheet" href="{{asset('public/dashboard_css/plugins/daterangepicker/daterangepicker.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard_css/plugins/daterangepicker/daterangepicker.css')}}">
     <!-- summernote -->
-    <link rel="stylesheet" href="{{asset('public/dashboard_css/plugins/summernote/summernote-bs4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard_css/plugins/summernote/summernote-bs4.min.css')}}">
     <!-- Select2 -->
-    <link rel="stylesheet" href="{{asset('public/dashboard_css/plugins/select2/css/select2.min.css')}}">
-    <link rel="stylesheet" href="{{asset('public/dashboard_css/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard_css/plugins/select2/css/select2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard_css/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
     
     <!-- SweetAlert2 -->
-    <link rel="stylesheet" href="{{asset('public/dashboard_css/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard_css/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
     <!-- Toastr -->
-    <link rel="stylesheet" href="{{asset('public/dashboard_css/plugins/toastr/toastr.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard_css/plugins/toastr/toastr.min.css')}}">
 
     <!-- Ekko Lightbox --> 
-    <link rel="stylesheet" href="{{asset('public/dashboard_css/plugins/ekko-lightbox/ekko-lightbox.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard_css/plugins/ekko-lightbox/ekko-lightbox.css')}}">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css" rel="stylesheet" media="all">
-    {{-- <link rel="stylesheet" href="{{ asset('public/assets/css/vendors.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/css/vendors.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('public/assets/css/aiz-core.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/aiz-core.css') }}">
     <script>
         var AIZ = AIZ || {};
     </script> --}}
@@ -102,7 +102,7 @@
 
         <!-- Preloader -->
         {{-- <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="{{asset('public/dashboard_css/dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
+            <img class="animation__shake" src="{{asset('dashboard_css/dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
         </div> --}}
 
         

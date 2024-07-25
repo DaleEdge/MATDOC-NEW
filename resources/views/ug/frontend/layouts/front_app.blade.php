@@ -8,24 +8,24 @@
       <meta name="keywords" content="neet pg counselling 2022, neet pg counselling 2022 schedule, all india neet pg counselling 2022, neet pg counselling 2022 dates,neet pg counselling 2022 registration,neet pg counselling 2022 latest news,neet pg counselling 2022 result ">
       <meta name="description" content="best neet pg colleges maharashtra neet pg counselling 2022, bihar neet pg counselling 2022, haryana neet pg counselling 2022,tamil nadu neet pg counselling 2022,karnataka neet pg counselling 2022,mp neet pg counselling 2022,rajasthan neet pg counselling 2022,up neet pg counselling 2022,assam neet pg counselling 2022,karnatka neet pg counselling 2022 ">
       <!-- Favicon -->
-      <link rel="shortcut icon" type="image/x-icon" href="{{asset('public/front_css/assets/images/favicon.png')}}">
+      <link rel="shortcut icon" type="image/x-icon" href="{{asset('front_css/assets/images/favicon.png')}}">
       <!-- Icon Font CSS -->
-      <link rel="stylesheet" href="{{asset('public/front_css/assets/css/plugins/font-awesome.min.css')}}">
-      <link rel="stylesheet" href="{{asset('public/front_css/assets/css/plugins/flaticon.css')}}">
+      <link rel="stylesheet" href="{{asset('front_css/assets/css/plugins/font-awesome.min.css')}}">
+      <link rel="stylesheet" href="{{asset('front_css/assets/css/plugins/flaticon.css')}}">
       <!-- Plugins CSS -->
-      <link rel="stylesheet" href="{{asset('public/front_css/assets/css/plugins/bootstrap.min.css')}}">
-      <link rel="stylesheet" href="{{asset('public/front_css/assets/css/plugins/animate.min.css')}}">
-      <link rel="stylesheet" href="{{asset('public/front_css/assets/css/plugins/swiper-bundle.min.css')}}">
-      <link rel="stylesheet" href="{{asset('public/front_css/assets/css/plugins/nice-select2.css')}}">
-      <link rel="stylesheet" href="{{asset('public/front_css/assets/css/plugins/jquery.powertip.min.css')}}">
-      <link rel="stylesheet" href="{{asset('public/front_css/assets/css/plugins/glightbox.min.css')}}">
+      <link rel="stylesheet" href="{{asset('front_css/assets/css/plugins/bootstrap.min.css')}}">
+      <link rel="stylesheet" href="{{asset('front_css/assets/css/plugins/animate.min.css')}}">
+      <link rel="stylesheet" href="{{asset('front_css/assets/css/plugins/swiper-bundle.min.css')}}">
+      <link rel="stylesheet" href="{{asset('front_css/assets/css/plugins/nice-select2.css')}}">
+      <link rel="stylesheet" href="{{asset('front_css/assets/css/plugins/jquery.powertip.min.css')}}">
+      <link rel="stylesheet" href="{{asset('front_css/assets/css/plugins/glightbox.min.css')}}">
       <!-- Main Style CSS -->
       <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
-      <link rel="stylesheet" href="{{asset('public/front_css/assets/css/style.min.css')}}">
-      <link rel="stylesheet" href="{{asset('public/dashboard_css/plugins/select2/css/select2.min.css')}}">
-    <link rel="stylesheet" href="{{asset('public/dashboard_css/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
-    <link rel="stylesheet" href="{{asset('public/dashboard_css/plugins/toastr/toastr.min.css')}}">
-    <link rel="stylesheet" href="{{asset('public/dashboard_css/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
+      <link rel="stylesheet" href="{{asset('front_css/assets/css/style.min.css')}}">
+      <link rel="stylesheet" href="{{asset('dashboard_css/plugins/select2/css/select2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard_css/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard_css/plugins/toastr/toastr.min.css')}}">
+    <link rel="stylesheet" href="{{asset('dashboard_css/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1FFXRTE23D"></script>
@@ -58,24 +58,24 @@
 <!-- JS
 ============================================ -->
 <!-- Jquery JS -->
-<script src="{{asset('public/front_css/assets/js/vendor/jquery-3.6.0.min.js')}}"></script>
+<script src="{{asset('front_css/assets/js/vendor/jquery-3.6.0.min.js')}}"></script>
 
-<script src="{{asset('public/front_css/assets/js/vendor/modernizr-3.11.7.min.js')}}"></script>
+<script src="{{asset('front_css/assets/js/vendor/modernizr-3.11.7.min.js')}}"></script>
 <!-- Bootstrap JS -->
-<script src="{{asset('public/front_css/assets/js/plugins/popper.min.js')}}"></script>
-<script src="{{asset('public/front_css/assets/js/plugins/bootstrap.min.js')}}"></script>
+<script src="{{asset('front_css/assets/js/plugins/popper.min.js')}}"></script>
+<script src="{{asset('front_css/assets/js/plugins/bootstrap.min.js')}}"></script>
 <!-- Plugins JS -->
-<script src="{{asset('public/front_css/assets/js/plugins/swiper-bundle.min.js')}}"></script>
-<script src="{{asset('public/front_css/assets/js/plugins/nice-select2.js')}}"></script>
-<script src="{{asset('public/front_css/assets/js/plugins/jquery.powertip.min.js')}}"></script>
-<script src="{{asset('public/front_css/assets/js/plugins/glightbox.min.js')}}"></script>
+<script src="{{asset('front_css/assets/js/plugins/swiper-bundle.min.js')}}"></script>
+<script src="{{asset('front_css/assets/js/plugins/nice-select2.js')}}"></script>
+<script src="{{asset('front_css/assets/js/plugins/jquery.powertip.min.js')}}"></script>
+<script src="{{asset('front_css/assets/js/plugins/glightbox.min.js')}}"></script>
 <!-- Main JS -->
-<script src="{{asset('public/front_css/assets/js/main.js')}}"></script>
-<script src="{{asset('public/dashboard_css/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
+<script src="{{asset('front_css/assets/js/main.js')}}"></script>
+<script src="{{asset('dashboard_css/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
         <!-- Toastr -->
-        <script src="{{asset('public/dashboard_css/plugins/toastr/toastr.min.js')}}"></script>
+        <script src="{{asset('dashboard_css/plugins/toastr/toastr.min.js')}}"></script>
 
-<script src="{{asset('public/dashboard_css/plugins/select2/js/select2.full.min.js')}}"></script>
+<script src="{{asset('dashboard_css/plugins/select2/js/select2.full.min.js')}}"></script>
 <script>
     $(function () {
 

@@ -38,7 +38,7 @@
                 <div class="about-images">
                   <div class="">
                      <div class="image">
-                        <img src="{{asset('public/front_css/assets/images/hero-1.png')}}" alt="Hero">
+                        <img src="{{asset('front_css/assets/images/hero-1.png')}}" alt="Hero">
                      </div>
                   </div>
                 </div>
@@ -71,7 +71,7 @@
                             </div>
                             <div class="testimonial-meta">
                                 <div class="testimonial-quote">
-                                    <img src="{{ asset('public/front_css/assets/images/user.jpg') }}" alt="Author">
+                                    <img src="{{ asset('front_css/assets/images/user.jpg') }}" alt="Author">
                                 </div>
                                 <div class="meta-content">
                                     <h5 class="name">Neha Gupta</h5>
@@ -89,7 +89,7 @@
                             </div>
                             <div class="testimonial-meta">
                                 <div class="testimonial-quote">
-                                    <img src="{{ asset('public/front_css/assets/images/user.jpg') }}" alt="Author">
+                                    <img src="{{ asset('front_css/assets/images/user.jpg') }}" alt="Author">
                                 </div>
                                 <div class="meta-content">
                                 <h5 class="name">Abhishek Singh</h5>
@@ -107,7 +107,7 @@
                             </div>
                             <div class="testimonial-meta">
                                 <div class="testimonial-quote">
-                                    <img src="{{ asset('public/front_css/assets/images/user.jpg') }}" alt="Author">
+                                    <img src="{{ asset('front_css/assets/images/user.jpg') }}" alt="Author">
                                 </div>
                                 <div class="meta-content">
                                 <h5 class="name">Ranjit yadav</h5>

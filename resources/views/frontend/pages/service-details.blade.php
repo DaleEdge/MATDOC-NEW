@@ -14,11 +14,11 @@
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{ asset('public/front_css/assets/images/PG-NEET-Counseling-banner-1.jpg') }}"
+                    <img src="{{ asset('front_css/assets/images/PG-NEET-Counseling-banner-1.jpg') }}"
                         class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ asset('public/front_css/assets/images/PG-NEET-Counseling-banner-1.jpg') }}" class="d-block w-100"
+                    <img src="{{ asset('front_css/assets/images/PG-NEET-Counseling-banner-1.jpg') }}" class="d-block w-100"
                         alt="...">
                 </div>
             </div>
@@ -175,7 +175,7 @@
                         <div class="single-counters">
                             <div class="counter-box">
                                 <div class="counter-icon">
-                                    <img src="{{ asset('public/front_css/assets/images/trophy.png') }}" alt="Counter Image">
+                                    <img src="{{ asset('front_css/assets/images/trophy.png') }}" alt="Counter Image">
                                 </div>
                                 <div class="counter-content">
                                     <span class="count value" data-count="2">0</span><span class="count"> Lakh+</span>
@@ -190,7 +190,7 @@
                         <div class="single-counters">
                             <div class="counter-box">
                                 <div class="counter-icon">
-                                    <img src="{{ asset('public/front_css/assets/images/research.png') }}" alt="Campus Bull">
+                                    <img src="{{ asset('front_css/assets/images/research.png') }}" alt="Campus Bull">
                                 </div>
                                 <div class="counter-content">
                                     <span class="count value" data-count="3">0</span><span class="count"> Lakh+</span>
@@ -205,7 +205,7 @@
                         <div class="single-counters">
                             <div class="counter-box">
                                 <div class="counter-icon">
-                                    <img src="{{ asset('public/front_css/assets/images/discussion.png') }}"
+                                    <img src="{{ asset('front_css/assets/images/discussion.png') }}"
                                         alt="Campus Bull">
                                 </div>
                                 <div class="counter-content">
@@ -221,7 +221,7 @@
                         <div class="single-counters">
                             <div class="counter-box">
                                 <div class="counter-icon">
-                                    <img src="{{ asset('public/front_css/assets/images/letter.png') }}"
+                                    <img src="{{ asset('front_css/assets/images/letter.png') }}"
                                         alt="Campus Bull">
                                 </div>
                                 <div class="counter-content">
@@ -300,7 +300,7 @@
                 <!-- Course Lessons End -->
             </div>
             <div class="col-md-5">
-               <img src="{{ asset('public/front_css/assets/images/faq.jpg') }}" alt="" class="img-fluid">
+               <img src="{{ asset('front_css/assets/images/faq.jpg') }}" alt="" class="img-fluid">
             </div>
             </div>
         </div>
@@ -391,64 +391,64 @@
                     <div class="row g-0">
                         <div class="col-md-3 col-6">
                             <div class="gallery-img">
-                                <div class="image"><img src="{{ asset('public/front_css/assets/images/neet-pg.jpg') }}" alt=""> </div>
-                                <a href="{{ asset('public/front_css/assets/images/neet-pg.jpg') }}" class="gallery-plus videoLightbox">
+                                <div class="image"><img src="{{ asset('front_css/assets/images/neet-pg.jpg') }}" alt=""> </div>
+                                <a href="{{ asset('front_css/assets/images/neet-pg.jpg') }}" class="gallery-plus videoLightbox">
                                     <span></span>
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="gallery-img">
-                                <div class="image"><img src="{{ asset('public/front_css/assets/images/neet-pg.jpg') }}" alt=""> </div>
-                                <a href="{{ asset('public/front_css/assets/images/neet-pg.jpg') }}" class="gallery-plus videoLightbox">
+                                <div class="image"><img src="{{ asset('front_css/assets/images/neet-pg.jpg') }}" alt=""> </div>
+                                <a href="{{ asset('front_css/assets/images/neet-pg.jpg') }}" class="gallery-plus videoLightbox">
                                     <span></span>
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="gallery-img">
-                                <div class="image"><img src="{{ asset('public/front_css/assets/images/neet-pg.jpg') }}" alt=""> </div>
-                                <a href="{{ asset('public/front_css/assets/images/neet-pg.jpg') }}" class="gallery-plus videoLightbox">
+                                <div class="image"><img src="{{ asset('front_css/assets/images/neet-pg.jpg') }}" alt=""> </div>
+                                <a href="{{ asset('front_css/assets/images/neet-pg.jpg') }}" class="gallery-plus videoLightbox">
                                     <span></span>
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="gallery-img">
-                                <div class="image"><img src="{{ asset('public/front_css/assets/images/neet-pg.jpg') }}" alt=""> </div>
-                                <a href="{{ asset('public/front_css/assets/images/neet-pg.jpg') }}" class="gallery-plus videoLightbox">
+                                <div class="image"><img src="{{ asset('front_css/assets/images/neet-pg.jpg') }}" alt=""> </div>
+                                <a href="{{ asset('front_css/assets/images/neet-pg.jpg') }}" class="gallery-plus videoLightbox">
                                     <span></span>
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="gallery-img">
-                                <div class="image"><img src="{{ asset('public/front_css/assets/images/neet-pg.jpg') }}" alt=""> </div>
-                                <a href="{{ asset('public/front_css/assets/images/neet-pg.jpg') }}" class="gallery-plus videoLightbox">
+                                <div class="image"><img src="{{ asset('front_css/assets/images/neet-pg.jpg') }}" alt=""> </div>
+                                <a href="{{ asset('front_css/assets/images/neet-pg.jpg') }}" class="gallery-plus videoLightbox">
                                     <span></span>
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="gallery-img">
-                                <div class="image"><img src="{{ asset('public/front_css/assets/images/neet-pg.jpg') }}" alt=""> </div>
-                                <a href="{{ asset('public/front_css/assets/images/neet-pg.jpg') }}" class="gallery-plus videoLightbox">
+                                <div class="image"><img src="{{ asset('front_css/assets/images/neet-pg.jpg') }}" alt=""> </div>
+                                <a href="{{ asset('front_css/assets/images/neet-pg.jpg') }}" class="gallery-plus videoLightbox">
                                     <span></span>
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="gallery-img">
-                                <div class="image"><img src="{{ asset('public/front_css/assets/images/neet-pg.jpg') }}" alt=""> </div>
-                                <a href="{{ asset('public/front_css/assets/images/neet-pg.jpg') }}" class="gallery-plus videoLightbox">
+                                <div class="image"><img src="{{ asset('front_css/assets/images/neet-pg.jpg') }}" alt=""> </div>
+                                <a href="{{ asset('front_css/assets/images/neet-pg.jpg') }}" class="gallery-plus videoLightbox">
                                     <span></span>
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="gallery-img">
-                                <div class="image"><img src="{{ asset('public/front_css/assets/images/neet-pg.jpg') }}" alt=""> </div>
-                                <a href="{{ asset('public/front_css/assets/images/neet-pg.jpg') }}" class="gallery-plus videoLightbox">
+                                <div class="image"><img src="{{ asset('front_css/assets/images/neet-pg.jpg') }}" alt=""> </div>
+                                <a href="{{ asset('front_css/assets/images/neet-pg.jpg') }}" class="gallery-plus videoLightbox">
                                     <span></span>
                                 </a>
                             </div>
@@ -470,7 +470,7 @@
                             <div class="featured-imagebox featured-imagebox-procedure">
                                 <div class="image-procedure">
                                     <div class="featured-thumbnail">
-                                        <img class="img-fluid auto_size" width="210" height="210" src="{{ asset('public/front_css/assets/images/free-councelling.jpg')}}" alt="image">
+                                        <img class="img-fluid auto_size" width="210" height="210" src="{{ asset('front_css/assets/images/free-councelling.jpg')}}" alt="image">
                                         <div class="process-num"><span class="number">01</span></div>
                                     </div>
                                 </div>
@@ -489,7 +489,7 @@
                             <div class="featured-imagebox featured-imagebox-procedure">
                                 <div class="image-procedure">
                                     <div class="featured-thumbnail">
-                                        <img class="img-fluid auto_size" width="210" height="210" src="{{ asset('public/front_css/assets/images/college-admission.jpg')}}" alt="image">
+                                        <img class="img-fluid auto_size" width="210" height="210" src="{{ asset('front_css/assets/images/college-admission.jpg')}}" alt="image">
                                         <div class="process-num"><span class="number">02</span></div>
                                     </div>
                                 </div>
@@ -508,7 +508,7 @@
                             <div class="featured-imagebox featured-imagebox-procedure">
                                 <div class="image-procedure">
                                     <div class="featured-thumbnail">
-                                        <img class="img-fluid auto_size" width="210" height="210" src="{{ asset('public/front_css/assets/images/documantaion.jpg')}}" alt="image">
+                                        <img class="img-fluid auto_size" width="210" height="210" src="{{ asset('front_css/assets/images/documantaion.jpg')}}" alt="image">
                                         <div class="process-num"><span class="number">03</span></div>
                                     </div>
                                 </div>
@@ -527,7 +527,7 @@
                             <div class="featured-imagebox featured-imagebox-procedure">
                                 <div class="image-procedure">
                                     <div class="featured-thumbnail">
-                                        <img class="img-fluid auto_size" width="210" height="210" src="{{ asset('public/front_css/assets/images/guidence.jpg')}}" alt="image">
+                                        <img class="img-fluid auto_size" width="210" height="210" src="{{ asset('front_css/assets/images/guidence.jpg')}}" alt="image">
                                         <div class="process-num"><span class="number">04</span></div>
                                     </div>
                                 </div>
@@ -569,7 +569,7 @@
                                 </div>
                                 <div class="testimonial-meta">
                                     <div class="testimonial-quote">
-                                        <img src="{{ asset('public/front_css/assets/images/user.jpg') }}" alt="Author">
+                                        <img src="{{ asset('front_css/assets/images/user.jpg') }}" alt="Author">
                                     </div>
                                     <div class="meta-content">
                                         <h5 class="name">Shailesh Ravat</h5>
@@ -590,7 +590,7 @@
                                 </div>
                                 <div class="testimonial-meta">
                                     <div class="testimonial-quote">
-                                        <img src="{{ asset('public/front_css/assets/images/user.jpg') }}" alt="Author">
+                                        <img src="{{ asset('front_css/assets/images/user.jpg') }}" alt="Author">
                                     </div>
                                     <div class="meta-content">
                                         <h5 class="name">Shailesh Ravat</h5>
@@ -611,7 +611,7 @@
                                 </div>
                                 <div class="testimonial-meta">
                                     <div class="testimonial-quote">
-                                        <img src="{{ asset('public/front_css/assets/images/user.jpg') }}" alt="Author">
+                                        <img src="{{ asset('front_css/assets/images/user.jpg') }}" alt="Author">
                                     </div>
                                     <div class="meta-content">
                                         <h5 class="name">Shailesh Ravat</h5>
@@ -632,7 +632,7 @@
                                 </div>
                                 <div class="testimonial-meta">
                                     <div class="testimonial-quote">
-                                        <img src="{{ asset('public/front_css/assets/images/user.jpg') }}" alt="Author">
+                                        <img src="{{ asset('front_css/assets/images/user.jpg') }}" alt="Author">
                                     </div>
                                     <div class="meta-content">
                                         <h5 class="name">Shailesh Ravat</h5>

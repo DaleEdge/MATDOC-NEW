@@ -13,7 +13,7 @@
                                         <!-- Category Item Start -->
                                         <div class="single-category-item">
                                             <a href="#">
-                                                <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-13.png')}}" alt="">
+                                                <img class="item-icon" src="{{asset('front_css/assets/images/icon-13.png')}}" alt="">
                                                 <span class="title">Choice Filling</span>
                                             </a>
                                         </div>
@@ -23,7 +23,7 @@
                                         <!-- Category Item Start -->
                                         <div class="single-category-item">
                                             <a href="#" onclick="fetch_data('{{request('state')}}')">
-                                                <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-14.png')}}" alt="">
+                                                <img class="item-icon" src="{{asset('front_css/assets/images/icon-14.png')}}" alt="">
                                                 <span class="title">Year-Wise Cutoff</span>
                                             </a>
                                         </div>
@@ -33,7 +33,7 @@
                                         <!-- Category Item Start -->
                                         <div class="single-category-item">
                                              <a data-toggle="modal" data-target="#myModal_bond">
-                                                        <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-18.png')}}" alt="">
+                                                        <img class="item-icon" src="{{asset('front_css/assets/images/icon-18.png')}}" alt="">
                                                         <span class="title">Bond Details</span>
                                                     </a>
                                         </div>
@@ -43,7 +43,7 @@
                                         <!-- Category Item Start -->
                                         <div class="single-category-item">
                                             <a href="{{route('ug.fee_details','state='.request('state'))}}">
-                                                <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-11.png')}}" alt="">
+                                                <img class="item-icon" src="{{asset('front_css/assets/images/icon-11.png')}}" alt="">
                                                 <span class="title">Fee Structure</span>
                                             </a>
                                         </div>
@@ -63,7 +63,7 @@
                                         <!-- Category Item Start -->
                                         <div class="single-category-item">
                                             <a data-toggle="modal" data-target="#myModalss">
-                                                <img class="item-icon" src="{{asset('public/front_css/assets/images/icon-12.png')}}" alt="">
+                                                <img class="item-icon" src="{{asset('front_css/assets/images/icon-12.png')}}" alt="">
                                                 <span class="title">Documents Required</span>
                                             </a>
                                         </div>

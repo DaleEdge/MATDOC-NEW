@@ -29,7 +29,7 @@
 
                     <!-- Header Logo Start -->
                     <div class="header-logo">
-                        <a href="{{ route('index') }}"><img src="{{ asset('public/front_css/assets/images/logo.png') }}"
+                        <a href="{{ route('index') }}"><img src="{{ asset('front_css/assets/images/logo.png') }}"
                                 alt=""></a>
                     </div>
                     <!-- Header Logo End -->
@@ -87,7 +87,7 @@
             <div class="offcanvas-header">
                 <!-- Offcanvas Logo Start -->
                 <div class="offcanvas-logo">
-                    <a href="/"><img src="{{ asset('public/front_css/assets/images/logo.png') }}"
+                    <a href="/"><img src="{{ asset('front_css/assets/images/logo.png') }}"
                             alt=""></a>
                 </div>
                 <!-- Offcanvas Logo End -->

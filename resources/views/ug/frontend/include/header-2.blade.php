@@ -26,7 +26,7 @@
 
                     <!-- Header Logo Start -->
                     <div class="header-logo">
-                        <a href="{{route('index')}}"><img src="{{asset('public/front_css/assets/images/logo.png')}}" alt=""></a>
+                        <a href="{{route('index')}}"><img src="{{asset('front_css/assets/images/logo.png')}}" alt=""></a>
                     </div>
                     <!-- Header Logo End -->
 
@@ -74,7 +74,7 @@
             <div class="offcanvas-header">
                 <!-- Offcanvas Logo Start -->
                 <div class="offcanvas-logo">
-                    <a href="/"><img src="{{asset('public/front_css/assets/images/logo.png')}}" alt=""></a>
+                    <a href="/"><img src="{{asset('front_css/assets/images/logo.png')}}" alt=""></a>
                 </div>
                 <!-- Offcanvas Logo End -->
                 <button class="btn-close" data-bs-dismiss="offcanvas"></button>

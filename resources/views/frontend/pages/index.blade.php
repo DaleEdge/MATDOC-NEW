@@ -50,7 +50,7 @@
                                     <div class="shape-1"></div>
                                     <div class="box-icon">
                                         <a href="#"><img
-                                                src="{{ asset('public/front_css/assets/images/gate-of-india.png') }}"
+                                                src="{{ asset('front_css/assets/images/gate-of-india.png') }}"
                                                 alt="Icon"></a>
                                     </div>
                                 </div>
@@ -66,7 +66,7 @@
                                 <div class="feature-category-box">
                                     <div class="box-icon">
                                         <a href="#"><img
-                                                src="{{ asset('public/front_css/assets/images/bangalore.png') }}"
+                                                src="{{ asset('front_css/assets/images/bangalore.png') }}"
                                                 alt="Icon"></a>
                                     </div>
                                     <div class="box-content">
@@ -82,7 +82,7 @@
                                 <div class="feature-category-box">
                                     <div class="box-icon">
                                         <a href="#"><img
-                                                src="{{ asset('public/front_css/assets/images/hyderabad-charminar.png') }}"
+                                                src="{{ asset('front_css/assets/images/hyderabad-charminar.png') }}"
                                                 alt="Icon"></a>
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@
                             <div class="single-feature-category">
                                 <div class="feature-category-box">
                                     <div class="box-icon">
-                                        <a href="#"><img src="{{ asset('public/front_css/assets/images/pune.png') }}"
+                                        <a href="#"><img src="{{ asset('front_css/assets/images/pune.png') }}"
                                                 alt="Icon"></a>
                                     </div>
                                 </div>
@@ -113,7 +113,7 @@
                                 <div class="feature-category-box">
                                     <div class="box-icon">
                                         <a href="#"><img
-                                                src="{{ asset('public/front_css/assets/images/bulding.png') }}"
+                                                src="{{ asset('front_css/assets/images/bulding.png') }}"
                                                 alt="Icon"></a>
                                     </div>
                                 </div>
@@ -129,7 +129,7 @@
                                 <div class="feature-category-box">
                                     <div class="box-icon">
                                         <a href="#">
-                                            <img src="{{ asset('public/front_css/assets/images/temple.png') }}" alt="Icon"></a>
+                                            <img src="{{ asset('front_css/assets/images/temple.png') }}" alt="Icon"></a>
                                     </div>
                                 </div>
                                 <div class="box-content">
@@ -354,7 +354,7 @@
                         <div class="single-counter">
                             <div class="counter-box">
                                 <div class="counter-icon">
-                                    <img src="{{ asset('public/front_css/assets/images/icon-1.png') }}" alt="Campus Bull">
+                                    <img src="{{ asset('front_css/assets/images/icon-1.png') }}" alt="Campus Bull">
                                 </div>
                                 <div class="counter-content">
                                     <span class="count value" data-count="95">0</span><span class="count">%</span>
@@ -369,7 +369,7 @@
                         <div class="single-counter">
                             <div class="counter-box">
                                 <div class="counter-icon">
-                                    <img src="{{ asset('public/front_css/assets/images/icon-2.png') }}" alt="Campus Bull">
+                                    <img src="{{ asset('front_css/assets/images/icon-2.png') }}" alt="Campus Bull">
                                 </div>
                                 <div class="counter-content">
                                     <span class="count value" data-count="1000">0</span><span class="count">%</span>
@@ -384,7 +384,7 @@
                         <div class="single-counter">
                             <div class="counter-box">
                                 <div class="counter-icon">
-                                    <img src="{{ asset('public/front_css/assets/images/icon-3.png') }}"
+                                    <img src="{{ asset('front_css/assets/images/icon-3.png') }}"
                                         alt="Campus Bull">
                                 </div>
                                 <div class="counter-content">
@@ -400,7 +400,7 @@
                         <div class="single-counter">
                             <div class="counter-box">
                                 <div class="counter-icon">
-                                    <img src="{{ asset('public/front_css/assets/images/icon-4.png') }}"
+                                    <img src="{{ asset('front_css/assets/images/icon-4.png') }}"
                                         alt="Campus Bull">
                                 </div>
                                 <div class="counter-content">
@@ -447,7 +447,7 @@
                         <div class="tab-pane active" id="announcements_and_events">
                             <div class="row">
                                 <div class="col-lg-12 col-sm-6">
-                                    <img src="{{ asset('public/front_css/assets/images/announcements-and-events.png') }}"
+                                    <img src="{{ asset('front_css/assets/images/announcements-and-events.png') }}"
                                         alt="" class="img-fluid">
                                 </div>
                             </div>
@@ -455,7 +455,7 @@
                         <div class="tab-pane" id="closing_ranks">
                             <div class="row">
                                 <div class="col-lg-12 col-sm-6">
-                                    <img src="{{ asset('public/front_css/assets/images/announcements-and-events.png') }}"
+                                    <img src="{{ asset('front_css/assets/images/announcements-and-events.png') }}"
                                         alt="" class="img-fluid">
                                 </div>
                             </div>
@@ -463,7 +463,7 @@
                         <div class="tab-pane" id="seat_matrix">
                             <div class="row">
                                 <div class="col-lg-12 col-sm-6">
-                                    <img src="{{ asset('public/front_css/assets/images/announcements-and-events.png') }}"
+                                    <img src="{{ asset('front_css/assets/images/announcements-and-events.png') }}"
                                         alt="" class="img-fluid">
                                 </div>
                             </div>
@@ -471,7 +471,7 @@
                         <div class="tab-pane" id="allotment_mapping">
                             <div class="row">
                                 <div class="col-lg-12 col-sm-6">
-                                    <img src="{{ asset('public/front_css/assets/images/announcements-and-events.png') }}"
+                                    <img src="{{ asset('front_css/assets/images/announcements-and-events.png') }}"
                                         alt="" class="img-fluid">
                                 </div>
                             </div>
@@ -479,7 +479,7 @@
                         <div class="tab-pane" id="institutes">
                             <div class="row">
                                 <div class="col-lg-12 col-sm-6">
-                                    <img src="{{ asset('public/front_css/assets/images/announcements-and-events.png') }}"
+                                    <img src="{{ asset('front_css/assets/images/announcements-and-events.png') }}"
                                         alt="" class="img-fluid">
                                 </div>
                             </div>
@@ -487,7 +487,7 @@
                         <div class="tab-pane" id="videos">
                             <div class="row">
                                 <div class="col-lg-12 col-sm-6">
-                                    <img src="{{ asset('public/front_css/assets/images/announcements-and-events.png') }}"
+                                    <img src="{{ asset('front_css/assets/images/announcements-and-events.png') }}"
                                         alt="" class="img-fluid">
                                 </div>
                             </div>
@@ -535,11 +535,11 @@
                         <div class="call-to-images-shape-01"></div>
 
                         <img class="call-to-images-shape-02 parallaxed"
-                            src="{{ asset('public/front_css/assets/images/shape-12.svg') }}" alt="">
+                            src="{{ asset('front_css/assets/images/shape-12.svg') }}" alt="">
 
                         <div class="image">
                             <div class="call-to-action-shape-01"></div>
-                            <img src="{{ asset('public/front_css/assets/images/cta-1.png') }}" alt="Call To Action">
+                            <img src="{{ asset('front_css/assets/images/cta-1.png') }}" alt="Call To Action">
                         </div>
                     </div>
                     <!-- Call To Action Content End -->
@@ -585,7 +585,7 @@
                             </div>
                             <div class="testimonial-meta">
                                 <div class="testimonial-quote">
-                                    <img src="{{ asset('public/front_css/assets/images/user.jpg') }}" alt="Author">
+                                    <img src="{{ asset('front_css/assets/images/user.jpg') }}" alt="Author">
                                 </div>
                                 <div class="meta-content">
                                     <h5 class="name">Neha Gupta</h5>
@@ -603,7 +603,7 @@
                             </div>
                             <div class="testimonial-meta">
                                 <div class="testimonial-quote">
-                                    <img src="{{ asset('public/front_css/assets/images/user.jpg') }}" alt="Author">
+                                    <img src="{{ asset('front_css/assets/images/user.jpg') }}" alt="Author">
                                 </div>
                                 <div class="meta-content">
                                 <h5 class="name">Abhishek Singh</h5>
@@ -621,7 +621,7 @@
                             </div>
                             <div class="testimonial-meta">
                                 <div class="testimonial-quote">
-                                    <img src="{{ asset('public/front_css/assets/images/user.jpg') }}" alt="Author">
+                                    <img src="{{ asset('front_css/assets/images/user.jpg') }}" alt="Author">
                                 </div>
                                 <div class="meta-content">
                                 <h5 class="name">Ranjit yadav</h5>

@@ -2,8 +2,8 @@
 @section('content')
     <!-- Page Banner Start -->
     <div class="section page-banner-section bg-color-1">
-        <img class="shape-4" src="{{ asset('public/front_css/assets/images/shape/shape-21.png')}}" alt="shape">
-        <img class="shape-5" src="{{ asset('public/front_css/assets/images/shape/shape-21.png')}}" alt="shape">
+        <img class="shape-4" src="{{ asset('front_css/assets/images/shape/shape-21.png')}}" alt="shape">
+        <img class="shape-5" src="{{ asset('front_css/assets/images/shape/shape-21.png')}}" alt="shape">
         <div class="container">
             <!-- Course Details Banner Content Start -->
             <div class="course-details-banner-content mb-3">
@@ -12,7 +12,7 @@
                 {{-- <div class="course-details-meta">
                     <div class="meta-action">
                         <div class="meta-author">
-                            <img src="{{ asset('public/front_css/assets/images/author-1.jpg')}}" alt="Author">
+                            <img src="{{ asset('front_css/assets/images/author-1.jpg')}}" alt="Author">
                         </div>
                         <div class="meta-name">
                             <h5 class="name">Adam Helen</h5>
@@ -46,7 +46,7 @@
                         <!-- Sidebar Details Video Description Start -->
                         <div class="sidebar-details-video-description">
                             <div class="sidebar-video p-0 mt-4">
-                                <img src="{{ asset('public/front_css/assets/images/sidebar-video.jpg')}}" alt="video">
+                                <img src="{{ asset('front_css/assets/images/sidebar-video.jpg')}}" alt="video">
                             </div>
                             <div class="sidebar-description">
                                 <div class="price">

@@ -81,7 +81,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                         <div class="bg-light">
-                         <img src="{{asset('public/front_css/assets/images/help.png')}}" class="auth-side-image img-fluid">
+                         <img src="{{asset('front_css/assets/images/help.png')}}" class="auth-side-image img-fluid">
                          </div>
                         </div>
                         <div class="col-lg-6">

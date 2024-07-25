@@ -6,7 +6,7 @@
 
                     <!-- Header Logo Start -->
                     <div class="header-logo">
-                        <a href="index.php"><img src="{{asset('public/front_css/assets/images/logo.png')}}" alt=""></a>
+                        <a href="index.php"><img src="{{asset('front_css/assets/images/logo.png')}}" alt=""></a>
                     </div>
                     <!-- Header Logo End -->
 

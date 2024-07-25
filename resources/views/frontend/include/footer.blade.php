@@ -74,7 +74,7 @@
 <div class="whatsp">
     <!--- whatsapp icon start here -->
     <a href="https://wa.me/9341888827" target="_blank">
-        <img src="{{ asset('public/front_css/assets/images/neet-whatsapp.png') }}">
+        <img src="{{ asset('front_css/assets/images/neet-whatsapp.png') }}">
     </a>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

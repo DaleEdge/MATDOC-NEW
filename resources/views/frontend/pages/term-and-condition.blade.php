@@ -12,8 +12,8 @@
 
         <!-- Page Banner Start -->
         <div class="section page-banner-section bg-color-1">
-            <img class="shape-4" src="{{asset('public/front_css/assets/images/shape/shape-21.png')}}" alt="shape">
-            <img class="shape-5" src="{{asset('public/front_css/assets/images/shape/shape-21.png')}}" alt="shape">
+            <img class="shape-4" src="{{asset('front_css/assets/images/shape/shape-21.png')}}" alt="shape">
+            <img class="shape-5" src="{{asset('front_css/assets/images/shape/shape-21.png')}}" alt="shape">
 
             <div class="container">
                 <!-- Page Banner Content Start -->
