@@ -167,7 +167,7 @@
     <div class="section counter-section pt-5 pb-4 bg-color-1">
         <div class="container">
             <div class="section-title text-center mb-4">
-                <h2 class="title">Success Story of Campus Bull</h2>
+                <h2 class="title">Success Story of MatDoc</h2>
             </div>
             <!-- Counter Wrapper Start -->
             <div class="counter-wrapper">
@@ -192,7 +192,7 @@
                         <div class="single-counters">
                             <div class="counter-box">
                                 <div class="counter-icon">
-                                    <img src="{{ asset('front_css/assets/images/research.png') }}" alt="Campus Bull">
+                                    <img src="{{ asset('front_css/assets/images/research.png') }}" alt="MatDoc">
                                 </div>
                                 <div class="counter-content">
                                     <span class="count value" data-count="3">0</span><span class="count"> Lakh+</span>
@@ -224,7 +224,7 @@
                             <div class="counter-box">
                                 <div class="counter-icon">
                                     <img src="{{ asset('front_css/assets/images/letter.png') }}"
-                                        alt="Campus Bull">
+                                        alt="MatDoc">
                                 </div>
                                 <div class="counter-content">
                                     <span class="count value" data-count="1700">0</span><span class="count">+</span>
@@ -312,7 +312,7 @@
             <div class="section section-padding bg-color-1">
                 <div class="container">
                     <div class="section-title text-center">
-                        <h2 class="title">Campus Bull Packages Price</h2>
+                        <h2 class="title">MatDoc Packages Price</h2>
                     </div>
                     <div class="row justify-content-center mt-5">
                         <div class="col-lg-4 col-md-8">
@@ -500,7 +500,7 @@
                                         <h3>Admission Process</h3>
                                     </div>
                                     <div class="featured-desc">
-                                        <p>'Campus Bull' has a team of expert and trained counselors who help students for their self assessment</p>
+                                        <p>'MatDoc' has a team of expert and trained counselors who help students for their self assessment</p>
                                     </div>
                                 </div>
                             </div><!-- featured-imagebox end-->
@@ -538,7 +538,7 @@
                                         <h3>Post - Departure Guidance</h3>
                                     </div>
                                     <div class="featured-desc">
-                                        <p>At 'Campus Bull' we provide our students with some of the following post departure facilities. </p>
+                                        <p>At 'MatDoc' we provide our students with some of the following post departure facilities. </p>
                                     </div>
                                 </div>
                             </div><!-- featured-imagebox end-->
@@ -564,7 +564,7 @@
                             <!-- Single Testimonial Start -->
                             <div class="single-testimonial-02">
                                 <div class="testimonial-text">
-                                    <p>Campus Bull are great team of professional to work with. Even when i got the seat then
+                                    <p>MatDoc are great team of professional to work with. Even when i got the seat then
                                         also
                                         Varun insisted me personally to go for document verification in Karnataka which turned
                                         to be the best decision of my life.</p>
@@ -585,7 +585,7 @@
                             <!-- Single Testimonial Start -->
                             <div class="single-testimonial-02">
                                 <div class="testimonial-text">
-                                    <p>Campus Bull are great team of professional to work with. Even when i got the seat then
+                                    <p>MatDoc are great team of professional to work with. Even when i got the seat then
                                         also
                                         Varun insisted me personally to go for document verification in Karnataka which turned
                                         to be the best decision of my life.</p>
@@ -606,7 +606,7 @@
                             <!-- Single Testimonial Start -->
                             <div class="single-testimonial-02">
                                 <div class="testimonial-text">
-                                    <p>Campus Bull are great team of professional to work with. Even when i got the seat then
+                                    <p>MatDoc are great team of professional to work with. Even when i got the seat then
                                         also
                                         Varun insisted me personally to go for document verification in Karnataka which turned
                                         to be the best decision of my life.</p>
@@ -627,7 +627,7 @@
                             <!-- Single Testimonial Start -->
                             <div class="single-testimonial-02">
                                 <div class="testimonial-text">
-                                    <p>Campus Bull are great team of professional to work with. Even when i got the seat then
+                                    <p>MatDoc are great team of professional to work with. Even when i got the seat then
                                         also
                                         Varun insisted me personally to go for document verification in Karnataka which turned
                                         to be the best decision of my life.</p>
