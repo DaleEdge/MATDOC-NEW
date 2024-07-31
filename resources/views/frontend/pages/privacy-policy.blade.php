@@ -22,11 +22,11 @@
         <div class="section section-padding mb-5">
             <div class="container mb-5">
               <div class="row">
-<h2 class="text-center mb-2">Privacy Policy for Campus Bull </h2>
+<h2 class="text-center mb-2">Privacy Policy for MatDoc </h2>
 
 
 
-<p>At Campus Bull, accessible from www.campusbull.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Campus Bull and how we use it.</p>
+<p>At MatDoc, accessible from matdoc.in, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by MatDoc and how we use it.</p>
 
 
 
@@ -34,7 +34,7 @@
 
 
 
-<p>This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in Campus Bull. This policy is not applicable to any information collected offline or via channels other than this website.</p>
+<p>This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in MatDoc. This policy is not applicable to any information collected offline or via channels other than this website.</p>
 
 
 
@@ -86,7 +86,7 @@
 
 
 
-<p>Campus Bull follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services&#8217; analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users&#8217; movement on the website, and gathering demographic information.</p>
+<p>MatDoc follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services&#8217; analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users&#8217; movement on the website, and gathering demographic information.</p>
 
 
 
@@ -94,15 +94,15 @@
 
 
 
-<p>You may consult this list to find the Privacy Policy for each of the advertising partners of Campus Bull.</p>
+<p>You may consult this list to find the Privacy Policy for each of the advertising partners of MatDoc.</p>
 
 
 
-<p>Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on Campus Bull, which are sent directly to users&#8217; browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.</p>
+<p>Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on MatDoc, which are sent directly to users&#8217; browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.</p>
 
 
 
-<p>Note that Campus Bull has no access to or control over these cookies that are used by third-party advertisers.</p>
+<p>Note that MatDoc has no access to or control over these cookies that are used by third-party advertisers.</p>
 
 
 
@@ -110,7 +110,7 @@
 
 
 
-<p>Campus Bull&#8217;s Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.</p>
+<p>MatDoc&#8217;s Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.</p>
 
 
 
@@ -186,7 +186,7 @@
 
 
 
-<p>Campus Bull does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
+<p>MatDoc does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
 
               </div>
             </div>
