@@ -161,8 +161,8 @@ Does not disrupt the online community on our platforms.</li>
    <li>	The users shall remain solely responsible for all content, information, data originated from the users and transmitted via the Service (content), and the users shall accordingly indemnify Campusbull and / or the Operator, against all third party claims relating to the users content or due to the users act, negligence or omission.</li>
    <li>	You are bound by the terms and conditions as mentioned herein and as stated on the site.</li>
    <li>	Message delivery is conditional to Mobile operator's technical infrastructure and its network uptime.</li>
-   <li>	By using various SMS based services from MatDoc you agree to receive phone calls, messages/WhatsApp etc. from Campusbull and/or its associates</li>
-   <li>	Subscribing or using various paid/free services of Campusbull on SMS/Voice/WAP either directly or indirectly doesn't in any manner guarantee the user an admission into any institution.</li>
+   <li>	By using various SMS based services from MatDoc you agree to receive phone calls, messages/WhatsApp etc. from MatDoc and/or its associates</li>
+   <li>	Subscribing or using various paid/free services of MatDoc on SMS/Voice/WAP either directly or indirectly doesn't in any manner guarantee the user an admission into any institution.</li>
    <li>	By agreeing to register for MatDoc Mobile alerts, a user allows MatDoc to get in touch with him/her from time to time to share information about events or offers regarding careers, admissions, jobs and ancillary services on mobile. This can include exciting offers, information, as well as promotions.</li>
    <li>	The subscriber shall be required to comply with all directions/instructions etc. issued by the Company relating to the network, the services and any/all matters connected therewith and provide the Company all other and further information and co-operation as the Company may require from time to time.</li>
 </ul>
