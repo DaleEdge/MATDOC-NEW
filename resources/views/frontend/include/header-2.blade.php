@@ -8,8 +8,8 @@
                                             href="tel:+91-9036344111">+91-9036344111</a></span> </li>
                                 <li><span><i class="fa fa fa-whatsapp"></i> <a href="https://wa.me/9341888827"
                                             target="_blank">+91-9341888827</a></span> </li>
-                                <li><span><i class="fa fa-envelope-o"></i> <a href="mailto:info@campusbull.com"
-                                            target="_blank">info@campusbull.com</a></span> </li>
+                                <li><span><i class="fa fa-envelope-o"></i> <a href="mailto:info@matdoc.in"
+                                            target="_blank">info@matdoc.in</a></span> </li>
                             </ul>
                         </div>
                         <div class="header-social">
