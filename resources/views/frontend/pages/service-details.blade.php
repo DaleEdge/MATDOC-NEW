@@ -208,7 +208,7 @@
                             <div class="counter-box">
                                 <div class="counter-icon">
                                     <img src="{{ asset('front_css/assets/images/discussion.png') }}"
-                                        alt="Campus Bull">
+                                        alt="MatDoc">
                                 </div>
                                 <div class="counter-content">
                                     <span class="count value" data-count="1600">0</span><span class="count">+</span>
