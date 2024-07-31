@@ -19,9 +19,9 @@
                                     Please Pay Rs.
                                     100/- On below given UPI
                                 </h4>
-                                <input type="hidden" value="campusbull@icici" id="upi_id">
+                                <input type="hidden" value="karthickit00-1@okhdfcbank" id="upi_id">
                                 <h1 class="gordita-bold text-center">
-                                    campusbull@icici
+                                    karthickit00-1@okhdfcbank
                                     <a class="btn btn-primary py-1 px-3" onclick="copyText()" style="font-weight: 600;">
                                         <i class="fa fa-copy"></i> Copy UPI
                                     </a>
