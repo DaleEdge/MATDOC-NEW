@@ -30,7 +30,12 @@
                         <p>College </p>
                     </a>
                 </li>
-             
+                <li class="nav-item">
+                    <a href="{{ route('payment.index') }}" class="nav-link @if (Route::currentRouteName() == 'course.index') active @endif">
+                        <i class="fas fa-book nav-icon"></i>
+                        <p>Payment </p>
+                    </a>
+                </li>             
                 <li class="nav-item">
                     <a href="{{ route('student.index') }}" class="nav-link @if (Route::currentRouteName() == 'student.index') active @endif">
                         <i class="fas fa-user-graduate nav-icon"></i>

@@ -8,7 +8,7 @@
         <div class="container">
             <!-- Page Banner Content Start -->
             <div class="page-banner-content">
-                <h2 class="title">Plan Payment</h2>
+                <h2 class="title">Payment Request Is Submitted.Please Contact To The Admin</h2>
                 <ul class="breadcrumb justify-content-center">
                     <li class="breadcrumb-item"><a href="/">Home</a></li>
                     <li class="breadcrumb-item active">Subsciption Plan Pay</li>
@@ -19,10 +19,10 @@
     </div>
     <!-- Page Banner End -->
     <!-- Pricing Start -->
-    <div class="section section-padding">
-        <div class="container mb-5">
+    <!-- <div class="section section-padding">
+        <div class="container mb-5">-->
             <!-- Pricing Wrapper End -->
-            <div class="row">
+           <!-- <div class="row">
                 <div class="col-md-10 m-auto">
                 <div class="payment-card">
                     <div class="section-title mb-4 mt-2">
@@ -72,11 +72,11 @@
                         </div>
                       </div>
                 </div>
-            </div>
+            </div> -->
             <!-- Pricing Wrapper End -->
+       <!-- </div>
         </div>
-        </div>
-    </div>
+    </div> -->
     <!-- Pricing End -->
     <!-- The Modal -->
   

@@ -54,10 +54,18 @@
                                     </div><br><br>
                                     <div class="pricig-header">
                                         @if (empty(optional(Auth::user()->payment)->user_id))
-                                            <a class="btn btn-white btn-hover-heading-color" href="{{route('subscription_plans_pay')}}" id="pay-btn">Pay
-                                                Now</a>
+                                        <form action="{{route('subscription_plans_pay')}}" method="post">
+                                            @csrf()
+                                                <input type="hidden" name="user_id"  value="{{Auth::user()->id}}">
+                                                <input type="hidden" name="packages" value="3999">
+                                                <!-- <a class="btn btn-white btn-hover-heading-color" href="{{route('subscription_plans_pay')}}" id="pay-btn">Pay
+                                                Now</a> -->
+                                                <button class="btn btn-white btn-hover-heading-color">Pay
+                                                Now</button>
+                                            </form>
+
                                         @else
-                                        @if (optional(Auth::user()->payment)->plan_name=='Plan of 2359')
+                                        @if (optional(Auth::user()->payment)->plan_name=='Plan of 3999')
                                         <a class="btn btn-white btn-hover-heading-color">Subscribed</a>
                                      @endif
                                         @endif
@@ -97,8 +105,15 @@
                                         </ul>
                                         <div class="pricig-header">
                                             @if (empty(optional(Auth::user()->payment)->user_id))
-                                            <a class="btn btn-white btn-hover-heading-color" href="{{route('subscription_plans_pay')}}" id="pay-btn">Pay
-                                                Now</a>
+                                            <form action="{{route('subscription_plans_pay')}}" method="post">
+                                            @csrf()
+                                                <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                                                <input type="hidden" name="packages" value="24999">
+                                                <!-- <a class="btn btn-white btn-hover-heading-color" href="{{route('subscription_plans_pay')}}" id="pay-btn">Pay
+                                                Now</a> -->
+                                                <button class="btn btn-white btn-hover-heading-color">Pay
+                                                Now</button>
+                                            </form>
                                         @else
                                          @if (optional(Auth::user()->payment)->plan_name=='Plan of 24999')
                                             <a class="btn btn-white btn-hover-heading-color">Subscribed</a>

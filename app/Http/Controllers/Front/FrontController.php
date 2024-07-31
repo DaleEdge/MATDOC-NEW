@@ -51,8 +51,18 @@ class FrontController extends Controller
         return view('frontend.pages.subscription-plans');
     }
 
-    public function subscription_plans_pay()
+    public function subscription_plans_pay(Request $request)
     {
+        Payment::create([
+            'user_id'=>$request->user_id,
+            'payment_id'=>rand(11111,99999),
+            'payment_amount'=>$request->packages,
+            'method'=>'upi',
+            'currency'=>'INR',
+            'plan_name'=>'Plan of '.$request->packages,
+            'plan_status'=>'pending',
+        ]);
+        
         return view('frontend.pages.subscription-plans-pay');
     }
 

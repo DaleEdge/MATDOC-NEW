@@ -50,11 +50,12 @@
                         <p class="label">NIRF Rank 1st (Overall)</p>
                     </div>
                 </div> --}}
-
+                @if((isset(Auth::user()->id)) && (isset(Auth::user()->payment->user_id)) && (Auth::user()->payment->plan_status == "success"))
                 <div class="enqry">
                     <a data-bs-toggle="modal" data-bs-target="#myModal1" class="btn btn-primary btn-hover-heading-color"><i
                             class="fa fa-envelope"></i> Enquiry Now</a>
                 </div>
+                @endif
             </div>
             <!-- Course Details Banner Content End -->
         </div>

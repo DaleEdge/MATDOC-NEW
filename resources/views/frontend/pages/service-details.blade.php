@@ -90,6 +90,7 @@
                 </div>
                 <div class="col-lg-4">
                     <!-- Sidebar Wrapper Start -->
+                    @if((isset(Auth::user()->id)) && (isset(Auth::user()->payment->user_id)) && (Auth::user()->payment->plan_status =="success"))
                     <div class="">
                         <!-- Sidebar Details Video Description Start -->
                         <div class="sidebar-details-video-description">
@@ -154,6 +155,7 @@
                         </div>
                         <!-- Sidebar Details Video Description End -->
                     </div>
+                    @endif
                     <!-- Sidebar Wrapper End -->
                 </div>
             </div>

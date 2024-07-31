@@ -14,6 +14,8 @@ use App\Http\Controllers\StateDocumentController;
 use App\Http\Controllers\ExcelImportExportController;
 use App\Http\Controllers\SchoolPreviosEventController;
 use App\Http\Controllers\SchoolUpcomingEventController;
+use App\Http\Controllers\PaymentController;
+
 
 
 
@@ -41,6 +43,7 @@ Route::group(['middleware' => ['auth', 'can:accessAdminpanel']], function() {
     Route::resource('student', CustomerController::class);
     Route::resource('course', CourseController::class);
     Route::resource('collage', CollageController::class);
+    Route::resource('payment', PaymentController::class);
     
     
    //Evets 

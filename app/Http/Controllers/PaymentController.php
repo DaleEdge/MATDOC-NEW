@@ -15,7 +15,10 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //
+        $list= payment::orderBy('id','DESC');
+       
+        $list=$list->paginate(25);
+        return view('backend.admin.payment.index',compact('list'));
     }
 
     /**
@@ -56,9 +59,10 @@ class PaymentController extends Controller
      * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Payment $payment)
+    public function edit($id)
     {
-        //
+        $edit_data= payment::find($id);
+        return view('backend.admin.payment.edit',compact('edit_data'));
     }
 
     /**
@@ -68,9 +72,14 @@ class PaymentController extends Controller
      * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Payment $payment)
+    public function update(Request $request, $id)
     {
-        //
+        $payment = payment::find($id);
+        $payment->plan_status=$request->plan_status;
+        $payment->save();
+
+        return redirect()->route('payment.index');
+
     }
 
     /**
