@@ -5,9 +5,9 @@
                         <div class="header-top-info">
                             <ul>
                                 <li><span><i class="fa fa-volume-control-phone"></i> <a
-                                            href="tel:+91-9036344111">+91-9036344111</a></span> </li>
-                                <li><span><i class="fa fa fa-whatsapp"></i> <a href="https://wa.me/9341888827"
-                                            target="_blank">+91-9341888827</a></span> </li>
+                                            href="tel:+91-8015958614">+91-8015958614</a></span> </li>
+                                <li><span><i class="fa fa fa-whatsapp"></i> <a href="https://wa.me/6369149396"
+                                            target="_blank">+91-6369149396</a></span> </li>
                                 <li><span><i class="fa fa-envelope-o"></i> <a href="mailto:info@matdoc.in"
                                             target="_blank">info@matdoc.in</a></span> </li>
                             </ul>
