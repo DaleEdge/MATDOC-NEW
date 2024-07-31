@@ -196,7 +196,7 @@ In case of all products and services, where the delivery is instantaneously onli
 <p>You agree to indemnify, defend and make good MatDoc, employees, contractors, licensors, third party suppliers, partners, from any claims, losses, damages, liabilities and expenses arising out of any use or misuse of the Platforms, infringement of intellectual property rights, any violation of the Term or any breach of the representations, warranties made herein.
 </p>
 <strong>14. Warranties & Disclaimer</strong>
-<p><strong>14.1</strong> MatDoc makes reasonable efforts to ensure that the Platforms are safe to use and accurate. You expressly understand and agree that your use of the platforms, the content, products and services is at your sole risk. All content and material on the platforms are provided on an AS IS and AS AVAILABLE basis. Campusbull expressly disclaims all warranties and conditions of any kind whether express or implied. </p>
+<p><strong>14.1</strong> MatDoc makes reasonable efforts to ensure that the Platforms are safe to use and accurate. You expressly understand and agree that your use of the platforms, the content, products and services is at your sole risk. All content and material on the platforms are provided on an AS IS and AS AVAILABLE basis. MatDoc expressly disclaims all warranties and conditions of any kind whether express or implied. </p>
 <p><strong>14.2</strong> MatDooc makes no warranty that the</p>
 <ul>
    <li>The content and services are accurate, timely and error free</li>
