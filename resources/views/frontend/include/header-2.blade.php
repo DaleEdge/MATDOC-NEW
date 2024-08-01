@@ -126,7 +126,7 @@
             <div class="section bg-header" style="border-bottom: 1px solid #dddddd6b;">
                 <div class="container">
                     <div class="bg-custom-theme">
-                        @if(Auth::user()->customer->exam_type=='PG')
+                        @if(Auth::user()->customer->exam_type=='PG' && (isset(Auth::user()->payment->user_id)) && (Auth::user()->payment->plan_status == "success"))
                         <ul class="navbar-navs list hor-swipe c-scrollbar-light">
                             <li class="nav-item ">
                                 <a href="{{ route('home_user') }}" class="custom-link">Announcements & Events</a>
@@ -163,7 +163,7 @@
                         </ul>
                         @endif
 
-                        @if(Auth::user()->customer->exam_type=='UG')
+                        @if(Auth::user()->customer->exam_type=='UG'  && (isset(Auth::user()->payment->user_id)) && (Auth::user()->payment->plan_status == "success"))
                         <ul class="navbar-navs list hor-swipe c-scrollbar-light">
                             <li class="nav-item ">
                                 <a href="{{ route('home_user') }}" class="custom-link">Announcements & Events</a>
