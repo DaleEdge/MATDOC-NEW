@@ -41,7 +41,7 @@
                                         <p>Personalized Student Report – Just Put your Rank, Branch Wanted, Budget Allowed &
                                             your Category and get the Complete PDF report, made just for you. All your major
                                             doubts will be cleared after seeing this.</p>
-                                        <p>Complete Choice Filling from team Campus Bull.</p>
+                                        <p>Complete Choice Filling from team MatDoc.</p>
                                         <p>You’ll be added to our Premium Telegram group made just for paid members.</p>
                                         <ul class="pricig-list">
                                             <p>Get all College Department wise details, like - </p>
@@ -100,7 +100,7 @@
                                             <li>Gen Medicine –Daily Basis OPD Details, Hospital ICU Beds.</li>
                                             <li>Etc for all the departments.</li><br>
                                             <p>You’ll be added to our Premium Telegram group made just for paid members.
-                                                Complete Choice Filling from team Campus Bull.</p>
+                                                Complete Choice Filling from team MatDoc.</p>
                                         </ul>
                                         </ul>
                                         <div class="pricig-header">

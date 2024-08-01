@@ -32,8 +32,8 @@
                                         </div>
                                         <div class="info-content">
                                             <h5 class="title">Telephone</h5>
-                                            <p><a href="tel:9036344111">+91-9036344111</a></p>
-                                            <p><a href="tel:9341888827">+91-9341888827</a></p>
+                                            <p><a href="tel:8015958614">+91-8015958614</a></p>
+                                            <p><a href="tel:6369149396">+91-6369149396</a></p>
                                         </div>
                                     </div>
                                     <!-- Single Contact Info End -->
@@ -46,7 +46,7 @@
                                         </div>
                                         <div class="info-content">
                                             <h5 class="title">Our Mail</h5>
-                                            <p><a href="mailto:info@campusbull.com">info@campusbull.com</a></p>
+                                            <p><a href="mailto:info@matdoc.in">info@matdoc.in</a></p>
                                         </div>
                                     </div>
                                     <!-- Single Contact Info End -->
@@ -59,7 +59,7 @@
                                         </div>
                                         <div class="info-content">
                                             <h5 class="title">Location</h5>
-                                            <p>17, JDR complex new bel road Bengaluru (560094)</p>
+                                            <p>639, Veeravanji St Vandiyur Madurai TamilNadu (625020)</p>
                                         </div>
                                     </div>
                                     <!-- Single Contact Info End -->

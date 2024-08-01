@@ -354,7 +354,7 @@
                         <div class="single-counter">
                             <div class="counter-box">
                                 <div class="counter-icon">
-                                    <img src="{{ asset('front_css/assets/images/icon-1.png') }}" alt="Campus Bull">
+                                    <img src="{{ asset('front_css/assets/images/icon-1.png') }}" alt="MatDoc">
                                 </div>
                                 <div class="counter-content">
                                     <span class="count value" data-count="95">0</span><span class="count">%</span>
@@ -369,7 +369,7 @@
                         <div class="single-counter">
                             <div class="counter-box">
                                 <div class="counter-icon">
-                                    <img src="{{ asset('front_css/assets/images/icon-2.png') }}" alt="Campus Bull">
+                                    <img src="{{ asset('front_css/assets/images/icon-2.png') }}" alt="MatDoc">
                                 </div>
                                 <div class="counter-content">
                                     <span class="count value" data-count="1000">0</span><span class="count">%</span>
@@ -385,7 +385,7 @@
                             <div class="counter-box">
                                 <div class="counter-icon">
                                     <img src="{{ asset('front_css/assets/images/icon-3.png') }}"
-                                        alt="Campus Bull">
+                                        alt="MatDoc">
                                 </div>
                                 <div class="counter-content">
                                     <span class="count value" data-count="100">0</span><span class="count">%</span>
@@ -401,7 +401,7 @@
                             <div class="counter-box">
                                 <div class="counter-icon">
                                     <img src="{{ asset('front_css/assets/images/icon-4.png') }}"
-                                        alt="Campus Bull">
+                                        alt="MatDoc">
                                 </div>
                                 <div class="counter-content">
                                     <span class="count value" data-count="2500">0</span><span class="count">+</span>
@@ -511,8 +511,8 @@
                     <div class="call-to-action-content-02 section-padding">
                         <!-- Section Title Start -->
                         <div class="section-title">
-                            <h1 class="title">Why trust Campus Bull? </h1>
-                            <p style="font-size: 15px;">Here's why ZyNerd is your ideal companion in your medical career
+                            <h1 class="title">Why trust Matdoc? </h1>
+                            <p style="font-size: 15px;">Here's why MatDoc is your ideal companion in your medical career
                                 journey.</p>
                         </div>
                         <!-- Section Title End -->
