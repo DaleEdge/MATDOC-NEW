@@ -37,16 +37,16 @@
                     <!-- Header Menu Start -->
                     <div class="header-menu d-none d-lg-block">
                         <ul class="main-menu">
-                            <li><a href="@if (Auth::check()) {{ route('home_user') }} @else {{ route('index') }} @endif"
-                                    class="active">Home </a></li>
-                            <li><a href="{{ route('about_us') }}">About Us</a></li>
-                            <li><a href="{{ route('course') }}">Courses</a></li>
+                            <!-- <li><a href="@if (Auth::check()) {{ route('home_user') }} @else {{ route('index') }} @endif"
+                                    class="active">Home </a></li> -->
+                            <li><a href="{{ route('about_us') }}">Newsfeed</a></li>
+                            <!-- <li><a href="{{ route('course') }}">Courses</a></li>
                             <li><a href="{{ route('college_list') }}">College</a></li>
-                            <li><a href="{{ route('services') }}">Services</a></li>
+                            <li><a href="{{ route('services') }}">Services</a></li> -->
                             <li><a href="{{ route('help') }}">Contact Us </a></li>
                             @if (Auth::check() && (Auth::user()->user_type!='admin'))
                             
-                                <li><a href="{{ route('subscription_plans') }}">Subscription Plans </a></li>
+                                <li><a href="{{ route('subscription_plans') }}">Packages </a></li>
                                 <li><a href="{{ route('user_dashboard') }}">Profile </a></li>
                             @endif
                         </ul>
@@ -97,13 +97,13 @@
             <div class="offcanvas-body">
                 <div class="offcanvas-menu">
                     <ul class="main-menu">
-                        <li><a
+                        <!-- <li><a
                                 href="@if (Auth::check()) {{ route('home_user') }} @else {{ '/' }} @endif">Home
-                            </a></li>
-                        <li><a href="{{ route('about_us') }}">About Us</a></li>
-                        <li><a href="{{ route('course') }}">Courses</a></li>
+                            </a></li> -->
+                        <li><a href="{{ route('about_us') }}">Newsfeed</a></li>
+                        <!-- <li><a href="{{ route('course') }}">Courses</a></li>
                         <li><a href="{{ route('college_list') }}">College</a></li>
-                        <li><a href="{{ route('services') }}">Services</a></li>
+                        <li><a href="{{ route('services') }}">Services</a></li> -->
                         <li><a href="{{ route('help') }}">Contact Us </a></li>
                         @if (Auth::check())
                             @if(Auth::user()->user_type!='admin'))
@@ -129,22 +129,31 @@
                         @if(Auth::user()->customer->exam_type=='PG' && (isset(Auth::user()->payment->user_id)) && (Auth::user()->payment->plan_status == "success"))
                         <ul class="navbar-navs list hor-swipe c-scrollbar-light">
                             <li class="nav-item ">
-                                <a href="{{ route('home_user') }}" class="custom-link">Announcements & Events</a>
+                                <a href="{{ route('home_user') }}" class="custom-link">Allotments</a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('closing_rank') }}" class="custom-link">Closing Ranks </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('all_india_counselings') }}" class="custom-link">All India
-                                    Counselings</a>
+                                <a href="{{ route('all_india_counselings') }}" class="custom-link">Seat Matrix</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('state_wise_counselings') }}" class="custom-link">State Wise
-                                    Counselings</a>
+                                <a href="{{ route('state_wise_counselings') }}" class="custom-link">Fee, Stipend and Bond</a>
                             </li>
                             <li class="nav-item">
-                                <a @if (empty(optional(Auth::user()->payment)->user_id)) href="{{ route('subscription_plans') }}" @else href="{{ route('student_report') }}" @endif
-                                    class="custom-link">Student Report</a>
+                            <a href="{{ route('ug.state_wise_counselings') }}" class="custom-link">Allotment Mapping</a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="#" class="custom-link">Counsellings</a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="#" class="custom-link">Universities</a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="#" class="custom-link">Institutes</a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="{{ route('course') }}" class="custom-link">Courses</a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('deemed_details') }}" class="custom-link">Deemed Details</a>
@@ -166,24 +175,32 @@
                         @if(Auth::user()->customer->exam_type=='UG'  && (isset(Auth::user()->payment->user_id)) && (Auth::user()->payment->plan_status == "success"))
                         <ul class="navbar-navs list hor-swipe c-scrollbar-light">
                             <li class="nav-item ">
-                                <a href="{{ route('home_user') }}" class="custom-link">Announcements & Events</a>
+                                <a href="{{ route('home_user') }}" class="custom-link">Allotments</a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('ug.closing_rank') }}" class="custom-link">Closing Ranks </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('ug.all_india_counselings') }}" class="custom-link">All India
-                                    Counselings</a>
+                                <a href="{{ route('ug.all_india_counselings') }}" class="custom-link">Seat Matrix</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('ug.state_wise_counselings') }}" class="custom-link">State Wise
-                                    Counselings</a>
+                                <a href="{{ route('ug.state_wise_counselings') }}" class="custom-link">Fee, Stipend and Bond</a>
                             </li>
                             <li class="nav-item">
-                                <a @if (empty(optional(Auth::user()->payment)->user_id)) href="{{ route('subscription_plans') }}" @else href="{{ route('ug.student_report') }}" @endif
-                                    class="custom-link">College Predictor</a>
+                            <a href="#" class="custom-link">Allotment Mapping</a>
                             </li>
-                           
+                            <li class="nav-item">
+                            <a href="#" class="custom-link">Counsellings</a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="#" class="custom-link">Universities</a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="#" class="custom-link">Institutes</a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="{{ route('course') }}" class="custom-link">Courses</a>
+                            </li>
                         </ul>
                         @endif
                     </div>

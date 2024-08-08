@@ -165,7 +165,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-	color: #EB5353;
+	color: black;
 }
 
 ul,
@@ -317,10 +317,10 @@ textarea:-ms-input-placeholder {
 	background-color: #f6f7f9
 }
 .bg-header{
-	background-color: #d42d2a;
+	background-color: #4267B2;
 }
 .bg-primary {
-	background-color: #EB5353; !important
+	background-color: #4267B2; !important
 }
 
 .border-bottom {
@@ -383,7 +383,7 @@ font-size:12px !important;
     content: "";
     width: 20px;
     height: 4px;
-    background: #EB5353;
+    background: #4267B2;
     position: absolute;
     left: 39%;
     top: 50px;
@@ -400,7 +400,7 @@ font-size:12px !important;
     content: "";
     width: 75px;
     height: 4px;
-    background: #EB5353;
+    background: #4267B2;
     position: absolute;
     right: 0;
     left: 39%;
@@ -430,7 +430,7 @@ font-size:12px !important;
 		content: "";
 		width: 20px;
 		height: 4px;
-		background: #EB5353;
+		background: #4267B2;
 		position: absolute;
 		left: 30%;
 		top: 35px;
@@ -449,7 +449,7 @@ font-size:12px !important;
 		content: "";
 		width: 75px;
 		height: 4px;
-		background: #EB5353;
+		background: #4267B2;
 		position: absolute;
 		right: 0;
 		left: 30%;
@@ -594,7 +594,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 .swiper-button-prev::after {
 	font-size: 16px;
 	font-weight: 500;
-	color: #EB5353;
+	color:#4267B2;
 	-webkit-transition: all 0.3s linear;
 	-o-transition: all 0.3s linear;
 	transition: all 0.3s linear
@@ -610,7 +610,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-	background-color: #EB5353;
+	background-color: #4267B2;
 }
 
 .swiper-button-next:hover::after,
@@ -651,7 +651,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 
 .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-	background-color: #EB5353;
+	background-color: #4267B2;
 }
 
 .page-pagination {
@@ -671,7 +671,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 
 .page-pagination .pagination li a.active {
-	background-color: #EB5353;;
+	background-color: #4267B2;
 	color: #ffffff
 }
 
@@ -695,7 +695,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 	margin: -50px 0 0 -50px;
 	border-radius: 50%;
 	border: 5px solid transparent;
-	border-top-color: #EB5353;
+	border-top-color: #4267B2;
 	-webkit-animation: spin 2s linear infinite;
 	animation: spin 2s linear infinite
 }
@@ -709,7 +709,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 	bottom: 5px;
 	border-radius: 50%;
 	border: 5px solid transparent;
-	border-top-color: #EB5353;;
+	border-top-color: #4267B2;
 	-webkit-animation: spin 3s linear infinite;
 	animation: spin 3s linear infinite
 }
@@ -723,7 +723,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 	bottom: 15px;
 	border-radius: 50%;
 	border: 5px solid transparent;
-	border-top-color: #EB5353;
+	border-top-color: #4267B2;
 	-webkit-animation: spin 1.5s linear infinite;
 	animation: spin 1.5s linear infinite
 }
@@ -785,7 +785,7 @@ label {
 
 .form-control:focus {
 	outline: none;
-	border-color: #EB5353;;
+	border-color: #4267B2;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 	background-color: #f6f7f9;
@@ -829,8 +829,8 @@ textarea.form-control {
 }
 
 .form-check-input:checked {
-	background-color: #EB5353;
-	border-color: #EB5353
+	background-color: #4267B2;
+	border-color: #4267B2
 }
 
 .btn-margin {
@@ -991,8 +991,8 @@ textarea.form-control {
 }
 
 .btn-primary {
-	background-color: #EB5353;;
-	border-color: #EB5353;;
+	background-color: #4267B2;;
+	border-color: #4267B2;;
 	color: #ffffff;
 	transition: transform .2s;
 	margin-right: 10px;
@@ -1002,8 +1002,8 @@ textarea.form-control {
 .btn-primary:active,
 .btn-primary:focus,
 .btn-primary:hover {
-	background-color: #EB5353;;
-	border-color: #EB5353;
+	background-color: #4267B2;;
+	border-color: #4267B2;
 }
 
 .btn-secondary {
@@ -1055,14 +1055,14 @@ textarea.form-control {
 .btn-danger:active,
 .btn-danger:focus,
 .btn-danger:hover {
-	background-color: #F44336;
-	border-color: #F44336
+	background-color: #4267B2;
+	border-color: #4267B2
 }
 
 .btn-warning {
 	background-color: #FFC107;
 	border-color: #FFC107;
-	color: #EB5353
+	color: #4267B2
 }
 
 .btn-warning:active,
@@ -1088,7 +1088,7 @@ textarea.form-control {
 .btn-light {
 	background-color: #f8f9fa;
 	border-color: #f8f9fa;
-	color: #EB5353
+	color: #4267B2
 }
 
 .btn-light:active,
@@ -1114,7 +1114,7 @@ textarea.form-control {
 .btn-white {
 	background-color: #ffffff;
 	border-color: #ffffff;
-	color: #EB5353;
+	color: #4267B2;
 	-webkit-box-shadow: 11px 10px 38px 0 rgba(46, 63, 99, 0.15);
 	box-shadow: 11px 10px 38px 0 rgba(46, 63, 99, 0.15)
 }
@@ -1127,16 +1127,16 @@ textarea.form-control {
 }
 
 .btn-heading-color {
-	background-color: #EB5353;
-	border-color: #EB5353;
+	background-color: #4267B2;
+	border-color: #4267B2;
 	color: #ffffff
 }
 
 .btn-heading-color:active,
 .btn-heading-color:focus,
 .btn-heading-color:hover {
-	background-color: #EB5353;
-	border-color: #EB5353
+	background-color: #4267B2;
+	border-color: #4267B2
 }
 
 [class*="btn-outline-"] {
@@ -1144,13 +1144,13 @@ textarea.form-control {
 }
 
 .btn-outline-primary {
-	border-color: #EB5353;;
-	color: #EB5353;
+	border-color: #4267B2;;
+	color: #4267B2;
 }
 
 .btn-outline-primary:hover {
-	background-color: #EB5353;;
-	border-color: #EB5353;;
+	background-color: #4267B2;;
+	border-color: #4267B2;;
 	color: #ffffff
 }
 
@@ -1195,7 +1195,7 @@ textarea.form-control {
 .btn-outline-warning:hover {
 	background-color: #FFC107;
 	border-color: #FFC107;
-	color: #EB5353
+	color: #4267B2
 }
 
 .btn-outline-info {
@@ -1217,7 +1217,7 @@ textarea.form-control {
 .btn-outline-light:hover {
 	background-color: #f8f9fa;
 	border-color: #f8f9fa;
-	color: #EB5353
+	color: #4267B2
 }
 
 .btn-outline-dark {
@@ -1239,23 +1239,23 @@ textarea.form-control {
 .btn-outline-white:hover {
 	background-color: #ffffff;
 	border-color: #ffffff;
-	color: #EB5353
+	color: #4267B2
 }
 
 .btn-outline-heading-color {
-	border-color: #EB5353;
-	color: #EB5353
+	border-color: #4267B2;
+	color: #4267B2
 }
 
 .btn-outline-heading-color:hover {
-	background-color: #EB5353;
-	border-color: #EB5353;
+	background-color: #4267B2;
+	border-color: #4267B2;
 	color: #ffffff
 }
 
 .btn-hover-primary:hover {
-	background-color: #EB5353;;
-	border-color: #EB5353;;
+	background-color: #4267B2;;
+	border-color: #4267B2;;
 	color: #ffffff
 }
 
@@ -1280,7 +1280,7 @@ textarea.form-control {
 .btn-hover-warning:hover {
 	background-color: #FFC107;
 	border-color: #FFC107;
-	color: #EB5353
+	color: #4267B2
 }
 
 .btn-hover-info:hover {
@@ -1292,7 +1292,7 @@ textarea.form-control {
 .btn-hover-light:hover {
 	background-color: #f8f9fa;
 	border-color: #f8f9fa;
-	color: #EB5353
+	color: #4267B2
 }
 
 .btn-hover-dark:hover {
@@ -1304,7 +1304,7 @@ textarea.form-control {
 .btn-hover-white:hover {
 	background-color: #ffffff;
 	border-color: #ffffff;
-	color: #EB5353;
+	color: #4267B2;
 	-webkit-box-shadow: 11px 10px 38px 0 rgba(46, 63, 99, 0.15);
 	box-shadow: 11px 10px 38px 0 rgba(46, 63, 99, 0.15)
 }
@@ -1681,7 +1681,7 @@ textarea.form-control {
 .btn-wikipedia {
 	background-color: #E9E9E9;
 	border-color: #E9E9E9;
-	color: #EB5353
+	color: #4267B2
 }
 
 .btn-wikipedia:hover {
@@ -2010,7 +2010,7 @@ textarea.form-control {
 	margin-top: 10px;
 	font-size: 14px;
 	font-weight: 400;
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .single-comment .comment-content .meta>* {
@@ -2022,7 +2022,7 @@ textarea.form-control {
 }
 
 .single-comment .comment-content .meta a:hover {
-	color: #EB5353
+	color: #4267B2
 }
 
 .comment-form {
@@ -2323,11 +2323,11 @@ only screen and (max-width: 767px) {
 }
 
 .header-menu .main-menu li a.active {
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .header-menu .main-menu li a.active::after {
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .header-menu .main-menu li .menu-icon::after {
@@ -2344,12 +2344,12 @@ only screen and (max-width: 767px) {
 
 .header-menu .main-menu li:hover>.menu-icon,
 .header-menu .main-menu li:hover>a {
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .header-menu .main-menu li:hover>.menu-icon::after,
 .header-menu .main-menu li:hover>a::after {
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .header-menu .main-menu li:hover>.sub-menu {
@@ -2369,7 +2369,7 @@ only screen and (max-width: 767px) {
 	padding: 20px 0;
 	border-radius: 5px;
 	z-index: 99;
-	border-top: 2px solid #EB5353;;
+	border-top: 2px solid #4267B2;;
 	opacity: 0;
 	visibility: hidden;
 	-webkit-transition: all 0.3s linear;
@@ -2398,7 +2398,7 @@ only screen and (max-width: 767px) {
 	left: 0;
 	width: 9px;
 	height: 2px;
-	background-color: #EB5353;;
+	background-color: #4267B2;;
 	opacity: 0;
 	visibility: hidden;
 	-webkit-transition: all 0.3s linear;
@@ -2458,12 +2458,12 @@ only screen and (max-width: 767px) {
 
 .header-menu-02 .main-menu li:hover>.menu-icon,
 .header-menu-02 .main-menu li:hover>a {
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .header-menu-02 .main-menu li:hover>.menu-icon::after,
 .header-menu-02 .main-menu li:hover>a::after {
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .header-menu-02 .sub-menu li a {
@@ -2541,7 +2541,7 @@ only screen and (max-width: 767px) {
 .header-search input {
     padding: 0 20px;
     height: 40px;
-    border: 1px solid #EB5353;
+    border: 1px solid #4267B2;
     font-size: 14px;
     font-weight: 400;
     padding-right: 40px;
@@ -2549,7 +2549,7 @@ only screen and (max-width: 767px) {
 
 .header-search input:focus {
 	outline: none;
-	border-color: #EB5353;
+	border-color: #4267B2;
 }
 
 .header-search input::-webkit-input-placeholder {
@@ -2579,7 +2579,7 @@ only screen and (max-width: 767px) {
     right: 13px;
     color: #fff;
     font-size: 17px;
-    background: #EB5353;
+    background: #4267B2;
 }
 
 .header-search-02 {
@@ -2649,7 +2649,7 @@ only screen and (max-width: 767px) {
 	height: 17px;
 	line-height: 17px;
 	text-align: center;
-	background-color: #EB5353;;
+	background-color: #4267B2;;
 	display: block;
 	font-size: 11px;
 	color: #ffffff;
@@ -2769,13 +2769,13 @@ only screen and (max-width: 767px) {
 .single-cart-item .item-content .title {
 	font-size: 16px;
 	font-weight: 600;
-	color: #EB5353;
+	color: #4267B2;
 	line-height: 1.3
 }
 
 .single-cart-item .item-content .quantity {
 	font-size: 14px;
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .single-cart-item .btn-close {
@@ -2801,13 +2801,13 @@ only screen and (max-width: 767px) {
 .cart-total .label {
 	font-size: 18px;
 	font-weight: 600;
-	color: #EB5353
+	color: #4267B2
 }
 
 .cart-total .value {
 	font-size: 18px;
 	font-weight: 500;
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .cart-btns {
@@ -2829,7 +2829,7 @@ only screen and (max-width: 767px) {
 .header-login .link {
 	font-size: 16px;
 	font-weight: 500;
-	color: #EB5353;
+	color: #4267B2;
 	position: relative;
 	display: block;
 	border: 0;
@@ -2846,12 +2846,12 @@ only screen and (max-width: 767px) {
 	content: '/';
 	font-size: 14px;
 	font-weight: 500;
-	color: #EB5353;
+	color: #4267B2;
 	margin: 0 5px
 }
 
 .header-login .link:hover {
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .header-login-02>* {
@@ -2865,7 +2865,7 @@ only screen and (max-width: 767px) {
 .header-login-02 .link {
 	font-size: 14px;
 	font-weight: 500;
-	color: #EB5353;
+	color: #4267B2;
 	position: relative;
 	display: block
 }
@@ -2875,7 +2875,7 @@ only screen and (max-width: 767px) {
 }
 
 .header-login-02 .link:hover {
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .header-login-03 .link {
@@ -2904,7 +2904,7 @@ only screen and (max-width: 767px) {
 .header-toggle button span {
 	width: 25px;
 	height: 2px;
-	background-color: #EB5353;
+	background-color:#4267B2;
 	margin: 5px 0;
 	display: block
 }
@@ -2923,7 +2923,7 @@ only screen and (max-width: 767px) {
 }
 
 .header-social a:hover {
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .sticky {
@@ -2998,7 +2998,7 @@ only screen and (max-width: 767px) {
 }
 .header-top-info ul li a:hover {
     text-decoration: none;
-    color: #eb5353;
+    color: #4267B2;
 }
 .header-top-wrapper .header-top-info ul li {
     display: inline-block;
@@ -3217,7 +3217,7 @@ only screen and (max-width: 767px) {
 }
 
 .offcanvas-menu .main-menu li a.active {
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .offcanvas-menu .main-menu li .menu-expand {
@@ -3236,7 +3236,7 @@ only screen and (max-width: 767px) {
 	content: '';
 	width: 10px;
 	height: 1px;
-	background-color: #EB5353;
+	background-color: #4267B2;
 	top: 50%;
 	left: 50%;
 	-webkit-transform: translate(-50%, -50%);
@@ -3249,7 +3249,7 @@ only screen and (max-width: 767px) {
 	content: '';
 	width: 1px;
 	height: 10px;
-	background-color: #EB5353;
+	background-color: #4267B2;
 	top: 50%;
 	left: 50%;
 	-webkit-transform: translate(-50%, -50%);
@@ -3261,7 +3261,7 @@ only screen and (max-width: 767px) {
 }
 
 .offcanvas-menu .main-menu li:hover>a {
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .offcanvas-menu .main-menu li ul {
@@ -3324,7 +3324,7 @@ only screen and (max-width: 767px) {
 
 .pg-medical-admission .right
 {
-     background: #eb5353;
+     background: #4267B2;
     padding: 15px;
 }
 
@@ -3456,7 +3456,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 .slider-content .title {
 	font-size: 38px;
 	font-weight: 600;
-	color: #EB5353;
+	color: #4267B2;
 	line-height: 1.25;
 	margin-top: 10px
 }
@@ -3565,7 +3565,7 @@ only screen and (max-width: 575px) {
 }
 
 .slider-form span {
-	color: #EB5353;;
+	color: #4267B2;;
 	display: block;
 	margin-top: 25px
 }
@@ -3575,7 +3575,7 @@ only screen and (max-width: 575px) {
 }
 
 .slider-form span a:hover {
-	color: #EB5353
+	color: #4267B2
 }
 
 .slider-images {
@@ -3835,7 +3835,7 @@ only screen and (max-width: 575px) {
 
 .image-content .image-icon i {
 	border-radius: 50%;
-	background-color: #EB5353;
+	background-color: #4267B2;
 	width: 61px;
 	height: 61px;
 	line-height: 75px;
@@ -4730,7 +4730,7 @@ only screen and (max-width: 767px) {
 }
 
 .counter-section .counter-shape-02 svg .shape-path {
-	fill: #EB5353;
+	fill: #4267B2;
 }
 
 .counter-wrapper {
@@ -4929,7 +4929,7 @@ only screen and (max-width: 767px) {
 }
 
 .single-counter-02 .cont {
-	color: #EB5353;;
+	color: #4267B2;;
 	font-size: 48px;
 	font-weight: 600;
 	line-height: 1
@@ -5099,7 +5099,7 @@ only screen and (max-width: 767px) {
 }
 
 .single-counter-box .cont {
-	color: #EB5353;;
+	color: #4267B2;;
 	font-size: 48px;
 	font-weight: 600;
 	line-height: 1
@@ -5118,7 +5118,7 @@ only screen and (max-width: 767px) {
 }
 
 .single-counter-box p {
-	color: #EB5353
+	color: #4267B2
 }
 
 .courses-wrapper {
@@ -5159,7 +5159,7 @@ only screen and (max-width: 767px) {
 
 .tab-menu .nav li button:hover,
 .tab-menu .nav li button.active {
-	color: #eb232d
+	color: #4267B2
 }
 
 .courses-tab-content {
@@ -5177,7 +5177,7 @@ only screen and (max-width: 767px) {
 	transition: all 0.3s linear;
 	margin-top: 30px;
 	position: relative;
-	border-top: 3px solid #ff4041;
+	border-top: 3px solid #4267B2;
 }
 
 .single-course .courses-image {
@@ -5239,7 +5239,7 @@ only screen and (max-width: 767px) {
     background-color: rgba(59, 188, 167, 0.071);
     font-size: 14px;
     font-weight: 600;
-    color: #EB5353;
+    color: #4267B2;
     padding: 0 15px;
     height: 25px;
     line-height: 25px;
@@ -5249,14 +5249,14 @@ only screen and (max-width: 767px) {
 	background-color: rgba(59, 188, 167, 0.071);
 	font-size: 14px;
 	font-weight: 600;
-	color: #EB5353;;
+	color: #4267B2;;
 	padding: 0 15px;
 	height: 25px;
 	line-height: 25px
 }
 
 .single-course .courses-content .top-meta .tag:hover {
-	background-color: #EB5353;;
+	background-color: #4267B2;;
 	color: #ffffff
 }
 
@@ -5296,7 +5296,7 @@ only screen and (max-width: 767px) {
 	align-items: center;
 	padding: 3px 20px 9px !important;
     border-top: 1px solid #ebebeb;
-    background: #e53939;
+    background: #4267B2;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px),
@@ -5411,21 +5411,21 @@ only screen and (max-width: 767px) {
 	background-color: rgba(59, 188, 167, 0.071);
 	font-size: 14px;
 	font-weight: 600;
-	color: #EB5353;;
+	color:#4267B2;;
 	padding: 0 15px;
 	height: 25px;
 	line-height: 25px
 }
 
 .course-hover .top-meta .tag:hover {
-	background-color: #EB5353;;
+	background-color: #4267B2;;
 	color: #ffffff
 }
 
 .course-hover .top-meta .price .sale-price {
 	font-size: 14px;
 	font-weight: 600;
-	color: #EB5353
+	color: #4267B2
 }
 
 .course-hover .title {
@@ -5480,7 +5480,7 @@ only screen and (max-width: 767px) {
 	left: 0;
 	content: '\f00c';
 	font-family: "FontAwesome";
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .course-hover .courses-btn {
@@ -5528,7 +5528,7 @@ only screen and (max-width: 767px) {
 }
 
 .courses-more p strong {
-	color: #EB5353
+	color: #4267B2
 }
 
 .single-free-course {
@@ -5587,11 +5587,11 @@ only screen and (max-width: 767px) {
 	line-height: 53px;
 	text-align: center;
 	font-size: 18px;
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .single-free-course .course-content .play:hover {
-	background-color: #EB5353;
+	background-color: #4267B2;
 	color: #ffffff
 }
 
@@ -5674,7 +5674,7 @@ only screen and (max-width: 767px) {
 
 .course-top-text p span {
 	font-weight: 500;
-	color: #EB5353
+	color: #4267B2
 }
 
 .course-top-inner {
@@ -5728,7 +5728,7 @@ only screen and (max-width: 767px) {
 }
 
 .course-top-menu .nav li button.active {
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .course-top-action {
@@ -5755,7 +5755,7 @@ only screen and (max-width: 767px) {
 	padding: 0;
 	padding-right: 20px;
 	border: 0;
-	color: #EB5353;
+	color: #4267B2;
 	font-weight: 500;
 	font-size: 15px;
 	background: none
@@ -5765,8 +5765,8 @@ only screen and (max-width: 767px) {
 	right: 0;
 	width: 8px;
 	height: 8px;
-	border-bottom: 1px solid #EB5353;
-	border-right: 1px solid #EB5353;
+	border-bottom: 1px solid #4267B2;
+	border-right: 1px solid #4267B2;
 	margin-top: -6px
 }
 
@@ -5786,7 +5786,7 @@ only screen and (max-width: 767px) {
 	height: 40px;
 	line-height: 40px;
 	padding: 0 25px;
-	background-color: #EB5353;
+	background-color: #4267B2;
 	color: #ffffff
 }
 
@@ -5795,11 +5795,11 @@ only screen and (max-width: 767px) {
 }
 
 .course-collapse-btn .btn.collapsed {
-	background-color: #EB5353;
+	background-color: #4267B2;
 }
 
 .course-collapse-btn .btn:hover {
-	background-color: #EB5353
+	background-color: #4267B2
 }
 
 .single-course-list {
@@ -5888,21 +5888,21 @@ only screen and (max-width: 767px) {
 	background-color: rgba(59, 188, 167, 0.071);
 	font-size: 14px;
 	font-weight: 600;
-	color: #EB5353;;
+	color: #4267B2;;
 	padding: 0 15px;
 	height: 25px;
 	line-height: 25px
 }
 
 .single-course-list .course-content .top-meta .tag:hover {
-	background-color: #EB5353;;
+	background-color: #4267B2;;
 	color: #ffffff
 }
 
 .single-course-list .course-content .top-meta .price .sale-price {
 	font-size: 14px;
 	font-weight: 600;
-	color: #EB5353
+	color: #4267B2
 }
 
 .single-course-list .course-content .title {
@@ -6201,7 +6201,7 @@ only screen and (max-width: 767px) {
 
 .single-category .category-content .category-link {
 	border-radius: 50%;
-	background-color: #EB5353;;
+	background-color: #4267B2;;
 	width: 42px;
 	height: 42px;
 	line-height: 42px;
@@ -6332,7 +6332,7 @@ only screen and (max-width: 767px) {
 .box-content .title {
 	font-size: 18px;
     font-weight: 600;
-    color: #e20712;
+    color: #4267B2;
 }
 
 .feature-category-active {
@@ -6367,7 +6367,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 
 .feature-section {
-    background-color: #eb5353;
+    background-color: #4267B2;
     padding-top: 5px;
     padding-bottom: 30px;s
 }
@@ -6423,7 +6423,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 
 .feature-section-02 .feature-shape-01 {
-	border: 1px solid #EB5353;;
+	border: 1px solid #4267B2;;
 	border-radius: 50%;
 	width: 1086px;
 	height: 1086px;
@@ -6439,7 +6439,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 	content: '';
 	width: 100%;
 	height: 100%;
-	border: 1px solid #EB5353;;
+	border: 1px solid #4267B2;;
 	border-radius: 50%;
 	-webkit-transform: scale(0.86);
 	-ms-transform: scale(0.86);
@@ -6472,7 +6472,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 .single-feature-02 .feature-content .title {
 	font-size: 20px;
 	font-weight: 500;
-	color: #EB5353
+	color: #4267B2
 }
 
 .single-feature-02 .feature-content p {
@@ -6532,7 +6532,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     -webkit-transition: all 0.3s linear;
     -o-transition: all 0.3s linear;
     transition: all 0.3s linear;
-    border: 2px solid #eb5353;
+    border: 2px solid #4267B2;
 }
 
 .single-category-items {
@@ -6543,7 +6543,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
     display: block;
     height: 40px;
     line-height: 20px;
-    background-color: #eb5353;
+    background-color: #4267B2;
     position: relative;
     padding-left: 15px;
     border-radius: 5px;
@@ -6553,7 +6553,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 }
 
 .current{
-	background: #EB5353 !important;
+	background: #4267B2 !important;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px),
@@ -6634,10 +6634,10 @@ only screen and (max-width: 767px) {
 }
 
 .single-category-item a:hover {
-	background-color: #EB5353
+	background-color: #4267B2
 }
 .single-category-items a:hover {
-    background-color: #EB5353;
+    background-color: #4267B2;
 }
 
 .single-category-item a:hover .title {
@@ -6649,7 +6649,7 @@ only screen and (max-width: 767px) {
 }
 
 .single-category-item.category-white a:hover {
-	background-color: #EB5353
+	background-color: #4267B2
 }
 
 .testimonial-wrapper {
@@ -6714,7 +6714,7 @@ only screen and (max-width: 767px) {
     top: 23px;
     right: 3px;
     border-radius: 50%;
-    background-color: #EB5353;;
+    background-color: #4267B2;;
     width: 45px;
     height: 45px;
     line-height: 50px;
@@ -6784,7 +6784,7 @@ only screen and (max-width: 767px) {
 	font-size: 24px;
 	font-weight: 500;
 	line-height: 1.66;
-	color: #EB5353
+	color: #4267B2
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -6962,7 +6962,7 @@ only screen and (max-width: 575px) {
 
 .testimonial-content-03 .testimonial-quote {
 	border-radius: 50%;
-	background-color: #EB5353;;
+	background-color: #4267B2;;
 	width: 80px;
 	height: 80px;
 	line-height: 90px;
@@ -6989,7 +6989,7 @@ only screen and (max-width: 767px) {
 .testimonial-content-03>p {
 	font-size: 30px;
 	font-weight: 600;
-	color: #EB5353;
+	color: #4267B2;
 	line-height: 1.4;
 	margin-top: 30px
 }
@@ -7114,7 +7114,7 @@ only screen and (max-width: 767px) {
 }
 
 .testimonial-counter .testimonial-counter-shape-03 {
-	border: 1px solid #EB5353;;
+	border: 1px solid #4267B2;;
 	border-radius: 50%;
 	width: 1286px;
 	height: 1286px;
@@ -7130,7 +7130,7 @@ only screen and (max-width: 767px) {
 	content: '';
 	width: 100%;
 	height: 100%;
-	border: 1px solid #EB5353;;
+	border: 1px solid #4267B2;;
 	border-radius: 50%;
 	-webkit-transform: scale(0.86);
 	-ms-transform: scale(0.86);
@@ -7217,7 +7217,7 @@ only screen and (max-width: 767px) {
 }
 
 .testimonial-content-05 .testimonial-quote {
-	color: #EB5353;;
+	color: #4267B2;;
 	font-size: 42px;
 	line-height: 1.1
 }
@@ -7237,7 +7237,7 @@ only screen and (max-width: 767px) {
 .testimonial-content-05>p {
 	font-size: 22px;
 	font-weight: 600;
-	color: #EB5353;
+	color: #4267B2;
 	line-height: 1.8;
 	margin-top: 20px
 }
@@ -7610,7 +7610,7 @@ only screen and (max-width: 767px) {
 .brand-title {
 	font-size: 24px;
 	font-weight: 400;
-	color: #EB5353;
+	color: #4267B2;
 	margin-top: -7px
 }
 
@@ -7622,7 +7622,7 @@ only screen and (max-width: 767px) {
 
 .brand-title span {
 	font-weight: 500;
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .brand-active {
@@ -7665,7 +7665,7 @@ only screen and (max-width: 767px) {
 	padding: 0 25px;
 	height: 30px;
 	line-height: 30px;
-	background-color: #EB5353;;
+	background-color: #4267B2;;
 	font-weight: 500;
 	font-size: 14px;
 	color: #ffffff;
@@ -7713,7 +7713,7 @@ only screen and (max-width: 767px) {
 }
 
 .single-blog .blog-content .meta .date {
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .single-blog .blog-content .meta .author {
@@ -7832,7 +7832,7 @@ only screen and (max-width: 575px) {
 }
 
 .call-to-action-wrapper {
-	background-color: #EB5353;;
+	background-color: #4267B2;;
 	padding: 30px 110px;
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -7995,7 +7995,7 @@ only screen and (max-width: 767px) {
 }
 
 .call-to-action-bg .call-to-action-shape-01 svg .shape-path {
-	fill: #EB5353;
+	fill: #4267B2;
 }
 
 .call-to-action-bg .call-to-action-shape-02 {
@@ -8049,7 +8049,7 @@ only screen and (max-width: 767px) {
 	left: 0;
 	content: '\f00c';
 	font-family: "FontAwesome";
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .call-to-action-content-02 .btn {
@@ -8235,7 +8235,7 @@ only screen and (max-width: 767px) {
 .call-to-action-content-04 .sub-title {
 	font-size: 14px;
 	font-weight: 600;
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .call-to-action-content-04 .title {
@@ -8483,7 +8483,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 
 .newsletter-section {
-	background-color: #EB5353;;
+	background-color: #4267B2;;
 	padding-top: 50px;
 	padding-bottom: 100px;
 	position: relative;
@@ -8604,7 +8604,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 .newsletter-form .btn {
 	position: absolute;
 	height: 65px;
-	background-color: #EB5353;
+	background-color: #4267B2;
 	color: #ffffff;
 	top: 0;
 	right: 0;
@@ -8661,13 +8661,13 @@ only screen and (max-width: 767px) {
 .single-banner .banner-content .sub-title {
 	font-size: 14px;
 	font-weight: 500;
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .single-banner .banner-content .title {
 	font-size: 26px;
 	font-weight: 500;
-	color: #EB5353;
+	color: #4267B2;
 	line-height: 1.3
 }
 
@@ -8871,7 +8871,7 @@ only screen and (max-width: 767px) {
 }
 
 .single-event .event-content .date {
-	color: #EB5353;;
+	color: #4267B2;;
 	font-family: "Heebo", sans-serif;
 	font-weight: 500;
 	font-size: 14px
@@ -9153,7 +9153,7 @@ only screen and (max-width: 767px) {
 	font-family: "FontAwesome";
 	top: 0;
 	left: 0;
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .about-content .play {
@@ -9166,12 +9166,12 @@ only screen and (max-width: 767px) {
 	line-height: 65px;
 	border-radius: 50%;
 	text-align: center;
-	background-color: #EB5353;;
+	background-color: #4267B2;;
 	color: #ffffff
 }
 
 .about-content .play span {
-	color: #EB5353;
+	color: #4267B2;
 	font-size: 18px;
 	font-weight: 600;
 	margin-left: 10px
@@ -9572,11 +9572,11 @@ only screen and (max-width: 767px) {
 }
 
 .page-banner-content .breadcrumb .breadcrumb-item::before {
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .page-banner-content .breadcrumb .breadcrumb-item.active {
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .instructor-wrapper {
@@ -9673,7 +9673,7 @@ only screen and (max-width: 767px) {
 	padding: 0 25px;
 	height: 30px;
 	line-height: 30px;
-	background-color: #EB5353;;
+	background-color: #4267B2;;
 	font-weight: 500;
 	font-size: 14px;
 	color: #ffffff;
@@ -9725,7 +9725,7 @@ only screen and (max-width: 767px) {
 }
 
 .blog-details-content .meta .date {
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .blog-details-content .meta .author {
@@ -9744,7 +9744,7 @@ only screen and (max-width: 767px) {
 .blog-details-content .title {
 	font-size: 24px;
 	font-weight: 500;
-	color: #EB5353;
+	color: #4267B2;
 	line-height: 1.4;
 	margin-top: 10px
 }
@@ -9782,7 +9782,7 @@ only screen and (max-width: 575px) {
 }
 
 .blog-details-content .blockquote .blockquote-icon svg {
-	fill: #EB5353;;
+	fill: #4267B2;;
 	width: 50px
 }
 
@@ -9797,7 +9797,7 @@ only screen and (max-width: 575px) {
 .blog-details-content .blockquote .blockquote-content p {
 	font-size: 20px;
 	font-weight: 500;
-	color: #EB5353;
+	color: #4267B2;
 	line-height: 1.4
 }
 
@@ -9847,7 +9847,7 @@ only screen and (max-width: 575px) {
 .blog-tags-social .blog-tags .label {
     font-size: 18px;
     font-weight: 800;
-    color: #EB5353;
+    color: #4267B2;
     padding-right: 6px;
 }
 
@@ -9865,7 +9865,7 @@ only screen and (max-width: 575px) {
 .blog-tags-social .blog-tags ul li a {
 	font-size: 14px;
 	font-weight: 400;
-	color: #EB5353;
+	color: #4267B2;
 	padding: 0 13px;
 	height: 28px;
 	line-height: 28px;
@@ -9875,7 +9875,7 @@ only screen and (max-width: 575px) {
 }
 
 .blog-tags-social .blog-tags ul li a:hover {
-	background-color: #EB5353;;
+	background-color: #4267B2;;
 	color: #ffffff
 }
 
@@ -10014,7 +10014,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 
 .blog-details-pagination .blog-details-post .details-post-thumb a i {
 	font-size: 20px;
-	color: #EB5353;
+	color: #4267B2;
 	padding: 0 10px
 }
 
@@ -10056,7 +10056,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 
 .blog-details-pagination .blog-details-post .details-post-content .date {
-	color: #EB5353;;
+	color: #4267B2;;
 	font-size: 13px;
 	margin-top: 5px;
 	display: block
@@ -10089,7 +10089,7 @@ only screen and (min-width: 1200px) and (max-width: 1499px) {
 .pricing-btn li button {
     width: 160px;
     height: 40px;
-    border: 1px solid #EB5353;;
+    border: 1px solid #4267B2;;
     font-size: 18px;
     font-weight: 500;
     -webkit-transition: all 0.3s linear;
@@ -10116,7 +10116,7 @@ only screen and (min-width: 1200px) and (max-width: 1499px) {
 }
 
 .pricing-btn li button.active {
-	background-color: #EB5353;;
+	background-color: #4267B2;;
 	color: #ffffff
 }
 
@@ -10149,13 +10149,13 @@ only screen and (max-width: 575px) {
 .single-pricing .pricig-header .title {
 	font-size: 26px;
 	font-weight: 600;
-	color: #EB5353
+	color: #4267B2
 }
 
 .single-pricing .pricig-header p {
 	font-size: 18px;
 	font-weight: 600;
-	color: #EB5353;
+	color: #4267B2;
 	line-height: 1.2
 }
 
@@ -10195,14 +10195,14 @@ only screen and (max-width: 575px) {
 }
 
 .single-pricing.active {
-    background-color: #EB5353;;
+    background-color: #4267B2;;
     border-radius: 10px;
     padding: 50px 30px;
     margin-top: 0px;
 }
 
 .single-pricing.active1 {
-    background-color: #EB5353;
+    background-color: #4267B2;
     border-radius: 10px;
     padding: 50px 30px;
     margin-top: 0px;
@@ -10279,7 +10279,7 @@ only screen and (max-width: 767px) {
 	font-size: 22px;
 	line-height: 1.4;
 	font-weight: 500;
-	color: #EB5353;
+	color: #4267B2;
 	padding: 0
 }
 
@@ -10336,7 +10336,7 @@ only screen and (max-width: 767px) {
 .single-contact-info .info-icon i {
 	font-size: 55px;
 	line-height: 1;
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .single-contact-info .info-content {
@@ -10421,7 +10421,7 @@ only screen and (max-width: 767px) {
 .course-details-banner-content .title {
 	font-size: 24px;
 	font-weight: 600;
-	color: #EB5353;
+	color: #4267B2;
 	margin-top: 15px
 }
 
@@ -10487,12 +10487,12 @@ only screen and (max-width: 767px) {
 .course-details-banner-content .course-details-meta .label {
 	font-size: 14px;
 	font-weight: 500;
-	color: #EB5353;
+	color: #4267B2;
 	white-space: nowrap
 }
 
 .course-details-banner-content .course-details-meta .label span {
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .course-details-banner-content .course-details-meta .meta-action {
@@ -10538,7 +10538,7 @@ only screen and (max-width: 767px) {
 .course-details-banner-content .course-details-meta .meta-action .meta-name .name {
 	font-size: 15px;
 	font-weight: 500;
-	color: #EB5353;
+	color: #4267B2;
 	white-space: nowrap
 }
 
@@ -10606,7 +10606,7 @@ only screen and (max-width: 767px) {
 	left: 10px;
 	content: '\f00c';
 	font-family: "FontAwesome";
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .course-details-wrapper .course-lessons {
@@ -10663,7 +10663,7 @@ only screen and (max-width: 767px) {
 .course-accordion .accordion-item button {
 	font-size: 16px;
 	font-weight: 500;
-	color: #EB5353;
+	color: #4267B2;
 	width: 100%;
 	text-align: left;
 	padding: 10px 20px;
@@ -10856,7 +10856,7 @@ only screen and (max-width: 767px) {
 	display: block;
 	font-size: 48px;
 	font-weight: 500;
-	color: #EB5353;
+	color: #4267B2;
 	line-height: 1
 }
 
@@ -11626,16 +11626,16 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 	content: '\f105 ';
 	font-family: "FontAwesome";
 	font-size: 14px;
-	color: #EB5353;;
+	color: #4267B2;;
 	margin-right: 10px
 }
 
 .sidebar-widget .widget-sidebar-link ul li a:hover {
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .sidebar-widget .widget-sidebar-link ul li a:hover span {
-	background-color: #EB5353;;
+	background-color: #4267B2;;
 	color: #ffffff
 }
 
@@ -11671,7 +11671,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 
 .sidebar-widget .widget-tags ul li a:hover {
-	background-color: #EB5353;;
+	background-color: #4267B2;;
 	color: #ffffff
 }
 
@@ -11728,7 +11728,7 @@ only screen and (min-width: 768px) and (max-width: 991px) {
 }
 
 .single-mini-post .mini-post-content .date {
-	color: #EB5353;;
+	color: #4267B2;;
 	font-size: 13px;
 	margin-top: 5px;
 	display: block
@@ -11873,14 +11873,14 @@ only screen and (max-width: 767px) {
 	background-color: #ffffff;
 	border-radius: 50%;
 	font-size: 14px;
-	color: #EB5353;
+	color: #4267B2;
 	text-align: center;
 	z-index: 2
 }
 
 .sidebar-details-video-description .sidebar-video .play:hover {
 	color: #ffffff;
-	background-color: #EB5353;
+	background-color: #4267B2;
 }
 
 .sidebar-details-video-description .sidebar-description {
@@ -11902,13 +11902,13 @@ only screen and (max-width: 575px) {
 .sidebar-details-video-description .sidebar-description .price .sale-price {
 	font-size: 24px;
 	font-weight: 500;
-	color: #EB5353
+	color: #4267B2
 }
 
 .sidebar-details-video-description .sidebar-description .price .regular-price {
 	font-size: 16px;
 	font-weight: 400;
-	color: #EB5353;;
+	color:#4267B2;;
 	text-decoration: line-through;
 	margin-left: 10px
 }
@@ -12017,7 +12017,7 @@ only screen and (max-width: 575px) {
 
 .sidebar-course-item .item-content .price strong {
 	font-weight: 500;
-	color: #EB5353;;
+	color: #4267B2;;
 	font-size: 16px
 }
 
@@ -12064,7 +12064,7 @@ only screen and (max-width: 575px) {
 }
 
 .widget-info p i {
-	color: #e72627;
+	color: #4267B2;
 	margin-right: 10px;
 	line-height: 28px;
 	display: inline-block
@@ -12097,14 +12097,14 @@ only screen and (max-width: 575px) {
 }
 
 .widget-info .social li a:hover {
-	background-color: #EB5353;;
-	border-color: #EB5353;;
+	background-color: #4267B2;;
+	border-color: #4267B2;;
 	color: #ffffff
 }
 
 .widget-info .social-white li a {
-	color: #EB5353;;
-	border-color: #EB5353;
+	color: #4267B2;;
+	border-color: #4267B2;
 }
 
 .widget-info .social-white li a:hover {
@@ -12130,7 +12130,7 @@ only screen and (max-width: 575px) {
 }
 
 .widget-link .link li a:hover {
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .widget-link-white .link li a {
@@ -12138,7 +12138,7 @@ only screen and (max-width: 575px) {
 }
 
 .widget-link-white .link li a:hover {
-	color: #EB5353;
+	color: #4267B2;
 }
 
 .footer-section-04 .footer-widget-wrapper {
@@ -12223,7 +12223,7 @@ only screen and (max-width: 575px) {
 } */
 
 .footer-section-02 {
-	background-color: #EB5353
+	background-color: #4267B2
 }
 
 .footer-section-03 {
@@ -12262,7 +12262,7 @@ only screen and (max-width: 575px) {
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-	background-color: #EB5353;;
+	background-color: #4267B2;;
 	border: 0;
 	-webkit-transition: all 0.3s linear;
 	-o-transition: all 0.3s linear;
@@ -12273,7 +12273,7 @@ only screen and (max-width: 575px) {
 }
 
 .back-btn:hover {
-	background-color: #EB5353;
+	background-color: #4267B2;
 	color: #ffffff;
 	-webkit-box-shadow: 0px 0px 16px 0px rgba(255, 255, 255, 0.07);
 	box-shadow: 0px 0px 16px 0px rgba(255, 255, 255, 0.07)
@@ -12307,7 +12307,7 @@ only screen and (max-width: 575px) {
     padding: 10px 8px 10px 7px;
 }
 .custom-link.active {
-    background: #b70000;
+    background: #19a752;
     text-underline-offset: 5px;
 }
 .custom-link a:hover{
@@ -12360,13 +12360,13 @@ ul.footer-nav-menu li:after {
     padding-left: 8px;
 }
 .copyright a{
-	color: #eb5353;
+	color: #4267B2;
 }
 .footer-nav-menu a{
 	color: #fff;
 }
 .footer-nav-menu a:hover{
-	color: #eb5353;
+	color:#4267B2;
 }
 .whatsp {
     position: fixed;
@@ -12483,7 +12483,7 @@ ul.footer-nav-menu li:after {
     -webkit-transition: all 0.3s linear;
     -o-transition: all 0.3s linear;
     transition: all 0.3s linear;
-    background-color: #eb5353;
+    background-color: #4267B2;
     text-align: center;
     margin-bottom: 30px;
 	margin-right: 10px;
@@ -12512,7 +12512,7 @@ ul.footer-nav-menu li:after {
     opacity: 1;
     right: -5px;
     position: absolute;
-    background: #EB5353;
+    background: #4267B2;
     color: #fff;
     border: 0;
     font-size: 15px;
@@ -12532,7 +12532,7 @@ ul.footer-nav-menu li:after {
 }
 
 .login-register-form a{
-    color:#eb5353;
+    color:#4267B2;
 }
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
     background-color: #e4e4e4;
@@ -12548,7 +12548,7 @@ ul.footer-nav-menu li:after {
     padding: 0 3px;
 }
 .bg-base-dark {
-    background-color: #EB5353;
+    background-color: #4267B2;
 }
 .registration {
     padding: 20px 25px;
@@ -12822,10 +12822,10 @@ border-radius:30px;
 		width: 100%;
 	}
 	.subNav ul .active:after, .subNav ul .selected a:after, .subNav ul a:hover:after {
-		background: #eb5353;
+		background: #4267B2;
 	}
 	.subNav ul .active, .subNav ul a:hover {
-		color: #eb5353;
+		color: #4267B2;
 	}
 	.subNav ul a {
 		color: #000;
@@ -13081,7 +13081,7 @@ only screen and (max-width: 575px) {
 }
 
 .search-form span {
-	color: #EB5353;;
+	color: #4267B2;;
 	display: block;
 	margin-top: 25px
 }
@@ -13091,11 +13091,25 @@ only screen and (max-width: 575px) {
 }
 
 .search-form span a:hover {
-	color: #EB5353
+	color: #4267B2
 }
 .payment-card{
 		background: #ffffff;
 		box-shadow: 0px 6px 34px rgba(215, 216, 222, 0.41);
 		padding: 30px;
 		border-radius: 6px;
+}
+.table thead{
+	background: #4267B2;
+}
+
+.nav-link.active {
+    color: #fff;
+    border-color: #4267B2;
+    background: #4267B2;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+	color: black;
 }
