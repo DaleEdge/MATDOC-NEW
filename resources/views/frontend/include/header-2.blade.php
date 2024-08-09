@@ -150,7 +150,7 @@
                             <a href="#" class="custom-link">Universities</a>
                             </li>
                             <li class="nav-item">
-                            <a href="#" class="custom-link">Institutes</a>
+                            <a href="{{ route('college_list') }}" class="custom-link">Institutes</a>
                             </li>
                             <li class="nav-item">
                             <a href="{{ route('course') }}" class="custom-link">Courses</a>
@@ -196,7 +196,7 @@
                             <a href="#" class="custom-link">Universities</a>
                             </li>
                             <li class="nav-item">
-                            <a href="#" class="custom-link">Institutes</a>
+                            <a href="{{ route('college_list') }}" class="custom-link">Institutes</a>
                             </li>
                             <li class="nav-item">
                             <a href="{{ route('course') }}" class="custom-link">Courses</a>

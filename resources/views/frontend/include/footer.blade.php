@@ -45,9 +45,9 @@
                     <div class="footer-widget">
                         <h4 class="footer-widget-title">Contact Us</h4>
                         <div class="widget-info">
-                            <p><i class="flaticon-phone-call"></i> <a href="tel:+91-6369149396">+91-6369149396</a>, <a href="tel:+91-8015958614">+91-8015958614</a></p>
+                            <p><i class="flaticon-phone-call"></i> <a href="tel:+91-6369149396" style="color:#c3bfbf">+91-6369149396</a>, <a href="tel:+91-8015958614" style="color:#c3bfbf">+91-8015958614</a></p>
                             <p><i class="flaticon-placeholder"></i> <a
-                                    href="mailto:info@matdoc.in">info@matdoc.in</a></p>
+                                    href="mailto:info@matdoc.in" style="color:#c3bfbf">info@matdoc.in</a></p>
                             <p><i class="flaticon-open-mail"></i> <span>639, Veeravanji St Vandiyur Madurai TamilNadu (625020)</span>
                             </p>
                             <ul class="social">
