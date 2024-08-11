@@ -46,7 +46,7 @@
                                  <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id))   href="{{route('subscription_plans')}}"  @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Uttarakhands')"  @endif    class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Uttarakhand</a></li>
                                  <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id))   href="{{route('subscription_plans')}}"  @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('West Bengals')"  @endif    class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif West Bengal</a></li>
 
-                                 <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id))   href="{{route('subscription_plans')}}"  @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Tamil_nadus')"  @endif    class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Tamilnadu</a></li>
+                                 <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id))   href="{{route('subscription_plans')}}"  @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Tamilnadu')"  @endif    class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Tamilnadu</a></li>
                               </ul>
                            </div>
                         </div>
@@ -64,7 +64,7 @@
       @endsection
       @section('script')
 <script>
-   fetch_data('tamil_nadus')
+   fetch_data('tamilnadu')
    $(function () {
         $('.nav li a').click(function (e) {
             $('.nav li a').removeClass('active');

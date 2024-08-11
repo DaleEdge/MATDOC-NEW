@@ -2302,7 +2302,7 @@ class FrontController extends Controller
         $list = DB::table($state)->take(1)->get();
         if ($request->ajax()) {
             $state = $request->state;
-            $list = DB::table('allotments_' . str_replace(' ', '_', strtolower($state)))->get();
+            $list = DB::table('alt_' . str_replace(' ', '_', strtolower($state)))->take(100)->get();
             return view('ug.frontend.pages.home_table', compact('state', 'list'));
         }
         return view('ug.frontend.pages.home', compact('state', 'list'));
