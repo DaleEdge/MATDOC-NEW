@@ -54,27 +54,27 @@ class FrontController extends Controller
     public function subscription_plans_pay(Request $request)
     {
         Payment::create([
-            'user_id'=>$request->user_id,
-            'payment_id'=>rand(11111,99999),
-            'payment_amount'=>$request->packages,
-            'method'=>'upi',
-            'currency'=>'INR',
-            'plan_name'=>'Plan of '.$request->packages,
-            'plan_status'=>'pending',
+            'user_id' => $request->user_id,
+            'payment_id' => rand(11111, 99999),
+            'payment_amount' => $request->packages,
+            'method' => 'upi',
+            'currency' => 'INR',
+            'plan_name' => 'Plan of ' . $request->packages,
+            'plan_status' => 'pending',
         ]);
-        
+
         return view('frontend.pages.subscription-plans-pay');
     }
 
     public function deemed_fees()
     {
-        $list =  DB::table('new_deemds')->get();
+        $list = DB::table('new_deemds')->get();
         return view('frontend.pages.deemed_fees', compact('list'));
     }
 
     public function deemed_details()
     {
-        $list =  DB::table('deemed_details')->get();
+        $list = DB::table('deemed_details')->get();
         return view('frontend.pages.deemed_details', compact('list'));
     }
 
@@ -98,7 +98,7 @@ class FrontController extends Controller
 
         $state = $request->state;
         $counseling_type = $request->counseling_type;
-        $list =  DB::table($state)->where('counseling_type', $counseling_type)->orderBy('id');
+        $list = DB::table($state)->where('counseling_type', $counseling_type)->orderBy('id');
         $college = DB::table($state)->groupBy('college')->get();
         $course = DB::table($state)->groupBy('course')->get();
         $quota = DB::table($state)->groupBy('quota')->get();
@@ -107,11 +107,11 @@ class FrontController extends Controller
         if ($state == 'goas') {
             $round = 1;
         }
-        if ($state == 'bihars' || $state == 'rajasthans'  || $state == 'manipurs'   || $state == 'tripuras' || $state == 'meghalayas') {
+        if ($state == 'bihars' || $state == 'rajasthans' || $state == 'manipurs' || $state == 'tripuras' || $state == 'meghalayas') {
             $round = 2;
         }
 
-        if ($state == 'chhattisgarhs' || $state == 'uttarakhands' || $state == 'chandigarhs' || $state == 'odishas'  ||  $state == 'karnatakas' || $state == 'gujarats'  || $state == 'jammu_and_kashmirs'   || $state == 'keralas' || $state == 'madhya_pradeshes' || $state == 'pondicherries' || $state == 'assams' || $state == 'punjabs'   || $state == 'tamil_nadus' || $state == 'telanganas' || $state == 'himachal_pradeshes') {
+        if ($state == 'chhattisgarhs' || $state == 'uttarakhands' || $state == 'chandigarhs' || $state == 'odishas' || $state == 'karnatakas' || $state == 'gujarats' || $state == 'jammu_and_kashmirs' || $state == 'keralas' || $state == 'madhya_pradeshes' || $state == 'pondicherries' || $state == 'assams' || $state == 'punjabs' || $state == 'tamil_nadus' || $state == 'telanganas' || $state == 'himachal_pradeshes') {
 
             $round = 3;
         }
@@ -247,7 +247,7 @@ class FrontController extends Controller
 
     public function send_otp_sms($to, $name, $text)
     {
-          Msg91::sms()->to('91'.$to)->flow('64a6b9d1d6fc057c15503ab2')->variable('business_name', 'MatDoc')->variable('otp', $text)->send();
+        Msg91::sms()->to('91' . $to)->flow('64a6b9d1d6fc057c15503ab2')->variable('business_name', 'MatDoc')->variable('otp', $text)->send();
     }
 
     public function otp_send(Request $request)
@@ -278,7 +278,8 @@ class FrontController extends Controller
         if ($request->phone != '' && preg_match($mobileregex, $request->phone) === 1) {
             $customer = User::where('phone', $request->phone)->count();
             if ($customer == 1) {
-                $mob_otp = rand(1000, 9999);;
+                $mob_otp = rand(1000, 9999);
+                ;
                 Session::forget('mob_otp');
                 Session::put('mob_otp', [$mob_otp]);
 
@@ -309,7 +310,7 @@ class FrontController extends Controller
 
 
 
-        $validator =  Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'phone' => 'required|exists:users'
         ]);
 
@@ -354,12 +355,12 @@ class FrontController extends Controller
     public function register_user(Request $request)
     {
 
-        $validator =  Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'unique:users'],
             'password' => ['required'],
-            'exam_type'=>'required',
-            'score'=>'required',
+            'exam_type' => 'required',
+            'score' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -395,7 +396,8 @@ class FrontController extends Controller
         $otp = Session::get('mob_otp');
         if ($request->check_otp == $otp[0]) {
             $user = User::where('phone', $request->phone)->first();
-            $user->password = Hash::make($request->password);;
+            $user->password = Hash::make($request->password);
+            ;
             $user->save();
         }
         Session::flash('success', 'Password Reset Successfully !');
@@ -466,7 +468,7 @@ class FrontController extends Controller
     {
         $state = $request->state;
         //  $counseling_type=$request->counseling_type;
-        $list =  DB::table($state)->where('year', 2023)->orderBy('id');
+        $list = DB::table($state)->where('year', 2023)->orderBy('id');
         $college = DB::table($state)->where('year', 2023)->groupBy('college')->get();
         $course = DB::table($state)->where('year', 2023)->groupBy('course')->get();
         $quota = DB::table($state)->where('year', 2023)->groupBy('quota')->get();
@@ -475,30 +477,30 @@ class FrontController extends Controller
 
         if ($request->type == 'all') {
             $quota = DB::table($state)->whereIn('quota', ['AIQ', 'AMU', 'BHU', 'CIQ', 'DU', 'IP'])->groupBy('quota')->get();
-            $list =  DB::table($state)->whereIn('quota', ['AIQ', 'AMU', 'BHU', 'CIQ', 'DU', 'IP'])->groupBy('college')->orderBy('id');
+            $list = DB::table($state)->whereIn('quota', ['AIQ', 'AMU', 'BHU', 'CIQ', 'DU', 'IP'])->groupBy('college')->orderBy('id');
         }
         if ($request->type == 'deemed') {
             $quota = DB::table($state)->whereIn('quota', ['MNG', 'NRI', 'JM', 'MM'])->groupBy('quota')->get();
-            $list =  DB::table($state)->whereIn('quota', ['MNG', 'NRI', 'JM', 'MM'])->groupBy('college')->orderBy('id');
+            $list = DB::table($state)->whereIn('quota', ['MNG', 'NRI', 'JM', 'MM'])->groupBy('college')->orderBy('id');
         }
         if ($request->type == 'dnb') {
             $quota = DB::table($state)->whereIn('quota', ['DNB Post MBBS'])->groupBy('quota')->get();
-            $list =  DB::table($state)->whereIn('quota', ['DNB Post MBBS'])->groupBy('college')->orderBy('id');
+            $list = DB::table($state)->whereIn('quota', ['DNB Post MBBS'])->groupBy('college')->orderBy('id');
         }
         if ($request->type == 'nbe') {
             $quota = DB::table($state)->whereIn('quota', ['NBE Diploma'])->groupBy('quota')->get();
-            $list =  DB::table($state)->whereIn('quota', ['NBE Diploma'])->groupBy('college')->orderBy('id');
+            $list = DB::table($state)->whereIn('quota', ['NBE Diploma'])->groupBy('college')->orderBy('id');
         }
 
 
         if ($state == 'goas') {
             $round = 1;
         }
-        if ($state == 'bihars' || $state == 'rajasthans'  || $state == 'manipurs'   || $state == 'tripuras' || $state == 'meghalayas') {
+        if ($state == 'bihars' || $state == 'rajasthans' || $state == 'manipurs' || $state == 'tripuras' || $state == 'meghalayas') {
             $round = 2;
         }
 
-        if ($state == 'chhattisgarhs' || $state == 'uttarakhands' || $state == 'chandigarhs' || $state == 'odishas'  ||  $state == 'karnatakas' || $state == 'gujarats'  || $state == 'jammu_and_kashmirs'   || $state == 'keralas' || $state == 'madhya_pradeshes' || $state == 'pondicherries' || $state == 'assams' || $state == 'punjabs'   || $state == 'tamil_nadus' || $state == 'telanganas' || $state == 'himachal_pradeshes') {
+        if ($state == 'chhattisgarhs' || $state == 'uttarakhands' || $state == 'chandigarhs' || $state == 'odishas' || $state == 'karnatakas' || $state == 'gujarats' || $state == 'jammu_and_kashmirs' || $state == 'keralas' || $state == 'madhya_pradeshes' || $state == 'pondicherries' || $state == 'assams' || $state == 'punjabs' || $state == 'tamil_nadus' || $state == 'telanganas' || $state == 'himachal_pradeshes') {
 
             $round = 3;
         }
@@ -579,7 +581,7 @@ class FrontController extends Controller
     {
         $state = $request->state;
         //  $counseling_type=$request->counseling_type;
-        $list =  DB::table($state)->where('year', 2023)->orderBy('id');
+        $list = DB::table($state)->where('year', 2023)->orderBy('id');
         $college = DB::table($state)->where('year', 2023)->groupBy('college')->get();
         $course = DB::table($state)->where('year', 2023)->groupBy('course')->get();
         $quota = DB::table($state)->where('year', 2023)->groupBy('quota')->get();
@@ -593,11 +595,11 @@ class FrontController extends Controller
             $list = $list->where('rank', '!=', "[null,null]");
             $round = 2;
         }
-        if ($state == 'chandigarhs'  || $state == 'haryanas' || $state == 'keralas' || $state == 'madhya_pradeshes' || $state == 'pondicherries' || $state == 'uttarakhands' || $state == 'west_bengals') {
+        if ($state == 'chandigarhs' || $state == 'haryanas' || $state == 'keralas' || $state == 'madhya_pradeshes' || $state == 'pondicherries' || $state == 'uttarakhands' || $state == 'west_bengals') {
             $list = $list->where('rank', '!=', "[null,null,null]");
             $round = 3;
         }
-        if ($state == 'chhattisgarhs'  || $state == 'jharkhands' || $state == 'punjabs') {
+        if ($state == 'chhattisgarhs' || $state == 'jharkhands' || $state == 'punjabs') {
             $list = $list->where('rank', '!=', "[null,null,null,null]");
             $round = 4;
         }
@@ -609,7 +611,7 @@ class FrontController extends Controller
             $list = $list->where('rank', '!=', '["-","-","-","-"]');
             $round = 4;
         }
-        if ($state == 'andhra_pradeshes'  || $state == 'telanganas') {
+        if ($state == 'andhra_pradeshes' || $state == 'telanganas') {
             $list = $list->where('rank', '!=', "[null,null,null,null,null]");
             $round = 5;
         }
@@ -693,7 +695,7 @@ class FrontController extends Controller
     {
         $state = $request->state;
         //  $counseling_type=$request->counseling_type;
-        $list =  DB::table($state)->where('year', 2023)->orderBy('id');
+        $list = DB::table($state)->where('year', 2023)->orderBy('id');
         $college = DB::table($state)->where('year', 2023)->groupBy('college')->get();
         $course = DB::table($state)->where('year', 2023)->groupBy('course')->get();
         $quota = DB::table($state)->where('year', 2023)->groupBy('quota')->get();
@@ -707,11 +709,11 @@ class FrontController extends Controller
             $list = $list->where('rank', '!=', "[null,null]");
             $round = 2;
         }
-        if ($state == 'chandigarhs'  || $state == 'haryanas' || $state == 'keralas' || $state == 'madhya_pradeshes' || $state == 'pondicherries' || $state == 'uttarakhands' || $state == 'west_bengals') {
+        if ($state == 'chandigarhs' || $state == 'haryanas' || $state == 'keralas' || $state == 'madhya_pradeshes' || $state == 'pondicherries' || $state == 'uttarakhands' || $state == 'west_bengals') {
             $list = $list->where('rank', '!=', "[null,null,null]");
             $round = 3;
         }
-        if ($state == 'chhattisgarhs'  || $state == 'jharkhands' || $state == 'punjabs') {
+        if ($state == 'chhattisgarhs' || $state == 'jharkhands' || $state == 'punjabs') {
             $list = $list->where('rank', '!=', "[null,null,null,null]");
             $round = 4;
         }
@@ -723,7 +725,7 @@ class FrontController extends Controller
             $list = $list->where('rank', '!=', '["-","-","-","-"]');
             $round = 4;
         }
-        if ($state == 'andhra_pradeshes'  || $state == 'telanganas') {
+        if ($state == 'andhra_pradeshes' || $state == 'telanganas') {
             $list = $list->where('rank', '!=', "[null,null,null,null,null]");
             $round = 5;
         }
@@ -803,16 +805,16 @@ class FrontController extends Controller
         //  $counseling_type=$request->counseling_type;
         if ($request->type == 'all') {
 
-            $list =  DB::table($state)->where('year', 2023)->whereIn('quota', ['AIQ', 'AMU', 'BHU', 'CIQ', 'DU', 'IP'])->groupBy('college')->orderBy('id');
+            $list = DB::table($state)->where('year', 2023)->whereIn('quota', ['AIQ', 'AMU', 'BHU', 'CIQ', 'DU', 'IP'])->groupBy('college')->orderBy('id');
         }
         if ($request->type == 'deemed') {
-            $list =  DB::table($state)->where('year', 2023)->whereIn('quota', ['MNG', 'NRI', 'JM', 'MM'])->groupBy('college')->orderBy('id');
+            $list = DB::table($state)->where('year', 2023)->whereIn('quota', ['MNG', 'NRI', 'JM', 'MM'])->groupBy('college')->orderBy('id');
         }
         if ($request->type == 'dnb') {
-            $list =  DB::table($state)->where('year', 2023)->whereIn('quota', ['DNB Post MBBS'])->groupBy('college')->orderBy('id');
+            $list = DB::table($state)->where('year', 2023)->whereIn('quota', ['DNB Post MBBS'])->groupBy('college')->orderBy('id');
         }
         if ($request->type == 'nbe') {
-            $list =  DB::table($state)->where('year', 2023)->whereIn('quota', ['NBE Diploma'])->groupBy('college')->orderBy('id');
+            $list = DB::table($state)->where('year', 2023)->whereIn('quota', ['NBE Diploma'])->groupBy('college')->orderBy('id');
         }
         $college = DB::table($state)->where('year', 2023)->groupBy('college')->get();
         $course = DB::table($state)->where('year', 2023)->groupBy('course')->get();
@@ -822,11 +824,11 @@ class FrontController extends Controller
         if ($state == 'goas') {
             $round = 1;
         }
-        if ($state == 'bihars' || $state == 'rajasthans'  || $state == 'manipurs'   || $state == 'tripuras' || $state == 'meghalayas') {
+        if ($state == 'bihars' || $state == 'rajasthans' || $state == 'manipurs' || $state == 'tripuras' || $state == 'meghalayas') {
             $round = 2;
         }
 
-        if ($state == 'chhattisgarhs' || $state == 'uttarakhands' || $state == 'chandigarhs' || $state == 'odishas'  ||  $state == 'karnatakas' || $state == 'gujarats'  || $state == 'jammu_and_kashmirs'   || $state == 'keralas' || $state == 'madhya_pradeshes' || $state == 'pondicherries' || $state == 'assams' || $state == 'punjabs'   || $state == 'tamil_nadus' || $state == 'telanganas' || $state == 'himachal_pradeshes') {
+        if ($state == 'chhattisgarhs' || $state == 'uttarakhands' || $state == 'chandigarhs' || $state == 'odishas' || $state == 'karnatakas' || $state == 'gujarats' || $state == 'jammu_and_kashmirs' || $state == 'keralas' || $state == 'madhya_pradeshes' || $state == 'pondicherries' || $state == 'assams' || $state == 'punjabs' || $state == 'tamil_nadus' || $state == 'telanganas' || $state == 'himachal_pradeshes') {
 
             $round = 3;
         }
@@ -909,16 +911,16 @@ class FrontController extends Controller
         //  $counseling_type=$request->counseling_type;
         if ($request->type == 'all') {
 
-            $list =  DB::table($state)->where('year', 2023)->whereIn('quota', ['AIQ', 'AMU', 'BHU', 'CIQ', 'DU', 'IP'])->orderBy('id');
+            $list = DB::table($state)->where('year', 2023)->whereIn('quota', ['AIQ', 'AMU', 'BHU', 'CIQ', 'DU', 'IP'])->orderBy('id');
         }
         if ($request->type == 'deemed') {
-            $list =  DB::table($state)->where('year', 2023)->whereIn('quota', ['MNG', 'NRI', 'JM', 'MM'])->orderBy('id');
+            $list = DB::table($state)->where('year', 2023)->whereIn('quota', ['MNG', 'NRI', 'JM', 'MM'])->orderBy('id');
         }
         if ($request->type == 'dnb') {
-            $list =  DB::table($state)->where('year', 2023)->whereIn('quota', ['DNB Post MBBS'])->orderBy('id');
+            $list = DB::table($state)->where('year', 2023)->whereIn('quota', ['DNB Post MBBS'])->orderBy('id');
         }
         if ($request->type == 'nbe') {
-            $list =  DB::table($state)->where('year', 2023)->whereIn('quota', ['NBE Diploma'])->orderBy('id');
+            $list = DB::table($state)->where('year', 2023)->whereIn('quota', ['NBE Diploma'])->orderBy('id');
         }
         $college = DB::table($state)->where('year', 2023)->groupBy('college')->get();
         $course = DB::table($state)->where('year', 2023)->groupBy('course')->get();
@@ -928,11 +930,11 @@ class FrontController extends Controller
         if ($state == 'goas') {
             $round = 1;
         }
-        if ($state == 'bihars' || $state == 'rajasthans'  || $state == 'manipurs'   || $state == 'tripuras' || $state == 'meghalayas') {
+        if ($state == 'bihars' || $state == 'rajasthans' || $state == 'manipurs' || $state == 'tripuras' || $state == 'meghalayas') {
             $round = 2;
         }
 
-        if ($state == 'chhattisgarhs' || $state == 'uttarakhands' || $state == 'chandigarhs' || $state == 'odishas'  ||  $state == 'karnatakas' || $state == 'gujarats'  || $state == 'jammu_and_kashmirs'   || $state == 'keralas' || $state == 'madhya_pradeshes' || $state == 'pondicherries' || $state == 'assams' || $state == 'punjabs'   || $state == 'tamil_nadus' || $state == 'telanganas' || $state == 'himachal_pradeshes') {
+        if ($state == 'chhattisgarhs' || $state == 'uttarakhands' || $state == 'chandigarhs' || $state == 'odishas' || $state == 'karnatakas' || $state == 'gujarats' || $state == 'jammu_and_kashmirs' || $state == 'keralas' || $state == 'madhya_pradeshes' || $state == 'pondicherries' || $state == 'assams' || $state == 'punjabs' || $state == 'tamil_nadus' || $state == 'telanganas' || $state == 'himachal_pradeshes') {
 
             $round = 3;
         }
@@ -1014,28 +1016,28 @@ class FrontController extends Controller
         $state = $request->state;
         if ($request->type == 'all') {
 
-            $list =  DB::table($state)->whereIn('quota', ['AIQ', 'AMU', 'BHU', 'CIQ', 'DU', 'IP'])->orderBy('id');
+            $list = DB::table($state)->whereIn('quota', ['AIQ', 'AMU', 'BHU', 'CIQ', 'DU', 'IP'])->orderBy('id');
             $college = DB::table($state)->whereIn('quota', ['AIQ', 'AMU', 'BHU', 'CIQ', 'DU', 'IP'])->orderBy('id')->groupBy('college')->get();
             $course = DB::table($state)->whereIn('quota', ['AIQ', 'AMU', 'BHU', 'CIQ', 'DU', 'IP'])->orderBy('id')->groupBy('course')->get();
             $quota = DB::table($state)->whereIn('quota', ['AIQ', 'AMU', 'BHU', 'CIQ', 'DU', 'IP'])->orderBy('id')->groupBy('quota')->get();
             $category = DB::table($state)->whereIn('quota', ['AIQ', 'AMU', 'BHU', 'CIQ', 'DU', 'IP'])->orderBy('id')->groupBy('category')->get();
         }
         if ($request->type == 'deemed') {
-            $list =  DB::table($state)->whereIn('quota', ['MNG', 'NRI', 'JM', 'MM'])->orderBy('id');
+            $list = DB::table($state)->whereIn('quota', ['MNG', 'NRI', 'JM', 'MM'])->orderBy('id');
             $college = DB::table($state)->whereIn('quota', ['MNG', 'NRI', 'JM', 'MM'])->groupBy('college')->get();
             $course = DB::table($state)->whereIn('quota', ['MNG', 'NRI', 'JM', 'MM'])->groupBy('course')->get();
             $quota = DB::table($state)->whereIn('quota', ['MNG', 'NRI', 'JM', 'MM'])->groupBy('quota')->get();
             $category = DB::table($state)->whereIn('quota', ['MNG', 'NRI', 'JM', 'MM'])->groupBy('category')->get();
         }
         if ($request->type == 'dnb') {
-            $list =  DB::table($state)->whereIn('quota', ['DNB Post MBBS'])->orderBy('id');
+            $list = DB::table($state)->whereIn('quota', ['DNB Post MBBS'])->orderBy('id');
             $college = DB::table($state)->whereIn('quota', ['DNB Post MBBS'])->groupBy('college')->get();
             $course = DB::table($state)->whereIn('quota', ['DNB Post MBBS'])->groupBy('course')->get();
             $quota = DB::table($state)->whereIn('quota', ['DNB Post MBBS'])->groupBy('quota')->get();
             $category = DB::table($state)->whereIn('quota', ['DNB Post MBBS'])->groupBy('category')->get();
         }
         if ($request->type == 'nbe') {
-            $list =  DB::table($state)->whereIn('quota', ['NBE Diploma'])->orderBy('id');
+            $list = DB::table($state)->whereIn('quota', ['NBE Diploma'])->orderBy('id');
             $college = DB::table($state)->whereIn('quota', ['NBE Diploma'])->groupBy('college')->get();
             $course = DB::table($state)->whereIn('quota', ['NBE Diploma'])->groupBy('course')->get();
             $quota = DB::table($state)->whereIn('quota', ['NBE Diploma'])->groupBy('quota')->get();
@@ -1046,11 +1048,11 @@ class FrontController extends Controller
         if ($state == 'goas') {
             $round = 1;
         }
-        if ($state == 'bihars' || $state == 'rajasthans'  || $state == 'manipurs'   || $state == 'tripuras' || $state == 'meghalayas') {
+        if ($state == 'bihars' || $state == 'rajasthans' || $state == 'manipurs' || $state == 'tripuras' || $state == 'meghalayas') {
             $round = 2;
         }
 
-        if ($state == 'chhattisgarhs' || $state == 'uttarakhands' || $state == 'chandigarhs' || $state == 'odishas'  ||  $state == 'karnatakas' || $state == 'gujarats'  || $state == 'jammu_and_kashmirs'   || $state == 'keralas' || $state == 'madhya_pradeshes' || $state == 'pondicherries' || $state == 'assams' || $state == 'punjabs'   || $state == 'tamil_nadus' || $state == 'telanganas' || $state == 'himachal_pradeshes') {
+        if ($state == 'chhattisgarhs' || $state == 'uttarakhands' || $state == 'chandigarhs' || $state == 'odishas' || $state == 'karnatakas' || $state == 'gujarats' || $state == 'jammu_and_kashmirs' || $state == 'keralas' || $state == 'madhya_pradeshes' || $state == 'pondicherries' || $state == 'assams' || $state == 'punjabs' || $state == 'tamil_nadus' || $state == 'telanganas' || $state == 'himachal_pradeshes') {
 
             $round = 3;
         }
@@ -1171,7 +1173,7 @@ class FrontController extends Controller
         $cour = $request->course;
 
         if ($request->type == 'all') {
-            $list =  DB::table($state)->where('course_fee', '<', $request->budget)->where(function ($query) use ($request) {
+            $list = DB::table($state)->where('course_fee', '<', $request->budget)->where(function ($query) use ($request) {
                 $query->where('quota', 'AIQ')->orwhere('quota', 'AMU')->orwhere('quota', 'BHU')->orwhere('quota', 'CIQ')->orwhere('quota', 'DU')->orwhere('quota', 'IP')->orwhere('quota', 'DNB Post MBBS')->orwhere('quota', 'NBE Diploma');
             })->orderBy('id');
             $category = DB::table($state)->groupBy('category')->get();
@@ -1181,7 +1183,7 @@ class FrontController extends Controller
             })->groupBy('college')->get();
         }
         if ($request->type == 'deemed') {
-            $list =  DB::table($state)->where('course_fee', '<', $request->budget)->where(function ($query) use ($request) {
+            $list = DB::table($state)->where('course_fee', '<', $request->budget)->where(function ($query) use ($request) {
                 $query->where('quota', 'MNG')->orwhere('quota', 'NRI')->orwhere('quota', 'JM')->orwhere('quota', 'MM');
             })->orderBy('id');
             $category = DB::table($state)->where(function ($query) use ($request) {
@@ -1196,7 +1198,7 @@ class FrontController extends Controller
         }
         if ($request->type == 'state_home') {
 
-            $list =  DB::table($state)->where(function ($query) use ($request) {
+            $list = DB::table($state)->where(function ($query) use ($request) {
                 $query->where('course_fee', '<', $request->budget);
             })->orderBy('id');
             $category = DB::table($state)->groupBy('category')->get();
@@ -1208,11 +1210,11 @@ class FrontController extends Controller
             if ($state == 'goas') {
                 $round = 1;
             }
-            if ($state == 'bihars' || $state == 'rajasthans'  || $state == 'manipurs'   || $state == 'tripuras' || $state == 'meghalayas') {
+            if ($state == 'bihars' || $state == 'rajasthans' || $state == 'manipurs' || $state == 'tripuras' || $state == 'meghalayas') {
                 $round = 2;
             }
 
-            if ($state == 'chhattisgarhs' || $state == 'uttarakhands' || $state == 'chandigarhs' || $state == 'odishas'  ||  $state == 'karnatakas' || $state == 'gujarats'  || $state == 'jammu_and_kashmirs'   || $state == 'keralas' || $state == 'madhya_pradeshes' || $state == 'pondicherries' || $state == 'assams' || $state == 'punjabs'   || $state == 'tamil_nadus' || $state == 'telanganas' || $state == 'himachal_pradeshes') {
+            if ($state == 'chhattisgarhs' || $state == 'uttarakhands' || $state == 'chandigarhs' || $state == 'odishas' || $state == 'karnatakas' || $state == 'gujarats' || $state == 'jammu_and_kashmirs' || $state == 'keralas' || $state == 'madhya_pradeshes' || $state == 'pondicherries' || $state == 'assams' || $state == 'punjabs' || $state == 'tamil_nadus' || $state == 'telanganas' || $state == 'himachal_pradeshes') {
 
                 $round = 3;
             }
@@ -1326,7 +1328,7 @@ class FrontController extends Controller
             return view('frontend.pages.student-report-closing-rank-details', compact('list', 'category', 'quota', 'round', 'state', 'type', 'rank', 'budget', 'cour', 'college'));
         }
         if ($request->type == 'state_other') {
-            $list =  DB::table($state)->where(function ($query) use ($request) {
+            $list = DB::table($state)->where(function ($query) use ($request) {
                 $query->where('course_fee', '<', $request->budget);
             })->orderBy('id');
             $category = DB::table($state)->groupBy('category')->get();
@@ -1412,11 +1414,11 @@ class FrontController extends Controller
         if ($state == 'goas') {
             $round = 1;
         }
-        if ($state == 'bihars' || $state == 'rajasthans'  || $state == 'manipurs'   || $state == 'tripuras' || $state == 'meghalayas') {
+        if ($state == 'bihars' || $state == 'rajasthans' || $state == 'manipurs' || $state == 'tripuras' || $state == 'meghalayas') {
             $round = 2;
         }
 
-        if ($state == 'chhattisgarhs' || $state == 'uttarakhands' || $state == 'chandigarhs' || $state == 'odishas'  ||  $state == 'karnatakas' || $state == 'gujarats'  || $state == 'jammu_and_kashmirs'   || $state == 'keralas' || $state == 'madhya_pradeshes' || $state == 'pondicherries' || $state == 'assams' || $state == 'punjabs'   || $state == 'tamil_nadus' || $state == 'telanganas' || $state == 'himachal_pradeshes') {
+        if ($state == 'chhattisgarhs' || $state == 'uttarakhands' || $state == 'chandigarhs' || $state == 'odishas' || $state == 'karnatakas' || $state == 'gujarats' || $state == 'jammu_and_kashmirs' || $state == 'keralas' || $state == 'madhya_pradeshes' || $state == 'pondicherries' || $state == 'assams' || $state == 'punjabs' || $state == 'tamil_nadus' || $state == 'telanganas' || $state == 'himachal_pradeshes') {
 
             $round = 3;
         }
@@ -1973,7 +1975,7 @@ class FrontController extends Controller
 
         $payment = $api->payment->fetch($request->razorpay_payment_id);
 
-        if (count($input)  && !empty($request->razorpay_payment_id)) {
+        if (count($input) && !empty($request->razorpay_payment_id)) {
             $payment_detalis = null;
             try {
                 $response = $api->payment->fetch($request->razorpay_payment_id)->capture(array('amount' => $payment['amount']));
@@ -1996,7 +1998,7 @@ class FrontController extends Controller
 
                 $payment_detalis = json_encode(array('id' => $response['id'], 'method' => $response['method'], 'amount' => $response['amount'], 'currency' => $response['currency']));
             } catch (\Exception $e) {
-                return  $e->getMessage();
+                return $e->getMessage();
                 \Session::put('error', $e->getMessage());
                 return redirect()->back();
             }
@@ -2009,13 +2011,13 @@ class FrontController extends Controller
     {
         if ($request->stat == 'enable') {
             Payment::create([
-                'user_id'=>$request->user_id,
-                'payment_id'=>rand(11111,99999),
-                'payment_amount'=>$request->packages,
-                'method'=>'upi',
-                'currency'=>'INR',
-                'plan_name'=>'Plan of '.$request->packages,
-                'plan_status'=>'success',
+                'user_id' => $request->user_id,
+                'payment_id' => rand(11111, 99999),
+                'payment_amount' => $request->packages,
+                'method' => 'upi',
+                'currency' => 'INR',
+                'plan_name' => 'Plan of ' . $request->packages,
+                'plan_status' => 'success',
             ]);
             return 1;
         } else {
@@ -2026,7 +2028,7 @@ class FrontController extends Controller
 
     public function update_sql(Request $request)
     {
-        $list =  west_bengal::get();
+        $list = west_bengal::get();
         foreach ($list as $data) {
             $data->course_fee = (int) filter_var($data->course_fee, FILTER_SANITIZE_NUMBER_INT);
             $data->private_mgmt_fee = (int) filter_var($data->private_mgmt_fee, FILTER_SANITIZE_NUMBER_INT);
@@ -2071,7 +2073,7 @@ class FrontController extends Controller
     {
 
         $course = $request->course;
-        $list =  DB::table($course)->orderBy('id')->get();
+        $list = DB::table($course)->orderBy('id')->get();
         return view('frontend.pages.college-hospital-detail', compact('list'));
     }
 
@@ -2079,7 +2081,7 @@ class FrontController extends Controller
     {
 
         $course = $request->course;
-        $list =  DB::table($course)->orderBy('id')->get();
+        $list = DB::table($course)->orderBy('id')->get();
         return view('frontend.pages.choice_filling_deemed_details', compact('list'));
     }
 
@@ -2181,7 +2183,7 @@ class FrontController extends Controller
 
     public function new_deemed(Request $request)
     {
-        $list =  DB::table('new_deemds')->orderBy('id')->get();
+        $list = DB::table('new_deemds')->orderBy('id')->get();
         foreach ($list as $data) {
             $all_india_data = all_india::where('quota', 'MNG')->where('course', $data->branch)->where('college', $data->college)->get();
             if (count($all_india_data) > 0) {
@@ -2211,12 +2213,12 @@ class FrontController extends Controller
     {
 
 
-        $contact=new ContactUs;
-        $contact->name=$request->name;
-        $contact->phone=$request->phone;
-        $contact->email=$request->email;
-        $contact->subject=$request->subject;
-        $contact->message=$request->message;
+        $contact = new ContactUs;
+        $contact->name = $request->name;
+        $contact->phone = $request->phone;
+        $contact->email = $request->email;
+        $contact->subject = $request->subject;
+        $contact->message = $request->message;
         $contact->save();
 
         return redirect()->back()->with('success', 'Form Submitted successfully.');
@@ -2226,12 +2228,12 @@ class FrontController extends Controller
     {
 
 
-        $enquiry=new Enquiry;
-        $enquiry->name=$request->name;
-        $enquiry->phone=$request->phone;
-        $enquiry->email=$request->email;
-        $enquiry->message=$request->message;
-        $enquiry->collage_id=$request->collage_id;
+        $enquiry = new Enquiry;
+        $enquiry->name = $request->name;
+        $enquiry->phone = $request->phone;
+        $enquiry->email = $request->email;
+        $enquiry->message = $request->message;
+        $enquiry->collage_id = $request->collage_id;
         $enquiry->save();
 
         return redirect()->back()->with('success', 'Form Submitted successfully.');
@@ -2255,19 +2257,19 @@ class FrontController extends Controller
     public function collage_list(Request $request)
     {
         $collages = Collage::orderBy('id', 'desc');
-        if($request->category){
-            $collages= $collages->where('category',$request->category);
+        if ($request->category) {
+            $collages = $collages->where('category', $request->category);
         }
-        if($request->type){
-            $collages= $collages->where('type',$request->type);
+        if ($request->type) {
+            $collages = $collages->where('type', $request->type);
         }
-        if($request->stream){
-            $collages= $collages->where('stream',$request->stream);
+        if ($request->stream) {
+            $collages = $collages->where('stream', $request->stream);
         }
-        if($request->state){
-            $collages= $collages->where('state',$request->state);
+        if ($request->state) {
+            $collages = $collages->where('state', $request->state);
         }
-        $collages=$collages->paginate(10);
+        $collages = $collages->paginate(10);
         return view('frontend.pages.college-list', compact('collages'));
     }
 
@@ -2277,18 +2279,32 @@ class FrontController extends Controller
         return view('frontend.pages.college-details', compact('collage'));
     }
 
-    public function course_details($id){
+    public function course_details($id)
+    {
         $course = Course::find($id);
         return view('frontend.pages.course-details', compact('course'));
     }
 
-    public function mark_vs_rank(Request $request){
-     
-        $data=[];
-        if(!empty($request->mark)){
-         $data=Rank::where('marks','>=',$request->mark)->orderBy('id','desc')->first();
+    public function mark_vs_rank(Request $request)
+    {
+
+        $data = [];
+        if (!empty($request->mark)) {
+            $data = Rank::where('marks', '>=', $request->mark)->orderBy('id', 'desc')->first();
         }
-         return view('frontend.pages.mark_vs_rank',compact('data'));
-        
-       }
+        return view('frontend.pages.mark_vs_rank', compact('data'));
+
+    }
+
+    public function allotments_data(Request $request)
+    {
+        $state = 'all_indias';
+        $list = DB::table($state)->take(1)->get();
+        if ($request->ajax()) {
+            $state = $request->state;
+            $list = DB::table('allotments_' . str_replace(' ', '_', strtolower($state)))->take(10)->get();
+            return view('ug.frontend.pages.home_table', compact('state', 'list'));
+        }
+        return view('ug.frontend.pages.home', compact('state', 'list'));
+    }
 }

@@ -1,9 +1,8 @@
-
 @php
- 
- function singularize($word)
-    {
-        $singular = array (
+
+   function singularize($word)
+   {
+      $singular = array(
         '/(quiz)zes$/i' => '\1',
         '/(matr)ices$/i' => '\1ix',
         '/(vert|ind)ices$/i' => '\1ex',
@@ -28,66 +27,110 @@
         '/([ti])a$/i' => '\1um',
         '/(n)ews$/i' => '\1ews',
         '/s$/i' => '',
-        );
+      );
 
-        $uncountable = array('equipment', 'information', 'rice', 'money', 'species', 'series', 'fish', 'sheep');
+      $uncountable = array('equipment', 'information', 'rice', 'money', 'species', 'series', 'fish', 'sheep');
 
-        $irregular = array(
+      $irregular = array(
         'person' => 'people',
         'man' => 'men',
         'child' => 'children',
         'sex' => 'sexes',
-        'move' => 'moves');
+        'move' => 'moves'
+      );
 
-        $lowercased_word = strtolower($word);
-        foreach ($uncountable as $_uncountable){
-            if(substr($lowercased_word,(-1*strlen($_uncountable))) == $_uncountable){
-                return $word;
-            }
+      $lowercased_word = strtolower($word);
+      foreach ($uncountable as $_uncountable) {
+        if (substr($lowercased_word, (-1 * strlen($_uncountable))) == $_uncountable) {
+          return $word;
         }
+      }
 
-        foreach ($irregular as $_plural=> $_singular){
-            if (preg_match('/('.$_singular.')$/i', $word, $arr)) {
-                return preg_replace('/('.$_singular.')$/i', substr($arr[0],0,1).substr($_plural,1), $word);
-            }
+      foreach ($irregular as $_plural => $_singular) {
+        if (preg_match('/(' . $_singular . ')$/i', $word, $arr)) {
+          return preg_replace('/(' . $_singular . ')$/i', substr($arr[0], 0, 1) . substr($_plural, 1), $word);
         }
+      }
 
-        foreach ($singular as $rule => $replacement) {
-            if (preg_match($rule, $word)) {
-                return preg_replace($rule, $replacement, $word);
-            }
+      foreach ($singular as $rule => $replacement) {
+        if (preg_match($rule, $word)) {
+          return preg_replace($rule, $replacement, $word);
         }
+      }
 
-        return $word;
-    }
- 
+      return $word;
+   }
+
  @endphp
 
 
 <div class="col-md-12">
-    <div class="card mt-3">
-       <div class="border-0 card">
-          <div class="card-body p-0">
-             <div class="table-responsive">
-                <table class="table">
-                   <thead>
-                      <tr>
-                         <th>Name </th>
-                      </tr>
-                   </thead>
-                   <tbody>
-                      @foreach($list as $data)
-                      <tr>
-                         <td><a class="btn btn-primary btn-hover-heading-color" href="{{route('ug.closing_rank_details','state='.str_replace(' ','_',strtolower($state)))}}">{{ ucwords(str_replace('_',' ',strtolower(singularize($state))))  }}</a></td>
-                      </tr>
-                      @endforeach
-                     
-                   </tbody>
-                </table>
-             </div>
-          </div>
-       </div>
-    </div>
- </div>
- 
- 
+   <div class="card mt-3">
+      <div class="border-0 card">
+         <div class="card-body p-0">
+            <div class="table-responsive">
+               <table class="table" style="white-space:nowrap;">
+                  <thead>
+                     <tr>
+                        <th>Quota</th>
+                        <th>Category</th>
+                        <th>State</th>
+                        <th>Institute</th>
+                        <th>Course</th>
+                        <th>Fee</th>
+                        <th>Beds</th>
+                        <th>CR 2021 1</th>
+                        <th>CR 2021 2</th>
+                        <th>CR 2021 3</th>
+                        <th>CR 2021 4</th>
+                        <th>CR 2022 1</th>
+                        <th>CR 2022 2</th>
+                        <th>CR 2022 3</th>
+                        <th>CR 2022 4</th>
+                        <th>CR 2022 5</th>
+                        <th>CR 2023 1</th>
+                        <th>CR 2023 2</th>
+                        <th>CR 2023 3</th>
+                        <th>CR 2023 4</th>
+                        <th>CR 2023 5</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     @if($list->isEmpty())
+                   <tr>
+                     <td colspan="21" style="text-align:center;">No data found</td>
+                   </tr>
+                @else
+                @foreach($list as $data)
+               <tr>
+                 <td>{{ $data->quota }}</td>
+                 <td>{{ $data->category }}</td>
+                 <td>{{ $data->state }}</td>
+                 <td>{{ $data->institute }}</td>
+                 <td>{{ $data->course }}</td>
+                 <td>{{ $data->fee }}</td>
+                 <td>{{ $data->beds }}</td>
+                 <td>{{ $data->{'CR_2021_1'} }}</td>
+                 <td>{{ $data->{'CR_2021_2'} }}</td>
+                 <td>{{ $data->{'CR_2021_3'} }}</td>
+                 <td>{{ $data->{'CR_2021_4'} }}</td>
+                 <td>{{ $data->{'CR_2022_1'} }}</td>
+                 <td>{{ $data->{'CR_2022_2'} }}</td>
+                 <td>{{ $data->{'CR_2022_3'} }}</td>
+                 <td>{{ $data->{'CR_2022_4'} }}</td>
+                 <td>{{ $data->{'CR_2022_5'} }}</td>
+                 <td>{{ $data->{'CR_2023_1'} }}</td>
+                 <td>{{ $data->{'CR_2023_2'} }}</td>
+                 <td>{{ $data->{'CR_2023_3'} }}</td>
+                 <td>{{ $data->{'CR_2023_4'} }}</td>
+                 <td>{{ $data->{'CR_2023_5'} }}</td>
+               </tr>
+            @endforeach
+             @endif
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

@@ -30,7 +30,7 @@ Route::post('/aiz-uploader/get_file_by_ids', [AizUploadController::class, 'get_p
 Route::get('/aiz-uploader/download/{id}', [AizUploadController::class, 'attachment_download'])->name('download_attachment');
 
 Route::get('/', [App\Http\Controllers\Front\FrontController::class, 'index'])->name('index');
-Route::get('/home', [App\Http\Controllers\Front\FrontController::class, 'home'])->name('home_user');
+Route::get('/home', [App\Http\Controllers\Front\FrontController::class, 'allotments_data'])->name('home_user');
 Route::get('/contact-us', [FrontController::class, 'help'])->name('help');
 Route::get('/subscription-plans', [FrontController::class, 'subscription_plans'])->name('subscription_plans');
 Route::post('/subscription-plans-pay', [FrontController::class, 'subscription_plans_pay'])->name('subscription_plans_pay');
@@ -46,14 +46,14 @@ Route::get('/state-wise-counselings', [FrontController::class, 'state_wise_couns
 Route::get('/state-wise-counseling-details-andhra', [FrontController::class, 'state_wise_counseling_details'])->name('state_wise_counseling_details_andhra');
 Route::get('/state-wise-counseling-details', [FrontController::class, 'state_wise_counseling_details'])->name('state_wise_counseling_details')->middleware("checkSubscription");
 Route::get('/about-us', [FrontController::class, 'about_us'])->name('about_us');
-Route::get('/college-list',[FrontController::class, 'collage_list'])->name('college_list');
+Route::get('/college-list', [FrontController::class, 'collage_list'])->name('college_list');
 Route::get('/college-details/{id}', [FrontController::class, 'collage_details'])->name('college_details');
 Route::get('/term-and-condition', [FrontController::class, 'term_condition'])->name('term_condition');
 Route::get('/privacy-policy', [FrontController::class, 'privacy_policy'])->name('privacy_policy');
 Route::get('/state-document', [FrontController::class, 'state_document'])->name('state_document');
-Route::post('rozer/payment/pay-success', [FrontController::class,'payment'])->name('payment.rozer');
+Route::post('rozer/payment/pay-success', [FrontController::class, 'payment'])->name('payment.rozer');
 Route::view('/course', 'frontend.pages.course')->name('course');
-Route::get('/course-details/{id}',[FrontController::class, 'course_details'])->name('course_details');
+Route::get('/course-details/{id}', [FrontController::class, 'course_details'])->name('course_details');
 Route::view('/services', 'frontend.pages.services')->name('services');
 Route::view('/service-details', 'frontend.pages.service-details')->name('service_details');
 
@@ -74,8 +74,8 @@ Route::get('/user-forgot-password', [FrontController::class, 'forgot_password'])
 
 
 Route::post('otp_send', [FrontController::class, 'otp_send'])->name('otp_send');
-Route::post('check_otp',[FrontController::class, 'check_otp'])->name('check_otp');
-Route::post('otp_forgot_password',[FrontController::class, 'otp_forgot_password'])->name('otp_forgot_password');
+Route::post('check_otp', [FrontController::class, 'check_otp'])->name('check_otp');
+Route::post('otp_forgot_password', [FrontController::class, 'otp_forgot_password'])->name('otp_forgot_password');
 
 
 Route::post('user_login', [FrontController::class, 'user_login'])->name('user_login');
@@ -111,9 +111,9 @@ Route::post('enquiry', [FrontController::class, 'enquiry'])->name('enquiry');
 
 Route::get('/mark_vs_rank', [FrontController::class, 'mark_vs_rank'])->name('mark_vs_rank');
 
-Route::group(['prefix'=>'ug'],function(){
-    
-   
+Route::group(['prefix' => 'ug'], function () {
+
+
     Route::get('/all-india-counselings', [UgFrontController::class, 'all_india_counselings'])->name('ug.all_india_counselings');
     Route::get('/deemed-hospital-details', [UgFrontController::class, 'deemed_hospital_details'])->name('ug.deemed_hospital_details');
     Route::get('/closing-rank', [UgFrontController::class, 'closing_rank'])->name('ug.closing_rank');
@@ -124,31 +124,31 @@ Route::group(['prefix'=>'ug'],function(){
     Route::get('/state-wise-counselings', [UgFrontController::class, 'state_wise_counselings'])->name('ug.state_wise_counselings');
     Route::get('/state-wise-counseling-details-andhra', [UgFrontController::class, 'state_wise_counseling_details'])->name('ug.state_wise_counseling_details_andhra');
     Route::get('/state-wise-counseling-details', [UgFrontController::class, 'state_wise_counseling_details'])->name('ug.state_wise_counseling_details')->middleware("checkSubscription");
-   
+
     Route::get('/state-document', [UgFrontController::class, 'state_document'])->name('ug.state_document');
-   
+
 
     Route::get('/student-report', [UgFrontController::class, 'student_report'])->name('ug.student_report');
     Route::post('/student-report-details', [UgFrontController::class, 'student_report_details'])->name('ug.student_report_details');
     Route::post('/student-report-closing-rank-details', [UgFrontController::class, 'student_report_closing_rank_details'])->name('ug.student_report_closing_rank_details');
-   
+
 
     Route::get('/all-india-stipend-details', [UgFrontController::class, 'all_india_stipend_details'])->name('ug.all_india_stipend_details')->middleware("checkSubscription");
     Route::get('/all-india-fee-details', [UgFrontController::class, 'all_india_fee_details'])->name('ug.all_india_fee_details')->middleware("checkSubscription");
     Route::get('/all-india-closing-rank-details', [UgFrontController::class, 'all_india_closing_rank_details'])->name('ug.all_india_closing_rank_details')->middleware("checkSubscription");
 
-   
 
 
-    
 
 
-   
 
 
-    
 
-   
+
+
+
+
+
 
 });
 
