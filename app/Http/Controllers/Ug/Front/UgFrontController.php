@@ -52,7 +52,7 @@ class UgFrontController extends Controller
         $list = DB::table($state)->take(1)->get();
         if ($request->ajax()) {
             $state = $request->state;
-            $list = DB::table('ug_' . str_replace(' ', '_', strtolower($state)))->take(10)->get();
+            $list = DB::table('ug_' . str_replace(' ', '_', strtolower($state)))->get();
             return view('ug.frontend.pages.closing-rank_table', compact('state', 'list'));
         }
         return view('ug.frontend.pages.closing-rank', compact('state', 'list'));

@@ -1,4 +1,4 @@
-@extends('frontend.layouts.front_app')
+@extends('ug.frontend.layouts.front_app')
 <style>
 .header-top-wrapper .header-social ul li a {
     padding-top: 7px;
