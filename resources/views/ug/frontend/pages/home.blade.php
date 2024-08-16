@@ -64,7 +64,7 @@
       @endsection
       @section('script')
 <script>
-   fetch_data('tamilnadu')
+   fetch_data('all_indias');
    $(function () {
         $('.nav li a').click(function (e) {
             $('.nav li a').removeClass('active');
