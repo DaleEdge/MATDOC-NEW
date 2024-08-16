@@ -21,11 +21,16 @@
                         <tr>
                             <th>#</th>
                             <th>Round</th>
+                            <th>All India Rank</th>
                             <th>State Rank</th>
+                            <th>Neet Score</th>
                             <th>State</th>
                             <th>Institute</th>
                             <th>Course</th>
                             <th>Quota</th>
+                            <th>Category</th>
+                            <th>Fees</th>
+                            <th>Beds</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,11 +38,16 @@
                             <tr>
                                 <td>{{$key + 1}}</td>
                                 <td>{{$data->round}}</td>
+                                <td>{{$data->all_india_rank}}</td>
                                 <td>{{$data->state_rank}}</td>
+                                <td>{{$data->neet_score}}</td>
                                 <td>{{$data->state}}</td>
                                 <td>{{$data->institute}}</td>
                                 <td>{{$data->course}}</td>
                                 <td>{{$data->quota}}</td>
+                                <td>{{$data->category}}</td>
+                                <td>{{$data->fee}}</td>
+                                <td>{{$data->beds}}</td>
                                 <td>
                                     <a class="btn btn-success  btn-sm mr-1" href="{{route('allotment.edit', $data->id)}}"><i
                                             class="far fa-edit"></i></a>
@@ -49,7 +59,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="10" class="text-center text-info">Opps!! There Are No Data Found..</td>
+                                <td colspan="12" class="text-center text-info">Opps!! There Are No Data Found..</td>
                             </tr>
 
                         @endforelse

@@ -4,10 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\allotment;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-
-use Maatwebsite\Excel\Facades\Excel;
 
 class AllotmentController extends Controller
 {
@@ -42,26 +38,33 @@ class AllotmentController extends Controller
      */
     public function store(Request $request)
     {
-
         $this->validate($request, [
             'round' => 'required',
             'state_rank' => 'required',
+            'neet_score' => 'required',
             'state' => 'required',
             'institute' => 'required',
             'course' => 'required',
             'quota' => 'required',
+            'category' => 'required',
+            'beds' => 'required',
         ]);
 
-        $course = new allotment;
-        $course->round = $request->round;
-        $course->state_rank = $request->state_rank;
-        $course->state = $request->state;
-        $course->institute = $request->institute;
-        $course->course = $request->course;
-        $course->quota = $request->quota;
+        $allotment = new allotment;
+        $allotment->round = $request->round;
+        $allotment->all_india_rank = $request->all_india_rank;
+        $allotment->state_rank = $request->state_rank;
+        $allotment->state = $request->state;
+        $allotment->neet_score = $request->neet_score;
+        $allotment->institute = $request->institute;
+        $allotment->course = $request->course;
+        $allotment->quota = $request->quota;
+        $allotment->category = $request->category;
+        $allotment->beds = $request->beds;
+        $allotment->fee = $request->fee;
 
 
-        $course->save();
+        $allotment->save();
 
         return redirect()->route('allotment.index');
 
@@ -98,11 +101,16 @@ class AllotmentController extends Controller
     {
         $allotment = allotment::where('id', $id)->first();
         $allotment->round = $request->round;
+        $allotment->all_india_rank = $request->all_india_rank;
         $allotment->state_rank = $request->state_rank;
+        $allotment->neet_score = $request->neet_score;
         $allotment->state = $request->state;
         $allotment->institute = $request->institute;
         $allotment->course = $request->course;
         $allotment->quota = $request->quota;
+        $allotment->category = $request->category;
+        $allotment->beds = $request->beds;
+        $allotment->fee = $request->fee;
         $allotment->save();
 
         return redirect()->route('allotment.index');

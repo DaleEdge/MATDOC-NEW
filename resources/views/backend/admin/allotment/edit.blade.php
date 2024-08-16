@@ -31,16 +31,32 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Round</label>
-                                <input type="text" name="round" placeholder="Enter Round" class="form-control"
+                                <input type="number" name="round" placeholder="Enter Round" class="form-control"
                                     value="{{$edit_data->round}}">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label>All India Rank</label>
+                                <input type="number" name="all_india_rank" placeholder="Enter All India Rank" class="form-control"
+                                    value="{{$edit_data->all_india_rank}}">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <label>State Rank</label>
-                                <input type="text" name="state_rank" placeholder="Enter State Rank" class="form-control"
+                                <input type="number" name="state_rank" placeholder="Enter State Rank" class="form-control"
                                     value="{{$edit_data->state_rank}}">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Neet Score</label>
+                                <input type="number" name="neet_score" placeholder="Enter Neet Score" class="form-control"
+                                    value="{{$edit_data->neet_score}}">
                             </div>
                         </div>
 
@@ -71,8 +87,8 @@
                         
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Institute Name</label>
-                                <input type="text" name="institute" placeholder="Enter Institute Name" class="form-control"
+                                <label>Institute</label>
+                                <input type="text" name="institute" placeholder="Enter Institute" class="form-control"
                                     value="{{$edit_data->institute}}">
                             </div>
                         </div>
@@ -90,6 +106,30 @@
                                 <label>Quota</label>
                                 <input type="text" name="quota" placeholder="Enter Quota" class="form-control"
                                     value="{{$edit_data->quota}}">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Category</label>
+                                <input type="text" name="category" placeholder="Enter Category" class="form-control"
+                                    value="{{$edit_data->category}}">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Fee</label>
+                                <input type="number" name="fee" placeholder="Enter Fee" class="form-control"
+                                    value="{{$edit_data->fee}}">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Beds</label>
+                                <input type="number" name="beds" placeholder="Enter Beds" class="form-control"
+                                    value="{{$edit_data->beds}}">
                             </div>
                         </div>
 

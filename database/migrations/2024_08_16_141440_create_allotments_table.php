@@ -15,13 +15,17 @@ class CreateAllotmentsTable extends Migration
     {
         Schema::create('allotments', function (Blueprint $table) {
             $table->id();
-            $table->string('round')->nullable();
-            $table->string('state_rank')->nullable();
+            $table->integer('round')->nullable();
+            $table->integer('all_india_rank')->nullable();
+            $table->integer('state_rank')->nullable();
+            $table->integer('neet_score')->nullable();
             $table->string('state')->nullable();
-            $table->string('state_id')->nullable();
             $table->string('institute')->nullable();
             $table->string('course')->nullable();
             $table->string('quota')->nullable();
+            $table->string('category')->nullable();
+            $table->integer('fee')->nullable();
+            $table->integer('beds')->nullable();
             $table->timestamps();
         });
     }

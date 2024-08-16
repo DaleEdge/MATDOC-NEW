@@ -35,8 +35,24 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label>All India Rank</label>
+                                <input type="number" name="all_india_rank" placeholder="Enter All India Rank"
+                                    class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <label>State Rank</label>
                                 <input type="number" name="state_rank" placeholder="Enter State Rank"
+                                    class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Neet Score</label>
+                                <input type="number" name="neet_score" placeholder="Enter Neet Score"
                                     class="form-control">
                             </div>
                         </div>
@@ -86,6 +102,27 @@
                             <div class="form-group">
                                 <label>Quota</label>
                                 <input type="text" name="quota" placeholder="Enter Quota" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Category</label>
+                                <input type="text" name="category" placeholder="Enter Category" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Fee</label>
+                                <input type="number" name="fee" placeholder="Enter Fee" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Beds</label>
+                                <input type="number" name="beds" placeholder="Enter Beds" class="form-control">
                             </div>
                         </div>
 
