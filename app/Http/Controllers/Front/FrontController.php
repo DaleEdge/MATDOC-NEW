@@ -2299,10 +2299,10 @@ class FrontController extends Controller
     public function allotments_data(Request $request)
     {
         $state = 'all_indias';
-        $list = DB::table($state)->take(1)->get();
+        $list = DB::table('allotments')->orderBy('state_rank', 'asc')->take(0)->get();
         if ($request->ajax()) {
             $state = $request->state;
-            $list = DB::table('alt_' . str_replace(' ', '_', strtolower($state)))->take(100)->get();
+            $list = DB::table('allotments')->where('state', $state)->orderBy('state_rank', 'asc')->take(100)->get();
             return view('ug.frontend.pages.home_table', compact('state', 'list'));
         }
         return view('ug.frontend.pages.home', compact('state', 'list'));
