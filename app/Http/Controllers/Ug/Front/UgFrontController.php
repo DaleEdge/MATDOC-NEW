@@ -48,13 +48,16 @@ class UgFrontController extends Controller
     }
     public function closing_rank(Request $request)
     {
-        $state = 'all_indias';
-        $list = DB::table($state)->take(1)->get();
-        if ($request->ajax()) {
-            $state = $request->state;
-            $list = DB::table('ug_' . str_replace(' ', '_', strtolower($state)))->take(10)->get();
+        $state = $request->state;
+        $list = DB::table('ug_neet_ranks')->orderBy('state_rank', 'asc')->take(1)->get();
+
+        if ($request->ajax() && $state != "") {
+
+            $list = $state == "all_indias" ? DB::table('ug_neet_ranks')->orderBy('state_rank', 'asc')->take(100)->get() : DB::table('ug_neet_ranks')->where("state", $state)->orderBy('state_rank', 'asc')->take(100)->get();
+
             return view('ug.frontend.pages.closing-rank_table', compact('state', 'list'));
         }
+
         return view('ug.frontend.pages.closing-rank', compact('state', 'list'));
     }
     public function closing_rank_details(Request $request)

@@ -48,10 +48,10 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('allotment.index') }}"
-                        class="nav-link @if (Route::currentRouteName() == 'allotment.index') active @endif">
+                    <a href="{{ route('ug_neet_ranks.index') }}"
+                        class="nav-link @if (Route::currentRouteName() == 'ug_neet_ranks.index') active @endif">
                         <i class="fas fa-user-graduate nav-icon"></i>
-                        <p>Allotment</p>
+                        <p>UG Neet Ranks</p>
                     </a>
                 </li>
 

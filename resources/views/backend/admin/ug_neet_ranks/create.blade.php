@@ -6,11 +6,11 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card card-outline card-info">
-            <form method="POST" action="{{route('allotment.store')}}" enctype="multipart/form-data" id="valid_form">
+            <form method="POST" action="{{route('ug_neet_ranks.store')}}" enctype="multipart/form-data" id="valid_form">
                 @csrf
                 <div class="card-header">
                     <h3 class="card-title">
-                        Add Allotment
+                        Add UG Rank
                     </h3>
                     <button type="submit" class="btn btn-success float-right"> <i class="fas fa-check"></i>
                         Save</button>
@@ -123,6 +123,54 @@
                             <div class="form-group">
                                 <label>Beds</label>
                                 <input type="number" name="beds" placeholder="Enter Beds" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>CR 2023 1</label>
+                                <input type="number" name="cr_2023_1" placeholder="Enter CR 2023 1"
+                                    class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>CR 2023 2</label>
+                                <input type="number" name="cr_2023_2" placeholder="Enter CR 2023 2"
+                                    class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>CR 2023 3</label>
+                                <input type="number" name="cr_2023_3" placeholder="Enter CR 2023 3"
+                                    class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>CR 2023 4</label>
+                                <input type="number" name="cr_2023_4" placeholder="Enter CR 2023 4"
+                                    class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>CR 2023 5</label>
+                                <input type="number" name="cr_2023_5" placeholder="Enter CR 2023 5"
+                                    class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>CR 2023 6</label>
+                                <input type="number" name="cr_2023_6" placeholder="Enter CR 2023 6"
+                                    class="form-control">
                             </div>
                         </div>
 

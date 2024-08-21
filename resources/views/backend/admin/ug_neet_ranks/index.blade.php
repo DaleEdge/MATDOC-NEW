@@ -7,16 +7,16 @@
     <div class="col-md-12">
         <div class="card card-outline card-info">
             <div class="card-header">
-                <h3 class="card-title">Allotment List</h3>
-                <a class="btn btn-primary btn-info float-right" href="{{ route('allotment.create') }}"><i
-                        class="fa fa-plus" aria-hidden="true"></i> Add Allotment</a>
+                <h3 class="card-title">UG Neet Ranks List</h3>
+                <a class="btn btn-primary btn-info float-right" href="{{ route('ug_neet_ranks.create') }}"><i
+                        class="fa fa-plus" aria-hidden="true"></i> Add UG Neet Rank</a>
                 <div class="card-tools">
 
                 </div>
             </div>
             <!-- /.card-header -->
             <div class="card-body p-0">
-                <table class="table table-striped text-center">
+                <table class="table table-striped text-center table-responsive" style="white-space:nowrap;">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -31,6 +31,12 @@
                             <th>Category</th>
                             <th>Fees</th>
                             <th>Beds</th>
+                            <th>CR 2023 1</th>
+                            <th>CR 2023 2</th>
+                            <th>CR 2023 3</th>
+                            <th>CR 2023 4</th>
+                            <th>CR 2023 5</th>
+                            <th>CR 2023 6</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,18 +54,24 @@
                                 <td>{{$data->category}}</td>
                                 <td>{{$data->fee}}</td>
                                 <td>{{$data->beds}}</td>
+                                <td>{{$data->cr_2023_1}}</td>
+                                <td>{{$data->cr_2023_2}}</td>
+                                <td>{{$data->cr_2023_3}}</td>
+                                <td>{{$data->cr_2023_4}}</td>
+                                <td>{{$data->cr_2023_5}}</td>
+                                <td>{{$data->cr_2023_6}}</td>
                                 <td>
-                                    <a class="btn btn-success  btn-sm mr-1" href="{{route('allotment.edit', $data->id)}}"><i
-                                            class="far fa-edit"></i></a>
+                                    <a class="btn btn-success  btn-sm mr-1"
+                                        href="{{route('ug_neet_ranks.edit', $data->id)}}"><i class="far fa-edit"></i></a>
 
-                                    {!! Form::open(['method' => 'DELETE', 'route' => ['allotment.destroy', $data->id], 'style' => 'display:inline']) !!}
+                                    {!! Form::open(['method' => 'DELETE', 'route' => ['ug_neet_ranks.destroy', $data->id], 'style' => 'display:inline']) !!}
                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
                                     {!! Form::close() !!}
                                 </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="12" class="text-center text-info">Opps!! There Are No Data Found..</td>
+                                <td colspan="18" class="text-center text-info">Opps!! There Are No Data Found..</td>
                             </tr>
 
                         @endforelse

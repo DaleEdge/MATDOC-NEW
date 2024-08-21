@@ -66,33 +66,28 @@
 <script>
    fetch_data('all_indias');
    $(function () {
-        $('.nav li a').click(function (e) {
-            $('.nav li a').removeClass('active');
-            $(this).addClass('active');
-        });
+      $('.nav li a').click(function (e) {
+         $('.nav li a').removeClass('active');
+         $(this).addClass('active');
       });
+   });
 
-
-
-    function fetch_data(state) {
-        $.ajax({
-            beforeSend: function() {
-                $('.preloader').show();
-            },
-            url: "{{route('home_user')}}",
-            data:{
-               'state':state
-            },
-            success: function(data) {
-                $('#table').html(data);
-        },
+   function fetch_data(state) {
+      $.ajax({
+         beforeSend: function() {
+            $('.preloader').show();
+         },
+         url: "{{route('home_user')}}",
+         data:{
+            'state':state
+         },
+         success: function(data) {
+            $('#table').html(data);
+         },
          complete: function() {
-             $('.preloader').hide();
-          }
-        });
-      }
-
-
-   
+            $('.preloader').hide();
+         }
+      });
+   }
 </script>
 @endsection

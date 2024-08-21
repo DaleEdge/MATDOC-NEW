@@ -6,13 +6,13 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card card-outline card-info">
-            <form method="POST" action="{{route('allotment.update', $edit_data->id)}}" enctype="multipart/form-data"
+            <form method="POST" action="{{route('ug_neet_ranks.update', $edit_data->id)}}" enctype="multipart/form-data"
                 id="valid_form">
                 @method('PUT')
                 @csrf
                 <div class="card-header">
                     <h3 class="card-title">
-                        Edit Allotment
+                        Edit UG Rank
                     </h3>
                     <button type="submit" class="btn btn-success float-right"> <i class="fas fa-check"></i>
                         Save</button>
@@ -130,6 +130,54 @@
                                 <label>Beds</label>
                                 <input type="number" name="beds" placeholder="Enter Beds" class="form-control"
                                     value="{{$edit_data->beds}}">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>CR 2023 1</label>
+                                <input type="number" name="cr_2023_1" placeholder="Enter CR 2023 1" class="form-control"
+                                    value="{{$edit_data->cr_2023_1}}">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>CR 2023 2</label>
+                                <input type="number" name="cr_2023_2" placeholder="Enter CR 2023 2" class="form-control"
+                                    value="{{$edit_data->cr_2023_2}}">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>CR 2023 3</label>
+                                <input type="number" name="cr_2023_3" placeholder="Enter CR 2023 3" class="form-control"
+                                    value="{{$edit_data->cr_2023_3}}">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>CR 2023 4</label>
+                                <input type="number" name="cr_2023_4" placeholder="Enter CR 2023 4" class="form-control"
+                                    value="{{$edit_data->cr_2023_4}}">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>CR 2023 5</label>
+                                <input type="number" name="cr_2023_5" placeholder="Enter CR 2023 5" class="form-control"
+                                    value="{{$edit_data->cr_2023_5}}">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>CR 2023 6</label>
+                                <input type="number" name="cr_2023_6" placeholder="Enter CR 2023 6" class="form-control"
+                                    value="{{$edit_data->cr_2023_6}}">
                             </div>
                         </div>
 

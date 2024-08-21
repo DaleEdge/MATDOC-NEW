@@ -8,7 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CollageController;
 use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\AllotmentController;
+use App\Http\Controllers\UgNeetRanksController;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\SchoolNoticeController;
 use App\Http\Controllers\StateDocumentController;
@@ -42,7 +42,7 @@ Route::group(['middleware' => ['auth', 'can:accessAdminpanel']], function () {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('student', CustomerController::class);
-    Route::resource('allotment', AllotmentController::class);
+    Route::resource('ug_neet_ranks', UgNeetRanksController::class);
     Route::resource('course', CourseController::class);
     Route::resource('collage', CollageController::class);
     Route::resource('payment', PaymentController::class);
