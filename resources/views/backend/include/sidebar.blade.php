@@ -51,7 +51,7 @@
                     <a href="{{ route('ug_neet_ranks.index') }}"
                         class="nav-link @if (Route::currentRouteName() == 'ug_neet_ranks.index') active @endif">
                         <i class="fas fa-user-graduate nav-icon"></i>
-                        <p>UG Neet Ranks</p>
+                        <p>Allotments</p>
                     </a>
                 </li>
 

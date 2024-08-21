@@ -27,6 +27,7 @@ class CreateUgNeetRanksTable extends Migration
             $table->integer('seats')->nullable();
             $table->integer('fee')->nullable();
             $table->integer('beds')->nullable();
+            $table->string('session')->nullable();
             $table->integer('cr_2023_1')->nullable();
             $table->integer('cr_2023_2')->nullable();
             $table->integer('cr_2023_3')->nullable();

@@ -112,12 +112,12 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="form-group">
                                 <label>Seats</label>
                                 <input type="number" name="seats" placeholder="Enter Seats" class="form-control">
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="col-md-6">
                             <div class="form-group">
@@ -134,6 +134,13 @@
                         </div>
 
                         <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Session</label>
+                                <input type="text" name="session" placeholder="Enter Session" class="form-control">
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-md-6">
                             <div class="form-group">
                                 <label>CR 2023 1</label>
                                 <input type="number" name="cr_2023_1" placeholder="Enter CR 2023 1"
@@ -179,7 +186,7 @@
                                 <input type="number" name="cr_2023_6" placeholder="Enter CR 2023 6"
                                     class="form-control">
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>
