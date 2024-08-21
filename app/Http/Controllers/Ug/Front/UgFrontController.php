@@ -130,9 +130,19 @@ class UgFrontController extends Controller
 
         return view('ug.frontend.pages.closing-rank-details', compact('list', 'college', 'category', 'round'));
     }
-    public function all_india_counselings()
+    public function all_india_counselings(Request $request)
     {
-        return view('ug.frontend.pages.all-india-counselings');
+        $state = $request->state;
+        $list = DB::table('ug_neet_ranks')->orderBy('state_rank', 'asc')->take(1)->get();
+
+        if ($request->ajax() && $state != "") {
+
+            $list = $state == "all_indias" ? DB::table('ug_neet_ranks')->orderBy('state_rank', 'asc')->take(100)->get() : DB::table('ug_neet_ranks')->where("state", $state)->orderBy('state_rank', 'asc')->take(100)->get();
+
+            return view('ug.frontend.pages.all-india-counselings_table', compact('state', 'list'));
+        }
+
+        return view('ug.frontend.pages.all-india-counselings', compact('state', 'list'));
     }
     public function state_wise_counselings()
     {

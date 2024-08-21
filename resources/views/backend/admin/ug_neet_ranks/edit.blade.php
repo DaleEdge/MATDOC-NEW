@@ -103,6 +103,13 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label>Seats</label>
+                                <input type="number" name="seats" placeholder="Enter Seats" class="form-control" value="{{$edit_data->seats}}">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <label>Quota</label>
                                 <input type="text" name="quota" placeholder="Enter Quota" class="form-control"
                                     value="{{$edit_data->quota}}">

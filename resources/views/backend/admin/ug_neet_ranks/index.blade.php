@@ -29,6 +29,7 @@
                             <th>Course</th>
                             <th>Quota</th>
                             <th>Category</th>
+                            <th>Seats</th>
                             <th>Fees</th>
                             <th>Beds</th>
                             <th>CR 2023 1</th>
@@ -52,6 +53,7 @@
                                 <td>{{$data->course}}</td>
                                 <td>{{$data->quota}}</td>
                                 <td>{{$data->category}}</td>
+                                <td>{{$data->seats}}</td>
                                 <td>{{$data->fee}}</td>
                                 <td>{{$data->beds}}</td>
                                 <td>{{$data->cr_2023_1}}</td>

@@ -24,6 +24,7 @@ class CreateUgMainTable extends Migration
             $table->string('course')->nullable();
             $table->string('quota')->nullable();
             $table->string('category')->nullable();
+            $table->integer('seats')->nullable();
             $table->integer('fee')->nullable();
             $table->integer('beds')->nullable();
             $table->integer('cr_2023_1')->nullable();

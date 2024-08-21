@@ -114,6 +114,13 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label>Seats</label>
+                                <input type="number" name="seats" placeholder="Enter Seats" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <label>Fee</label>
                                 <input type="number" name="fee" placeholder="Enter Fee" class="form-control">
                             </div>

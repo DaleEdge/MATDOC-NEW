@@ -60,6 +60,7 @@ class UgNeetRanksController extends Controller
         $ug_neet_ranks->course = $request->course;
         $ug_neet_ranks->quota = $request->quota;
         $ug_neet_ranks->category = $request->category;
+        $ug_neet_ranks->seats = $request->seats;
         $ug_neet_ranks->beds = $request->beds;
         $ug_neet_ranks->fee = $request->fee;
         $ug_neet_ranks->cr_2023_1 = $request->cr_2023_1;
@@ -115,6 +116,7 @@ class UgNeetRanksController extends Controller
         $ug_neet_ranks->course = $request->course;
         $ug_neet_ranks->quota = $request->quota;
         $ug_neet_ranks->category = $request->category;
+        $ug_neet_ranks->seats = $request->seats;
         $ug_neet_ranks->beds = $request->beds;
         $ug_neet_ranks->fee = $request->fee;
         $ug_neet_ranks->cr_2023_1 = $request->cr_2023_1;
