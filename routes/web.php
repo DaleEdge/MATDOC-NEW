@@ -115,7 +115,6 @@ Route::group(['prefix' => 'ug'], function () {
 
 
     Route::get('/all-india-counselings', [UgFrontController::class, 'all_india_counselings'])->name('ug.all_india_counselings');
-    Route::get('/seat-matrix', [UgFrontController::class, 'seat_matrix'])->name('ug.seat_matrix');
     Route::get('/deemed-hospital-details', [UgFrontController::class, 'deemed_hospital_details'])->name('ug.deemed_hospital_details');
     Route::get('/closing-rank', [UgFrontController::class, 'closing_rank'])->name('ug.closing_rank');
     Route::get('/closing-rank-details', [UgFrontController::class, 'closing_rank_details'])->name('ug.closing_rank_details');
@@ -137,6 +136,9 @@ Route::group(['prefix' => 'ug'], function () {
     Route::get('/all-india-stipend-details', [UgFrontController::class, 'all_india_stipend_details'])->name('ug.all_india_stipend_details')->middleware("checkSubscription");
     Route::get('/all-india-fee-details', [UgFrontController::class, 'all_india_fee_details'])->name('ug.all_india_fee_details')->middleware("checkSubscription");
     Route::get('/all-india-closing-rank-details', [UgFrontController::class, 'all_india_closing_rank_details'])->name('ug.all_india_closing_rank_details')->middleware("checkSubscription");
+
+    Route::get('/seat-matrix', [UgFrontController::class, 'seat_matrix'])->name('ug.seat_matrix');
+    Route::get('/fees-stipend-bond', [UgFrontController::class, 'fees_stipend_bond'])->name('ug.fees_stipend_bond');
 
 
 
