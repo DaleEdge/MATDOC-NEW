@@ -143,7 +143,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Session</label>
-                                <input type="text" name="session" placeholder="Enter Session" class="form-control"
+                                <input type="number" name="session" placeholder="Enter Session" class="form-control"
                                     value="{{$edit_data->session}}">
                             </div>
                         </div>
