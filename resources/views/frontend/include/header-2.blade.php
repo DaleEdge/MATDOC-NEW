@@ -179,7 +179,7 @@
                             <a href="{{ route('ug.closing_rank') }}" class="custom-link">Closing Ranks </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('ug.all_india_counselings') }}" class="custom-link">Seat Matrix</a>
+                            <a href="{{ route('ug.seat_matrix') }}" class="custom-link">Seat Matrix</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('ug.state_wise_counselings') }}" class="custom-link">Fee, Stipend and Bond</a>
