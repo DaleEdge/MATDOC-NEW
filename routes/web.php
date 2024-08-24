@@ -5,6 +5,7 @@ use App\Http\Controllers\AizUploadController;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Ug\Front\UgFrontController;
+use App\Http\Controllers\Pg\Front\PgFrontController;
 
 /*
 |--------------------------------------------------------------------------
@@ -139,21 +140,38 @@ Route::group(['prefix' => 'ug'], function () {
 
     Route::get('/seat-matrix', [UgFrontController::class, 'seat_matrix'])->name('ug.seat_matrix');
     Route::get('/fees-stipend-bond', [UgFrontController::class, 'fees_stipend_bond'])->name('ug.fees_stipend_bond');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
+
+Route::group(['prefix' => 'pg'], function () {
+
+
+    Route::get('/all-india-counselings', [PgFrontController::class, 'all_india_counselings'])->name('pg.all_india_counselings');
+    Route::get('/deemed-hospital-details', [PgFrontController::class, 'deemed_hospital_details'])->name('pg.deemed_hospital_details');
+    Route::get('/closing-rank', [PgFrontController::class, 'closing_rank'])->name('pg.closing_rank');
+    Route::get('/closing-rank-details', [PgFrontController::class, 'closing_rank_details'])->name('pg.closing_rank_details');
+    Route::get('/bond-details', [PgFrontController::class, 'bond_details'])->name('pg.bond_details');
+    Route::get('/stipend-details', [PgFrontController::class, 'stipend_details'])->name('pg.stipend_details');
+    Route::get('/fee-details', [PgFrontController::class, 'fee_details'])->name('pg.fee_details');
+    Route::get('/state-wise-counselings', [PgFrontController::class, 'state_wise_counselings'])->name('pg.state_wise_counselings');
+    Route::get('/state-wise-counseling-details-andhra', [PgFrontController::class, 'state_wise_counseling_details'])->name('pg.state_wise_counseling_details_andhra');
+    Route::get('/state-wise-counseling-details', [PgFrontController::class, 'state_wise_counseling_details'])->name('pg.state_wise_counseling_details')->middleware("checkSubscription");
+
+    Route::get('/state-document', [PgFrontController::class, 'state_document'])->name('pg.state_document');
+
+
+    Route::get('/student-report', [PgFrontController::class, 'student_report'])->name('pg.student_report');
+    Route::post('/student-report-details', [PgFrontController::class, 'student_report_details'])->name('pg.student_report_details');
+    Route::post('/student-report-closing-rank-details', [PgFrontController::class, 'student_report_closing_rank_details'])->name('pg.student_report_closing_rank_details');
+
+
+    Route::get('/all-india-stipend-details', [PgFrontController::class, 'all_india_stipend_details'])->name('pg.all_india_stipend_details')->middleware("checkSubscription");
+    Route::get('/all-india-fee-details', [PgFrontController::class, 'all_india_fee_details'])->name('pg.all_india_fee_details')->middleware("checkSubscription");
+    Route::get('/all-india-closing-rank-details', [PgFrontController::class, 'all_india_closing_rank_details'])->name('pg.all_india_closing_rank_details')->middleware("checkSubscription");
+
+    Route::get('/seat-matrix', [PgFrontController::class, 'seat_matrix'])->name('pg.seat_matrix');
+    Route::get('/fees-stipend-bond', [PgFrontController::class, 'fees_stipend_bond'])->name('pg.fees_stipend_bond');
+});
+
 
 
 
