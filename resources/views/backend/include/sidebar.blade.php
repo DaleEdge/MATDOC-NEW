@@ -48,10 +48,18 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('ug_neet_ranks.index') }}"
-                        class="nav-link @if (Route::currentRouteName() == 'ug_neet_ranks.index') active @endif">
+                    <a href="{{ route('ug_allotments.index') }}"
+                        class="nav-link @if (Route::currentRouteName() == 'ug_allotments.index') active @endif">
                         <i class="fas fa-user-graduate nav-icon"></i>
-                        <p>Allotments</p>
+                        <p>Allotments (UG)</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('pg_allotments.index') }}"
+                        class="nav-link @if (Route::currentRouteName() == 'pg_allotments.index') active @endif">
+                        <i class="fas fa-user-graduate nav-icon"></i>
+                        <p>Allotments (PG)</p>
                     </a>
                 </li>
 

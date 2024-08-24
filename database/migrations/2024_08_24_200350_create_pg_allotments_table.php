@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUgNeetRanksTable extends Migration
+class CreatePgAllotmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateUgNeetRanksTable extends Migration
      */
     public function up()
     {
-        Schema::create('ug_neet_ranks', function (Blueprint $table) {
+        Schema::create('pg_allotments', function (Blueprint $table) {
             $table->id();
             $table->integer('round')->nullable();
             $table->integer('all_india_rank')->nullable();
@@ -21,12 +21,18 @@ class CreateUgNeetRanksTable extends Migration
             $table->integer('neet_score')->nullable();
             $table->string('state')->nullable();
             $table->string('institute')->nullable();
+            $table->string('institute_type')->nullable();
             $table->string('course')->nullable();
+            $table->string('course_type')->nullable();
             $table->string('quota')->nullable();
             $table->string('category')->nullable();
+            $table->string('degree')->nullable();
             $table->integer('seats')->nullable();
             $table->integer('fee')->nullable();
             $table->integer('beds')->nullable();
+            $table->integer('stipend_1_year')->nullable();
+            $table->integer('bonus_years')->nullable();
+            $table->integer('bonus_penality')->nullable();
             $table->integer('session')->nullable();
             $table->integer('cr_2023_1')->nullable();
             $table->integer('cr_2023_2')->nullable();
@@ -45,6 +51,6 @@ class CreateUgNeetRanksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ug_neet_ranks');
+        Schema::dropIfExists('pg_allotments');
     }
 }

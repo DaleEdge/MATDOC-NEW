@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card card-outline card-info">
-            <form method="POST" action="{{route('ug_neet_ranks.store')}}" enctype="multipart/form-data" id="valid_form">
+            <form method="POST" action="{{route('ug_allotments.store')}}" enctype="multipart/form-data" id="valid_form">
                 @csrf
                 <div class="card-header">
                     <h3 class="card-title">

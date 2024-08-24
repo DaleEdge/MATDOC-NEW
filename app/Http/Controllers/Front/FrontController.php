@@ -2299,11 +2299,11 @@ class FrontController extends Controller
     public function allotments_data(Request $request)
     {
         $state = $request->state;
-        $list = DB::table('ug_neet_ranks')->orderBy('state_rank', 'asc')->take(1)->get();
+        $list = DB::table('pg_allotments')->orderBy('state_rank', 'asc')->take(1)->get();
 
         if ($request->ajax() && $state != "") {
 
-            $list = $state == "all_indias" ? DB::table('ug_neet_ranks')->orderBy('state_rank', 'asc')->take(100)->get() : DB::table('ug_neet_ranks')->where("state", $state)->orderBy('state_rank', 'asc')->take(100)->get();
+            $list = $state == "all_indias" ? DB::table('pg_allotments')->orderBy('state_rank', 'asc')->take(100)->get() : DB::table('pg_allotments')->where("state", $state)->orderBy('state_rank', 'asc')->take(100)->get();
 
             return view('ug.frontend.pages.home_table', compact('state', 'list'));
         }

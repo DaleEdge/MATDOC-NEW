@@ -68,10 +68,21 @@
           <div class="card bg-gradient-dark card-img-holder text-white small-box">
             <div class="card-body">
               <img src="{{asset('backend/circle.svg')}}" class="card-img-absolute" alt="circle-image">
-              <h3><span class="counter-value">{{App\Models\ug_neet_ranks::get()->count()}}</span></h3>
-              <h6 class="card-text">Allotments</h6>
+              <h3><span class="counter-value">{{App\Models\ug_allotments::get()->count()}}</span></h3>
+              <h6 class="card-text">Allotments (UG)</h6>
             </div>
-            <a href="{{route('ug_neet_ranks.index')}}" class="small-box-footer">More info <i
+            <a href="{{route('ug_allotments.index')}}" class="small-box-footer">More info <i
+                class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-3 stretch-card grid-margin">
+          <div class="card bg-gradient-dark card-img-holder text-white small-box">
+            <div class="card-body">
+              <img src="{{asset('backend/circle.svg')}}" class="card-img-absolute" alt="circle-image">
+              <h3><span class="counter-value">{{App\Models\pg_allotments::get()->count()}}</span></h3>
+              <h6 class="card-text">Allotments (PG)</h6>
+            </div>
+            <a href="{{route('pg_allotments.index')}}" class="small-box-footer">More info <i
                 class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ug_neet_ranks extends Model
+class ug_allotments extends Model
 {
     use HasFactory;
     // use SoftDeletes;

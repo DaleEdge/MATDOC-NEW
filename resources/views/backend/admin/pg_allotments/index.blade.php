@@ -7,8 +7,8 @@
     <div class="col-md-12">
         <div class="card card-outline card-info">
             <div class="card-header">
-                <h3 class="card-title">Allotments List</h3>
-                <a class="btn btn-primary btn-info float-right" href="{{ route('ug_neet_ranks.create') }}"><i
+                <h3 class="card-title">Allotments List (PG)</h3>
+                <a class="btn btn-primary btn-info float-right" href="{{ route('pg_allotments.create') }}"><i
                         class="fa fa-plus" aria-hidden="true"></i> Add Allotments</a>
                 <div class="card-tools">
 
@@ -16,7 +16,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body p-0">
-                <table class="table table-striped text-center" style="white-space:nowrap;">
+                <table class="table table-responsive table-striped text-center" style="white-space:nowrap;">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -26,12 +26,18 @@
                             <th>Neet Score</th>
                             <th>State</th>
                             <th>Institute</th>
+                            <th>Institute Type</th>
                             <th>Course</th>
+                            <th>Course Type</th>
                             <th>Quota</th>
                             <th>Category</th>
+                            <th>Degree</th>
                             <!-- <th>Seats</th> -->
                             <th>Fees</th>
                             <th>Beds</th>
+                            <th>Stipend 1st year</th>
+                            <th>Bonus Years</th>
+                            <th>Bonus Penality</th>
                             <th>Session</th>
                             <!-- <th>CR 2023 1</th>
                             <th>CR 2023 2</th>
@@ -51,31 +57,37 @@
                                 <td>{{$data->neet_score}}</td>
                                 <td>{{$data->state}}</td>
                                 <td>{{$data->institute}}</td>
+                                <td>{{$data->institute_type}}</td>
                                 <td>{{$data->course}}</td>
+                                <td>{{$data->course_type}}</td>
                                 <td>{{$data->quota}}</td>
                                 <td>{{$data->category}}</td>
+                                <td>{{$data->degree}}</td>
                                 <!-- <td>{{$data->seats}}</td> -->
                                 <td>{{$data->fee}}</td>
                                 <td>{{$data->beds}}</td>
+                                <td>{{$data->stipend_1_year}}</td>
+                                <td>{{$data->bonus_years}}</td>
+                                <td>{{$data->bonus_penality}}</td>
                                 <td>{{$data->session}}</td>
                                 <!-- <td>{{$data->cr_2023_1}}</td>
-                                                                        <td>{{$data->cr_2023_2}}</td>
-                                                                        <td>{{$data->cr_2023_3}}</td>
-                                                                        <td>{{$data->cr_2023_4}}</td>
-                                                                        <td>{{$data->cr_2023_5}}</td>
-                                                                        <td>{{$data->cr_2023_6}}</td> -->
+                                                                                                                            <td>{{$data->cr_2023_2}}</td>
+                                                                                                                            <td>{{$data->cr_2023_3}}</td>
+                                                                                                                            <td>{{$data->cr_2023_4}}</td>
+                                                                                                                            <td>{{$data->cr_2023_5}}</td>
+                                                                                                                            <td>{{$data->cr_2023_6}}</td> -->
                                 <td>
                                     <a class="btn btn-success  btn-sm mr-1"
-                                        href="{{route('ug_neet_ranks.edit', $data->id)}}"><i class="far fa-edit"></i></a>
+                                        href="{{route('pg_allotments.edit', $data->id)}}"><i class="far fa-edit"></i></a>
 
-                                    {!! Form::open(['method' => 'DELETE', 'route' => ['ug_neet_ranks.destroy', $data->id], 'style' => 'display:inline']) !!}
+                                    {!! Form::open(['method' => 'DELETE', 'route' => ['pg_allotments.destroy', $data->id], 'style' => 'display:inline']) !!}
                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
                                     {!! Form::close() !!}
                                 </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="13" class="text-center text-info">Opps!! There Are No Data Found..</td>
+                                <td colspan="19" class="text-center text-info">Opps!! There Are No Data Found..</td>
                             </tr>
 
                         @endforelse

@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card card-outline card-info">
-            <form method="POST" action="{{route('ug_neet_ranks.update', $edit_data->id)}}" enctype="multipart/form-data"
+            <form method="POST" action="{{route('pg_allotments.update', $edit_data->id)}}" enctype="multipart/form-data"
                 id="valid_form">
                 @method('PUT')
                 @csrf
@@ -93,11 +93,27 @@
                             </div>
                         </div>
 
+                           <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Institute Type</label>
+                                <input type="text" name="institute_type" placeholder="Enter Institute Type"
+                                    class="form-control" value="{{$edit_data->institute_type}}">
+                            </div>
+                        </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Course</label>
                                 <input type="text" name="course" placeholder="Enter Course" class="form-control"
                                     value="{{$edit_data->course}}">
+                            </div>
+                        </div>
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Course Type</label>
+                                <input type="text" name="course_type" placeholder="Enter Course Type"
+                                    class="form-control" value="{{$edit_data->course_type}}">
                             </div>
                         </div>
 
@@ -124,6 +140,13 @@
                             </div>
                         </div>
 
+                         <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Degree</label>
+                                <input type="text" name="degree" placeholder="Enter Degree" class="form-control" value="{{$edit_data->degree}}">
+                            </div>
+                        </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Fee</label>
@@ -137,6 +160,30 @@
                                 <label>Beds</label>
                                 <input type="number" name="beds" placeholder="Enter Beds" class="form-control"
                                     value="{{$edit_data->beds}}">
+                            </div>
+                        </div>
+
+                         <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Stipend 1st Year</label>
+                                <input type="number" name="stipend_1_year" placeholder="Enter 1st year stipend"
+                                    class="form-control" value="{{$edit_data->stipend_1_year}}">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Bonus Years</label>
+                                <input type="number" name="bonus_years" placeholder="Enter Bonus Years"
+                                    class="form-control" value="{{$edit_data->bonus_years}}">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Bonus Penality</label>
+                                <input type="number" name="bonus_penality" placeholder="Enter Bonus Penality"
+                                    class="form-control" value="{{$edit_data->bonus_penality}}">
                             </div>
                         </div>
 
