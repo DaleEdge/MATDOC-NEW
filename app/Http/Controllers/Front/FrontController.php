@@ -83,15 +83,19 @@ class FrontController extends Controller
 
     public function closing_rank(Request $request)
     {
-        $state = 'all_indias';
-        $list = DB::table($state)->groupBy('counseling_type')->get();
-        if ($request->ajax()) {
-            $state = $request->state;
-            $list = DB::table(str_replace(' ', '_', strtolower($state)))->groupBy('counseling_type')->get();
+        $state = $request->state;
+        $list = DB::table('pg_allotments')->orderBy('state_rank', 'asc')->take(1)->get();
+
+        if ($request->ajax() && $state != "") {
+
+            $list = $state == "all_indias" ? DB::table('pg_allotments')->orderBy('state_rank', 'asc')->take(100)->get() : DB::table('pg_allotments')->where("state", $state)->orderBy('state_rank', 'asc')->take(100)->get();
+
             return view('frontend.pages.closing-rank_table', compact('state', 'list'));
         }
+
         return view('frontend.pages.closing-rank', compact('state', 'list'));
     }
+
     public function closing_rank_details(Request $request)
     {
 
@@ -326,7 +330,8 @@ class FrontController extends Controller
                         auth()->login($user, false);
                     }
                     Session::flash('success', 'Login Successfully !');
-                    return redirect()->route('home_user');
+
+                    return redirect()->route($user->customer->exam_type == "UG" ? 'ug.home_user' : "home_user");
                 } else {
                     $validator->getMessageBag()->add('password', 'Password Wrong');
                     return back()->withErrors($validator)->withInput();
@@ -2299,15 +2304,47 @@ class FrontController extends Controller
     public function allotments_data(Request $request)
     {
         $state = $request->state;
+
         $list = DB::table('pg_allotments')->orderBy('state_rank', 'asc')->take(1)->get();
 
         if ($request->ajax() && $state != "") {
 
             $list = $state == "all_indias" ? DB::table('pg_allotments')->orderBy('state_rank', 'asc')->take(100)->get() : DB::table('pg_allotments')->where("state", $state)->orderBy('state_rank', 'asc')->take(100)->get();
 
-            return view('ug.frontend.pages.home_table', compact('state', 'list'));
+            return view('frontend.pages.home_table', compact('state', 'list'));
         }
 
-        return view('ug.frontend.pages.home', compact('state', 'list'));
+        return view('frontend.pages.home', compact('state', 'list'));
+
+    }
+
+    public function seat_matrix(Request $request)
+    {
+        $state = $request->state;
+        $list = DB::table('pg_allotments')->orderBy('state_rank', 'asc')->take(1)->get();
+
+        if ($request->ajax() && $state != "") {
+
+            $list = $state == "all_indias" ? DB::table('pg_allotments')->orderBy('state_rank', 'asc')->take(100)->get() : DB::table('pg_allotments')->where("state", $state)->orderBy('state_rank', 'asc')->take(100)->get();
+
+            return view('frontend.pages.seat-matrix_table', compact('state', 'list'));
+        }
+
+        return view('frontend.pages.seat-matrix', compact('state', 'list'));
+    }
+
+    public function fees_stipend_bond(Request $request)
+    {
+        $state = $request->state;
+        $list = DB::table('pg_allotments')->orderBy('state_rank', 'asc')->take(1)->get();
+
+        if ($request->ajax() && $state != "") {
+
+            $list = $state == "all_indias" ? DB::table('pg_allotments')->orderBy('state_rank', 'asc')->take(100)->get() : DB::table('pg_allotments')->where("state", $state)->orderBy('state_rank', 'asc')->take(100)->get();
+
+            return view('frontend.pages.fees-stipend-bond_table', compact('state', 'list'));
+        }
+
+        return view('frontend.pages.fees-stipend-bond', compact('state', 'list'));
     }
 }

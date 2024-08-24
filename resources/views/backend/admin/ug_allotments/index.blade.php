@@ -7,9 +7,9 @@
     <div class="col-md-12">
         <div class="card card-outline card-info">
             <div class="card-header">
-                <h3 class="card-title">Allotments List (UG)</h3>
+                <h3 class="card-title">Neet UG</h3>
                 <a class="btn btn-primary btn-info float-right" href="{{ route('ug_allotments.create') }}"><i
-                        class="fa fa-plus" aria-hidden="true"></i> Add Allotments</a>
+                        class="fa fa-plus" aria-hidden="true"></i> Add UG Neet</a>
                 <div class="card-tools">
 
                 </div>
@@ -59,11 +59,11 @@
                                 <td>{{$data->beds}}</td>
                                 <td>{{$data->session}}</td>
                                 <!-- <td>{{$data->cr_2023_1}}</td>
-                                                                                        <td>{{$data->cr_2023_2}}</td>
-                                                                                        <td>{{$data->cr_2023_3}}</td>
-                                                                                        <td>{{$data->cr_2023_4}}</td>
-                                                                                        <td>{{$data->cr_2023_5}}</td>
-                                                                                        <td>{{$data->cr_2023_6}}</td> -->
+                                                                                                            <td>{{$data->cr_2023_2}}</td>
+                                                                                                            <td>{{$data->cr_2023_3}}</td>
+                                                                                                            <td>{{$data->cr_2023_4}}</td>
+                                                                                                            <td>{{$data->cr_2023_5}}</td>
+                                                                                                            <td>{{$data->cr_2023_6}}</td> -->
                                 <td>
                                     <a class="btn btn-success  btn-sm mr-1"
                                         href="{{route('ug_allotments.edit', $data->id)}}"><i class="far fa-edit"></i></a>
@@ -75,7 +75,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="13" class="text-center text-info">Opps!! There Are No Data Found..</td>
+                                <td colspan="15" class="text-center text-info">Opps!! There Are No Data Found..</td>
                             </tr>
 
                         @endforelse

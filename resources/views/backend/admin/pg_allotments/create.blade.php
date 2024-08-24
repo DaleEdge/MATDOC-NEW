@@ -10,7 +10,7 @@
                 @csrf
                 <div class="card-header">
                     <h3 class="card-title">
-                        Add UG Rank
+                        Add UG Neet
                     </h3>
                     <button type="submit" class="btn btn-success float-right"> <i class="fas fa-check"></i>
                         Save</button>

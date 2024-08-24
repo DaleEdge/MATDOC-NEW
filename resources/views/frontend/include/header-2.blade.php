@@ -133,11 +133,17 @@
                             <a href="{{ route('closing_rank') }}" class="custom-link">Closing Ranks </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('all_india_counselings') }}" class="custom-link">Seat Matrix</a>
+                            <a href="{{ route('seat_matrix') }}" class="custom-link">Seat Matrix</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('state_wise_counselings') }}" class="custom-link">Fee, Stipend and Bond</a>
+                            <a href="{{ route('fees_stipend_bond') }}" class="custom-link">Fee, Stipend and Bond</a>
                         </li>
+                        <!-- <li class="nav-item">
+                                                                            <a href="{{ route('all_india_counselings') }}" class="custom-link">Seat Matrix</a>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a href="{{ route('state_wise_counselings') }}" class="custom-link">Fee, Stipend and Bond</a>
+                                                                        </li> -->
                         <li class="nav-item">
                             <a href="{{ route('ug.state_wise_counselings') }}" class="custom-link">Allotment Mapping</a>
                         </li>
@@ -168,12 +174,10 @@
                                 Rank Predictor</a>
                         </li>
                     </ul>
-                @endif
-
-                @if(Auth::user()->customer->exam_type == 'UG' && (isset(Auth::user()->payment->user_id)) && (Auth::user()->payment->plan_status == "success"))
+                @elseif(Auth::user()->customer->exam_type == 'UG' && (isset(Auth::user()->payment->user_id)) && (Auth::user()->payment->plan_status == "success"))
                     <ul class="navbar-navs list hor-swipe c-scrollbar-light">
                         <li class="nav-item ">
-                            <a href="{{ route('home_user') }}" class="custom-link">Allotments</a>
+                            <a href="{{ route('ug.home_user') }}" class="custom-link">Allotments</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('ug.closing_rank') }}" class="custom-link">Closing Ranks </a>

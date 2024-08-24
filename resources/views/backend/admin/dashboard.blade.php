@@ -69,7 +69,7 @@
             <div class="card-body">
               <img src="{{asset('backend/circle.svg')}}" class="card-img-absolute" alt="circle-image">
               <h3><span class="counter-value">{{App\Models\ug_allotments::get()->count()}}</span></h3>
-              <h6 class="card-text">Allotments (UG)</h6>
+              <h6 class="card-text">Neet UG</h6>
             </div>
             <a href="{{route('ug_allotments.index')}}" class="small-box-footer">More info <i
                 class="fas fa-arrow-circle-right"></i></a>
@@ -80,7 +80,7 @@
             <div class="card-body">
               <img src="{{asset('backend/circle.svg')}}" class="card-img-absolute" alt="circle-image">
               <h3><span class="counter-value">{{App\Models\pg_allotments::get()->count()}}</span></h3>
-              <h6 class="card-text">Allotments (PG)</h6>
+              <h6 class="card-text">Neet PG</h6>
             </div>
             <a href="{{route('pg_allotments.index')}}" class="small-box-footer">More info <i
                 class="fas fa-arrow-circle-right"></i></a>

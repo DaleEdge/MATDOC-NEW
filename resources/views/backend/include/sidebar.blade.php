@@ -51,7 +51,7 @@
                     <a href="{{ route('ug_allotments.index') }}"
                         class="nav-link @if (Route::currentRouteName() == 'ug_allotments.index') active @endif">
                         <i class="fas fa-user-graduate nav-icon"></i>
-                        <p>Allotments (UG)</p>
+                        <p>Neet UG</p>
                     </a>
                 </li>
 
@@ -59,7 +59,7 @@
                     <a href="{{ route('pg_allotments.index') }}"
                         class="nav-link @if (Route::currentRouteName() == 'pg_allotments.index') active @endif">
                         <i class="fas fa-user-graduate nav-icon"></i>
-                        <p>Allotments (PG)</p>
+                        <p>Neet PG</p>
                     </a>
                 </li>
 

@@ -1,242 +1,93 @@
-@extends('frontend.layouts.front_app')
+@extends('ug.frontend.layouts.front_app')
+<style>
+.header-top-wrapper .header-social ul li a {
+    padding-top: 7px;
+}
+.fa-lock:before {
+    content: "\f023";
+    color: #ff9529;
+}
+</style>
 @section('content')
+         <!-- Counter Start -->
+         <div class="section counter-section section counter-section mb-5">
+            <div class="container mt-5" style="margin-bottom:100px;">
+               <div class="neet-pg-layout">
+                  <div class="shadow custom-accordion-border card">
+                     <div class="card-body">
+                        <!-- Include State -->
+                        <div class="row">
+                           <div class="col-12">
+                              <ul class="nav">
+                                  
+                                
+                                
+                                  
+                               
+                                 <li class="nav-item"><a   onclick="fetch_data('Bihars')"  class="nav-link">  Bihar</a></li>
+                                 
+                                 
+                                
+                                 <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id))   href="{{route('subscription_plans')}}"  @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Chhattisgarhs')"  @endif  class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Chhattisgarh</a></li>
+                                 <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id))   href="{{route('subscription_plans')}}"  @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Gujarats')"  @endif   class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Gujarat</a></li>
+                                 <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id))   href="{{route('subscription_plans')}}"  @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Haryanas')"  @endif   class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Haryana</a></li>
+                                 <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id))   href="{{route('subscription_plans')}}"  @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Himachal Pradeshes')"  @endif   class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Himachal Pradesh</a></li>
+                                 <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id))   href="{{route('subscription_plans')}}"  @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Jammu and Kashmirs')"  @endif   class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Jammu and Kashmir</a></li>
+                                 <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id))   href="{{route('subscription_plans')}}"  @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Jharkhands')"  @endif  class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Jharkhand</a></li>
+                                 <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id))   href="{{route('subscription_plans')}}"  @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Karnatakas')"  @endif   class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Karnataka</a></li>
+                                 <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id))   href="{{route('subscription_plans')}}"  @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Madhya Pradeshes')"  @endif  class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Madhya Pradesh</a></li>
+                                 <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id))   href="{{route('subscription_plans')}}"  @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Maharashtras')"  @endif   class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Maharashtra</a></li>
+                                 
+                                 <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id))   href="{{route('subscription_plans')}}"  @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Pondicherries')"  @endif   class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Pondicherry</a></li>
+                                 <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id))   href="{{route('subscription_plans')}}"  @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Punjabs')"  @endif   class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Punjab</a></li>
+                                
+                                 <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id))   href="{{route('subscription_plans')}}"  @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Telanganas')"  @endif   class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Telangana</a></li>
+                                 <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id))   href="{{route('subscription_plans')}}"  @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Uttar Pradeshes')"  @endif    class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Uttar Pradesh</a></li>
+                                 <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id))   href="{{route('subscription_plans')}}"  @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Uttarakhands')"  @endif    class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Uttarakhand</a></li>
+                                 <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id))   href="{{route('subscription_plans')}}"  @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('West Bengals')"  @endif    class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif West Bengal</a></li>
 
-
-<div class="section section-padding">
-   <div class="container">
-       <div class="row justify-content-between">
-           <div class="col-lg-3 mb-3">
-               <!-- Sidebar Wrapper Start -->
-               <div class="sidebar-details-wrap">
-                   <!-- Sidebar Details Video Description Start -->
-                   <div class="sidebar-details-video-description">
-                       <div class="sidebar-video text-center">
-                           @if(empty(Auth::user()->profile_img))
-                             <img src="{{ asset('front_css/assets/images/profile.png')}}" alt="User Profile">
-                           @else
-                           <img src="{{ asset('front_css/assets/images/'.Auth::user()->id.'/'.Auth::user()->customer->profile_image) }}" alt="User Profile">
-                           @endif
-                           <h6 class="mt-1">{{Auth::user()->name}}</h6>
-                           <p class="mt-1">(Varanasi)</p>
-                       </div>
-                       <div class="sidebar-description">
-                        <ul class="description-list">
-                           @if(Auth::user()->customer->exam_type=='PG')
-                              <li><a href="{{route('student_report')}}"><i class="fa fa-file-o"></i> College Predictor </a></li>
-                              <li><a href="{{route('mark_vs_rank')}}"><i class="fa fa-file-o"></i> Rank Predictor </a></li>
-                              <li><a href="{{route('college_list')}}"><i class="fa fa-file-o"></i> Preffered college </a></li>
-                              <li><a href="{{route('subscription_plans')}}"><i class="fa fa-file-o"></i> My Guide Expert Counselling </a></li>
-                            @endif
-                            @if(Auth::user()->customer->exam_type=='UG')
-                             
-                              <li><a href="{{route('ug.student_report')}}"><i class="fa fa-file-o"></i> College Predictor </a></li>
-                              <li><a href="{{route('college_list')}}"><i class="fa fa-file-o"></i> Preffered College </a></li>
-                              <li><a href="{{route('subscription_plans')}}"><i class="fa fa-file-o"></i> My Guide Expert Counselling </a></li>
-                            @endif
-                        </ul>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <div class="col-xl-6 col-lg-6 mb-3">
-            <div class="search-form mt-0 mb-3">
-               @if(Auth::check())
-                  @if(Auth::user()->customer->exam_type=='UG')
-                  <form action="{{route('ug.student_report')}}">
-                  @endif
-                  @if(Auth::user()->customer->exam_type=='PG')
-                   <form action="{{route('student_report')}}">
-                  @endif
-              
-               @else
-                <form action="{{route('user-login')}}">
-               @endif
-                   <select class="custom-select">
-                       @if(Auth::user()->customer->exam_type=='UG')
-                       <option value="NEET UG">NEET UG</option>
-                       @endif
-                       @if(Auth::user()->customer->exam_type=='PG')
-                       <option value="NEET PG">NEET PG</option>
-                       @endif
-                     </select>
-                   <input type="text" name="rank" placeholder="Rank..." required>
-                   @if(Auth::check())
-                     @if(empty(optional(Auth::user()->payment)->user_id))
-                      <a   href="{{route('subscription_plans')}}"   class="btn btn-primary btn-hover-heading-color" ><i class="fa fa-search"></i></a>
-                     @else 
-                     <button type="submit"   class="btn btn-primary btn-hover-heading-color" ><i class="fa fa-search"></i></button>
-                     @endif
-
-                    @else
-                      <a href="{{route('user-login')}}"  class="btn btn-primary btn-hover-heading-color">  <i class="fa fa-search"></i></a>
-                    @endif
-               </form>
-           </div>
-            <div class="border-0 shadow card">
-               <div class="card-body">
-                  <h4 class="text-theme text-center mb-3">
-                     <i class="fa fa-calendar-o" aria-hidden="true"></i> News & Events
-                  </h4>
-                  <hr/>
-                  <!-- Pricing Wrapper End -->
-                  <div class="pricing-wrapper">
-                     <ul class="nav pricing-btn">
-                        <li><button class="active" data-bs-toggle="tab" data-bs-target="#past">All Event</button></li>
-                        <li><button data-bs-toggle="tab" data-bs-target="#upcoming">Upcoming</button></li>
-                        <li><button data-bs-toggle="tab" data-bs-target="#today">Previous</button></li>
-                       
-                     </ul>
-                     <div class="tab-content hg-ovrflw">
-                        <div class="tab-pane fade show active" id="past">
-                           <div class="table-responsive">
-                              <table role="table" class="table">
-                                 <thead>
-                                    <tr>
-                                       <th>Event Name</th>
-                                       <th>Start Date </th>
-                                       <th>End Date </th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    @if(count(App\Models\SchoolUpcomingEvent::where('delete_status', 0)->get())>0)
-                                    @foreach(App\Models\SchoolUpcomingEvent::where('delete_status', 0)->get() as $data)
-                                    <tr>
-                                       <td> {{$data->event_name}} </td>
-                                       <td>{{date('d-m-Y', $data->start_date)}}</td>
-                                       <td>{{date('d-m-Y', $data->end_date)}}</td>
-                                    </tr>
-                                   @endforeach
-                                   @else
-                                   <tr>
-                                    <td colspan="10" class="text-center text-info">Opps!! There Are No Data Found..</td>
-                                  </tr>
-                                   @endif
-                                 </tbody>
-                              </table>
+                                 <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id))   href="{{route('subscription_plans')}}"  @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Tamilnadu')"  @endif    class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Tamilnadu</a></li>
+                              </ul>
                            </div>
                         </div>
-                        
-                        <div class="tab-pane fade" id="upcoming">
-                           <div class="table-responsive">
-                              <table role="table" class="table">
-                                 <thead>
-                                    <tr>
-                                       <th>Event Name</th>
-                                       <th>Start Date </th>
-                                       <th>End Date </th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    @if(count(App\Models\SchoolUpcomingEvent::where('start_date', '>', time())->where('delete_status', 0)->get())>0)
-                                    @foreach(App\Models\SchoolUpcomingEvent::where('start_date', '>', time())->where('delete_status', 0)->get() as $data)
-                                    <tr>
-                                       <td> {{$data->event_name}} </td>
-                                       <td>{{date('d-m-Y', $data->start_date)}}</td>
-                                       <td>{{date('d-m-Y', $data->end_date)}}</td>
-                                    </tr>
-                                   @endforeach
-                                   @else
-                                   <tr>
-                                    <td colspan="10" class="text-center text-info">Opps!! There Are No Data Found..</td>
-                                  </tr>
-                                   @endif
-
-                                 </tbody>
-                              </table>
-                           </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="today">
-                           <div class="table-responsive">
-                              <table role="table" class="table">
-                                 <thead>
-                                    <tr>
-                                       <th>Event Name</th>
-                                       <th>Start Date </th>
-                                       <th>End Date </th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    @if(count(App\Models\SchoolUpcomingEvent::where('end_date', '<', time())->where('delete_status', 0)->get())>0)
-                                    @foreach(App\Models\SchoolUpcomingEvent::where('end_date', '<', time())->where('delete_status', 0)->get() as $data)
-                                    <tr>
-                                       <td> {{$data->event_name}} </td>
-                                       <td>{{date('d-m-Y', $data->start_date)}}</td>
-                                       <td>{{date('d-m-Y', $data->end_date)}}</td>
-                                    </tr>
-                                   @endforeach
-                                   @else
-                                   <tr>
-                                    <td colspan="10" class="text-center text-info">Opps!! There Are No Data Found..</td>
-                                  </tr>
-                                   @endif
-
-                                 </tbody>
-                              </table>
-                           </div>
-                        </div>
-
-                     </div>
-                  </div>
-                  <!-- Pricing Wrapper End -->
-               </div>
-            </div>
-           </div>
-           <div class="col-md-3">
-            <div class="card shadow">
-               <div class="card-body">
-                  <h4 class="text-center mb-3">
-                     <i class="fa fa-bullhorn" aria-hidden="true"></i> Announcements
-                  </h4>
-                  <hr/>
-                  <form class="">
-                     <div class="row">
-                        <div class="header-search">
-                  <form action="#">
-                  <input type="text" placeholder="Search...">
-                  <button><i class="flaticon-loupe"></i></button>
-                  </form>
-                  </div>
-                  </div>
-                  </form>
-                  <div class="home-cards">
-                     <div class="border-0 card">
-                        <div class="card-body p-0 mt-3">
-                           <div class="table-responsive">
-                              <table class="table">
-                                 <thead>
-                                    <tr>
-                                       <th>News </th>
-                                       <th>Details </th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                 @if(count(App\Models\SchoolNotice::where('delete_status', 0)->get()) > 0 )
-                                    @foreach(App\Models\SchoolNotice::where('delete_status', 0)->get() as $data)
-                                    <tr>
-                                       <td> {{$data->title}} </td>
-                                       <td> {{$data->description}} </td>
-                                    </tr>
-                                   @endforeach
-                                   @else
-                                     <tr>
-                                       <td colspan="10" class="text-center text-info">Opps!! There Are No Data Found..</td>
-                                     </tr>
-                                   @endif
-                                 </tbody>
-                              </table>
-                           </div>
+                        <!-- End State -->
+                        <hr>
+                        <div class="row" id="table">
+                          @include('frontend.pages.home_table')
                         </div>
                      </div>
                   </div>
                </div>
             </div>
          </div>
-       </div>
+      </div>
+      @endsection
+      @section('script')
+<script>
+   fetch_data('all_indias');
+   $(function () {
+      $('.nav li a').click(function (e) {
+         $('.nav li a').removeClass('active');
+         $(this).addClass('active');
+      });
+   });
 
-
-   </div>
-</div>
-
-     @endsection
-        
+   function fetch_data(state) {
+      $.ajax({
+         beforeSend: function() {
+            $('.preloader').show();
+         },
+         url: "{{route('home_user')}}",
+         data:{
+            'state':state
+         },
+         success: function(data) {
+            $('#table').html(data);
+         },
+         complete: function() {
+            $('.preloader').hide();
+         }
+      });
+   }
+</script>
+@endsection

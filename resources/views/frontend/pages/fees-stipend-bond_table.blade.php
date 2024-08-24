@@ -72,19 +72,12 @@
           <table class="table" style="white-space:nowrap;">
             <thead>
               <tr>
-                <th>Quota</th>
-                <th>Category</th>
                 <th>State</th>
                 <th>Institute</th>
                 <th>Course</th>
+                <th>Quota</th>
                 <th>Fee</th>
                 <th>Beds</th>
-                <th>CR 2023 1</th>
-                <th>CR 2023 2</th>
-                <th>CR 2023 3</th>
-                <th>CR 2023 4</th>
-                <th>CR 2023 5</th>
-                <th>CR 2023 6</th>
               </tr>
             </thead>
             <tbody>
@@ -95,19 +88,12 @@
         @else
         @foreach($list as $data)
       <tr>
-      <td>{{ $data->quota }}</td>
-      <td>{{ $data->category }}</td>
       <td>{{ $data->state }}</td>
       <td>{{ $data->institute }}</td>
       <td>{{ $data->course }}</td>
+      <td>{{ $data->quota }}</td>
       <td>{{ $data->fee }}</td>
       <td>{{ $data->beds }}</td>
-      <td>{{ $data->{'cr_2023_1'} }}</td>
-      <td>{{ $data->{'cr_2023_2'} }}</td>
-      <td>{{ $data->{'cr_2023_3'} }}</td>
-      <td>{{ $data->{'cr_2023_4'} }}</td>
-      <td>{{ $data->{'cr_2023_5'} }}</td>
-      <td>{{ $data->{'cr_2023_6'} }}</td>
       </tr>
     @endforeach
       @endif

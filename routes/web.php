@@ -111,9 +111,12 @@ Route::post('enquiry', [FrontController::class, 'enquiry'])->name('enquiry');
 
 Route::get('/mark_vs_rank', [FrontController::class, 'mark_vs_rank'])->name('mark_vs_rank');
 
+Route::get('/seat-matrix', [FrontController::class, 'seat_matrix'])->name('seat_matrix');
+Route::get('/fees-stipend-bond', [FrontController::class, 'fees_stipend_bond'])->name('fees_stipend_bond');
+
 Route::group(['prefix' => 'ug'], function () {
 
-
+    Route::get('/home', [UgFrontController::class, 'allotments_data'])->name('ug.home_user');
     Route::get('/all-india-counselings', [UgFrontController::class, 'all_india_counselings'])->name('ug.all_india_counselings');
     Route::get('/deemed-hospital-details', [UgFrontController::class, 'deemed_hospital_details'])->name('ug.deemed_hospital_details');
     Route::get('/closing-rank', [UgFrontController::class, 'closing_rank'])->name('ug.closing_rank');

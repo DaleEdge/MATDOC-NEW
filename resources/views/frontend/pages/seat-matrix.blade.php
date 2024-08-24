@@ -22,7 +22,7 @@
                                   
                                 
                                 
-                                  
+                                 
                                
                                  <li class="nav-item"><a   onclick="fetch_data('Bihars')"  class="nav-link">  Bihar</a></li>
                                  
@@ -53,7 +53,7 @@
                         <!-- End State -->
                         <hr>
                         <div class="row" id="table">
-                          @include('ug.frontend.pages.home_table')
+                          @include('ug.frontend.pages.seat-matrix_table')
                         </div>
                      </div>
                   </div>
@@ -77,7 +77,7 @@
          beforeSend: function() {
             $('.preloader').show();
          },
-         url: "{{route('ug.home_user')}}",
+         url: "{{route('ug.seat_matrix')}}",
          data:{
             'state':state
          },

@@ -7,9 +7,9 @@
     <div class="col-md-12">
         <div class="card card-outline card-info">
             <div class="card-header">
-                <h3 class="card-title">Allotments List (PG)</h3>
+                <h3 class="card-title">Neet PG</h3>
                 <a class="btn btn-primary btn-info float-right" href="{{ route('pg_allotments.create') }}"><i
-                        class="fa fa-plus" aria-hidden="true"></i> Add Allotments</a>
+                        class="fa fa-plus" aria-hidden="true"></i> Add PG Neet</a>
                 <div class="card-tools">
 
                 </div>
@@ -71,11 +71,11 @@
                                 <td>{{$data->bonus_penality}}</td>
                                 <td>{{$data->session}}</td>
                                 <!-- <td>{{$data->cr_2023_1}}</td>
-                                                                                                                            <td>{{$data->cr_2023_2}}</td>
-                                                                                                                            <td>{{$data->cr_2023_3}}</td>
-                                                                                                                            <td>{{$data->cr_2023_4}}</td>
-                                                                                                                            <td>{{$data->cr_2023_5}}</td>
-                                                                                                                            <td>{{$data->cr_2023_6}}</td> -->
+                                                                                                                                        <td>{{$data->cr_2023_2}}</td>
+                                                                                                                                        <td>{{$data->cr_2023_3}}</td>
+                                                                                                                                        <td>{{$data->cr_2023_4}}</td>
+                                                                                                                                        <td>{{$data->cr_2023_5}}</td>
+                                                                                                                                        <td>{{$data->cr_2023_6}}</td> -->
                                 <td>
                                     <a class="btn btn-success  btn-sm mr-1"
                                         href="{{route('pg_allotments.edit', $data->id)}}"><i class="far fa-edit"></i></a>

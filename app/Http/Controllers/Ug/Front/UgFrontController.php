@@ -49,11 +49,11 @@ class UgFrontController extends Controller
     public function closing_rank(Request $request)
     {
         $state = $request->state;
-        $list = DB::table('pg_allotments')->orderBy('state_rank', 'asc')->take(1)->get();
+        $list = DB::table('ug_allotments')->orderBy('state_rank', 'asc')->take(1)->get();
 
         if ($request->ajax() && $state != "") {
 
-            $list = $state == "all_indias" ? DB::table('pg_allotments')->orderBy('state_rank', 'asc')->take(100)->get() : DB::table('pg_allotments')->where("state", $state)->orderBy('state_rank', 'asc')->take(100)->get();
+            $list = $state == "all_indias" ? DB::table('ug_allotments')->orderBy('state_rank', 'asc')->take(100)->get() : DB::table('ug_allotments')->where("state", $state)->orderBy('state_rank', 'asc')->take(100)->get();
 
             return view('ug.frontend.pages.closing-rank_table', compact('state', 'list'));
         }
@@ -1759,14 +1759,31 @@ class UgFrontController extends Controller
 
     }
 
-    public function seat_matrix(Request $request)
+    public function allotments_data(Request $request)
     {
         $state = $request->state;
-        $list = DB::table('pg_allotments')->orderBy('state_rank', 'asc')->take(1)->get();
+
+        $list = DB::table('ug_allotments')->orderBy('state_rank', 'asc')->take(1)->get();
 
         if ($request->ajax() && $state != "") {
 
-            $list = $state == "all_indias" ? DB::table('pg_allotments')->orderBy('state_rank', 'asc')->take(100)->get() : DB::table('pg_allotments')->where("state", $state)->orderBy('state_rank', 'asc')->take(100)->get();
+            $list = $state == "all_indias" ? DB::table('ug_allotments')->orderBy('state_rank', 'asc')->take(100)->get() : DB::table('ug_allotments')->where("state", $state)->orderBy('state_rank', 'asc')->take(100)->get();
+
+            return view('ug.frontend.pages.home_table', compact('state', 'list'));
+        }
+
+        return view('ug.frontend.pages.home', compact('state', 'list'));
+
+    }
+
+    public function seat_matrix(Request $request)
+    {
+        $state = $request->state;
+        $list = DB::table('ug_allotments')->orderBy('state_rank', 'asc')->take(1)->get();
+
+        if ($request->ajax() && $state != "") {
+
+            $list = $state == "all_indias" ? DB::table('ug_allotments')->orderBy('state_rank', 'asc')->take(100)->get() : DB::table('ug_allotments')->where("state", $state)->orderBy('state_rank', 'asc')->take(100)->get();
 
             return view('ug.frontend.pages.seat-matrix_table', compact('state', 'list'));
         }
@@ -1777,11 +1794,11 @@ class UgFrontController extends Controller
     public function fees_stipend_bond(Request $request)
     {
         $state = $request->state;
-        $list = DB::table('pg_allotments')->orderBy('state_rank', 'asc')->take(1)->get();
+        $list = DB::table('ug_allotments')->orderBy('state_rank', 'asc')->take(1)->get();
 
         if ($request->ajax() && $state != "") {
 
-            $list = $state == "all_indias" ? DB::table('pg_allotments')->orderBy('state_rank', 'asc')->take(100)->get() : DB::table('pg_allotments')->where("state", $state)->orderBy('state_rank', 'asc')->take(100)->get();
+            $list = $state == "all_indias" ? DB::table('ug_allotments')->orderBy('state_rank', 'asc')->take(100)->get() : DB::table('ug_allotments')->where("state", $state)->orderBy('state_rank', 'asc')->take(100)->get();
 
             return view('ug.frontend.pages.fees-stipend-bond_table', compact('state', 'list'));
         }
