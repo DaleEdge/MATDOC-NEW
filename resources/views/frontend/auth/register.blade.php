@@ -85,6 +85,7 @@
                                         </div>
                                         <div class="text-center">
                                             <p class="mt-2">Already have an account? <a href="{{route('user-login')}}"> Login</a></p>
+                                            <p class="mt-2">Want to login in with Google account? <a href="{{ url('auth/google') }}"> Login with Google</a></p>
                                         </div>
                                     </form>
                                 </div>

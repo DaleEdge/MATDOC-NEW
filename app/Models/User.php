@@ -23,8 +23,11 @@ class User extends Authenticatable
         'user_type',
         'email',
         'password',
-    ];
-
+        'google_id',
+        'exam_type',
+        'score', 
+        'phone',
+        ];
     /**
      * The attributes that should be hidden for serialization.
      *

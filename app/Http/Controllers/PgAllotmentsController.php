@@ -12,9 +12,28 @@ class PgAllotmentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+
+     public function index(Request $request)
     {
-        $list = pg_allotments::take(25)->get();
+        $query = PgAllotment::query();
+
+        // Apply filters
+        if ($request->has('round')) {
+            $query->where('round', $request->input('round'));
+        }
+        if ($request->has('state')) {
+            $query->where('state', 'like', '%' . $request->input('state') . '%');
+        }
+        if ($request->has('institute')) {
+            $query->where('institute', 'like', '%' . $request->input('institute') . '%');
+        }
+        if ($request->has('category')) {
+            $query->where('category', $request->input('category'));
+        }
+        // Add more filters as needed...
+
+        // Pagination
+        $pg_allotments = $query->paginate(10); // 10 records per page
 
         return view('backend.admin.pg_allotments.index', compact('list'));
     }

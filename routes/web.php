@@ -5,6 +5,8 @@ use App\Http\Controllers\AizUploadController;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Ug\Front\UgFrontController;
+use App\Http\Controllers\Auth\GoogleController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,59 @@ use App\Http\Controllers\Ug\Front\UgFrontController;
 |
 */
 
+// Redirect to Google OAuth
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+
+Route::get('auth/google/callback', function () {
+    $googleUser = Socialite::driver('google')->stateless()->user();
+
+    // Check if the user already exists
+    $user = User::where('email', $googleUser->getEmail())->first();
+
+    if ($user) {
+        // Log in the existing user
+        Auth::login($user, true);
+    } else {
+        // Store Google user data temporarily in session
+        session([
+            'google_user' => $googleUser
+        ]);
+
+        // Redirect to a form to capture additional fields
+        return redirect('/user-register');
+    }
+
+    return redirect('/user_dashboard');
+});
+
+// Route to show the additional registration form
+Route::get('/user-register', function () {
+    $googleUser = session('google_user');
+
+    return view('auth.user-register', ['googleUser' => $googleUser]);
+});
+
+// Route to handle the form submission
+Route::post('/user-register', function (Request $request) {
+    $googleUser = session('google_user');
+
+    // Create a new user with the additional fields
+    $user = User::create([
+        'name' => $request->name,
+        'email' => $googleUser->getEmail(),
+        'google_id' => $googleUser->getId(),
+        'avatar' => $googleUser->getAvatar(),
+        'password' => bcrypt(str_random(16)),
+        'exam_type' => $request->exam_type,
+        'score' => $request->score,
+        'phone' => $request->phone,
+    ]);
+
+    // Log in the new user
+    Auth::login($user, true);
+
+    return redirect('/user_dashboard');
+});
 
 //Route::get('/deemed', [App\Http\Controllers\Front\FrontController::class, 'new_deemed']);
 Route::get('/deemed_fees', [App\Http\Controllers\Front\FrontController::class, 'deemed_fees'])->name('deemed_fees');
