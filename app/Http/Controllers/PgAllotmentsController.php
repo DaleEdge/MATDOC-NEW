@@ -13,31 +13,30 @@ class PgAllotmentsController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function index(Request $request)
+    public function index(Request $request)
     {
-        $query = PgAllotment::query();
+        $list = pg_allotments::take(10)->get();
 
         // Apply filters
         if ($request->has('round')) {
-            $query->where('round', $request->input('round'));
+            $list->where('round', $request->input('round'));
         }
         if ($request->has('state')) {
-            $query->where('state', 'like', '%' . $request->input('state') . '%');
+            $list->where('state', 'like', '%' . $request->input('state') . '%');
         }
         if ($request->has('institute')) {
-            $query->where('institute', 'like', '%' . $request->input('institute') . '%');
+            $list->where('institute', 'like', '%' . $request->input('institute') . '%');
         }
         if ($request->has('category')) {
-            $query->where('category', $request->input('category'));
+            $list->where('category', $request->input('category'));
         }
         // Add more filters as needed...
 
-        // Pagination
-        $pg_allotments = $query->paginate(10); // 10 records per page
+        // // Pagination
+        // $pg_allotments = $query->paginate(10); // 10 records per page
 
         return view('backend.admin.pg_allotments.index', compact('list'));
     }
-
 
     /**
      * Show the form for creating a new resource.
