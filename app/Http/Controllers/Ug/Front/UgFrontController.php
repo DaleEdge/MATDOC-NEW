@@ -65,12 +65,12 @@ class UgFrontController extends Controller
                     'course',
                     'fee',
                     'beds',
-                    DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 1 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 1 THEN all_india_rank END), ')') AS cr_2023_1"),
-                    DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 2 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 2 THEN all_india_rank END), ')') AS cr_2023_2"),
-                    DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 3 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 3 THEN all_india_rank END), ')') AS cr_2023_3"),
-                    DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 4 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 4 THEN all_india_rank END), ')') AS cr_2023_4"),
-                    DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 5 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 5 THEN all_india_rank END), ')') AS cr_2023_5"),
-                    DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 6 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 6 THEN all_india_rank END), ')') AS cr_2023_6")
+                    DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 1 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 1 THEN id END), ')') AS cr_2023_1"),
+                    DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 2 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 2 THEN id END), ')') AS cr_2023_2"),
+                    DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 3 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 3 THEN id END), ')') AS cr_2023_3"),
+                    DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 4 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 4 THEN id END), ')') AS cr_2023_4"),
+                    DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 5 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 5 THEN id END), ')') AS cr_2023_5"),
+                    DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 6 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 6 THEN id END), ')') AS cr_2023_6")
                 )
                 ->groupBy('quota', 'category', 'state', 'institute', 'course', 'fee', 'beds')
                 ->take(10)
@@ -83,12 +83,12 @@ class UgFrontController extends Controller
                         'course',
                         'fee',
                         'beds',
-                        DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 1 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 1 THEN all_india_rank END), ')') AS cr_2023_1"),
-                        DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 2 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 2 THEN all_india_rank END), ')') AS cr_2023_2"),
-                        DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 3 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 3 THEN all_india_rank END), ')') AS cr_2023_3"),
-                        DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 4 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 4 THEN all_india_rank END), ')') AS cr_2023_4"),
-                        DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 5 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 5 THEN all_india_rank END), ')') AS cr_2023_5"),
-                        DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 6 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 6 THEN all_india_rank END), ')') AS cr_2023_6")
+                        DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 1 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 1 THEN id END), ')') AS cr_2023_1"),
+                        DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 2 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 2 THEN id END), ')') AS cr_2023_2"),
+                        DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 3 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 3 THEN id END), ')') AS cr_2023_3"),
+                        DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 4 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 4 THEN id END), ')') AS cr_2023_4"),
+                        DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 5 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 5 THEN id END), ')') AS cr_2023_5"),
+                        DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 6 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 6 THEN id END), ')') AS cr_2023_6")
                     )
                     ->where('state', $state)
                     ->groupBy('quota', 'category', 'state', 'institute', 'course', 'fee', 'beds')
