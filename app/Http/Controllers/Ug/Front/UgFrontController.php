@@ -72,7 +72,9 @@ class UgFrontController extends Controller
                     DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 5 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 5 THEN id END), ')') AS cr_2023_5"),
                     DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 6 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 6 THEN id END), ')') AS cr_2023_6")
                 )
-                ->groupBy('quota', 'category', 'state', 'institute', 'course', 'fee', 'beds')
+                ->groupBy('quota', 'category', 'state', 'institute', 'course')
+                ->orderBy('institute', 'ASC')
+                ->orderBy('category', 'ASC')
                 ->take(10)
                 ->get() : DB::table('ug_allotments')
                     ->select(
@@ -91,7 +93,9 @@ class UgFrontController extends Controller
                         DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 6 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 6 THEN id END), ')') AS cr_2023_6")
                     )
                     ->where('state', $state)
-                    ->groupBy('quota', 'category', 'state', 'institute', 'course', 'fee', 'beds')
+                    ->groupBy('quota', 'category', 'state', 'institute', 'course')
+                    ->orderBy('institute', 'ASC')
+                    ->orderBy('category', 'ASC')
                     ->take(10)
                     ->get();
 
@@ -100,7 +104,42 @@ class UgFrontController extends Controller
 
         return view('ug.frontend.pages.closing-rank', compact('state', 'list'));
     }
+
     public function closing_rank_details(Request $request)
+    {
+
+        $quota = $request->quota;
+        $category = $request->category;
+        $state = $request->state;
+        $institute = $request->institute;
+        $course = $request->course;
+        $session = $request->session;
+        $round = $request->round;
+
+        $details = DB::table('ug_allotments')
+            ->select(
+                'quota',
+                'category',
+                'state',
+                'institute',
+                'course',
+                'fee',
+                'beds',
+                'all_india_rank'
+            )
+            ->where('quota', 'LIKE', "%{$quota}%")
+            ->where('category', 'LIKE', "%{$category}%")
+            ->where('state', 'LIKE', "%{$state}%")
+            ->where('institute', 'LIKE', "%{$institute}%")
+            ->where('course', 'LIKE', "%{$course}%")
+            ->where('session', $session)
+            ->where('round', $round)
+            ->take(10)
+            ->get();
+
+        return response()->json($details);
+    }
+    public function closing_rank_details_old(Request $request)
     {
         $state = $request->state;
         $counseling_type = $request->counseling_type;
