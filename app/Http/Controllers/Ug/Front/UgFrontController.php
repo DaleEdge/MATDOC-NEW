@@ -12,6 +12,7 @@ use App\Models\User;
 use Razorpay\Api\Api;
 use App\Models\Payment;
 use App\Models\Customer;
+use App\Models\ug_allotments;
 use Illuminate\Http\Request;
 use App\Models\StateDocument;
 use Craftsys\Msg91\Facade\Msg91;
@@ -49,11 +50,50 @@ class UgFrontController extends Controller
     public function closing_rank(Request $request)
     {
         $state = $request->state;
-        $list = DB::table('ug_allotments')->orderBy('state_rank', 'asc')->take(1)->get();
+        $list = DB::table('ug_allotments')
+            ->take(0)
+            ->get();
 
         if ($request->ajax() && $state != "") {
 
-            $list = $state == "all_indias" ? DB::table('ug_allotments')->orderBy('state_rank', 'asc')->take(100)->get() : DB::table('ug_allotments')->where("state", $state)->orderBy('state_rank', 'asc')->take(100)->get();
+            $list = $state == "all_indias" ? DB::table('ug_allotments')
+                ->select(
+                    'quota',
+                    'category',
+                    'state',
+                    'institute',
+                    'course',
+                    'fee',
+                    'beds',
+                    DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 1 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 1 THEN all_india_rank END), ')') AS cr_2023_1"),
+                    DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 2 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 2 THEN all_india_rank END), ')') AS cr_2023_2"),
+                    DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 3 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 3 THEN all_india_rank END), ')') AS cr_2023_3"),
+                    DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 4 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 4 THEN all_india_rank END), ')') AS cr_2023_4"),
+                    DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 5 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 5 THEN all_india_rank END), ')') AS cr_2023_5"),
+                    DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 6 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 6 THEN all_india_rank END), ')') AS cr_2023_6")
+                )
+                ->groupBy('quota', 'category', 'state', 'institute', 'course', 'fee', 'beds')
+                ->take(10)
+                ->get() : DB::table('ug_allotments')
+                    ->select(
+                        'quota',
+                        'category',
+                        'state',
+                        'institute',
+                        'course',
+                        'fee',
+                        'beds',
+                        DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 1 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 1 THEN all_india_rank END), ')') AS cr_2023_1"),
+                        DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 2 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 2 THEN all_india_rank END), ')') AS cr_2023_2"),
+                        DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 3 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 3 THEN all_india_rank END), ')') AS cr_2023_3"),
+                        DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 4 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 4 THEN all_india_rank END), ')') AS cr_2023_4"),
+                        DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 5 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 5 THEN all_india_rank END), ')') AS cr_2023_5"),
+                        DB::raw("CONCAT(COUNT(CASE WHEN session = 2023 AND round = 6 THEN id END), '(', MAX(CASE WHEN session = 2023 AND round = 6 THEN all_india_rank END), ')') AS cr_2023_6")
+                    )
+                    ->where('state', $state)
+                    ->groupBy('quota', 'category', 'state', 'institute', 'course', 'fee', 'beds')
+                    ->take(10)
+                    ->get();
 
             return view('ug.frontend.pages.closing-rank_table', compact('state', 'list'));
         }
