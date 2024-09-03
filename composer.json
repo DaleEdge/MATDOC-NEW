@@ -10,6 +10,7 @@
         "craftsys/msg91-laravel": "^0.13.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "illuminate/support": "*",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/socialite": "^5.15",

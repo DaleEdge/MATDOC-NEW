@@ -10,26 +10,30 @@
   } */
 
   /* Ensure the modal is above the backdrop */
-  /* .modal {
-    z-index: 1050 !important;
-  } */
+  .modal {
+    z-index: 9997 !important;
+  }
 
   /* Ensure the modal-dialog is above the modal */
-  /* .modal-dialog {
+  .modal-dialog {
     z-index: 9998 !important;
-  } */
+  }
 
   .modal-content {
-    /* z-index: 9999 !important; */
+    z-index: 9999 !important;
     border: 3px solid rgb(213 213 213);
     box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .header {
+    z-index: 0 !important
   }
 </style>
 
 <div class="col-md-12">
   <div class="card mt-3">
     <div class="border-0 card">
-      <div class="card-body p-0">
+      <div class="card-body p-0" id="table-container">
         <div class="table-responsive">
           <table class="table" style="white-space:nowrap;">
             <thead>
@@ -147,6 +151,11 @@
       @endif
             </tbody>
           </table>
+          @if(!empty(optional(Auth::user()->payment)->user_id))
+        <div class="text-center d-flex justify-content-end mb-2">
+        {{ $list->appends(request()->query())->links() }}
+        </div>
+      @endif
         </div>
       </div>
     </div>
