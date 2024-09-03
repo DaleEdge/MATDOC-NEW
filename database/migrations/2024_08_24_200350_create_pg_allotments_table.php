@@ -27,7 +27,7 @@ class CreatePgAllotmentsTable extends Migration
             $table->string('quota')->nullable();
             $table->string('category')->nullable();
             $table->string('degree')->nullable();
-            $table->integer('seats')->nullable();
+            $table->bigInteger('seats')->nullable();
             $table->bigInteger('fee')->nullable();
             $table->bigInteger('beds')->nullable();
             $table->bigInteger('stipend_1_year')->nullable();
