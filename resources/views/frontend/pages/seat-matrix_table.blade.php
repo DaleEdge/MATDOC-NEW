@@ -30,11 +30,10 @@
   }
 </style>
 
-
 <div class="col-md-12">
   <div class="card mt-3">
     <div class="border-0 card">
-      <div class="card-body p-0">
+      <div class="card-body p-0" id="table-container">
         <div class="table-responsive">
           <table class="table" style="white-space:nowrap;">
             <thead>
@@ -75,10 +74,11 @@
       <td>{{ $data->beds }}</td>
       <td>
         @if($data->{'cr_2023_1'})
-      <a style="color:blue; text-decoration:underline" data-bs-toggle="modal" class="cr"
-      data-quota="{{ $data->{'quota'} }}" data-category="{{ $data->{'category'} }}"
-      data-state="{{ $data->{'state'} }}" data-institute="{{ $data->{'institute'} }}"
-      data-course="{{ $data->{'course'} }}" data-session="2023" data-round="1">
+      <a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
+      data-bs-target="#seatMatrixDetailsModal" class="cr" data-quota="{{ $data->{'quota'} }}"
+      data-category="{{ $data->{'category'} }}" data-state="{{ $data->{'state'} }}"
+      data-institute="{{ $data->{'institute'} }}" data-course="{{ $data->{'course'} }}"
+      data-session="2023" data-round="1">
       {{ $data->{'cr_2023_1'} }}
       </a>
     @else
@@ -87,10 +87,11 @@
       </td>
       <td>
         @if($data->{'cr_2023_2'})
-      <a style="color:blue; text-decoration:underline" data-bs-toggle="modal" class="cr"
-      data-quota="{{ $data->{'quota'} }}" data-category="{{ $data->{'category'} }}"
-      data-state="{{ $data->{'state'} }}" data-institute="{{ $data->{'institute'} }}"
-      data-course="{{ $data->{'course'} }}" data-session="2023" data-round="2">
+      <a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
+      data-bs-target="#seatMatrixDetailsModal" class="cr" data-quota="{{ $data->{'quota'} }}"
+      data-category="{{ $data->{'category'} }}" data-state="{{ $data->{'state'} }}"
+      data-institute="{{ $data->{'institute'} }}" data-course="{{ $data->{'course'} }}"
+      data-session="2023" data-round="2">
       {{ $data->{'cr_2023_2'} }}
       </a>
     @else
@@ -99,10 +100,11 @@
       </td>
       <td>
         @if($data->{'cr_2023_3'})
-      <a style="color:blue; text-decoration:underline" data-bs-toggle="modal" class="cr"
-      data-quota="{{ $data->{'quota'} }}" data-category="{{ $data->{'category'} }}"
-      data-state="{{ $data->{'state'} }}" data-institute="{{ $data->{'institute'} }}"
-      data-course="{{ $data->{'course'} }}" data-session="2023" data-round="3">
+      <a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
+      data-bs-target="#seatMatrixDetailsModal" class="cr" data-quota="{{ $data->{'quota'} }}"
+      data-category="{{ $data->{'category'} }}" data-state="{{ $data->{'state'} }}"
+      data-institute="{{ $data->{'institute'} }}" data-course="{{ $data->{'course'} }}"
+      data-session="2023" data-round="3">
       {{ $data->{'cr_2023_3'} }}
       </a>
     @else
@@ -111,10 +113,11 @@
       </td>
       <td>
         @if($data->{'cr_2023_4'})
-      <a style="color:blue; text-decoration:underline" data-bs-toggle="modal" class="cr"
-      data-quota="{{ $data->{'quota'} }}" data-category="{{ $data->{'category'} }}"
-      data-state="{{ $data->{'state'} }}" data-institute="{{ $data->{'institute'} }}"
-      data-course="{{ $data->{'course'} }}" data-session="2023" data-round="4">
+      <a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
+      data-bs-target="#seatMatrixDetailsModal" class="cr" data-quota="{{ $data->{'quota'} }}"
+      data-category="{{ $data->{'category'} }}" data-state="{{ $data->{'state'} }}"
+      data-institute="{{ $data->{'institute'} }}" data-course="{{ $data->{'course'} }}"
+      data-session="2023" data-round="4">
       {{ $data->{'cr_2023_4'} }}
       </a>
     @else
@@ -123,10 +126,11 @@
       </td>
       <td>
         @if($data->{'cr_2023_5'})
-      <a style="color:blue; text-decoration:underline" data-bs-toggle="modal" class="cr"
-      data-quota="{{ $data->{'quota'} }}" data-category="{{ $data->{'category'} }}"
-      data-state="{{ $data->{'state'} }}" data-institute="{{ $data->{'institute'} }}"
-      data-course="{{ $data->{'course'} }}" data-session="2023" data-round="5">
+      <a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
+      data-bs-target="#seatMatrixDetailsModal" class="cr" data-quota="{{ $data->{'quota'} }}"
+      data-category="{{ $data->{'category'} }}" data-state="{{ $data->{'state'} }}"
+      data-institute="{{ $data->{'institute'} }}" data-course="{{ $data->{'course'} }}"
+      data-session="2023" data-round="5">
       {{ $data->{'cr_2023_5'} }}
       </a>
     @else
@@ -135,10 +139,11 @@
       </td>
       <td>
         @if($data->{'cr_2023_6'})
-      <a style="color:blue; text-decoration:underline" data-bs-toggle="modal" class="cr"
-      data-quota="{{ $data->{'quota'} }}" data-category="{{ $data->{'category'} }}"
-      data-state="{{ $data->{'state'} }}" data-institute="{{ $data->{'institute'} }}"
-      data-course="{{ $data->{'course'} }}" data-session="2023" data-round="6">
+      <a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
+      data-bs-target="#seatMatrixDetailsModal" class="cr" data-quota="{{ $data->{'quota'} }}"
+      data-category="{{ $data->{'category'} }}" data-state="{{ $data->{'state'} }}"
+      data-institute="{{ $data->{'institute'} }}" data-course="{{ $data->{'course'} }}"
+      data-session="2023" data-round="6">
       {{ $data->{'cr_2023_6'} }}
       </a>
     @else
@@ -179,6 +184,8 @@
     </div>
   </div>
 </div>
+
+
 
 <script>
   $(document).on('click', '.cr', function (event) {

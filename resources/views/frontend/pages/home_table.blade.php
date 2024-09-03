@@ -61,13 +61,13 @@
     return $word;
   }
 
- @endphp
+@endphp
 
 
 <div class="col-md-12">
   <div class="card mt-3">
     <div class="border-0 card">
-      <div class="card-body p-0">
+      <div class="card-body p-0" id="table-container">
         <div class="table-responsive">
           <table class="table" style="white-space:nowrap;">
             <thead>
@@ -109,6 +109,11 @@
       @endif
             </tbody>
           </table>
+          @if(!empty(optional(Auth::user()->payment)->user_id))
+        <div class="text-center d-flex justify-content-end mb-2">
+        {{ $list->appends(request()->query())->links() }}
+        </div>
+      @endif
         </div>
       </div>
     </div>
