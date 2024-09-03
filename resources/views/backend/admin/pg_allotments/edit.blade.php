@@ -174,16 +174,16 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Bonus Years</label>
-                                <input type="number" name="bonus_years" placeholder="Enter Bonus Years"
-                                    class="form-control" value="{{$edit_data->bonus_years}}">
+                                <input type="number" name="bond_years" placeholder="Enter Bonus Years"
+                                    class="form-control" value="{{$edit_data->bond_years}}">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Bonus Penality</label>
-                                <input type="number" name="bonus_penality" placeholder="Enter Bonus Penality"
-                                    class="form-control" value="{{$edit_data->bonus_penality}}">
+                                <input type="number" name="bond_penalty" placeholder="Enter Bonus Penality"
+                                    class="form-control" value="{{$edit_data->bond_penalty}}">
                             </div>
                         </div>
 

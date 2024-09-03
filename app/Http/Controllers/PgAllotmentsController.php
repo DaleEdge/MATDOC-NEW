@@ -88,8 +88,8 @@ class PgAllotmentsController extends Controller
         $pg_allotments->beds = $request->beds;
         $pg_allotments->fee = $request->fee;
         $pg_allotments->stipend_1_year = $request->stipend_1_year;
-        $pg_allotments->bonus_years = $request->bonus_years;
-        $pg_allotments->bonus_penality = $request->bonus_penality;
+        $pg_allotments->bond_years = $request->bond_years;
+        $pg_allotments->bond_penalty = $request->bond_penalty;
         $pg_allotments->session = $request->session;
         $pg_allotments->cr_2023_1 = $request->cr_2023_1;
         $pg_allotments->cr_2023_2 = $request->cr_2023_2;
@@ -150,8 +150,8 @@ class PgAllotmentsController extends Controller
         $pg_allotments->beds = $request->beds;
         $pg_allotments->fee = $request->fee;
         $pg_allotments->stipend_1_year = $request->stipend_1_year;
-        $pg_allotments->bonus_years = $request->bonus_years;
-        $pg_allotments->bonus_penality = $request->bonus_penality;
+        $pg_allotments->bond_years = $request->bond_years;
+        $pg_allotments->bond_penalty = $request->bond_penalty;
         $pg_allotments->session = $request->session;
         $pg_allotments->cr_2023_1 = $request->cr_2023_1;
         $pg_allotments->cr_2023_2 = $request->cr_2023_2;

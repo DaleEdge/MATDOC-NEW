@@ -67,15 +67,15 @@
                                 <td>{{$data->fee}}</td>
                                 <td>{{$data->beds}}</td>
                                 <td>{{$data->stipend_1_year}}</td>
-                                <td>{{$data->bonus_years}}</td>
-                                <td>{{$data->bonus_penality}}</td>
+                                <td>{{$data->bond_years}}</td>
+                                <td>{{$data->bond_penalty}}</td>
                                 <td>{{$data->session}}</td>
                                 <!-- <td>{{$data->cr_2023_1}}</td>
-                                                                                                                                        <td>{{$data->cr_2023_2}}</td>
-                                                                                                                                        <td>{{$data->cr_2023_3}}</td>
-                                                                                                                                        <td>{{$data->cr_2023_4}}</td>
-                                                                                                                                        <td>{{$data->cr_2023_5}}</td>
-                                                                                                                                        <td>{{$data->cr_2023_6}}</td> -->
+                                                                                                                                                <td>{{$data->cr_2023_2}}</td>
+                                                                                                                                                <td>{{$data->cr_2023_3}}</td>
+                                                                                                                                                <td>{{$data->cr_2023_4}}</td>
+                                                                                                                                                <td>{{$data->cr_2023_5}}</td>
+                                                                                                                                                <td>{{$data->cr_2023_6}}</td> -->
                                 <td>
                                     <a class="btn btn-success  btn-sm mr-1"
                                         href="{{route('pg_allotments.edit', $data->id)}}"><i class="far fa-edit"></i></a>

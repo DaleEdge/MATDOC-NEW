@@ -31,8 +31,8 @@ class CreatePgAllotmentsTable extends Migration
             $table->bigInteger('fee')->nullable();
             $table->bigInteger('beds')->nullable();
             $table->bigInteger('stipend_1_year')->nullable();
-            $table->bigInteger('bonus_years')->nullable();
-            $table->bigInteger('bonus_penality')->nullable();
+            $table->bigInteger('bond_years')->nullable();
+            $table->bigInteger('bond_penality')->nullable();
             $table->integer('session')->nullable();
             $table->integer('cr_2023_1')->nullable();
             $table->integer('cr_2023_2')->nullable();
