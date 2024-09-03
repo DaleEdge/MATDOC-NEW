@@ -55,107 +55,107 @@
             </thead>
             <tbody>
               @if($list->isEmpty())
-          <tr>
-          <td colspan="21" style="text-align:center;">No data found</td>
-          </tr>
-        @else
-        @foreach($list as $data)
-      <tr>
-      <td>{{ $data->quota }}</td>
-      <td>{{ $data->category }}</td>
-      <td>{{ $data->state }}</td>
-      <td>{{ $data->institute }}</td>
-      <td>{{ $data->course }}</td>
-      <td>{{ $data->fee }}</td>
-      <td>{{ $data->beds }}</td>
-      <td>
-        @if($data->{'cr_2023_1'})
-      <a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
-      data-bs-target="#closingRankDetailsModal" class="cr" data-quota="{{ $data->{'quota'} }}"
-      data-category="{{ $data->{'category'} }}" data-state="{{ $data->{'state'} }}"
-      data-institute="{{ $data->{'institute'} }}" data-course="{{ $data->{'course'} }}"
-      data-session="2023" data-round="1">
-      {{ $data->{'cr_2023_1'} }}
-      </a>
-    @else
-    -
-  @endif
-      </td>
-      <td>
-        @if($data->{'cr_2023_2'})
-      <a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
-      data-bs-target="#closingRankDetailsModal" class="cr" data-quota="{{ $data->{'quota'} }}"
-      data-category="{{ $data->{'category'} }}" data-state="{{ $data->{'state'} }}"
-      data-institute="{{ $data->{'institute'} }}" data-course="{{ $data->{'course'} }}"
-      data-session="2023" data-round="2">
-      {{ $data->{'cr_2023_2'} }}
-      </a>
-    @else
-    -
-  @endif
-      </td>
-      <td>
-        @if($data->{'cr_2023_3'})
-      <a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
-      data-bs-target="#closingRankDetailsModal" class="cr" data-quota="{{ $data->{'quota'} }}"
-      data-category="{{ $data->{'category'} }}" data-state="{{ $data->{'state'} }}"
-      data-institute="{{ $data->{'institute'} }}" data-course="{{ $data->{'course'} }}"
-      data-session="2023" data-round="3">
-      {{ $data->{'cr_2023_3'} }}
-      </a>
-    @else
-    -
-  @endif
-      </td>
-      <td>
-        @if($data->{'cr_2023_4'})
-      <a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
-      data-bs-target="#closingRankDetailsModal" class="cr" data-quota="{{ $data->{'quota'} }}"
-      data-category="{{ $data->{'category'} }}" data-state="{{ $data->{'state'} }}"
-      data-institute="{{ $data->{'institute'} }}" data-course="{{ $data->{'course'} }}"
-      data-session="2023" data-round="4">
-      {{ $data->{'cr_2023_4'} }}
-      </a>
-    @else
-    -
-  @endif
-      </td>
-      <td>
-        @if($data->{'cr_2023_5'})
-      <a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
-      data-bs-target="#closingRankDetailsModal" class="cr" data-quota="{{ $data->{'quota'} }}"
-      data-category="{{ $data->{'category'} }}" data-state="{{ $data->{'state'} }}"
-      data-institute="{{ $data->{'institute'} }}" data-course="{{ $data->{'course'} }}"
-      data-session="2023" data-round="5">
-      {{ $data->{'cr_2023_5'} }}
-      </a>
-    @else
-    -
-  @endif
-      </td>
-      <td>
-        @if($data->{'cr_2023_6'})
-      <a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
-      data-bs-target="#closingRankDetailsModal" class="cr" data-quota="{{ $data->{'quota'} }}"
-      data-category="{{ $data->{'category'} }}" data-state="{{ $data->{'state'} }}"
-      data-institute="{{ $data->{'institute'} }}" data-course="{{ $data->{'course'} }}"
-      data-session="2023" data-round="6">
-      {{ $data->{'cr_2023_6'} }}
-      </a>
-    @else
-    -
-  @endif
-      </td>
-      </tr>
-    @endforeach
-      @endif
+              <tr>
+                <td colspan="21" style="text-align:center;">No data found</td>
+              </tr>
+              @else
+              @foreach($list as $data)
+              <tr>
+                <td>{{ $data->quota }}</td>
+                <td>{{ $data->category }}</td>
+                <td>{{ $data->state }}</td>
+                <td>{{ $data->institute }}</td>
+                <td>{{ $data->course }}</td>
+                <td>{{ $data->fee }}</td>
+                <td>{{ $data->beds }}</td>
+                <td>
+                  @if($data->{'cr_2023_1'})
+                  <a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
+                    data-bs-target="#closingRankDetailsModal" class="cr" data-quota="{{ $data->{'quota'} }}"
+                    data-category="{{ $data->{'category'} }}" data-state="{{ $data->{'state'} }}"
+                    data-institute="{{ $data->{'institute'} }}" data-course="{{ $data->{'course'} }}"
+                    data-session="2023" data-round="1">
+                    {{ $data->{'cr_2023_1'} }}
+                  </a>
+                  @else
+                  -
+                  @endif
+                </td>
+                <td>
+                  @if($data->{'cr_2023_2'})
+                  <a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
+                    data-bs-target="#closingRankDetailsModal" class="cr" data-quota="{{ $data->{'quota'} }}"
+                    data-category="{{ $data->{'category'} }}" data-state="{{ $data->{'state'} }}"
+                    data-institute="{{ $data->{'institute'} }}" data-course="{{ $data->{'course'} }}"
+                    data-session="2023" data-round="2">
+                    {{ $data->{'cr_2023_2'} }}
+                  </a>
+                  @else
+                  -
+                  @endif
+                </td>
+                <td>
+                  @if($data->{'cr_2023_3'})
+                  <a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
+                    data-bs-target="#closingRankDetailsModal" class="cr" data-quota="{{ $data->{'quota'} }}"
+                    data-category="{{ $data->{'category'} }}" data-state="{{ $data->{'state'} }}"
+                    data-institute="{{ $data->{'institute'} }}" data-course="{{ $data->{'course'} }}"
+                    data-session="2023" data-round="3">
+                    {{ $data->{'cr_2023_3'} }}
+                  </a>
+                  @else
+                  -
+                  @endif
+                </td>
+                <td>
+                  @if($data->{'cr_2023_4'})
+                  <a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
+                    data-bs-target="#closingRankDetailsModal" class="cr" data-quota="{{ $data->{'quota'} }}"
+                    data-category="{{ $data->{'category'} }}" data-state="{{ $data->{'state'} }}"
+                    data-institute="{{ $data->{'institute'} }}" data-course="{{ $data->{'course'} }}"
+                    data-session="2023" data-round="4">
+                    {{ $data->{'cr_2023_4'} }}
+                  </a>
+                  @else
+                  -
+                  @endif
+                </td>
+                <td>
+                  @if($data->{'cr_2023_5'})
+                  <a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
+                    data-bs-target="#closingRankDetailsModal" class="cr" data-quota="{{ $data->{'quota'} }}"
+                    data-category="{{ $data->{'category'} }}" data-state="{{ $data->{'state'} }}"
+                    data-institute="{{ $data->{'institute'} }}" data-course="{{ $data->{'course'} }}"
+                    data-session="2023" data-round="5">
+                    {{ $data->{'cr_2023_5'} }}
+                  </a>
+                  @else
+                  -
+                  @endif
+                </td>
+                <td>
+                  @if($data->{'cr_2023_6'})
+                  <a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
+                    data-bs-target="#closingRankDetailsModal" class="cr" data-quota="{{ $data->{'quota'} }}"
+                    data-category="{{ $data->{'category'} }}" data-state="{{ $data->{'state'} }}"
+                    data-institute="{{ $data->{'institute'} }}" data-course="{{ $data->{'course'} }}"
+                    data-session="2023" data-round="6">
+                    {{ $data->{'cr_2023_6'} }}
+                  </a>
+                  @else
+                  -
+                  @endif
+                </td>
+              </tr>
+              @endforeach
+              @endif
             </tbody>
           </table>
           @if(!empty(optional(Auth::user()->payment)->user_id))
-        <div class="text-center d-flex justify-content-end mb-2">
-        {{ $list->appends(request()->query())->links() }}
-        </div>
-      @endif
+          <div class="text-center d-flex justify-content-end mb-2">
+            {{ $list->appends(request()->query())->links() }}
+          </div>
+          @endif
         </div>
       </div>
     </div>
@@ -180,74 +180,3 @@
     </div>
   </div>
 </div>
-
-
-
-<script>
-  $(document).on('click', '.cr', function (event) {
-    event.preventDefault();
-
-    // Retrieve values from the data attributes of the clicked element
-    var quota = $(this).data('quota');
-    var category = $(this).data('category');
-    var state = $(this).data('state');
-    var institute = $(this).data('institute');
-    var course = $(this).data('course');
-    var session = $(this).data('session');
-    var round = $(this).data('round');
-
-    $.ajax({
-      beforeSend: function () {
-        $('.preloader').show(); // Show preloader before the request
-      },
-      url: "{{ route('ug.closing_rank_details') }}", // URL for the AJAX request
-      method: 'GET',
-      data: {
-        quota,
-        category,
-        state,
-        institute,
-        course,
-        round,
-        session
-      },
-      success: function (data) {
-        $('.preloader').hide(); // Hide preloader on successful response
-
-        // Build HTML for the modal
-        var html = '<div class="table-responsive"><table class="table" style="white-space:nowrap;">';
-        html += '<thead><tr><th>Quota</th><th>Category</th><th>State</th><th>Institute</th><th>Course</th><th>Fee</th><th>Beds</th><th>All India Rank</th></tr></thead><tbody>';
-        if (data.length) {
-          data.forEach(function (item) {
-            html += '<tr>';
-            html += '<td>' + item.quota + '</td>';
-            html += '<td>' + item.category + '</td>';
-            html += '<td>' + item.state + '</td>';
-            html += '<td>' + item.institute + '</td>';
-            html += '<td>' + item.course + '</td>';
-            html += '<td>' + item.fee + '</td>';
-            html += '<td>' + item.beds + '</td>';
-            html += '<td>' + item.all_india_rank + '</td>';
-            html += '</tr>';
-          });
-        } else {
-          html += '<tr><td colspan="8" style="text-align:center;">No data found</td></tr>';
-        }
-        html += '</tbody></table></div>';
-
-        $('#closingRankDetailsModal').modal("show"); // Show the modal
-        $('#closingRankDetailsModalBody').html(html); // Populate the modal body with the HTML
-      },
-      error: function (jqXHR, textStatus, errorThrown) {
-        console.error('AJAX Error:', textStatus, errorThrown);
-        alert("An error occurred: " + errorThrown);
-        $('.preloader').hide(); // Hide preloader on error
-      },
-      complete: function () {
-        $('.preloader').hide(); // Ensure preloader is hidden when request completes
-      },
-      timeout: 8000 // Set a timeout for the request
-    });
-  });
-
-</script>

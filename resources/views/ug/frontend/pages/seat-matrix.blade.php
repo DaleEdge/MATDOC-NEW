@@ -104,5 +104,105 @@
          }
       });
    });
+
+   $(document).on('click', '.cr', function(event) {
+      event.preventDefault();
+
+      // Retrieve values from the data attributes of the clicked element
+      var round = $(this).data('round');
+      var quota = $(this).data('quota');
+      var category = $(this).data('category');
+      var state = $(this).data('state');
+      var institute = $(this).data('institute');
+      var seats = $(this).data('seats');
+      var course = $(this).data('course');
+      var session = $(this).data('session');
+      var page = 1;
+
+      function fetchData(page) {
+         $.ajax({
+            beforeSend: function() {
+               $('.preloader').show(); // Show preloader before the request
+            },
+            url: "{{ route('ug.seat_matrix_details') }}", // URL for the AJAX request
+            method: 'GET',
+            data: {
+               quota,
+               category,
+               state,
+               institute,
+               course,
+               seats,
+               round,
+               session,
+               page
+            },
+            success: function(data) {
+               $('.preloader').hide(); // Hide preloader on successful response
+
+               // Build HTML for the modal
+               var html = '<div class="table-responsive"><table class="table" style="white-space:nowrap;">';
+               html += '<thead><tr><th>Round</th><th>Quota</th><th>Category</th><th>State</th><th>Institute</th><th>Course</th><th>Seats</th><th>Fee</th><th>Beds</th><th>All India Rank</th></tr></thead><tbody class="table-body-contents">';
+               if (data.data.length) {
+                  data.data.forEach(function(item) {
+                     html += '<tr>';
+                     html += '<td>' + item.round + '</td>';
+                     html += '<td>' + item.quota + '</td>';
+                     html += '<td>' + item.category + '</td>';
+                     html += '<td>' + item.state + '</td>';
+                     html += '<td>' + item.institute + '</td>';
+                     html += '<td>' + item.course + '</td>';
+                     html += '<td>' + (item.seats !== null ? item.seats : '') + '</td>';
+                     html += '<td>' + item.fee + '</td>';
+                     html += '<td>' + item.beds + '</td>';
+                     html += '<td>' + item.all_india_rank + '</td>';
+                     html += '</tr>';
+                  });
+               } else {
+                  html += '<tr><td colspan="10" style="text-align:center;">No data found</td></tr>';
+               }
+               html += '</tbody></table></div>';
+
+               // Pagination links
+               var paginationHtml = '';
+               if (data.last_page > 1) {
+                  paginationHtml += '<nav><ul class="pagination justify-content-center">';
+                  data.links.forEach(function(link, index_num) {
+                     if (link.url) {
+                        paginationHtml += '<li class="page-item ' + (link.active ? 'active' : '') + '">';
+                        paginationHtml += '<a class="page-link page_click" href="/ug/seat-matrix-details?page=' + index_num + '" data-page="' + new URL(link.url).searchParams.get('page') + '">' + link.label + '</button>';
+                        paginationHtml += '</li>';
+                     } else {
+                        paginationHtml += '<li class="page-item disabled"><span class="page-link">' + link.label + '</span></li>';
+                     }
+                  });
+                  paginationHtml += '</ul></nav>';
+               }
+
+               if ($('#seatMatrixDetailsModal').hasClass('show') == true) {
+                  $(".table-body-contents").empty();
+                  $('#seatMatrixDetailsModalBody').html(html + paginationHtml)
+               }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+               console.error('AJAX Error:', textStatus, errorThrown);
+               alert("An error occurred: " + errorThrown);
+               $('.preloader').hide(); // Hide preloader on error
+            },
+            complete: function() {
+               $('.preloader').hide(); // Ensure preloader is hidden when request completes
+            },
+            timeout: 8000 // Set a timeout for the request
+         });
+      }
+
+      fetchData(page);
+
+      $(document).on('click', '.pagination .page_click', function(event) {
+         event.preventDefault();
+         var page = $(this).data('page');
+         fetchData(page); // Fetch data for the clicked page
+      });
+   });
 </script>
 @endsection

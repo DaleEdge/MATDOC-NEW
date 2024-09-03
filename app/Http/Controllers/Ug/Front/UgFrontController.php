@@ -99,9 +99,11 @@ class UgFrontController extends Controller
         $course = $request->course;
         $session = $request->session;
         $round = $request->round;
+        $page = $request->input('page', 1);
 
-        $details = DB::table('ug_allotments')
+        $query = DB::table('ug_allotments')
             ->select(
+                'id',
                 'quota',
                 'category',
                 'state',
@@ -118,9 +120,9 @@ class UgFrontController extends Controller
             ->where('course', 'LIKE', "%{$course}%")
             ->where('session', $session)
             ->where('round', $round)
-            ->orderBy('all_india_rank', 'desc')
-            ->take(10)
-            ->get();
+            ->orderBy('all_india_rank', 'desc');
+
+        $details = $query->paginate(10, ['*'], 'page', $page);
 
         return response()->json($details);
     }
@@ -250,8 +252,7 @@ class UgFrontController extends Controller
         if ($request->phone != '' && preg_match($mobileregex, $request->phone) === 1) {
             $customer = User::where('phone', $request->phone)->count();
             if ($customer == 0) {
-                $mob_otp = rand(1000, 9999);
-                ;
+                $mob_otp = rand(1000, 9999);;
                 Session::forget('mob_otp');
                 Session::put('mob_otp', [$mob_otp]);
 
@@ -272,8 +273,7 @@ class UgFrontController extends Controller
         if ($request->phone != '' && preg_match($mobileregex, $request->phone) === 1) {
             $customer = User::where('phone', $request->phone)->count();
             if ($customer == 1) {
-                $mob_otp = rand(1000, 9999);
-                ;
+                $mob_otp = rand(1000, 9999);;
                 Session::forget('mob_otp');
                 Session::put('mob_otp', [$mob_otp]);
 
@@ -364,8 +364,7 @@ class UgFrontController extends Controller
             $user->user_type = 'customer';
             $user->name = $request->name;
             $user->phone = $request->phone;
-            $user->password = Hash::make($request->password);
-            ;
+            $user->password = Hash::make($request->password);;
             $user->save();
 
             $customer = new Customer;
@@ -385,8 +384,7 @@ class UgFrontController extends Controller
         $otp = Session::get('mob_otp');
         if ($request->check_otp == $otp[0]) {
             $user = User::where('phone', $request->phone)->first();
-            $user->password = Hash::make($request->password);
-            ;
+            $user->password = Hash::make($request->password);;
             $user->save();
         }
         Session::flash('success', 'Password Reset Successfully !');
@@ -1855,8 +1853,9 @@ class UgFrontController extends Controller
         $session = $request->session;
         $round = $request->round;
         $seats = $request->seats;
+        $page = $request->input('page', 1);
 
-        $details = DB::table('ug_allotments')
+        $query = DB::table('ug_allotments')
             ->select(
                 'round',
                 'quota',
@@ -1877,9 +1876,9 @@ class UgFrontController extends Controller
             ->where('seats', $seats)
             ->where('session', $session)
             ->where('round', $round)
-            ->orderBy('all_india_rank', 'desc')
-            ->take(10)
-            ->get();
+            ->orderBy('all_india_rank', 'desc');
+
+        $details = $query->paginate(10, ['*'], 'page', $page);
 
         return response()->json($details);
     }
