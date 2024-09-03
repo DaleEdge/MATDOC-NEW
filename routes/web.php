@@ -196,6 +196,7 @@ Route::group(['prefix' => 'ug'], function () {
     Route::get('/all-india-closing-rank-details', [UgFrontController::class, 'all_india_closing_rank_details'])->name('ug.all_india_closing_rank_details')->middleware("checkSubscription");
 
     Route::get('/seat-matrix', [UgFrontController::class, 'seat_matrix'])->name('ug.seat_matrix');
+    Route::get('/seat-matrix-details', [UgFrontController::class, 'seat_matrix_details'])->name('ug.seat_matrix_details');
     Route::get('/fees-stipend-bond', [UgFrontController::class, 'fees_stipend_bond'])->name('ug.fees_stipend_bond');
 
 

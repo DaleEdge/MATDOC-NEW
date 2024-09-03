@@ -118,6 +118,7 @@ class UgFrontController extends Controller
             ->where('course', 'LIKE', "%{$course}%")
             ->where('session', $session)
             ->where('round', $round)
+            ->orderBy('all_india_rank', 'desc')
             ->take(10)
             ->get();
 
@@ -1805,19 +1806,82 @@ class UgFrontController extends Controller
 
     public function seat_matrix(Request $request)
     {
+
         $state = $request->state;
         $page = $request->input('page', 1);
-        $query = DB::table('ug_allotments')->orderBy('state_rank', 'asc');
+        $query = DB::table('ug_allotments')
+            ->select(
+                'round',
+                'quota',
+                'category',
+                'state',
+                'institute',
+                'course',
+                'seats',
+                'fee',
+                'beds',
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 1 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 1 THEN id END), ')') AS cr_2023_1"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 2 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 2 THEN id END), ')') AS cr_2023_2"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 3 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 3 THEN id END), ')') AS cr_2023_3"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 4 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 4 THEN id END), ')') AS cr_2023_4"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 5 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 5 THEN id END), ')') AS cr_2023_5"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 6 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 6 THEN id END), ')') AS cr_2023_6")
+            )
+            ->groupBy('round', 'quota', 'category', 'state', 'institute', 'course')
+            ->orderBy('institute', 'ASC')
+            ->orderBy('round', 'ASC')
+            ->orderBy('category', 'ASC');
         if ($state == "all_indias") {
             $items = $query->get();
         } else {
             $items = $query->where("state", $state)->get();
         }
         $list = $this->paginate($items, $this->per_page, $page);
+
         if ($request->ajax()) {
             return view('ug.frontend.pages.seat-matrix_table', compact('state', 'list'))->render();
         }
+
         return view('ug.frontend.pages.seat-matrix', compact('state', 'list'));
+    }
+
+    public function seat_matrix_details(Request $request)
+    {
+        $quota = $request->quota;
+        $category = $request->category;
+        $state = $request->state;
+        $institute = $request->institute;
+        $course = $request->course;
+        $session = $request->session;
+        $round = $request->round;
+        $seats = $request->seats;
+
+        $details = DB::table('ug_allotments')
+            ->select(
+                'round',
+                'quota',
+                'category',
+                'state',
+                'institute',
+                'course',
+                'fee',
+                'beds',
+                'seats',
+                'all_india_rank'
+            )
+            ->where('quota', 'LIKE', "%{$quota}%")
+            ->where('category', 'LIKE', "%{$category}%")
+            ->where('state', 'LIKE', "%{$state}%")
+            ->where('institute', 'LIKE', "%{$institute}%")
+            ->where('course', 'LIKE', "%{$course}%")
+            ->where('seats', $seats)
+            ->where('session', $session)
+            ->where('round', $round)
+            ->orderBy('all_india_rank', 'desc')
+            ->take(10)
+            ->get();
+
+        return response()->json($details);
     }
 
     public function fees_stipend_bond(Request $request)
