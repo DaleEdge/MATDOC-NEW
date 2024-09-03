@@ -166,16 +166,16 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Bonus Years</label>
-                                <input type="number" name="bond_years" placeholder="Enter Bonus Years"
+                                <label>Bond Years</label>
+                                <input type="number" name="bond_years" placeholder="Enter Bond Years"
                                     class="form-control">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Bonus Penality</label>
-                                <input type="number" name="bond_penalty" placeholder="Enter Bonus Penality"
+                                <label>Bond Penality</label>
+                                <input type="number" name="bond_penalty" placeholder="Enter Bond Penality"
                                     class="form-control">
                             </div>
                         </div>
