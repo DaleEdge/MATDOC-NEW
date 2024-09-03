@@ -89,5 +89,19 @@
          }
       });
    }
+
+$(document).on('click', '.pagination a', function(event) {
+      event.preventDefault();
+      var baseUrl = "{{ route('closing_rank') }}";
+      var url = baseUrl + $(this).attr('href');
+
+      $.ajax({
+         url: url,
+         type: 'GET',
+         success: function(data) {
+            $('#table-container').html(data);
+         }
+      });
+   });
 </script>
 @endsection

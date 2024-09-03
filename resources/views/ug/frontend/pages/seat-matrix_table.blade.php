@@ -205,7 +205,7 @@
       beforeSend: function () {
         $('.preloader').show(); // Show preloader before the request
       },
-      url: "{{ route('ug.seat_matrix_details') }}", // URL for the AJAX request
+      url: "{{ route('seat_matrix_details') }}", // URL for the AJAX request
       method: 'GET',
       data: {
         quota,

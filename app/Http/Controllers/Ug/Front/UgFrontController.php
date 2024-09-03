@@ -1804,7 +1804,7 @@ class UgFrontController extends Controller
         return view('ug.frontend.pages.home', compact('state', 'list'));
     }
 
-    public function seat_matrix(Request $request)
+    public function pg_seat_matrix(Request $request)
     {
 
         $state = $request->state;
@@ -1845,7 +1845,7 @@ class UgFrontController extends Controller
         return view('ug.frontend.pages.seat-matrix', compact('state', 'list'));
     }
 
-    public function seat_matrix_details(Request $request)
+    public function pg_seat_matrix_details(Request $request)
     {
         $quota = $request->quota;
         $category = $request->category;

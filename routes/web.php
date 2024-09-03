@@ -167,6 +167,7 @@ Route::post('enquiry', [FrontController::class, 'enquiry'])->name('enquiry');
 Route::get('/mark_vs_rank', [FrontController::class, 'mark_vs_rank'])->name('mark_vs_rank');
 
 Route::get('/seat-matrix', [FrontController::class, 'seat_matrix'])->name('seat_matrix');
+Route::get('/seat-matrix-details', [FrontController::class, 'seat_matrix_details'])->name('seat_matrix_details');
 Route::get('/fees-stipend-bond', [FrontController::class, 'fees_stipend_bond'])->name('fees_stipend_bond');
 
 Route::group(['prefix' => 'ug'], function () {

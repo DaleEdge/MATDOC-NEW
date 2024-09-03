@@ -33,6 +33,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class FrontController extends Controller
 {
+    public $per_page = 10;
     public function index()
     {
         return view('frontend.pages.index');
@@ -79,9 +80,79 @@ class FrontController extends Controller
     }
 
 
-
-
     public function closing_rank(Request $request)
+    {
+        $state = $request->state;
+        $page = $request->input('page', 1);
+        $query = DB::table('pg_allotments')
+            ->select(
+                'quota',
+                'category',
+                'state',
+                'institute',
+                'course',
+                'fee',
+                'beds',
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 1 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 1 THEN id END), ')') AS cr_2023_1"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 2 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 2 THEN id END), ')') AS cr_2023_2"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 3 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 3 THEN id END), ')') AS cr_2023_3"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 4 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 4 THEN id END), ')') AS cr_2023_4"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 5 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 5 THEN id END), ')') AS cr_2023_5"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 6 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 6 THEN id END), ')') AS cr_2023_6")
+            )
+            ->groupBy('quota', 'category', 'state', 'institute', 'course')
+            ->orderBy('institute', 'ASC')
+            ->orderBy('category', 'ASC');
+        if ($state == "all_indias") {
+            $items = $query->get();
+        } else {
+            $items = $query->where("state", $state)->get();
+        }
+        $list = $this->paginate($items, $this->per_page, $page);
+
+        if ($request->ajax()) {
+            return view('frontend.pages.closing-rank_table', compact('state', 'list'))->render();
+        }
+        return view('frontend.pages.closing-rank', compact('state', 'list'));
+    }
+
+    public function closing_rank_details(Request $request)
+    {
+
+        $quota = $request->quota;
+        $category = $request->category;
+        $state = $request->state;
+        $institute = $request->institute;
+        $course = $request->course;
+        $session = $request->session;
+        $round = $request->round;
+
+        $details = DB::table('pg_allotments')
+            ->select(
+                'quota',
+                'category',
+                'state',
+                'institute',
+                'course',
+                'fee',
+                'beds',
+                'all_india_rank'
+            )
+            ->where('quota', 'LIKE', "%{$quota}%")
+            ->where('category', 'LIKE', "%{$category}%")
+            ->where('state', 'LIKE', "%{$state}%")
+            ->where('institute', 'LIKE', "%{$institute}%")
+            ->where('course', 'LIKE', "%{$course}%")
+            ->where('session', $session)
+            ->where('round', $round)
+            ->orderBy('all_india_rank', 'desc')
+            ->take(10)
+            ->get();
+
+        return response()->json($details);
+    }
+
+    public function closing_rank_old(Request $request)
     {
         $state = $request->state;
         $list = DB::table('pg_allotments')->orderBy('state_rank', 'asc')->take(1)->get();
@@ -96,7 +167,7 @@ class FrontController extends Controller
         return view('frontend.pages.closing-rank', compact('state', 'list'));
     }
 
-    public function closing_rank_details(Request $request)
+    public function closing_rank_details_old(Request $request)
     {
 
 
@@ -473,49 +544,43 @@ class FrontController extends Controller
     {
         $state = $request->state;
         //  $counseling_type=$request->counseling_type;
-        $list = DB::table($state)->where('year', 2023)->orderBy('id');
-        $college = DB::table($state)->where('year', 2023)->groupBy('college')->get();
-        $course = DB::table($state)->where('year', 2023)->groupBy('course')->get();
-        $quota = DB::table($state)->where('year', 2023)->groupBy('quota')->get();
-        $category = DB::table($state)->where('year', 2023)->groupBy('category')->get();
+        $list = DB::table($state)->orderBy('id');
+        $college = DB::table($state)->groupBy('college')->get();
+        $course = DB::table($state)->groupBy('course')->get();
+        $quota = DB::table($state)->groupBy('quota')->get();
+        $category = DB::table($state)->groupBy('category')->get();
 
-
-        if ($request->type == 'all') {
-            $quota = DB::table($state)->whereIn('quota', ['AIQ', 'AMU', 'BHU', 'CIQ', 'DU', 'IP'])->groupBy('quota')->get();
-            $list = DB::table($state)->whereIn('quota', ['AIQ', 'AMU', 'BHU', 'CIQ', 'DU', 'IP'])->groupBy('college')->orderBy('id');
-        }
-        if ($request->type == 'deemed') {
-            $quota = DB::table($state)->whereIn('quota', ['MNG', 'NRI', 'JM', 'MM'])->groupBy('quota')->get();
-            $list = DB::table($state)->whereIn('quota', ['MNG', 'NRI', 'JM', 'MM'])->groupBy('college')->orderBy('id');
-        }
-        if ($request->type == 'dnb') {
-            $quota = DB::table($state)->whereIn('quota', ['DNB Post MBBS'])->groupBy('quota')->get();
-            $list = DB::table($state)->whereIn('quota', ['DNB Post MBBS'])->groupBy('college')->orderBy('id');
-        }
-        if ($request->type == 'nbe') {
-            $quota = DB::table($state)->whereIn('quota', ['NBE Diploma'])->groupBy('quota')->get();
-            $list = DB::table($state)->whereIn('quota', ['NBE Diploma'])->groupBy('college')->orderBy('id');
-        }
-
-
-        if ($state == 'goas') {
+        if ($state == 'bihars' || $state == 'jammu_and_kashmirs' || $state == 'rajasthans' || $state == 'tamil_nadus') {
+            $list = $list->where('rank', '!=', "[null]");
             $round = 1;
         }
-        if ($state == 'bihars' || $state == 'rajasthans' || $state == 'manipurs' || $state == 'tripuras' || $state == 'meghalayas') {
+        if ($state == 'uttar_pradeshes' || $state == 'andhra_pradeshes' || $state == 'himachal_pradeshes' || $state == 'karnatakas' || $state == 'manipurs' || $state == 'meghalayas' || $state == 'odishas' || $state == 'tripuras') {
+            $list = $list->where('rank', '!=', "[null,null]");
             $round = 2;
         }
-
-        if ($state == 'chhattisgarhs' || $state == 'uttarakhands' || $state == 'chandigarhs' || $state == 'odishas' || $state == 'karnatakas' || $state == 'gujarats' || $state == 'jammu_and_kashmirs' || $state == 'keralas' || $state == 'madhya_pradeshes' || $state == 'pondicherries' || $state == 'assams' || $state == 'punjabs' || $state == 'tamil_nadus' || $state == 'telanganas' || $state == 'himachal_pradeshes') {
-
+        if ($state == 'chandigarhs' || $state == 'haryanas' || $state == 'keralas' || $state == 'madhya_pradeshes' || $state == 'pondicherries' || $state == 'uttarakhands' || $state == 'west_bengals') {
+            $list = $list->where('rank', '!=', "[null,null,null]");
             $round = 3;
         }
-
-        if ($state == 'haryanas' || $state == 'jharkhands' || $state == 'maharashtras' || $state == 'uttar_pradeshes' || $state == 'west_bengals') {
+        if ($state == 'chhattisgarhs' || $state == 'jharkhands' || $state == 'punjabs') {
+            $list = $list->where('rank', '!=', "[null,null,null,null]");
             $round = 4;
         }
-
-        if ($state == 'andhra_pradeshes' || $state == 'all_indias') {
+        if ($state == 'assams') {
+            $list = $list->where('rank', '!=', '["-","-","-"]');
+            $round = 3;
+        }
+        if ($state == 'gujarats') {
+            $list = $list->where('rank', '!=', '["-","-","-","-"]');
+            $round = 4;
+        }
+        if ($state == 'andhra_pradeshes' || $state == 'telanganas') {
+            $list = $list->where('rank', '!=', "[null,null,null,null,null]");
             $round = 5;
+        }
+        if ($state == 'all_indias' || $state == 'maharashtras') {
+            $list = $list->where('rank', '!=', "[null,null,null,null,null,null]");
+            $round = 6;
         }
 
 
@@ -586,11 +651,11 @@ class FrontController extends Controller
     {
         $state = $request->state;
         //  $counseling_type=$request->counseling_type;
-        $list = DB::table($state)->where('year', 2023)->orderBy('id');
-        $college = DB::table($state)->where('year', 2023)->groupBy('college')->get();
-        $course = DB::table($state)->where('year', 2023)->groupBy('course')->get();
-        $quota = DB::table($state)->where('year', 2023)->groupBy('quota')->get();
-        $category = DB::table($state)->where('year', 2023)->groupBy('category')->get();
+        $list = DB::table($state)->orderBy('id');
+        $college = DB::table($state)->groupBy('college')->get();
+        $course = DB::table($state)->groupBy('course')->get();
+        $quota = DB::table($state)->groupBy('quota')->get();
+        $category = DB::table($state)->groupBy('category')->get();
 
         if ($state == 'bihars' || $state == 'jammu_and_kashmirs' || $state == 'rajasthans' || $state == 'tamil_nadus') {
             $list = $list->where('rank', '!=', "[null]");
@@ -688,7 +753,6 @@ class FrontController extends Controller
 
         return view('frontend.pages.stipend-details', compact('list', 'college', 'course', 'quota', 'category', 'round'));
     }
-
 
     public function state_document(Request $request)
     {
@@ -2320,17 +2384,82 @@ class FrontController extends Controller
 
     public function seat_matrix(Request $request)
     {
+
         $state = $request->state;
-        $list = DB::table('pg_allotments')->orderBy('state_rank', 'asc')->take(1)->get();
+        $page = $request->input('page', 1);
+        $query = DB::table('pg_allotments')
+            ->select(
+                'round',
+                'quota',
+                'category',
+                'state',
+                'institute',
+                'course',
+                'seats',
+                'fee',
+                'beds',
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 1 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 1 THEN id END), ')') AS cr_2023_1"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 2 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 2 THEN id END), ')') AS cr_2023_2"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 3 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 3 THEN id END), ')') AS cr_2023_3"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 4 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 4 THEN id END), ')') AS cr_2023_4"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 5 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 5 THEN id END), ')') AS cr_2023_5"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 6 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 6 THEN id END), ')') AS cr_2023_6")
+            )
+            ->groupBy('round', 'quota', 'category', 'state', 'institute', 'course')
+            ->orderBy('institute', 'ASC')
+            ->orderBy('round', 'ASC')
+            ->orderBy('category', 'ASC');
+        if ($state == "all_indias") {
+            $items = $query->get();
+        } else {
+            $items = $query->where("state", $state)->get();
+        }
+        $list = $this->paginate($items, $this->per_page, $page);
 
-        if ($request->ajax() && $state != "") {
-
-            $list = $state == "all_indias" ? DB::table('pg_allotments')->orderBy('state_rank', 'asc')->take(100)->get() : DB::table('pg_allotments')->where("state", $state)->orderBy('state_rank', 'asc')->take(100)->get();
-
-            return view('frontend.pages.seat-matrix_table', compact('state', 'list'));
+        if ($request->ajax()) {
+            return view('frontend.pages.seat-matrix_table', compact('state', 'list'))->render();
         }
 
         return view('frontend.pages.seat-matrix', compact('state', 'list'));
+    }
+
+    public function seat_matrix_details(Request $request)
+    {
+        $quota = $request->quota;
+        $category = $request->category;
+        $state = $request->state;
+        $institute = $request->institute;
+        $course = $request->course;
+        $session = $request->session;
+        $round = $request->round;
+        $seats = $request->seats;
+
+        $details = DB::table('pg_allotments')
+            ->select(
+                'round',
+                'quota',
+                'category',
+                'state',
+                'institute',
+                'course',
+                'fee',
+                'beds',
+                'seats',
+                'all_india_rank'
+            )
+            ->where('quota', 'LIKE', "%{$quota}%")
+            ->where('category', 'LIKE', "%{$category}%")
+            ->where('state', 'LIKE', "%{$state}%")
+            ->where('institute', 'LIKE', "%{$institute}%")
+            ->where('course', 'LIKE', "%{$course}%")
+            ->where('seats', $seats)
+            ->where('session', $session)
+            ->where('round', $round)
+            ->orderBy('all_india_rank', 'desc')
+            ->take(10)
+            ->get();
+
+        return response()->json($details);
     }
 
     public function fees_stipend_bond(Request $request)
