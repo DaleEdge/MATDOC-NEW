@@ -239,7 +239,7 @@
             html += '</tr>';
           });
         } else {
-          html += '<tr><td colspan="8" style="text-align:center;">No data found</td></tr>';
+          html += '<tr><td colspan="10" style="text-align:center;">No data found</td></tr>';
         }
         html += '</tbody></table></div>';
 

@@ -1,4 +1,4 @@
-@extends('ug.frontend.layouts.front_app')
+@extends('frontend.layouts.front_app')
 <style>
 .header-top-wrapper .header-social ul li a {
     padding-top: 7px;
@@ -53,7 +53,7 @@
                         <!-- End State -->
                         <hr>
                         <div class="row" id="table">
-                          @include('ug.frontend.pages.seat-matrix_table')
+                          @include('frontend.pages.seat-matrix_table')
                         </div>
                      </div>
                   </div>
@@ -77,7 +77,7 @@
          beforeSend: function() {
             $('.preloader').show();
          },
-         url: "{{route('ug.seat_matrix')}}",
+         url: "{{route('seat_matrix')}}",
          data:{
             'state':state
          },
@@ -89,5 +89,19 @@
          }
       });
    }
+
+   $(document).on('click', '.pagination a', function(event) {
+      event.preventDefault();
+      var baseUrl = "{{ route('seat_matrix') }}";
+      var url = baseUrl + $(this).attr('href');
+
+      $.ajax({
+         url: url,
+         type: 'GET',
+         success: function(data) {
+            $('#table-container').html(data);
+         }
+      });
+   });
 </script>
 @endsection
