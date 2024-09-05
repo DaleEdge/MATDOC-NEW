@@ -1,8 +1,11 @@
 @extends('ug.frontend.layouts.front_app')
 
-<!-- MDB -->
-<link href="{{url("plugins/MDB5-7.2.0/css/mdb.min.css?v=2")}}" rel="stylesheet" />
-
+<head>
+   <!-- MDB -->
+   <link href="{{url("plugins/MDB5-7.2.0/css/mdb.min.css?v=2")}}" rel="stylesheet" />
+   <link rel="stylesheet" href="{{url("plugins/dataTables/datatables.min.css?v=2")}}" />
+   <link rel="stylesheet" href="{{url("plugins/select2/css/select2.min.css?v=2")}}" />
+</head>
 <!-- Bootstrap -->
 <!-- <link href="{{url("plugins/bootstrap/css/bootstrap.min.css?v=2")}}" rel="stylesheet" /> -->
 <style>
@@ -84,7 +87,7 @@
 
                <div class="mt-3">
                   <table id="allotments" class="table display table-hover nowrap w-100">
-                     <thead>
+                     <thead class="w-auto">
                         <tr>
                            <th>Round</th>
                            <th>All India Rank</th>
@@ -177,12 +180,10 @@
 <!-- <script src="{{url("plugins/bootstrap/js/bootstrap.min.js?v=2")}}"></script> -->
 
 <!-- Datatables -->
-<link rel="stylesheet" href="{{url("plugins/dataTables/datatables.min.css?v=2")}}" />
 <script src="{{url("plugins/dataTables/datatables.min.js?v=2")}}"></script>
 <script src="{{url("plugins/dataTables/dataTables.bootstrap5.min.js?v=2")}}"></script>
 
 <!-- Select2 -->
-<link rel="stylesheet" href="{{url("plugins/select2/css/select2.min.css?v=2")}}" />
 <script src="{{url("plugins/select2/js/select2.min.js?v=2")}}"></script>
 
 
