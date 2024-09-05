@@ -278,7 +278,8 @@
             targets: [7, 8, 9, 10, 11, 12],
             render: function (data, type, row, meta) {
                const columnIndex = meta.col - 6;
-               return data ? `<a style="color:blue; text-decoration:underline" class="cr" 
+               return data ? `<a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
+                    data-bs-target="#closingRankDetailsModal" class="cr" 
                     data-quota="${row.quota}"
                     data-category="${row.category}"
                     data-state="${row.state}"
@@ -305,71 +306,69 @@
       var session = $(this).data('session');
       var round = $(this).data('round');
 
-      $('#closingRankDetailsModal').modal('show');
+      $('#closingRankDetailsModal').on('shown.bs.modal', function () {
+         $("#closing_rank_details").DataTable({
+            destroy: true,
+            responsive: false,
+            processing: true,
+            serverSide: true,
+            scrollX: true,
+            scrollCollapse: true,
+            scrollY: "30vh",
+            ordering: false,
+            "oLanguage": {
+               "sSearch": "Filter All India Rank:"
+            },
+            language: {
+               searchPlaceholder: '10'
+            },
+            ajax: {
+               type: "GET",
+               url: "{{route('ug.closing_rank_details')}}",
+               data: {
+                  quota,
+                  category,
+                  state,
+                  institute,
+                  course,
+                  round,
+                  session
+               },
+               beforeSend: function () {
+                  $('.preloader').show(); // Show preloader before the request
+               },
+               complete: function () {
+                  $('.preloader').hide(); // Ensure preloader is hidden when request completes
+               },
+               error: function (xhr) {
+                  $("#closing_rank_details").DataTable().destroy();
+                  $("#closing_rank_details").DataTable({ scrollX: true, ordering: false });
 
-      $('#closing_rank_details').DataTable().clear().destroy();
-
-      $("#closing_rank_details").DataTable({
-         destroy: true,
-         responsive: false,
-         processing: true,
-         serverSide: true,
-         scrollX: true,
-         scrollCollapse: true,
-         scrollY: "30vh",
-         ordering: false,
-         "oLanguage": {
-            "sSearch": "Filter All India Rank:"
-         },
-         language: {
-            searchPlaceholder: '10'
-         },
-         ajax: {
-            type: "GET",
-            url: "{{route('ug.closing_rank_details')}}",
-            data: {
-               quota,
-               category,
-               state,
-               institute,
-               course,
-               round,
-               session
+                  // const message = xhr["responseJSON"]["message"];
+                  // if (xhr["status"] === 420) {
+                  //    toastr["warning"](message);
+                  // } else {
+                  //    toastr["error"](message);
+                  // }
+               },
+               dataSrc: function (data) {
+                  $('.preloader').hide();
+                  data.iTotalRecords = data?.rows?.length || 0;
+                  data.iTotalDisplayRecords = data.count || 0;
+                  return data?.rows || [];
+               }
             },
-            beforeSend: function () {
-               $('.preloader').show(); // Show preloader before the request
-            },
-            complete: function () {
-               $('.preloader').hide(); // Ensure preloader is hidden when request completes
-            },
-            error: function (xhr) {
-               $("#closing_rank_details").DataTable().destroy();
-               $("#closing_rank_details").DataTable({ scrollX: true, ordering: false });
-
-               // const message = xhr["responseJSON"]["message"];
-               // if (xhr["status"] === 420) {
-               //    toastr["warning"](message);
-               // } else {
-               //    toastr["error"](message);
-               // }
-            },
-            dataSrc: function (data) {
-               $('.preloader').hide();
-               data.iTotalRecords = data?.rows?.length || 0;
-               data.iTotalDisplayRecords = data.count || 0;
-               return data?.rows || [];
-            }
-         },
-         columns: [
-            { data: "quota" },
-            { data: "category" },
-            { data: "state" },
-            { data: "institute" },
-            { data: "course" },
-            { data: "fee" },
-            { data: "beds" },
-            { data: "all_india_rank" },
-         ],
+            columns: [
+               { data: "quota" },
+               { data: "category" },
+               { data: "state" },
+               { data: "institute" },
+               { data: "course" },
+               { data: "fee" },
+               { data: "beds" },
+               { data: "all_india_rank" },
+            ],
+         });
       });
    });
 
