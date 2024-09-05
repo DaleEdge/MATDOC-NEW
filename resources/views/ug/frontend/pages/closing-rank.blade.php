@@ -306,7 +306,9 @@
       var session = $(this).data('session');
       var round = $(this).data('round');
 
-      let table = $("#closing_rank_details").DataTable({
+      $('#closing_rank_details').DataTable().clear().destroy();
+
+      $("#closing_rank_details").DataTable({
          destroy: true,
          responsive: false,
          processing: true,
@@ -368,8 +370,11 @@
             { data: "all_india_rank" },
          ],
       });
-
-      table.columns.adjust().draw();
    });
+
+   // // Optionally, destroy the DataTable when the modal is hidden to reload data on the next show
+   // $('#exampleModal').on('hidden.bs.modal', function () {
+   //    $('#myTable').DataTable().clear().destroy();
+   // });
 </script>
 @endsection
