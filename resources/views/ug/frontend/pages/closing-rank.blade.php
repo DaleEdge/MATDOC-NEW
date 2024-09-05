@@ -5,6 +5,10 @@
    <link href="{{url("plugins/MDB5-7.2.0/css/mdb.min.css?v=2")}}" rel="stylesheet" />
    <link rel="stylesheet" href="{{url("plugins/dataTables/datatables.min.css?v=2")}}" />
    <link rel="stylesheet" href="{{url("plugins/select2/css/select2.min.css?v=2")}}" />
+
+   <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css"> -->
+
+
 </head>
 
 <!-- Bootstrap -->
@@ -214,6 +218,7 @@
 
 <!-- Datatables -->
 <script src="{{url("plugins/dataTables/datatables.min.js?v=2")}}"></script>
+<!-- <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script> -->
 <script src="{{url("plugins/dataTables/dataTables.bootstrap5.min.js?v=2")}}"></script>
 
 <!-- Select2 -->
@@ -301,7 +306,7 @@
       var session = $(this).data('session');
       var round = $(this).data('round');
 
-      $("#closing_rank_details").DataTable({
+      let table = $("#closing_rank_details").DataTable({
          destroy: true,
          responsive: false,
          processing: true,
@@ -363,6 +368,8 @@
             { data: "all_india_rank" },
          ],
       });
+
+      table.columns.adjust().draw();
    });
 </script>
 @endsection
