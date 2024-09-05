@@ -56,13 +56,21 @@ class UgFrontController extends Controller
     }
     public function closing_rank(Request $request)
     {
-        $state = $request->state;
         $start = $request->start;
         $length = $request->length;
         $search = $request['search']['value'] ?? '';
 
         $count = DB::table('ug_allotments')
             ->select('quota', 'category', 'state', 'institute', 'course')
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                    $query->where('quota', 'LIKE', "%{$search}%")
+                        ->orWhere('category', 'LIKE', "%{$search}%")
+                        ->orWhere('state', 'LIKE', "%{$search}%")
+                        ->orWhere('institute', 'LIKE', "%{$search}%")
+                        ->orWhere('course', 'LIKE', "%{$search}%");
+                });
+            })
             ->groupBy('quota', 'category', 'state', 'institute', 'course')->get()->count();
 
         $rows = DB::table('ug_allotments')
@@ -96,16 +104,8 @@ class UgFrontController extends Controller
             ->limit($length > 0 ? $length : 10)
             ->offset($start)->get();
 
-        if ($search) {
-            $rows->where("quota", 'LIKE', "%{$search}%");
-        }
-
-        // $rows->get();
-
-
         if ($request->ajax()) {
-            return response()->json(compact('count', 'rows', 'search'));
-            // return view('ug.frontend.pages.closing-rank_table', compact('state', 'list'))->render();
+            return response()->json(compact('count', 'rows'));
         }
 
         return view('ug.frontend.pages.closing-rank');
@@ -114,6 +114,9 @@ class UgFrontController extends Controller
     public function closing_rank_details(Request $request)
     {
 
+        $start = $request->start;
+        $length = $request->length;
+        $search = $request['search']['value'] ?? '';
         $quota = $request->quota;
         $category = $request->category;
         $state = $request->state;
@@ -122,7 +125,7 @@ class UgFrontController extends Controller
         $session = $request->session;
         $round = $request->round;
 
-        $details = DB::table('ug_allotments')
+        $count = DB::table('ug_allotments')
             ->select(
                 'quota',
                 'category',
@@ -133,18 +136,51 @@ class UgFrontController extends Controller
                 'beds',
                 'all_india_rank'
             )
-            ->where('quota', 'LIKE', "%{$quota}%")
-            ->where('category', 'LIKE', "%{$category}%")
-            ->where('state', 'LIKE', "%{$state}%")
-            ->where('institute', 'LIKE', "%{$institute}%")
-            ->where('course', 'LIKE', "%{$course}%")
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                    $query->where('quota', 'LIKE', "%{$search}%")
+                        ->orWhere('category', 'LIKE', "%{$search}%")
+                        ->orWhere('state', 'LIKE', "%{$search}%")
+                        ->orWhere('institute', 'LIKE', "%{$search}%")
+                        ->orWhere('course', 'LIKE', "%{$search}%");
+                });
+            })
+            ->whereRaw("TRIM(REPLACE(REPLACE(quota, '\r', ''), '\n', '')) = ?", $quota)
+            ->whereRaw("TRIM(REPLACE(REPLACE(category, '\r', ''), '\n', '')) = ?", $category)
+            ->whereRaw("TRIM(REPLACE(REPLACE(state, '\r', ''), '\n', '')) = ?", $state)
+            ->whereRaw("TRIM(REPLACE(REPLACE(institute, '\r', ''), '\n', '')) = ?", $institute)
+            ->whereRaw("TRIM(REPLACE(REPLACE(course, '\r', ''), '\n', '')) = ?", $course)
+            ->where('session', $session)
+            ->where('round', $round)->count();
+
+        $rows = DB::table('ug_allotments')
+            ->select(
+                'quota',
+                'category',
+                'state',
+                'institute',
+                'course',
+                'fee',
+                'beds',
+                'all_india_rank'
+            )
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                    $query->where('all_india_rank', 'LIKE', "%{$search}%");
+                });
+            })
+            ->whereRaw("TRIM(REPLACE(REPLACE(quota, '\r', ''), '\n', '')) = ?", $quota)
+            ->whereRaw("TRIM(REPLACE(REPLACE(category, '\r', ''), '\n', '')) = ?", $category)
+            ->whereRaw("TRIM(REPLACE(REPLACE(state, '\r', ''), '\n', '')) = ?", $state)
+            ->whereRaw("TRIM(REPLACE(REPLACE(institute, '\r', ''), '\n', '')) = ?", $institute)
+            ->whereRaw("TRIM(REPLACE(REPLACE(course, '\r', ''), '\n', '')) = ?", $course)
             ->where('session', $session)
             ->where('round', $round)
             ->orderBy('all_india_rank', 'desc')
-            ->take(10)
-            ->get();
+            ->limit($length > 0 ? $length : 10)
+            ->offset($start)->get();
 
-        return response()->json($details);
+        return response()->json(compact('count', 'rows'));
     }
     public function closing_rank_details_old(Request $request)
     {
