@@ -72,6 +72,10 @@
    .select2-dropdown {
       z-index: 10000 !important;
    }
+
+   .select2-selection {
+      height: auto !important
+   }
 </style>
 
 @section('content')
@@ -129,40 +133,85 @@
          <div class="modal-body">
             <div class="row d-flex justify-content-between">
                <div class="col-lg-4">
-                  <fieldset class="p-3 border border-grey rounded">
+                  <fieldset class="p-4 border border-grey rounded">
                      <div class="form-group">
-                        <label class="w-auto">Rank</label>
+                        <label class="fw-bold">Rank</label>
                         <div class="d-flex align-items-center">
-                           <input type="number" class="form-control" placeholder="Enter rank">
+                           <input type="number" class="form-control" placeholder="0">
                            <span class="mx-2">-</span>
-                           <input type="number" class="form-control" placeholder="Enter rank">
+                           <input type="number" class="form-control" placeholder="100000">
                         </div>
                      </div>
 
                      <div class="form-group mt-3">
-                        <label for="round">Round</label>
+                        <label for="session" class="fw-bold">Session</label>
+                        <select class="form-control input-dropdown w-100" name="session" id="session">
+                        </select>
+                     </div>
+
+                     <div class="form-group mt-3">
+                        <label for="round" class="fw-bold">Round</label>
                         <select class="form-control input-dropdown w-100" name="round" id="round">
+                        </select>
+                     </div>
+
+                     <div class="form-group mt-3">
+                        <label for="quota" class="fw-bold">Quota</label>
+                        <select class="form-control input-dropdown w-100" name="quota" id="quota">
+                        </select>
+                     </div>
+
+                     <div class="form-group mt-3">
+                        <label for="category" class="fw-bold">Category</label>
+                        <select class="form-control input-dropdown w-100" name="category" id="category">
                         </select>
                      </div>
                   </fieldset>
                </div>
                <div class="col-lg-4">
                   <fieldset class="p-4 border border-grey rounded">
-                     <legend class="w-auto">Rank</legend>
-                     <div class="d-flex align-items-center">
-                        <input type="text" class="form-control me-2" placeholder="Enter rank">
-                        <span class="mx-2">-</span>
-                        <input type="text" class="form-control ms-2" placeholder="Enter rank">
+                     <div class="form-group">
+                        <label for="state" class="fw-bold">State</label>
+                        <select class="form-control input-dropdown w-100" name="state" id="state">
+                        </select>
+                     </div>
+
+                     <div class="form-group mt-3">
+                        <label for="institute" class="fw-bold">Institute</label>
+                        <select class="form-control input-dropdown w-100" name="institute" id="institute">
+                        </select>
+                     </div>
+                     <div class="form-group mt-3">
+                        <label for="institute_type" class="fw-bold">Institute Type</label>
+                        <select class="form-control input-dropdown w-100" name="institute_type" id="institute_type">
+                        </select>
+                     </div>
+
+                     <div class="form-group mt-3">
+                        <label class="fw-bold">Beds</label>
+                        <div class="d-flex align-items-center">
+                           <input type="number" class="form-control" placeholder="0">
+                           <span class="mx-2">-</span>
+                           <input type="number" class="form-control" placeholder="100000">
+                        </div>
+                     </div>
+
+                     <div class="form-group mt-3">
+                        <label class="fw-bold">Fee</label>
+                        <div class="d-flex align-items-center">
+                           <input type="number" class="form-control" placeholder="0">
+                           <span class="mx-2">-</span>
+                           <input type="number" class="form-control" placeholder="1000000000">
+                        </div>
                      </div>
                   </fieldset>
                </div>
-               <div class="col-lg-4">
+               <div class="col-lg-4 h-100">
                   <fieldset class="p-4 border border-grey rounded">
-                     <legend class="w-auto">Rank</legend>
-                     <div class="d-flex align-items-center">
-                        <input type="text" class="form-control me-2" placeholder="Enter rank">
-                        <span class="mx-2">-</span>
-                        <input type="text" class="form-control ms-2" placeholder="Enter rank">
+                     <div class="form-group">
+                        <label for="course" class="fw-bold">Course</label>
+                        <select class="form-control input-dropdown w-100" name="course" id="course">
+                        </select>
                      </div>
                   </fieldset>
                </div>
@@ -227,8 +276,43 @@
 
 <script>
 
+   $("#session").select2({
+      placeholder: "Choose a session",
+      allowClear: true,
+      data: [{ id: "1", text: "1" }, { id: "2", text: "1" }]
+   })
    $("#round").select2({
       placeholder: "Choose a round",
+      allowClear: true,
+      data: [{ id: "1", text: "1" }, { id: "2", text: "1" }]
+   })
+   $("#quota").select2({
+      placeholder: "Choose a quota",
+      allowClear: true,
+      data: [{ id: "1", text: "1" }, { id: "2", text: "1" }]
+   })
+   $("#category").select2({
+      placeholder: "Choose a category",
+      allowClear: true,
+      data: [{ id: "1", text: "1" }, { id: "2", text: "1" }]
+   })
+   $("#state").select2({
+      placeholder: "Choose a state",
+      allowClear: true,
+      data: [{ id: "1", text: "1" }, { id: "2", text: "1" }]
+   })
+   $("#institute").select2({
+      placeholder: "Choose a institute",
+      allowClear: true,
+      data: [{ id: "1", text: "1" }, { id: "2", text: "1" }]
+   })
+   $("#institute_type").select2({
+      placeholder: "Choose a institute type",
+      allowClear: true,
+      data: [{ id: "1", text: "1" }, { id: "2", text: "1" }]
+   })
+   $("#course").select2({
+      placeholder: "Choose a course",
       allowClear: true,
       data: [{ id: "1", text: "1" }, { id: "2", text: "1" }]
    })
