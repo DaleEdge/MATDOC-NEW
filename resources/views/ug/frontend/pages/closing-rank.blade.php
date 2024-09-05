@@ -81,7 +81,7 @@
       <div class="neet-pg-layout">
          <div class="card shadow">
             <div class="card-body">
-               <div class="d-flex justify-content-end d-none">
+               <div class="d-flex justify-content-end">
                   <div class="btn btn-outline-primary d-flex justify-content-center rounded align-items-center"
                      style="height:35px" data-bs-toggle="modal" data-bs-target="#filtersModal">
                      <span><i class="fa fa-filter fs-6"></i></span>
