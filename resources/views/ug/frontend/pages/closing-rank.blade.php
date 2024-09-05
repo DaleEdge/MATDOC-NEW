@@ -9,6 +9,13 @@
       color: #ff9529;
    }
 
+   /* Modal */
+   .modal-content {
+      border: 3px solid rgb(213 213 213) !important;
+      /* box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2); */
+   }
+
+   /* Table */
    table.dataTable thead th {
       color: white !important;
    }
@@ -43,8 +50,16 @@
 <div class="section counter-section mb-5">
    <div class="container mt-5" style="margin-bottom:100px;">
       <div class="neet-pg-layout">
-         <div class="card shadow">
+         <div class="card shadow-lg rounded-lg">
             <div class="card-body">
+               <div class="d-flex justify-content-end">
+                  <div class="btn btn-outline-primary d-flex justify-content-center rounded align-items-center">
+                     <span><i class="fa fa-filter fs-4"></i></span>
+                     &nbsp;&nbsp;
+                     <span>Filter</span>
+                  </div>
+               </div>
+
                <div class="mt-3">
                   <table id="closing_rank" class="table stripe table-hover nowrap w-100">
                      <thead>
@@ -80,9 +95,7 @@
       <div class="modal-content">
          <div class="modal-header">
             <h5 class="modal-title" id="mediumModalLabel">Closing Rank Details</h5>
-            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button> -->
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body" id="closingRankDetailsModalBody">
             <table id="closing_rank_details" class="table stripe table-hover nowrap w-100">
