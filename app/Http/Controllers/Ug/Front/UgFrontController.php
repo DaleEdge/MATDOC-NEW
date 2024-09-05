@@ -56,8 +56,15 @@ class UgFrontController extends Controller
     public function closing_rank(Request $request)
     {
         $state = $request->state;
-        $page = $request->input('page', 1);
-        $query = DB::table('ug_allotments')
+        $start = $request->start;
+        $length = $request->length;
+
+        $count = DB::table('ug_allotments')
+            ->select(DB::raw('COUNT(id) as count'))
+            ->groupBy('quota', 'category', 'state', 'institute', 'course')
+            ->get();
+
+        $rows = DB::table('ug_allotments')
             ->select(
                 'quota',
                 'category',
@@ -75,18 +82,18 @@ class UgFrontController extends Controller
             )
             ->groupBy('quota', 'category', 'state', 'institute', 'course')
             ->orderBy('institute', 'ASC')
-            ->orderBy('category', 'ASC');
-        if ($state == "all_indias") {
-            $items = $query->get();
-        } else {
-            $items = $query->where("state", $state)->get();
-        }
-        $list = $this->paginate($items, $this->per_page, $page);
+            ->orderBy('category', 'ASC')
+            // ->limit($length)
+            // ->offset($start)
+            ->get();
+
 
         if ($request->ajax()) {
-            return view('ug.frontend.pages.closing-rank_table', compact('state', 'list'))->render();
+            return response()->json(compact('count', 'rows'));
+            // return view('ug.frontend.pages.closing-rank_table', compact('state', 'list'))->render();
         }
-        return view('ug.frontend.pages.closing-rank', compact('state', 'list'));
+
+        return view('ug.frontend.pages.closing-rank');
     }
 
     public function closing_rank_details(Request $request)

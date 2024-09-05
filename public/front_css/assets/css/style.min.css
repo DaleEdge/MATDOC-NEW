@@ -207,7 +207,7 @@ textarea:-ms-input-placeholder {
 
 .section,
 .main-wrapper {
-	float: left;
+	float: none;
 	width: 100%
 }
 

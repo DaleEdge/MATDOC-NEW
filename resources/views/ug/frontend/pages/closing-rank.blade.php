@@ -8,101 +8,132 @@
       content: "\f023";
       color: #ff9529;
    }
+
+   table.dataTable thead th {
+      color: white !important;
+   }
 </style>
+
 @section('content')
 <!-- Counter Start -->
-<div class="section counter-section section counter-section mb-5">
+<div class="section counter-section mb-5">
    <div class="container mt-5" style="margin-bottom:100px;">
       <div class="neet-pg-layout">
-         <div class="shadow custom-accordion-border card">
+         <div class="card shadow">
             <div class="card-body">
-               <!-- Include State -->
-               <div class="row">
-                  <div class="col-12">
-                     <ul class="nav">
-
-
-
-
-
-                        <li class="nav-item"><a onclick="fetch_data('Bihars')" class="nav-link"> Bihar</a></li>
-
-
-
-                        <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Chhattisgarhs')" @endif class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Chhattisgarh</a></li>
-                        <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Gujarats')" @endif class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Gujarat</a></li>
-                        <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Haryanas')" @endif class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Haryana</a></li>
-                        <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Himachal Pradeshes')" @endif class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Himachal Pradesh</a></li>
-                        <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Jammu and Kashmirs')" @endif class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Jammu and Kashmir</a></li>
-                        <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Jharkhands')" @endif class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Jharkhand</a></li>
-                        <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Karnatakas')" @endif class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Karnataka</a></li>
-                        <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Madhya Pradeshes')" @endif class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Madhya Pradesh</a></li>
-                        <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Maharashtras')" @endif class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Maharashtra</a></li>
-
-                        <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Pondicherries')" @endif class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Pondicherry</a></li>
-                        <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Punjabs')" @endif class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Punjab</a></li>
-
-                        <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Telanganas')" @endif class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Telangana</a></li>
-                        <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Uttar Pradeshes')" @endif class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Uttar Pradesh</a></li>
-                        <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Uttarakhands')" @endif class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Uttarakhand</a></li>
-                        <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('West Bengals')" @endif class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif West Bengal</a></li>
-
-                        <li class="nav-item"><a @if(empty(optional(Auth::user()->payment)->user_id)) href="{{route('subscription_plans')}}" @endif @if(!empty(optional(Auth::user()->payment)->user_id)) onclick="fetch_data('Tamilnadu')" @endif class="nav-link">@if(empty(optional(Auth::user()->payment)->user_id))<i class="fa fa-lock"></i>@endif Tamilnadu</a></li>
-                     </ul>
-                  </div>
-               </div>
-               <!-- End State -->
-               <hr>
-               <div class="row" id="table">
-                  @include('ug.frontend.pages.closing-rank_table')
+               <div class="mt-3">
+                  <table id="closing_rank" class="table table-hover nowrap w-100">
+                     <thead>
+                        <tr>
+                           <th>Quota</th>
+                           <th>Category</th>
+                           <th>State</th>
+                           <th>Institute</th>
+                           <th>Course</th>
+                           <th>Fee</th>
+                           <th>Beds</th>
+                           <th>CR 2023 1</th>
+                           <th>CR 2023 2</th>
+                           <th>CR 2023 3</th>
+                           <th>CR 2023 4</th>
+                           <th>CR 2023 5</th>
+                           <th>CR 2023 6</th>
+                        </tr>
+                     </thead>
+                  </table>
                </div>
             </div>
          </div>
       </div>
    </div>
 </div>
-</div>
 @endsection
+
 @section('script')
+
+<!-- MDB5 -->
+<!-- <link href="{{url("plugins/MDB5-7.2.0/css/mdb.min.css?v=2")}}" rel="stylesheet" /> -->
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" /> -->
+<!-- <link href="https://cdn.datatables.net/2.1.5/css/dataTables.bootstrap5.css" rel="stylesheet" /> -->
+<!-- <script src="{{url("plugins/MDB5-7.2.0/js/mdb.es.min.js?v=2")}}"></script> -->
+
+
+<!-- Datatables -->
+<link rel="stylesheet" href="{{url("plugins/dataTables/datatables.min.css?v=2")}}" />
+<script src="{{url("plugins/dataTables/datatables.min.js?v=2")}}"></script>
+<script src="{{url("plugins/dataTables/dataTables.bootstrap5.min.js?v=2")}}"></script>
+
 <script>
-   fetch_data('all_indias');
-   $(function() {
-      $('.nav li a').click(function(e) {
+   $(function () {
+      $('.nav li a').click(function (e) {
          $('.nav li a').removeClass('active');
          $(this).addClass('active');
       });
    });
 
-   function fetch_data(state) {
-      $.ajax({
-         beforeSend: function() {
-            $('.preloader').show();
-         },
+   $("#closing_rank").DataTable({
+      destroy: true,
+      responsive: false,
+      processing: true,
+      serverSide: true,
+      scrollX: true,
+      scrollCollapse: true,
+      scrollY: "40vh",
+      ordering: false,
+      ajax: {
+         type: "GET",
          url: "{{route('ug.closing_rank')}}",
-         data: {
-            'state': state
-         },
-         success: function(data) {
-            $('#table').html(data);
-         },
-         complete: function() {
-            $('.preloader').hide();
-         }
-      });
-   }
+         error: function (xhr) {
+            $("#closing_tank").DataTable().destroy();
+            $("#closing_tank").DataTable({ scrollX: true, ordering: false });
 
-   $(document).on('click', '.pagination a', function(event) {
-      event.preventDefault();
-      var baseUrl = "{{ route('ug.closing_rank') }}";
-      var url = baseUrl + $(this).attr('href');
-
-      $.ajax({
-         url: url,
-         type: 'GET',
-         success: function(data) {
-            $('#table-container').html(data);
+            // const message = xhr["responseJSON"]["message"];
+            // if (xhr["status"] === 420) {
+            //    toastr["warning"](message);
+            // } else {
+            //    toastr["error"](message);
+            // }
+         },
+         dataSrc: function (json) {
+            json.iTotalRecords = json.data?.rows?.length || 0;
+            json.iTotalDisplayRecords = json.data?.count || 0;
+            return json?.data?.rows || [];
          }
-      });
+      },
+      columns: [
+         { data: "quota" },
+         { data: "category" },
+         { data: "state" },
+         { data: "institute" },
+         { data: "course" },
+         { data: "fee" },
+         { data: "beds" },
+         { data: "cr_2023_1" },
+         { data: "cr_2023_2" },
+         { data: "cr_2023_3" },
+         { data: "cr_2023_4" },
+         { data: "cr_2023_5" },
+         { data: "cr_2023_6" }
+      ],
+      columnDefs: [
+         {
+            targets: [7, 8, 9, 10, 11, 12],
+            render: function (data, type, row, meta) {
+               const columnIndex = meta.col - 6;
+               return `<a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
+                    data-bs-target="#seatMatrixDetailsModal" class="cr" 
+                    data-quota="${row.quota}"
+                    data-category="${row.category}"
+                    data-state="${row.state}"
+                    data-institute="${row.institute}"
+                    data-course="${row.course}"
+                    data-session="2023" 
+                    data-round=${columnIndex}>
+                    ${data['cr_2023_' + columnIndex] || '-'}
+                </a>`;
+            }
+         },
+      ]
    });
 </script>
 @endsection
