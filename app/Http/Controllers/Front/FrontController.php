@@ -80,14 +80,26 @@ class FrontController extends Controller
         return view('frontend.pages.deemed_details', compact('list'));
     }
 
-
-
-
     public function closing_rank(Request $request)
     {
-        $state = $request->state;
-        $page = $request->input('page', 1);
-        $query = DB::table('pg_allotments')
+        $start = $request->start;
+        $length = $request->length;
+        $search = $request['search']['value'] ?? '';
+
+        $count = DB::table('pg_allotments')
+            ->select('quota', 'category', 'state', 'institute', 'course')
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                    $query->where('quota', 'LIKE', "%{$search}%")
+                        ->orWhere('category', 'LIKE', "%{$search}%")
+                        ->orWhere('state', 'LIKE', "%{$search}%")
+                        ->orWhere('institute', 'LIKE', "%{$search}%")
+                        ->orWhere('course', 'LIKE', "%{$search}%");
+                });
+            })
+            ->groupBy('quota', 'category', 'state', 'institute', 'course')->get()->count();
+
+        $rows = DB::table('pg_allotments')
             ->select(
                 'quota',
                 'category',
@@ -103,24 +115,34 @@ class FrontController extends Controller
                 DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 5 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 5 THEN id END), ')') AS cr_2023_5"),
                 DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 6 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 6 THEN id END), ')') AS cr_2023_6")
             )
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                    $query->where('quota', 'LIKE', "%{$search}%")
+                        ->orWhere('category', 'LIKE', "%{$search}%")
+                        ->orWhere('state', 'LIKE', "%{$search}%")
+                        ->orWhere('institute', 'LIKE', "%{$search}%")
+                        ->orWhere('course', 'LIKE', "%{$search}%");
+                });
+            })
             ->groupBy('quota', 'category', 'state', 'institute', 'course')
             ->orderBy('institute', 'ASC')
-            ->orderBy('category', 'ASC');
-        if ($state == "all_indias") {
-            $items = $query->get();
-        } else {
-            $items = $query->where("state", $state)->get();
-        }
-        $list = $this->paginate($items, $this->per_page, $page);
+            ->orderBy('category', 'ASC')
+            ->limit($length > 0 ? $length : 10)
+            ->offset($start)->get();
 
         if ($request->ajax()) {
-            return view('frontend.pages.closing-rank_table', compact('state', 'list'))->render();
+            return response()->json(compact('count', 'rows'));
         }
-        return view('frontend.pages.closing-rank', compact('state', 'list'));
+
+        return view('ug.frontend.pages.closing-rank');
     }
 
     public function closing_rank_details(Request $request)
     {
+
+        $start = $request->start;
+        $length = $request->length;
+        $search = $request['search']['value'] ?? '';
         $quota = $request->quota;
         $category = $request->category;
         $state = $request->state;
@@ -129,7 +151,7 @@ class FrontController extends Controller
         $session = $request->session;
         $round = $request->round;
 
-        $details = DB::table('pg_allotments')
+        $count = DB::table('pg_allotments')
             ->select(
                 'quota',
                 'category',
@@ -140,18 +162,51 @@ class FrontController extends Controller
                 'beds',
                 'all_india_rank'
             )
-            ->where('quota', 'LIKE', "%{$quota}%")
-            ->where('category', 'LIKE', "%{$category}%")
-            ->where('state', 'LIKE', "%{$state}%")
-            ->where('institute', 'LIKE', "%{$institute}%")
-            ->where('course', 'LIKE', "%{$course}%")
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                    $query->where('quota', 'LIKE', "%{$search}%")
+                        ->orWhere('category', 'LIKE', "%{$search}%")
+                        ->orWhere('state', 'LIKE', "%{$search}%")
+                        ->orWhere('institute', 'LIKE', "%{$search}%")
+                        ->orWhere('course', 'LIKE', "%{$search}%");
+                });
+            })
+            ->whereRaw("TRIM(REPLACE(REPLACE(quota, '\r', ''), '\n', '')) = ?", $quota)
+            ->whereRaw("TRIM(REPLACE(REPLACE(category, '\r', ''), '\n', '')) = ?", $category)
+            ->whereRaw("TRIM(REPLACE(REPLACE(state, '\r', ''), '\n', '')) = ?", $state)
+            ->whereRaw("TRIM(REPLACE(REPLACE(institute, '\r', ''), '\n', '')) = ?", $institute)
+            ->whereRaw("TRIM(REPLACE(REPLACE(course, '\r', ''), '\n', '')) = ?", $course)
+            ->where('session', $session)
+            ->where('round', $round)->count();
+
+        $rows = DB::table('pg_allotments')
+            ->select(
+                'quota',
+                'category',
+                'state',
+                'institute',
+                'course',
+                'fee',
+                'beds',
+                'all_india_rank'
+            )
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                    $query->where('all_india_rank', 'LIKE', "%{$search}%");
+                });
+            })
+            ->whereRaw("TRIM(REPLACE(REPLACE(quota, '\r', ''), '\n', '')) = ?", $quota)
+            ->whereRaw("TRIM(REPLACE(REPLACE(category, '\r', ''), '\n', '')) = ?", $category)
+            ->whereRaw("TRIM(REPLACE(REPLACE(state, '\r', ''), '\n', '')) = ?", $state)
+            ->whereRaw("TRIM(REPLACE(REPLACE(institute, '\r', ''), '\n', '')) = ?", $institute)
+            ->whereRaw("TRIM(REPLACE(REPLACE(course, '\r', ''), '\n', '')) = ?", $course)
             ->where('session', $session)
             ->where('round', $round)
             ->orderBy('all_india_rank', 'desc')
-            ->take(10)
-            ->get();
+            ->limit($length > 0 ? $length : 10)
+            ->offset($start)->get();
 
-        return response()->json($details);
+        return response()->json(compact('count', 'rows'));
     }
 
     public function closing_rank_details_old(Request $request)
@@ -2359,27 +2414,78 @@ class FrontController extends Controller
 
     public function allotments_data(Request $request)
     {
-        $state = $request->state;
-        $page = $request->input('page', 1);
-        $query = DB::table('pg_allotments')->orderBy('state_rank', 'asc');
-        if ($state == "all_indias") {
-            $items = $query->get();
-        } else {
-            $items = $query->where("state", $state)->get();
-        }
-        $list = $this->paginate($items, $this->per_page, $page);
+        $start = $request->start;
+        $length = $request->length;
+        $search = $request['search']['value'] ?? '';
+
+        $count = DB::table('pg_allotments')
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                    $query->where('quota', 'LIKE', "%{$search}%")
+                        ->orWhere('category', 'LIKE', "%{$search}%")
+                        ->orWhere('state', 'LIKE', "%{$search}%")
+                        ->orWhere('institute', 'LIKE', "%{$search}%")
+                        ->orWhere('course', 'LIKE', "%{$search}%");
+                });
+            })->count();
+
+        $rows = DB::table('pg_allotments')
+            ->select(
+                'round',
+                'state_rank',
+                "all_india_rank",
+                'neet_score',
+                'quota',
+                'category',
+                'state',
+                'institute',
+                'course',
+                'fee',
+                'beds',
+            )
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                    $query->where('quota', 'LIKE', "%{$search}%")
+                        ->orWhere('round', 'LIKE', "%{$search}%")
+                        ->orWhere('category', 'LIKE', "%{$search}%")
+                        ->orWhere('state', 'LIKE', "%{$search}%")
+                        ->orWhere('institute', 'LIKE', "%{$search}%")
+                        ->orWhere('course', 'LIKE', "%{$search}%");
+                });
+            })
+            ->orderBy('state_rank', 'ASC')
+            ->limit($length > 0 ? $length : 10)
+            ->offset($start)->get();
+
         if ($request->ajax()) {
-            return view('frontend.pages.home_table', compact('state', 'list'))->render();
+            return response()->json(compact('count', 'rows'));
         }
-        return view('frontend.pages.home', compact('state', 'list'));
+
+        return view('ug.frontend.pages.home');
+
     }
 
     public function seat_matrix(Request $request)
     {
+        $start = $request->start;
+        $length = $request->length;
+        $search = $request['search']['value'] ?? '';
 
-        $state = $request->state;
-        $page = $request->input('page', 1);
-        $query = DB::table('pg_allotments')
+        $count = DB::table('pg_allotments')
+            ->select('round', 'quota', 'category', 'state', 'institute', 'course', 'seats')
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                    $query->where('quota', 'LIKE', "%{$search}%")
+                        ->orWhere('category', 'LIKE', "%{$search}%")
+                        ->orWhere('state', 'LIKE', "%{$search}%")
+                        ->orWhere('institute', 'LIKE', "%{$search}%")
+                        ->orWhere('course', 'LIKE', "%{$search}%")
+                        ->orWhere('seats', 'LIKE', "%{$search}%");
+                });
+            })
+            ->groupBy('round', 'quota', 'category', 'state', 'institute', 'course', 'seats')->get()->count();
+
+        $rows = DB::table('pg_allotments')
             ->select(
                 'round',
                 'quota',
@@ -2397,26 +2503,36 @@ class FrontController extends Controller
                 DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 5 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 5 THEN id END), ')') AS cr_2023_5"),
                 DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 6 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 6 THEN id END), ')') AS cr_2023_6")
             )
-            ->groupBy('round', 'quota', 'category', 'state', 'institute', 'course')
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                    $query->where('quota', 'LIKE', "%{$search}%")
+                        ->orWhere('round', 'LIKE', "%{$search}%")
+                        ->orWhere('category', 'LIKE', "%{$search}%")
+                        ->orWhere('state', 'LIKE', "%{$search}%")
+                        ->orWhere('institute', 'LIKE', "%{$search}%")
+                        ->orWhere('course', 'LIKE', "%{$search}%")
+                        ->orWhere('seats', 'LIKE', "%{$search}%");
+                });
+            })
+            ->groupBy('round', 'quota', 'category', 'state', 'institute', 'course', 'seats')
             ->orderBy('institute', 'ASC')
-            ->orderBy('round', 'ASC')
-            ->orderBy('category', 'ASC');
-        if ($state == "all_indias") {
-            $items = $query->get();
-        } else {
-            $items = $query->where("state", $state)->get();
-        }
-        $list = $this->paginate($items, $this->per_page, $page);
+            ->orderBy('category', 'ASC')
+            ->limit($length > 0 ? $length : 10)
+            ->offset($start)->get();
 
         if ($request->ajax()) {
-            return view('frontend.pages.seat-matrix_table', compact('state', 'list'))->render();
+            return response()->json(compact('count', 'rows'));
         }
 
-        return view('frontend.pages.seat-matrix', compact('state', 'list'));
+        return view('ug.frontend.pages.seat-matrix');
     }
 
     public function seat_matrix_details(Request $request)
     {
+
+        $start = $request->start;
+        $length = $request->length;
+        $search = $request['search']['value'] ?? '';
         $quota = $request->quota;
         $category = $request->category;
         $state = $request->state;
@@ -2426,7 +2542,7 @@ class FrontController extends Controller
         $round = $request->round;
         $seats = $request->seats;
 
-        $details = DB::table('pg_allotments')
+        $count = DB::table('pg_allotments')
             ->select(
                 'round',
                 'quota',
@@ -2439,35 +2555,104 @@ class FrontController extends Controller
                 'seats',
                 'all_india_rank'
             )
-            ->where('quota', 'LIKE', "%{$quota}%")
-            ->where('category', 'LIKE', "%{$category}%")
-            ->where('state', 'LIKE', "%{$state}%")
-            ->where('institute', 'LIKE', "%{$institute}%")
-            ->where('course', 'LIKE', "%{$course}%")
-            ->where('seats', $seats)
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                    $query->where('quota', 'LIKE', "%{$search}%")
+                        ->orWhere('round', 'LIKE', "%{$search}%")
+                        ->orWhere('category', 'LIKE', "%{$search}%")
+                        ->orWhere('state', 'LIKE', "%{$search}%")
+                        ->orWhere('institute', 'LIKE', "%{$search}%")
+                        ->orWhere('course', 'LIKE', "%{$search}%")
+                        ->orWhere('seats', 'LIKE', "%{$search}%");
+                });
+            })
+            ->whereRaw("TRIM(REPLACE(REPLACE(quota, '\r', ''), '\n', '')) = ?", $quota)
+            ->whereRaw("TRIM(REPLACE(REPLACE(category, '\r', ''), '\n', '')) = ?", $category)
+            ->whereRaw("TRIM(REPLACE(REPLACE(state, '\r', ''), '\n', '')) = ?", $state)
+            ->whereRaw("TRIM(REPLACE(REPLACE(institute, '\r', ''), '\n', '')) = ?", $institute)
+            ->whereRaw("TRIM(REPLACE(REPLACE(course, '\r', ''), '\n', '')) = ?", $course)
+            ->where('session', $session)
+            ->where('round', $round)->count();
+
+        $rows = DB::table('pg_allotments')
+            ->select(
+                'round',
+                'quota',
+                'category',
+                'state',
+                'institute',
+                'course',
+                'seats',
+                'fee',
+                'beds',
+                'all_india_rank'
+            )
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                    $query->where('all_india_rank', 'LIKE', "%{$search}%");
+                });
+            })
+            ->whereRaw("TRIM(REPLACE(REPLACE(quota, '\r', ''), '\n', '')) = ?", $quota)
+            ->whereRaw("TRIM(REPLACE(REPLACE(category, '\r', ''), '\n', '')) = ?", $category)
+            ->whereRaw("TRIM(REPLACE(REPLACE(state, '\r', ''), '\n', '')) = ?", $state)
+            ->whereRaw("TRIM(REPLACE(REPLACE(institute, '\r', ''), '\n', '')) = ?", $institute)
+            ->whereRaw("TRIM(REPLACE(REPLACE(course, '\r', ''), '\n', '')) = ?", $course)
             ->where('session', $session)
             ->where('round', $round)
             ->orderBy('all_india_rank', 'desc')
-            ->take(10)
-            ->get();
+            ->limit($length > 0 ? $length : 10)
+            ->offset($start)->get();
 
-        return response()->json($details);
+        return response()->json(compact('count', 'rows'));
     }
 
     public function fees_stipend_bond(Request $request)
     {
-        $state = $request->state;
-        $page = $request->input('page', 1);
-        $query = DB::table('pg_allotments')->orderBy('state_rank', 'asc');
-        if ($state == "all_indias") {
-            $items = $query->get();
-        } else {
-            $items = $query->where("state", $state)->get();
-        }
-        $list = $this->paginate($items, $this->per_page, $page);
+        $start = $request->start;
+        $length = $request->length;
+        $search = $request['search']['value'] ?? '';
+
+        $count = DB::table('pg_allotments')
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                    $query->where('quota', 'LIKE', "%{$search}%")
+                        ->orWhere('state', 'LIKE', "%{$search}%")
+                        ->orWhere('institute', 'LIKE', "%{$search}%")
+                        ->orWhere('course', 'LIKE', "%{$search}%");
+                });
+            })->groupBy(
+                "state",
+                'institute',
+                'course',
+                'quota',
+            )->get()->count();
+
+        $rows = DB::table('pg_allotments')
+            ->select(
+                "state",
+                'institute',
+                'course',
+                'quota',
+                'fee',
+                'beds',
+            )
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                    $query->where('quota', 'LIKE', "%{$search}%")
+                        ->orWhere('round', 'LIKE', "%{$search}%")
+                        ->orWhere('state', 'LIKE', "%{$search}%")
+                        ->orWhere('institute', 'LIKE', "%{$search}%")
+                        ->orWhere('course', 'LIKE', "%{$search}%");
+                });
+            })->groupBy("state", 'institute', 'course', 'quota')
+            ->orderBy('institute', 'ASC')
+            ->limit($length > 0 ? $length : 10)
+            ->offset($start)->get();
+
         if ($request->ajax()) {
-            return view('frontend.pages.fees-stipend-bond_table', compact('state', 'list'))->render();
+            return response()->json(compact('count', 'rows'));
         }
-        return view('frontend.pages.fees-stipend-bond', compact('state', 'list'));
+
+        return view('ug.frontend.pages.fees-stipend-bond');
     }
 }
