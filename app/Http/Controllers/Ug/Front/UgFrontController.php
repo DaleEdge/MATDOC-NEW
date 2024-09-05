@@ -31,6 +31,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use App\Models\uttar_pradesh;
 use App\Models\mark_vs_rank;
 use App\Models\uttarakhand;
+use Symfony\Component\Console\Logger\ConsoleLogger;
 
 
 class UgFrontController extends Controller
@@ -58,11 +59,11 @@ class UgFrontController extends Controller
         $state = $request->state;
         $start = $request->start;
         $length = $request->length;
+        $search = $request['search']['value'] ?? '';
 
         $count = DB::table('ug_allotments')
-            ->select(DB::raw('COUNT(id) as count'))
-            ->groupBy('quota', 'category', 'state', 'institute', 'course')
-            ->get();
+            ->select('quota', 'category', 'state', 'institute', 'course')
+            ->groupBy('quota', 'category', 'state', 'institute', 'course')->get()->count();
 
         $rows = DB::table('ug_allotments')
             ->select(
@@ -80,16 +81,30 @@ class UgFrontController extends Controller
                 DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 5 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 5 THEN id END), ')') AS cr_2023_5"),
                 DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 6 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 6 THEN id END), ')') AS cr_2023_6")
             )
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                    $query->where('quota', 'LIKE', "%{$search}%")
+                        ->orWhere('category', 'LIKE', "%{$search}%")
+                        ->orWhere('state', 'LIKE', "%{$search}%")
+                        ->orWhere('institute', 'LIKE', "%{$search}%")
+                        ->orWhere('course', 'LIKE', "%{$search}%");
+                });
+            })
             ->groupBy('quota', 'category', 'state', 'institute', 'course')
             ->orderBy('institute', 'ASC')
             ->orderBy('category', 'ASC')
-            // ->limit($length)
-            // ->offset($start)
-            ->get();
+            ->limit($length > 0 ? $length : 10)
+            ->offset($start)->get();
+
+        if ($search) {
+            $rows->where("quota", 'LIKE', "%{$search}%");
+        }
+
+        // $rows->get();
 
 
         if ($request->ajax()) {
-            return response()->json(compact('count', 'rows'));
+            return response()->json(compact('count', 'rows', 'search'));
             // return view('ug.frontend.pages.closing-rank_table', compact('state', 'list'))->render();
         }
 

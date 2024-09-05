@@ -12,6 +12,10 @@
    table.dataTable thead th {
       color: white !important;
    }
+
+   .dt-search #dt-search-0 {
+      height: 16px
+   }
 </style>
 
 @section('content')
@@ -22,7 +26,7 @@
          <div class="card shadow">
             <div class="card-body">
                <div class="mt-3">
-                  <table id="closing_rank" class="table table-hover nowrap w-100">
+                  <table id="closing_rank" class="table stripe table-hover nowrap w-100">
                      <thead>
                         <tr>
                            <th>Quota</th>
@@ -94,10 +98,12 @@
             //    toastr["error"](message);
             // }
          },
-         dataSrc: function (json) {
-            json.iTotalRecords = json.data?.rows?.length || 0;
-            json.iTotalDisplayRecords = json.data?.count || 0;
-            return json?.data?.rows || [];
+         dataSrc: function (data) {
+
+            console.log(data)
+            data.iTotalRecords = data?.rows?.length || 0;
+            data.iTotalDisplayRecords = data.count || 0;
+            return data?.rows || [];
          }
       },
       columns: [
@@ -120,7 +126,7 @@
             targets: [7, 8, 9, 10, 11, 12],
             render: function (data, type, row, meta) {
                const columnIndex = meta.col - 6;
-               return `<a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
+               return data?.['cr_2023_' + columnIndex] ? `<a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
                     data-bs-target="#seatMatrixDetailsModal" class="cr" 
                     data-quota="${row.quota}"
                     data-category="${row.category}"
@@ -129,8 +135,8 @@
                     data-course="${row.course}"
                     data-session="2023" 
                     data-round=${columnIndex}>
-                    ${data['cr_2023_' + columnIndex] || '-'}
-                </a>`;
+                    ${data?.['cr_2023_' + columnIndex]}
+                </a>` : '-';
             }
          },
       ]
