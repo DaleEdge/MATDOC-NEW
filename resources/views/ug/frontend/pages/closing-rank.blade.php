@@ -296,6 +296,7 @@
 
    $(document).on('click', '.cr', function (event) {
       event.preventDefault();
+      // $('.preloader').show();
 
       // Retrieve values from the data attributes of the clicked element
       var quota = $(this).data('quota');
@@ -307,6 +308,8 @@
       var round = $(this).data('round');
 
       $('#closingRankDetailsModal').on('shown.bs.modal', function () {
+         // $('.preloader').hide();
+
          $("#closing_rank_details").DataTable({
             destroy: true,
             responsive: false,
@@ -334,11 +337,8 @@
                   round,
                   session
                },
-               beforeSend: function () {
-                  $('.preloader').show(); // Show preloader before the request
-               },
                complete: function () {
-                  $('.preloader').hide(); // Ensure preloader is hidden when request completes
+                  // $('.preloader').hide(); // Ensure preloader is hidden when request completes
                },
                error: function (xhr) {
                   $("#closing_rank_details").DataTable().destroy();
@@ -352,7 +352,7 @@
                   // }
                },
                dataSrc: function (data) {
-                  $('.preloader').hide();
+                  // $('.preloader').hide();
                   data.iTotalRecords = data?.rows?.length || 0;
                   data.iTotalDisplayRecords = data.count || 0;
                   return data?.rows || [];
@@ -372,9 +372,9 @@
       });
    });
 
-   // // Optionally, destroy the DataTable when the modal is hidden to reload data on the next show
-   // $('#exampleModal').on('hidden.bs.modal', function () {
-   //    $('#myTable').DataTable().clear().destroy();
-   // });
+   $('#closingRankDetailsModal').on('hidden.bs.modal', function () {
+      $('#closing_rank_details').DataTable().clear().destroy();
+   })
+
 </script>
 @endsection

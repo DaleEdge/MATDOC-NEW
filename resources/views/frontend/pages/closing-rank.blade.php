@@ -5,6 +5,10 @@
    <link href="{{url("plugins/MDB5-7.2.0/css/mdb.min.css?v=2")}}" rel="stylesheet" />
    <link rel="stylesheet" href="{{url("plugins/dataTables/datatables.min.css?v=2")}}" />
    <link rel="stylesheet" href="{{url("plugins/select2/css/select2.min.css?v=2")}}" />
+
+   <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css"> -->
+
+
 </head>
 
 <!-- Bootstrap -->
@@ -214,6 +218,7 @@
 
 <!-- Datatables -->
 <script src="{{url("plugins/dataTables/datatables.min.js?v=2")}}"></script>
+<!-- <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script> -->
 <script src="{{url("plugins/dataTables/dataTables.bootstrap5.min.js?v=2")}}"></script>
 
 <!-- Select2 -->
@@ -291,6 +296,7 @@
 
    $(document).on('click', '.cr', function (event) {
       event.preventDefault();
+      // $('.preloader').show();
 
       // Retrieve values from the data attributes of the clicked element
       var quota = $(this).data('quota');
@@ -302,6 +308,8 @@
       var round = $(this).data('round');
 
       $('#closingRankDetailsModal').on('shown.bs.modal', function () {
+         // $('.preloader').hide();
+
          $("#closing_rank_details").DataTable({
             destroy: true,
             responsive: false,
@@ -329,11 +337,8 @@
                   round,
                   session
                },
-               beforeSend: function () {
-                  $('.preloader').show(); // Show preloader before the request
-               },
                complete: function () {
-                  $('.preloader').hide(); // Ensure preloader is hidden when request completes
+                  // $('.preloader').hide(); // Ensure preloader is hidden when request completes
                },
                error: function (xhr) {
                   $("#closing_rank_details").DataTable().destroy();
@@ -347,7 +352,7 @@
                   // }
                },
                dataSrc: function (data) {
-                  $('.preloader').hide();
+                  // $('.preloader').hide();
                   data.iTotalRecords = data?.rows?.length || 0;
                   data.iTotalDisplayRecords = data.count || 0;
                   return data?.rows || [];
@@ -366,5 +371,10 @@
          });
       });
    });
+
+   $('#closingRankDetailsModal').on('hidden.bs.modal', function () {
+      $('#closing_rank_details').DataTable().clear().destroy();
+   })
+
 </script>
 @endsection

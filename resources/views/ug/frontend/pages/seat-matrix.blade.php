@@ -298,6 +298,7 @@
 
    $(document).on('click', '.cr', function (event) {
       event.preventDefault();
+      // $('.preloader').show();
 
       // Retrieve values from the data attributes of the clicked element
       var quota = $(this).data('quota');
@@ -338,12 +339,6 @@
                   session,
                   seats
                },
-               beforeSend: function () {
-                  $('.preloader').show(); // Show preloader before the request
-               },
-               complete: function () {
-                  $('.preloader').hide(); // Ensure preloader is hidden when request completes
-               },
                error: function (xhr) {
                   $("#seat_matrix_details").DataTable().destroy();
                   $("#seat_matrix_details").DataTable({ scrollX: true, ordering: false });
@@ -377,5 +372,9 @@
          });
       });
    });
+
+   $('#seatMatrixDetailsModal').on('hidden.bs.modal', function () {
+      $('#seat_matrix_details').DataTable().clear().destroy();
+   })
 </script>
 @endsection
