@@ -278,8 +278,7 @@
             targets: [7, 8, 9, 10, 11, 12],
             render: function (data, type, row, meta) {
                const columnIndex = meta.col - 6;
-               return data ? `<a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
-                    data-bs-target="#closingRankDetailsModal" class="cr" 
+               return data ? `<a style="color:blue; text-decoration:underline" class="cr" 
                     data-quota="${row.quota}"
                     data-category="${row.category}"
                     data-state="${row.state}"
@@ -305,6 +304,8 @@
       var course = $(this).data('course');
       var session = $(this).data('session');
       var round = $(this).data('round');
+
+      $('#closingRankDetailsModal').modal('show');
 
       $('#closing_rank_details').DataTable().clear().destroy();
 
