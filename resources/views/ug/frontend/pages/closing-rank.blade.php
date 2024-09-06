@@ -4,6 +4,8 @@
    <!-- MDB -->
    <link href="{{url("plugins/MDB5-7.2.0/css/mdb.min.css?v=2")}}" rel="stylesheet" />
    <link rel="stylesheet" href="{{url("plugins/dataTables/datatables.min.css?v=2")}}" />
+   <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-css/1.4.6/select2-bootstrap.min.css">
    <link rel="stylesheet" href="{{url("plugins/select2/css/select2.min.css?v=2")}}" />
 
    <!-- Font Awesome -->
@@ -74,8 +76,10 @@
       z-index: 10000 !important;
    }
 
-   .select2-selection {
-      height: auto !important
+   .select2-selection,
+   .select2-selection--multiple {
+      height: auto !important;
+      border-radius: 4px !important;
    }
 
    .select2-selection__arrow b {
@@ -85,6 +89,25 @@
 
    .select2-selection__clear {
       margin-right: 5px !important;
+   }
+
+   .select2-results__options {
+      &[aria-multiselectable=true] {
+
+         .select2-results__option {
+            &[aria-selected=true]:before {
+               content: '☑';
+               font-size: 20px;
+               padding: 0 6px 0 4px;
+            }
+
+            &:before {
+               content: '◻';
+               font-size: 20px;
+               padding: 0 6px 0 4px;
+            }
+         }
+      }
    }
 </style>
 
@@ -284,10 +307,8 @@
 <!-- Select2 -->
 <script src="{{url("plugins/select2/js/select2.min.js?v=2")}}"></script>
 
-
 <script>
    loadClosingRankTable();
-
 
    $('#filtersModal').on('shown.bs.modal', function () {
       // Initializing Select2
@@ -296,6 +317,8 @@
          placeholder: "Choose a session",
          dropdownParent: $("#filtersModal"),
          allowClear: true,
+         multiple: true,
+         closeOnSelect: false,
          ajax: {
             url: "{{route('ug.get_sessions')}}",
             data: (params) => {
@@ -334,6 +357,8 @@
          placeholder: "Choose a round",
          dropdownParent: $("#filtersModal"),
          allowClear: true,
+         multiple: true,
+         closeOnSelect: false,
          ajax: {
             url: "{{route('ug.get_rounds')}}",
             data: (params) => {
@@ -373,6 +398,8 @@
          placeholder: "Choose a quota",
          dropdownParent: $("#filtersModal"),
          allowClear: true,
+         multiple: true,
+         closeOnSelect: false,
          ajax: {
             url: "{{route('ug.get_quota')}}",
             data: (params) => {
@@ -413,6 +440,8 @@
          placeholder: "Choose a category",
          dropdownParent: $("#filtersModal"),
          allowClear: true,
+         multiple: true,
+         closeOnSelect: false,
          ajax: {
             url: "{{route('ug.get_categories')}}",
             data: (params) => {
@@ -454,6 +483,8 @@
          placeholder: "Choose a state",
          dropdownParent: $("#filtersModal"),
          allowClear: true,
+         multiple: true,
+         closeOnSelect: false,
          ajax: {
             url: "{{route('ug.get_states')}}",
             data: (params) => {
@@ -496,8 +527,8 @@
          placeholder: "Choose a institute",
          dropdownParent: $("#filtersModal"),
          allowClear: true,
-         // multiple: true,
-         // closeOnSelect: false,
+         multiple: true,
+         closeOnSelect: false,
          ajax: {
             url: "{{route('ug.get_institutes')}}",
             data: (params) => {
@@ -537,15 +568,17 @@
          },
       });
 
-      // Event listener to re-render the selection display on change
-      $('#institute').on('change', function () {
-         $(this).trigger('select2:select');
-      });
+      // // Event listener to re-render the selection display on change
+      // $('#institute').on('change', function () {
+      //    $(this).trigger('select2:select');
+      // });
 
       $("#course").select2({
          placeholder: "Choose a course",
          dropdownParent: $("#filtersModal"),
          allowClear: true,
+         multiple: true,
+         closeOnSelect: false,
          ajax: {
             url: "{{route('ug.get_courses')}}",
             data: (params) => {

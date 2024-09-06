@@ -86,6 +86,25 @@
    .select2-selection__clear {
       margin-right: 5px !important;
    }
+
+   .select2-results__options {
+      &[aria-multiselectable=true] {
+
+         .select2-results__option {
+            &[aria-selected=true]:before {
+               content: '☑';
+               font-size: 20px;
+               padding: 0 6px 0 4px;
+            }
+
+            &:before {
+               content: '◻';
+               font-size: 20px;
+               padding: 0 6px 0 4px;
+            }
+         }
+      }
+   }
 </style>
 
 @section('content')
@@ -265,6 +284,8 @@
          placeholder: "Choose a session",
          dropdownParent: $("#filtersModal"),
          allowClear: true,
+         multiple: true,
+         closeOnSelect: false,
          ajax: {
             url: "{{route('ug.get_sessions')}}",
             data: (params) => {
@@ -303,6 +324,8 @@
          placeholder: "Choose a round",
          dropdownParent: $("#filtersModal"),
          allowClear: true,
+         multiple: true,
+         closeOnSelect: false,
          ajax: {
             url: "{{route('ug.get_rounds')}}",
             data: (params) => {
@@ -342,6 +365,8 @@
          placeholder: "Choose a quota",
          dropdownParent: $("#filtersModal"),
          allowClear: true,
+         multiple: true,
+         closeOnSelect: false,
          ajax: {
             url: "{{route('ug.get_quota')}}",
             data: (params) => {
@@ -382,6 +407,8 @@
          placeholder: "Choose a category",
          dropdownParent: $("#filtersModal"),
          allowClear: true,
+         multiple: true,
+         closeOnSelect: false,
          ajax: {
             url: "{{route('ug.get_categories')}}",
             data: (params) => {
@@ -423,6 +450,8 @@
          placeholder: "Choose a state",
          dropdownParent: $("#filtersModal"),
          allowClear: true,
+         multiple: true,
+         closeOnSelect: false,
          ajax: {
             url: "{{route('ug.get_states')}}",
             data: (params) => {
@@ -465,8 +494,8 @@
          placeholder: "Choose a institute",
          dropdownParent: $("#filtersModal"),
          allowClear: true,
-         // multiple: true,
-         // closeOnSelect: false,
+         multiple: true,
+         closeOnSelect: false,
          ajax: {
             url: "{{route('ug.get_institutes')}}",
             data: (params) => {
@@ -515,6 +544,8 @@
          placeholder: "Choose a course",
          dropdownParent: $("#filtersModal"),
          allowClear: true,
+         multiple: true,
+         closeOnSelect: false,
          ajax: {
             url: "{{route('ug.get_courses')}}",
             data: (params) => {
