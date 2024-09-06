@@ -21,6 +21,7 @@ class CreateUgAllotmentsTable extends Migration
             $table->integer('neet_score')->nullable();
             $table->string('state')->nullable();
             $table->string('institute')->nullable();
+            $table->string('institute_type')->nullable();
             $table->string('course')->nullable();
             $table->string('quota')->nullable();
             $table->string('category')->nullable();

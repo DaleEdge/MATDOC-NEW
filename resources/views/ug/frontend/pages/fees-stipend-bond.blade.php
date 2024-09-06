@@ -134,6 +134,7 @@
                         <tr>
                            <th>State</th>
                            <th>Institute</th>
+                           <th>Institute Type</th>
                            <th>Course</th>
                            <th>Quota</th>
                            <th>Fee</th>
@@ -210,6 +211,12 @@
                      </div>
 
                      <div class="form-group mt-3">
+                        <label for="institute_type" class="fw-bold">Institute Type</label>
+                        <select class="form-control input-dropdown w-100" name="institute_type" id="institute_type">
+                        </select>
+                     </div>
+
+                     <div class="form-group mt-3">
                         <label class="fw-bold">Beds</label>
                         <div class="d-flex align-items-center">
                            <input id="bedStart" type="number" class="form-control" placeholder="0">
@@ -269,7 +276,7 @@
 
 
 <script>
-   loadAllotmentsTable();
+   loadFeeStipendBondTable();
 
 
    $('#filtersModal').on('shown.bs.modal', function () {
@@ -530,9 +537,50 @@
          },
       });
 
-      // Event listener to re-render the selection display on change
-      $('#institute').on('change', function () {
-         $(this).trigger('select2:select');
+      $("#institute_type").select2({
+         placeholder: "Choose a institute type",
+         dropdownParent: $("#filtersModal"),
+         allowClear: true,
+         multiple: true,
+         closeOnSelect: false,
+         ajax: {
+            url: "{{route('ug.get_institute_types')}}",
+            data: (params) => {
+               params.page = params.page || 1;
+               params.length = 25;
+               params.start = (params.page - 1) * params.length;
+
+               let query = {
+                  dropdownSearch: params.term,
+                  start: params.start,
+                  length: params.length,
+                  rankStart: $("#rankStart").val(),
+                  rankEnd: $("#rankEnd").val(),
+                  session: $("#session").val(),
+                  round: $("#round").val(),
+                  quota: $("#quota").val(),
+                  category: $("#category").val(),
+                  state: $("#state").val(),
+                  institute: $("#institute").val(),
+               };
+
+               // Query parameters will be ?search=[term]&page=[page]
+               return query;
+            },
+            processResults: (data, params) => {
+               return {
+                  results: $.map(data?.rows, (item) => {
+                     return {
+                        id: item.institute_type,
+                        text: item.institute_type,
+                     };
+                  }),
+                  pagination: {
+                     more: params.page * params.length < data?.count,
+                  },
+               };
+            },
+         },
       });
 
       $("#course").select2({
@@ -560,6 +608,7 @@
                   category: $("#category").val(),
                   state: $("#state").val(),
                   institute: $("#institute").val(),
+                  institute_type: $("#institute_type").val(),
                   bedStart: $("#bedStart").val(),
                   bedEnd: $("#bedEnd").val(),
                   feeStart: $("#feeStart").val(),
@@ -587,7 +636,7 @@
    })
 
    $(document).on('click', '#view_results', () => {
-      loadAllotmentsTable();
+      loadFeeStipendBondTable();
       checkFilter();
       $("#filtersModal").modal('hide');
    });
@@ -615,11 +664,11 @@
       $("#institute").val("").trigger("change");
       $("#course").val("").trigger("change");
 
-      loadAllotmentsTable();
+      loadFeeStipendBondTable();
       $("#filtersModal").modal('hide');
    })
 
-   function loadAllotmentsTable() {
+   function loadFeeStipendBondTable() {
       $("#fees_stipend_bond").DataTable({
          destroy: true,
          responsive: false,
@@ -644,6 +693,7 @@
                category: $("#category").val(),
                state: $("#state").val(),
                institute: $("#institute").val(),
+               institute_type: $("#institute_type").val(),
                bedStart: $("#bedStart").val(),
                bedEnd: $("#bedEnd").val(),
                feeStart: $("#feeStart").val(),
@@ -663,6 +713,7 @@
          columns: [
             { data: "state" },
             { data: "institute" },
+            { data: "institute_type" },
             { data: "course" },
             { data: "quota" },
             { data: "fee" },

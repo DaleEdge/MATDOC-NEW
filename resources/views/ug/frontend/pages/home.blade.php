@@ -138,6 +138,7 @@
                            <th>Neet SCore</th>
                            <th>State</th>
                            <th>Institute</th>
+                           <th>Institute Type</th>
                            <th>Course</th>
                            <th>Quota</th>
                            <th>Category</th>
@@ -211,6 +212,12 @@
                      <div class="form-group mt-3">
                         <label for="institute" class="fw-bold">Institute</label>
                         <select class="form-control input-dropdown w-100" name="institute" id="institute">
+                        </select>
+                     </div>
+
+                     <div class="form-group mt-3">
+                        <label for="institute_type" class="fw-bold">Institute Type</label>
+                        <select class="form-control input-dropdown w-100" name="institute_type" id="institute_type">
                         </select>
                      </div>
 
@@ -535,9 +542,50 @@
          },
       });
 
-      // Event listener to re-render the selection display on change
-      $('#institute').on('change', function () {
-         $(this).trigger('select2:select');
+      $("#institute_type").select2({
+         placeholder: "Choose a institute type",
+         dropdownParent: $("#filtersModal"),
+         allowClear: true,
+         multiple: true,
+         closeOnSelect: false,
+         ajax: {
+            url: "{{route('ug.get_institute_types')}}",
+            data: (params) => {
+               params.page = params.page || 1;
+               params.length = 25;
+               params.start = (params.page - 1) * params.length;
+
+               let query = {
+                  dropdownSearch: params.term,
+                  start: params.start,
+                  length: params.length,
+                  rankStart: $("#rankStart").val(),
+                  rankEnd: $("#rankEnd").val(),
+                  session: $("#session").val(),
+                  round: $("#round").val(),
+                  quota: $("#quota").val(),
+                  category: $("#category").val(),
+                  state: $("#state").val(),
+                  institute: $("#institute").val(),
+               };
+
+               // Query parameters will be ?search=[term]&page=[page]
+               return query;
+            },
+            processResults: (data, params) => {
+               return {
+                  results: $.map(data?.rows, (item) => {
+                     return {
+                        id: item.institute_type,
+                        text: item.institute_type,
+                     };
+                  }),
+                  pagination: {
+                     more: params.page * params.length < data?.count,
+                  },
+               };
+            },
+         },
       });
 
       $("#course").select2({
@@ -565,6 +613,7 @@
                   category: $("#category").val(),
                   state: $("#state").val(),
                   institute: $("#institute").val(),
+                  institute_type: $("#institute_type").val(),
                   bedStart: $("#bedStart").val(),
                   bedEnd: $("#bedEnd").val(),
                   feeStart: $("#feeStart").val(),
@@ -649,6 +698,7 @@
                category: $("#category").val(),
                state: $("#state").val(),
                institute: $("#institute").val(),
+               institute_type: $("#institute_type").val(),
                bedStart: $("#bedStart").val(),
                bedEnd: $("#bedEnd").val(),
                feeStart: $("#feeStart").val(),
@@ -672,6 +722,7 @@
             { data: "neet_score" },
             { data: "state" },
             { data: "institute" },
+            { data: "institute_type" },
             { data: "course" },
             { data: "quota" },
             { data: "category" },

@@ -207,6 +207,7 @@ Route::group(['prefix' => 'ug'], function () {
     Route::get('/get_categories', [UgFrontController::class, 'get_categories'])->name('ug.get_categories');
     Route::get('/get_states', [UgFrontController::class, 'get_states'])->name('ug.get_states');
     Route::get('/get_institutes', [UgFrontController::class, 'get_institutes'])->name('ug.get_institutes');
+    Route::get('/get_institute_types', [UgFrontController::class, 'get_institute_types'])->name('ug.get_institute_types');
     Route::get('/get_courses', [UgFrontController::class, 'get_courses'])->name('ug.get_courses');
 
 });
