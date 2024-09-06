@@ -26,6 +26,9 @@ class UgAllotmentsController extends Controller
         if ($request->has('institute')) {
             $list->where('institute', 'like', '%' . $request->input('institute') . '%');
         }
+        if ($request->has('institute_type')) {
+            $list->where('institute_type', 'like', '%' . $request->input('institute_type') . '%');
+        }
         if ($request->has('category')) {
             $list->where('category', $request->input('category'));
         }
@@ -62,6 +65,7 @@ class UgAllotmentsController extends Controller
             'neet_score' => 'required',
             'state' => 'required',
             'institute' => 'required',
+            'institute_type' => 'required',
             'course' => 'required',
             'quota' => 'required',
             'category' => 'required',
@@ -75,6 +79,7 @@ class UgAllotmentsController extends Controller
         $ug_allotments->state = $request->state;
         $ug_allotments->neet_score = $request->neet_score;
         $ug_allotments->institute = $request->institute;
+        $ug_allotments->institute_type = $request->institute_type;
         $ug_allotments->course = $request->course;
         $ug_allotments->quota = $request->quota;
         $ug_allotments->category = $request->category;
@@ -132,6 +137,7 @@ class UgAllotmentsController extends Controller
         $ug_allotments->neet_score = $request->neet_score;
         $ug_allotments->state = $request->state;
         $ug_allotments->institute = $request->institute;
+        $ug_allotments->institute_type = $request->institute_type;
         $ug_allotments->course = $request->course;
         $ug_allotments->quota = $request->quota;
         $ug_allotments->category = $request->category;

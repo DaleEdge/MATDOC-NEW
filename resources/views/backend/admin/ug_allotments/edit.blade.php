@@ -93,6 +93,14 @@
                             </div>
                         </div>
 
+                         <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Institute Type</label>
+                                <input type="text" name="institute_type" placeholder="Enter Institute Type" class="form-control"
+                                    value="{{$edit_data->institute_type}}">
+                            </div>
+                        </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Course</label>

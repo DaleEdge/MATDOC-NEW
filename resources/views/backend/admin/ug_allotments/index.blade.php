@@ -26,6 +26,7 @@
                             <th>Neet Score</th>
                             <th>State</th>
                             <th>Institute</th>
+                            <th>Institute Type</th>
                             <th>Course</th>
                             <th>Quota</th>
                             <th>Category</th>
@@ -51,6 +52,7 @@
                                 <td>{{$data->neet_score}}</td>
                                 <td>{{$data->state}}</td>
                                 <td>{{$data->institute}}</td>
+                                <td>{{$data->institute_type}}</td>
                                 <td>{{$data->course}}</td>
                                 <td>{{$data->quota}}</td>
                                 <td>{{$data->category}}</td>
@@ -59,11 +61,11 @@
                                 <td>{{$data->beds}}</td>
                                 <td>{{$data->session}}</td>
                                 <!-- <td>{{$data->cr_2023_1}}</td>
-                                    <td>{{$data->cr_2023_2}}</td>
-                                    <td>{{$data->cr_2023_3}}</td>
-                                    <td>{{$data->cr_2023_4}}</td>
-                                    <td>{{$data->cr_2023_5}}</td>
-                                    <td>{{$data->cr_2023_6}}</td> -->
+                                            <td>{{$data->cr_2023_2}}</td>
+                                            <td>{{$data->cr_2023_3}}</td>
+                                            <td>{{$data->cr_2023_4}}</td>
+                                            <td>{{$data->cr_2023_5}}</td>
+                                            <td>{{$data->cr_2023_6}}</td> -->
                                 <td>
                                     <a class="btn btn-success  btn-sm mr-1"
                                         href="{{route('ug_allotments.edit', $data->id)}}"><i class="far fa-edit"></i></a>

@@ -642,7 +642,7 @@
    });
 
    function checkFilter() {
-      if ($("#rankStart").val("") != "" || $("#rankEnd").val("") != "" || $("#session").val("") != "" || $("#round").val("") != "" || $("#quota").val("") != "" || $("#category").val("") != "" || $("#state").val("") != "" || $("#institute").val("") != "" || $("#bedStart").val("") != "" || $("#bedEnd").val("") != "" || $("#feeStart").val("") != "" || $("#feeEnd").val("") != "" || $("#course").val("") != "") {
+      if ($("#rankStart").val("") != "" || $("#rankEnd").val("") != "" || $("#session").val("") != "" || $("#round").val("") != "" || $("#quota").val("") != "" || $("#category").val("") != "" || $("#state").val("") != "" || $("#institute").val("") != "" || $("#institute_type").val("") != "" || $("#bedStart").val("") != "" || $("#bedEnd").val("") != "" || $("#feeStart").val("") != "" || $("#feeEnd").val("") != "" || $("#course").val("") != "") {
          $("#outside_clear_filters").removeClass("d-none");
       } else {
          $("#outside_clear_filters").addClass("d-none");
@@ -662,6 +662,7 @@
       $("#category").val("").trigger("change");
       $("#state").val("").trigger("change");
       $("#institute").val("").trigger("change");
+      $("#institute_type").val("").trigger("change");
       $("#course").val("").trigger("change");
 
       loadFeeStipendBondTable();

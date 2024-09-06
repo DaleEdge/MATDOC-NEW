@@ -2464,7 +2464,7 @@ class UgFrontController extends Controller
             )
             ->when($dropdownSearch, function ($query, $dropdownSearch) { // Dropdown Search
                 return $query->where(function ($query) use ($dropdownSearch) {
-                    $query->where('round', 'LIKE', "%{$dropdownSearch}%");
+                    $query->where('quota', 'LIKE', "%{$dropdownSearch}%");
                 });
             })->when($rankStart && $rankEnd, function ($query) use ($rankStart, $rankEnd) { // Other field search
                 return $query->whereBetween('state_rank', [$rankStart, $rankEnd]);
@@ -2516,7 +2516,7 @@ class UgFrontController extends Controller
             )
             ->when($dropdownSearch, function ($query, $dropdownSearch) { // Dropdown Search
                 return $query->where(function ($query) use ($dropdownSearch) {
-                    $query->where('round', 'LIKE', "%{$dropdownSearch}%");
+                    $query->where('category', 'LIKE', "%{$dropdownSearch}%");
                 });
             })->when($rankStart && $rankEnd, function ($query) use ($rankStart, $rankEnd) { // Other field search
                 return $query->whereBetween('state_rank', [$rankStart, $rankEnd]);
@@ -2573,7 +2573,7 @@ class UgFrontController extends Controller
             )
             ->when($dropdownSearch, function ($query, $dropdownSearch) { // Dropdown Search
                 return $query->where(function ($query) use ($dropdownSearch) {
-                    $query->where('round', 'LIKE', "%{$dropdownSearch}%");
+                    $query->where('state', 'LIKE', "%{$dropdownSearch}%");
                 });
             })->when($rankStart && $rankEnd, function ($query) use ($rankStart, $rankEnd) { // Other field search
                 return $query->whereBetween('state_rank', [$rankStart, $rankEnd]);
@@ -2635,7 +2635,7 @@ class UgFrontController extends Controller
             )
             ->when($dropdownSearch, function ($query, $dropdownSearch) { // Dropdown Search
                 return $query->where(function ($query) use ($dropdownSearch) {
-                    $query->where('round', 'LIKE', "%{$dropdownSearch}%");
+                    $query->where('institute', 'LIKE', "%{$dropdownSearch}%");
                 });
             })->when($rankStart && $rankEnd, function ($query) use ($rankStart, $rankEnd) { // Other field search
                 return $query->whereBetween('state_rank', [$rankStart, $rankEnd]);
@@ -2702,7 +2702,7 @@ class UgFrontController extends Controller
             )
             ->when($dropdownSearch, function ($query, $dropdownSearch) { // Dropdown Search
                 return $query->where(function ($query) use ($dropdownSearch) {
-                    $query->where('round', 'LIKE', "%{$dropdownSearch}%");
+                    $query->where('institute_type', 'LIKE', "%{$dropdownSearch}%");
                 });
             })->when($rankStart && $rankEnd, function ($query) use ($rankStart, $rankEnd) { // Other field search
                 return $query->whereBetween('state_rank', [$rankStart, $rankEnd]);
@@ -2782,7 +2782,7 @@ class UgFrontController extends Controller
             )
             ->when($dropdownSearch, function ($query, $dropdownSearch) { // Dropdown Search
                 return $query->where(function ($query) use ($dropdownSearch) {
-                    $query->where('round', 'LIKE', "%{$dropdownSearch}%");
+                    $query->where('course', 'LIKE', "%{$dropdownSearch}%");
                 });
             })->when($rankStart && $rankEnd, function ($query) use ($rankStart, $rankEnd) { // Other field search
                 return $query->whereBetween('state_rank', [$rankStart, $rankEnd]);

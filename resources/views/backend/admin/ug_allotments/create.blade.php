@@ -93,6 +93,14 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label>Institute Type</label>
+                                <input type="text" name="institute_type" placeholder="Enter Institute Type"
+                                    class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <label>Course</label>
                                 <input type="text" name="course" placeholder="Enter Course" class="form-control">
                             </div>
