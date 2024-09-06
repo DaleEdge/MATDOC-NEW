@@ -200,18 +200,14 @@ Route::group(['prefix' => 'ug'], function () {
     Route::get('/seat-matrix-details', [UgFrontController::class, 'seat_matrix_details'])->name('ug.seat_matrix_details');
     Route::get('/fees-stipend-bond', [UgFrontController::class, 'fees_stipend_bond'])->name('ug.fees_stipend_bond');
 
-
-
-
-
-
-
-
-
-
-
-
-
+    // Filters
+    Route::get('/get_sessions', [UgFrontController::class, 'get_sessions'])->name('ug.get_sessions');
+    Route::get('/get_rounds', [UgFrontController::class, 'get_rounds'])->name('ug.get_rounds');
+    Route::get('/get_quota', [UgFrontController::class, 'get_quota'])->name('ug.get_quota');
+    Route::get('/get_categories', [UgFrontController::class, 'get_categories'])->name('ug.get_categories');
+    Route::get('/get_states', [UgFrontController::class, 'get_states'])->name('ug.get_states');
+    Route::get('/get_institutes', [UgFrontController::class, 'get_institutes'])->name('ug.get_institutes');
+    Route::get('/get_courses', [UgFrontController::class, 'get_courses'])->name('ug.get_courses');
 
 });
 

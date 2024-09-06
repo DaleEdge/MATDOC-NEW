@@ -47,7 +47,7 @@ Route::get('/about-us', [FrontController::class, 'about_us'])->name('about_us');
 Route::get('/term-and-condition', [FrontController::class, 'term_condition'])->name('term_condition');
 Route::get('/privacy-policy', [FrontController::class, 'privacy_policy'])->name('privacy_policy');
 Route::get('/state-document', [FrontController::class, 'state_document'])->name('state_document');
-Route::post('rozer/payment/pay-success', [FrontController::class,'payment'])->name('payment.rozer');
+Route::post('rozer/payment/pay-success', [FrontController::class, 'payment'])->name('payment.rozer');
 
 Route::get('/student-report', [FrontController::class, 'student_report'])->name('student_report');
 Route::post('/student-report-details', [FrontController::class, 'student_report_details'])->name('student_report_details');
@@ -66,8 +66,8 @@ Route::get('/user-forgot-password', [FrontController::class, 'forgot_password'])
 
 
 Route::post('otp_send', [FrontController::class, 'otp_send'])->name('otp_send');
-Route::post('check_otp',[FrontController::class, 'check_otp'])->name('check_otp');
-Route::post('otp_forgot_password',[FrontController::class, 'otp_forgot_password'])->name('otp_forgot_password');
+Route::post('check_otp', [FrontController::class, 'check_otp'])->name('check_otp');
+Route::post('otp_forgot_password', [FrontController::class, 'otp_forgot_password'])->name('otp_forgot_password');
 
 
 Route::post('user_login', [FrontController::class, 'user_login'])->name('user_login');
