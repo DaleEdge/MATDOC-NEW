@@ -1901,6 +1901,19 @@ class UgFrontController extends Controller
         $start = $request->start;
         $length = $request->length;
         $search = $request['search']['value'] ?? '';
+        $rankStart = $request->rankStart;
+        $rankEnd = $request->rankEnd;
+        $session = $request->session;
+        $round = $request->round;
+        $quota = $request->quota;
+        $category = $request->category;
+        $state = $request->state;
+        $institute = $request->institute;
+        $bedStart = $request->bedStart;
+        $bedEnd = $request->bedEnd;
+        $feeStart = $request->feeStart;
+        $feeEnd = $request->feeEnd;
+        $course = $request->course;
 
         $count = DB::table('ug_allotments')
             ->when($search, function ($query, $search) {
@@ -1911,6 +1924,26 @@ class UgFrontController extends Controller
                         ->orWhere('institute', 'LIKE', "%{$search}%")
                         ->orWhere('course', 'LIKE', "%{$search}%");
                 });
+            })->when($rankStart && $rankEnd, function ($query) use ($rankStart, $rankEnd) { // Other field search
+                return $query->whereBetween('state_rank', [$rankStart, $rankEnd]);
+            })->when($session, function ($query) use ($session) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(session, '\r', ''), '\n', '')) = ?", $session);
+            })->when($round, function ($query) use ($round) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(round, '\r', ''), '\n', '')) = ?", $round);
+            })->when($quota, function ($query) use ($quota) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(quota, '\r', ''), '\n', '')) = ?", $quota);
+            })->when($category, function ($query) use ($category) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(category, '\r', ''), '\n', '')) = ?", $category);
+            })->when($state, function ($query) use ($state) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(state, '\r', ''), '\n', '')) = ?", $state);
+            })->when($institute, function ($query) use ($institute) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(institute, '\r', ''), '\n', '')) = ?", $institute);
+            })->when($bedStart && $bedEnd, function ($query) use ($bedStart, $bedEnd) { // Other field search
+                return $query->whereBetween('beds', [$bedStart, $bedEnd]);
+            })->when($feeStart && $feeEnd, function ($query) use ($feeStart, $feeEnd) { // Other field search
+                return $query->whereBetween('fee', [$feeStart, $feeEnd]);
+            })->when($course, function ($query) use ($course) { // Other field search
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(course, '\r', ''), '\n', '')) = ?", $course);
             })->count();
 
         $rows = DB::table('ug_allotments')
@@ -1936,8 +1969,27 @@ class UgFrontController extends Controller
                         ->orWhere('institute', 'LIKE', "%{$search}%")
                         ->orWhere('course', 'LIKE', "%{$search}%");
                 });
-            })
-            ->orderBy('state_rank', 'ASC')
+            })->when($rankStart && $rankEnd, function ($query) use ($rankStart, $rankEnd) { // Other field search
+                return $query->whereBetween('state_rank', [$rankStart, $rankEnd]);
+            })->when($session, function ($query) use ($session) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(session, '\r', ''), '\n', '')) = ?", $session);
+            })->when($round, function ($query) use ($round) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(round, '\r', ''), '\n', '')) = ?", $round);
+            })->when($quota, function ($query) use ($quota) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(quota, '\r', ''), '\n', '')) = ?", $quota);
+            })->when($category, function ($query) use ($category) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(category, '\r', ''), '\n', '')) = ?", $category);
+            })->when($state, function ($query) use ($state) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(state, '\r', ''), '\n', '')) = ?", $state);
+            })->when($institute, function ($query) use ($institute) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(institute, '\r', ''), '\n', '')) = ?", $institute);
+            })->when($bedStart && $bedEnd, function ($query) use ($bedStart, $bedEnd) { // Other field search
+                return $query->whereBetween('beds', [$bedStart, $bedEnd]);
+            })->when($feeStart && $feeEnd, function ($query) use ($feeStart, $feeEnd) { // Other field search
+                return $query->whereBetween('fee', [$feeStart, $feeEnd]);
+            })->when($course, function ($query) use ($course) { // Other field search
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(course, '\r', ''), '\n', '')) = ?", $course);
+            })->orderBy('state_rank', 'ASC')
             ->limit($length > 0 ? $length : 10)
             ->offset($start)->get();
 
@@ -1954,6 +2006,19 @@ class UgFrontController extends Controller
         $start = $request->start;
         $length = $request->length;
         $search = $request['search']['value'] ?? '';
+        $rankStart = $request->rankStart;
+        $rankEnd = $request->rankEnd;
+        $session = $request->session;
+        $round = $request->round;
+        $quota = $request->quota;
+        $category = $request->category;
+        $state = $request->state;
+        $institute = $request->institute;
+        $bedStart = $request->bedStart;
+        $bedEnd = $request->bedEnd;
+        $feeStart = $request->feeStart;
+        $feeEnd = $request->feeEnd;
+        $course = $request->course;
 
         $count = DB::table('ug_allotments')
             ->select('round', 'quota', 'category', 'state', 'institute', 'course', 'seats')
@@ -1966,8 +2031,27 @@ class UgFrontController extends Controller
                         ->orWhere('course', 'LIKE', "%{$search}%")
                         ->orWhere('seats', 'LIKE', "%{$search}%");
                 });
-            })
-            ->groupBy('round', 'quota', 'category', 'state', 'institute', 'course', 'seats')->get()->count();
+            })->when($rankStart && $rankEnd, function ($query) use ($rankStart, $rankEnd) { // Other field search
+                return $query->whereBetween('state_rank', [$rankStart, $rankEnd]);
+            })->when($session, function ($query) use ($session) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(session, '\r', ''), '\n', '')) = ?", $session);
+            })->when($round, function ($query) use ($round) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(round, '\r', ''), '\n', '')) = ?", $round);
+            })->when($quota, function ($query) use ($quota) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(quota, '\r', ''), '\n', '')) = ?", $quota);
+            })->when($category, function ($query) use ($category) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(category, '\r', ''), '\n', '')) = ?", $category);
+            })->when($state, function ($query) use ($state) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(state, '\r', ''), '\n', '')) = ?", $state);
+            })->when($institute, function ($query) use ($institute) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(institute, '\r', ''), '\n', '')) = ?", $institute);
+            })->when($bedStart && $bedEnd, function ($query) use ($bedStart, $bedEnd) { // Other field search
+                return $query->whereBetween('beds', [$bedStart, $bedEnd]);
+            })->when($feeStart && $feeEnd, function ($query) use ($feeStart, $feeEnd) { // Other field search
+                return $query->whereBetween('fee', [$feeStart, $feeEnd]);
+            })->when($course, function ($query) use ($course) { // Other field search
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(course, '\r', ''), '\n', '')) = ?", $course);
+            })->groupBy('round', 'quota', 'category', 'state', 'institute', 'course', 'seats')->get()->count();
 
         $rows = DB::table('ug_allotments')
             ->select(
@@ -1997,8 +2081,27 @@ class UgFrontController extends Controller
                         ->orWhere('course', 'LIKE', "%{$search}%")
                         ->orWhere('seats', 'LIKE', "%{$search}%");
                 });
-            })
-            ->groupBy('round', 'quota', 'category', 'state', 'institute', 'course', 'seats')
+            })->when($rankStart && $rankEnd, function ($query) use ($rankStart, $rankEnd) { // Other field search
+                return $query->whereBetween('state_rank', [$rankStart, $rankEnd]);
+            })->when($session, function ($query) use ($session) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(session, '\r', ''), '\n', '')) = ?", $session);
+            })->when($round, function ($query) use ($round) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(round, '\r', ''), '\n', '')) = ?", $round);
+            })->when($quota, function ($query) use ($quota) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(quota, '\r', ''), '\n', '')) = ?", $quota);
+            })->when($category, function ($query) use ($category) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(category, '\r', ''), '\n', '')) = ?", $category);
+            })->when($state, function ($query) use ($state) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(state, '\r', ''), '\n', '')) = ?", $state);
+            })->when($institute, function ($query) use ($institute) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(institute, '\r', ''), '\n', '')) = ?", $institute);
+            })->when($bedStart && $bedEnd, function ($query) use ($bedStart, $bedEnd) { // Other field search
+                return $query->whereBetween('beds', [$bedStart, $bedEnd]);
+            })->when($feeStart && $feeEnd, function ($query) use ($feeStart, $feeEnd) { // Other field search
+                return $query->whereBetween('fee', [$feeStart, $feeEnd]);
+            })->when($course, function ($query) use ($course) { // Other field search
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(course, '\r', ''), '\n', '')) = ?", $course);
+            })->groupBy('round', 'quota', 'category', 'state', 'institute', 'course', 'seats')
             ->orderBy('institute', 'ASC')
             ->orderBy('category', 'ASC')
             ->limit($length > 0 ? $length : 10)
@@ -2095,6 +2198,19 @@ class UgFrontController extends Controller
         $start = $request->start;
         $length = $request->length;
         $search = $request['search']['value'] ?? '';
+        $rankStart = $request->rankStart;
+        $rankEnd = $request->rankEnd;
+        $session = $request->session;
+        $round = $request->round;
+        $quota = $request->quota;
+        $category = $request->category;
+        $state = $request->state;
+        $institute = $request->institute;
+        $bedStart = $request->bedStart;
+        $bedEnd = $request->bedEnd;
+        $feeStart = $request->feeStart;
+        $feeEnd = $request->feeEnd;
+        $course = $request->course;
 
         $count = DB::table('ug_allotments')
             ->when($search, function ($query, $search) {
@@ -2104,6 +2220,26 @@ class UgFrontController extends Controller
                         ->orWhere('institute', 'LIKE', "%{$search}%")
                         ->orWhere('course', 'LIKE', "%{$search}%");
                 });
+            })->when($rankStart && $rankEnd, function ($query) use ($rankStart, $rankEnd) { // Other field search
+                return $query->whereBetween('state_rank', [$rankStart, $rankEnd]);
+            })->when($session, function ($query) use ($session) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(session, '\r', ''), '\n', '')) = ?", $session);
+            })->when($round, function ($query) use ($round) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(round, '\r', ''), '\n', '')) = ?", $round);
+            })->when($quota, function ($query) use ($quota) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(quota, '\r', ''), '\n', '')) = ?", $quota);
+            })->when($category, function ($query) use ($category) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(category, '\r', ''), '\n', '')) = ?", $category);
+            })->when($state, function ($query) use ($state) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(state, '\r', ''), '\n', '')) = ?", $state);
+            })->when($institute, function ($query) use ($institute) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(institute, '\r', ''), '\n', '')) = ?", $institute);
+            })->when($bedStart && $bedEnd, function ($query) use ($bedStart, $bedEnd) { // Other field search
+                return $query->whereBetween('beds', [$bedStart, $bedEnd]);
+            })->when($feeStart && $feeEnd, function ($query) use ($feeStart, $feeEnd) { // Other field search
+                return $query->whereBetween('fee', [$feeStart, $feeEnd]);
+            })->when($course, function ($query) use ($course) { // Other field search
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(course, '\r', ''), '\n', '')) = ?", $course);
             })->groupBy(
                 "state",
                 'institute',
@@ -2128,6 +2264,26 @@ class UgFrontController extends Controller
                         ->orWhere('institute', 'LIKE', "%{$search}%")
                         ->orWhere('course', 'LIKE', "%{$search}%");
                 });
+            })->when($rankStart && $rankEnd, function ($query) use ($rankStart, $rankEnd) { // Other field search
+                return $query->whereBetween('state_rank', [$rankStart, $rankEnd]);
+            })->when($session, function ($query) use ($session) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(session, '\r', ''), '\n', '')) = ?", $session);
+            })->when($round, function ($query) use ($round) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(round, '\r', ''), '\n', '')) = ?", $round);
+            })->when($quota, function ($query) use ($quota) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(quota, '\r', ''), '\n', '')) = ?", $quota);
+            })->when($category, function ($query) use ($category) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(category, '\r', ''), '\n', '')) = ?", $category);
+            })->when($state, function ($query) use ($state) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(state, '\r', ''), '\n', '')) = ?", $state);
+            })->when($institute, function ($query) use ($institute) {
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(institute, '\r', ''), '\n', '')) = ?", $institute);
+            })->when($bedStart && $bedEnd, function ($query) use ($bedStart, $bedEnd) { // Other field search
+                return $query->whereBetween('beds', [$bedStart, $bedEnd]);
+            })->when($feeStart && $feeEnd, function ($query) use ($feeStart, $feeEnd) { // Other field search
+                return $query->whereBetween('fee', [$feeStart, $feeEnd]);
+            })->when($course, function ($query) use ($course) { // Other field search
+                return $query->whereRaw("TRIM(REPLACE(REPLACE(course, '\r', ''), '\n', '')) = ?", $course);
             })->groupBy("state", 'institute', 'course', 'quota')
             ->orderBy('institute', 'ASC')
             ->limit($length > 0 ? $length : 10)

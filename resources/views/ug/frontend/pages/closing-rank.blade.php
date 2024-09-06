@@ -656,8 +656,8 @@
                course: $("#course").val()
             },
             error: function (xhr) {
-               $("#closing_tank").DataTable().destroy();
-               $("#closing_tank").DataTable({ scrollX: true, ordering: false });
+               $("#closing_rank").DataTable().destroy();
+               $("#closing_rank").DataTable({ scrollX: true, ordering: false });
             },
             dataSrc: function (data) {
                data.iTotalRecords = data?.rows?.length || 0;
