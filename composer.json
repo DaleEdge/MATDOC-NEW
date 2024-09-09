@@ -16,7 +16,6 @@
         "laravel/socialite": "^5.15",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
-        "laravelcollective/html": "^6.2",
         "maatwebsite/excel": "^3.1",
         "phpfastcache/phpfastcache": "^8.1",
         "raiym/instagram-php-scraper": "^0.12.4",

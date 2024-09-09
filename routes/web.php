@@ -5,7 +5,9 @@ use App\Http\Controllers\AizUploadController;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Ug\Front\UgFrontController;
+use App\Http\Controllers\ConsoleController;
 use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\Ug\FilterController;
 use App\Models\User;
 
 /*
@@ -86,6 +88,7 @@ Route::get('/aiz-uploader/download/{id}', [AizUploadController::class, 'attachme
 
 Route::get('/', [App\Http\Controllers\Front\FrontController::class, 'index'])->name('index');
 Route::get('/home', [App\Http\Controllers\Front\FrontController::class, 'allotments_data'])->name('home_user');
+
 Route::get('/contact-us', [FrontController::class, 'help'])->name('help');
 Route::get('/subscription-plans', [FrontController::class, 'subscription_plans'])->name('subscription_plans');
 Route::post('/subscription-plans-pay', [FrontController::class, 'subscription_plans_pay'])->name('subscription_plans_pay');
@@ -101,6 +104,7 @@ Route::get('/state-wise-counselings', [FrontController::class, 'state_wise_couns
 Route::get('/state-wise-counseling-details-andhra', [FrontController::class, 'state_wise_counseling_details'])->name('state_wise_counseling_details_andhra');
 Route::get('/state-wise-counseling-details', [FrontController::class, 'state_wise_counseling_details'])->name('state_wise_counseling_details')->middleware("checkSubscription");
 Route::get('/about-us', [FrontController::class, 'about_us'])->name('about_us');
+Route::get('/console', [ConsoleController::class, 'index'])->name('console');
 Route::get('/college-list', [FrontController::class, 'collage_list'])->name('college_list');
 Route::get('/college-details/{id}', [FrontController::class, 'collage_details'])->name('college_details');
 Route::get('/term-and-condition', [FrontController::class, 'term_condition'])->name('term_condition');
@@ -183,7 +187,6 @@ Route::group(['prefix' => 'ug'], function () {
     Route::get('/state-wise-counselings', [UgFrontController::class, 'state_wise_counselings'])->name('ug.state_wise_counselings');
     Route::get('/state-wise-counseling-details-andhra', [UgFrontController::class, 'state_wise_counseling_details'])->name('ug.state_wise_counseling_details_andhra');
     Route::get('/state-wise-counseling-details', [UgFrontController::class, 'state_wise_counseling_details'])->name('ug.state_wise_counseling_details')->middleware("checkSubscription");
-
     Route::get('/state-document', [UgFrontController::class, 'state_document'])->name('ug.state_document');
 
 
@@ -207,6 +210,7 @@ Route::group(['prefix' => 'ug'], function () {
     Route::get('/get_categories', [UgFrontController::class, 'get_categories'])->name('ug.get_categories');
     Route::get('/get_states', [UgFrontController::class, 'get_states'])->name('ug.get_states');
     Route::get('/get_institutes', [UgFrontController::class, 'get_institutes'])->name('ug.get_institutes');
+    Route::get('/get_institute_types', [UgFrontController::class, 'get_institute_types'])->name('ug.get_institute_types');
     Route::get('/get_courses', [UgFrontController::class, 'get_courses'])->name('ug.get_courses');
 
 });

@@ -332,6 +332,10 @@ class FrontController extends Controller
     {
         return view('frontend.pages.about-us');
     }
+    public function console()
+    {
+        return view('frontend.pages.console');
+    }
     public function term_condition()
     {
         return view('frontend.pages.term-and-condition');

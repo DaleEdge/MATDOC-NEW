@@ -53,23 +53,20 @@
                                         <p>Access to Website till Admission Process.</p>
                                     </div><br><br>
                                     <div class="pricig-header">
-                                        @if (empty(optional(Auth::user()->payment)->user_id))
-                                        <form action="{{route('subscription_plans_pay')}}" method="post">
-                                            @csrf()
-                                                <input type="hidden" name="user_id"  value="{{Auth::user()->id}}">
-                                                <input type="hidden" name="packages" value="3999">
-                                                <!-- <a class="btn btn-white btn-hover-heading-color" href="{{route('subscription_plans_pay')}}" id="pay-btn">Pay
-                                                Now</a> -->
-                                                <button class="btn btn-white btn-hover-heading-color">Pay
-                                                Now</button>
-                                            </form>
-
-                                        @else
-                                        @if (optional(Auth::user()->payment)->plan_name=='Plan of 3999')
-                                        <a class="btn btn-white btn-hover-heading-color">Subscribed</a>
-                                     @endif
-                                        @endif
-                                    </div>
+    @if (empty(optional(Auth::user()->payment)->user_id))
+    <form action="{{route('subscription_plans_pay')}}" method="post">
+        @csrf()
+        <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+        <input type="hidden" name="packages" value="3999">
+        <!-- Removed the <a> tag and left the <button> -->
+        <button class="btn btn-white btn-hover-heading-color" type="submit" id="pay-btn">Pay Now</button>
+    </form>
+    @else
+    @if (optional(Auth::user()->payment)->plan_name=='Plan of 3999')
+    <a class="btn btn-white btn-hover-heading-color">Subscribed</a>
+    @endif
+    @endif
+</div>
 
 
                                 </div>
@@ -103,23 +100,22 @@
                                                 Complete Choice Filling from team MatDoc.</p>
                                         </ul>
                                         </ul>
-                                        <div class="pricig-header">
-                                            @if (empty(optional(Auth::user()->payment)->user_id))
-                                            <form action="{{route('subscription_plans_pay')}}" method="post">
-                                            @csrf()
-                                                <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-                                                <input type="hidden" name="packages" value="24999">
-                                                <!-- <a class="btn btn-white btn-hover-heading-color" href="{{route('subscription_plans_pay')}}" id="pay-btn">Pay
-                                                Now</a> -->
-                                                <button class="btn btn-white btn-hover-heading-color">Pay
-                                                Now</button>
-                                            </form>
-                                        @else
-                                         @if (optional(Auth::user()->payment)->plan_name=='Plan of 24999')
-                                            <a class="btn btn-white btn-hover-heading-color">Subscribed</a>
-                                         @endif
-                                        @endif
-                                        </div>
+                                        <div class="pricing-header">
+    @if (empty(optional(Auth::user()->payment)->user_id))
+    <form action="{{route('subscription_plans_pay')}}" method="post">
+        @csrf()
+        <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+        <input type="hidden" name="packages" value="3999">
+        <!-- Removed the <a> tag and left the <button> -->
+        <button class="btn btn-white btn-hover-heading-color" type="submit" id="pay-btn">Pay Now</button>
+    </form>
+    @else
+    @if (optional(Auth::user()->payment)->plan_name=='Plan of 24999')
+    <a class="btn btn-white btn-hover-heading-color">Subscribed</a>
+    @endif
+    @endif
+</div>
+                                        
                                     </div>
                                 </div>
                                 <!-- Single Pricing End -->

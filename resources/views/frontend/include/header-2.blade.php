@@ -38,16 +38,12 @@
                 <ul class="main-menu">
                     <!-- <li><a href="@if (Auth::check()) {{ route('home_user') }} @else {{ route('index') }} @endif"
                                     class="active">Home </a></li> -->
-                    <li><a href="{{ route('about_us') }}">Newsfeed</a></li>
-                    <!-- <li><a href="{{ route('course') }}">Courses</a></li>
-                            <li><a href="{{ route('college_list') }}">College</a></li>
-                            <li><a href="{{ route('services') }}">Services</a></li> -->
+                    <li><a href="{{ route('index') }}">Home</a></li>
+                    <li><a href="{{ route('console') }}">Console</a></li>
+                    <li><a href="{{ route('subscription_plans') }}">Packages </a></li>
+                    <li><a href="{{ route('about_us') }}">About Us</a></li>
+                    <li><a href="{{ route('user_dashboard') }}">Profile</a></li>
                     <li><a href="{{ route('help') }}">Contact Us </a></li>
-                    @if (Auth::check() && (Auth::user()->user_type != 'admin'))
-
-                        <li><a href="{{ route('subscription_plans') }}">Packages </a></li>
-                        <li><a href="{{ route('user_dashboard') }}">Profile </a></li>
-                    @endif
                 </ul>
             </div>
             <!-- Header Menu End -->
@@ -98,14 +94,17 @@
                 <!-- <li><a
                                 href="@if (Auth::check()) {{ route('home_user') }} @else {{ '/' }} @endif">Home
                             </a></li> -->
-                <li><a href="{{ route('about_us') }}">Newsfeed</a></li>
+                            <!--<li><a href="{{'https://matdoc.in/' }}">Home</a></li>
+                            <li><a href="{{ route('user_login') }}">Console</a></li>
+                            <li><a href="{{ route('subscription_plans') }}"> Packages </a></li>
+                <li><a href="{{ route('about_us') }}">About Us</a></li> -->
                 <!-- <li><a href="{{ route('course') }}">Courses</a></li>
                         <li><a href="{{ route('college_list') }}">College</a></li>
-                        <li><a href="{{ route('services') }}">Services</a></li> -->
-                <li><a href="{{ route('help') }}">Contact Us </a></li>
+                        <li><a href="{{ route('services') }}">Services</a></li>
+                <li><a href="{{ route('help') }}">Contact Us </a></li>  -->
                 @if (Auth::check())
                     @if(Auth::user()->user_type != 'admin'))
-                        <li><a href="{{ route('subscription_plans') }}">Subscription Plans </a></li>
+                        
                         <li><a href="{{ route('user_dashboard') }}">Profile </a></li>
                     @endif
                     <li><a href="{{ route('user_logout') }}">Logout</a></li>
@@ -120,90 +119,115 @@
 <!-- Offcanvas End -->
 
 
-@if (Auth::check() && Auth::user()->user_type == 'admin')
-    <div class="section bg-header" style="border-bottom: 1px solid #dddddd6b;">
-        <div class="container">
-            <div class="bg-custom-theme">
-                @if(isset(Auth::user()->payment->user_id) && Auth::user()->payment->plan_status == "success")
-                    @if(Auth::user()->customer->exam_type == 'PG')
-                        <ul class="navbar-navs list hor-swipe c-scrollbar-light">
-                            <li class="nav-item ">
-                                <a href="{{ route('home_user') }}" class="custom-link">Allotments (PG)</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('closing_rank') }}" class="custom-link">Closing Ranks (PG)</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('seat_matrix') }}" class="custom-link">Seat Matrix (PG)</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('fees_stipend_bond') }}" class="custom-link">Fee, Stipend and Bond (PG)</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('ug.state_wise_counselings') }}" class="custom-link">Allotment Mapping</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="custom-link">Counsellings</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="custom-link">Universities</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('college_list') }}" class="custom-link">Institutes</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('course') }}" class="custom-link">Courses</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('deemed_details') }}" class="custom-link">Deemed Details</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('get_college_hospital') }}" class="custom-link">College Hospital
-                                    Details</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/dnb-beds" class="custom-link">DNB Hospital By Details</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('mark_vs_rank') }}" class="custom-link">College Hospital
-                                    Rank Predictor</a>
-                            </li>
-                        </ul>
-                    @endif
+<!-- Main Header -->
+<header>
+    <!-- Existing header content -->
 
-                    @if(Auth::user()->customer->exam_type == 'UG')
-                        <ul class="navbar-navs list hor-swipe c-scrollbar-light">
-                            <li class="nav-item">
-                                <a href="{{ route('ug.home_user') }}" class="custom-link">Allotments (UG)</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('ug.closing_rank') }}" class="custom-link">Closing Ranks (UG)</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('ug.seat_matrix') }}" class="custom-link">Seat Matrix (UG)</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('ug.fees_stipend_bond') }}" class="custom-link">Fee, Stipend and Bond (UG)</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="custom-link">Allotment Mapping</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="custom-link">Counsellings</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="custom-link">Universities</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('college_list') }}" class="custom-link">Institutes</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('course') }}" class="custom-link">Courses</a>
-                            </li>
-                        </ul>
-                    @endif
-                @endif
-            </div>
-        </div>
-    </div>
-@endif
+    <!-- Check if user is authenticated and is an admin -->
+     <!-- Check if user is authenticated and is an admin -->
+     @if (Auth::check() && Auth::user()->user_type == 'admin')
+        <!-- Check if payment information is available -->
+        @if(isset(Auth::user()->payment->user_id))
+            <!-- Check payment status -->
+            @if(Auth::user()->payment->plan_status == "success")
+                <!-- Main header for Console -->
+                <div class="section bg-header" style="border-bottom: 1px solid #dddddd6b;">
+                    <div class="container">
+                        <h2 class="console-header">Console</h2> <!-- Title for the section -->
+
+                        <div class="bg-custom-theme">
+                            @if(Auth::user()->customer->exam_type == 'PG')
+                                <ul class="navbar-navs list hor-swipe c-scrollbar-light">
+                                    <!-- PG Exam Type Links -->
+                                    <li class="nav-item">
+                                        <a href="{{ route('home_user') }}" class="custom-link">Allotments (PG)</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('closing_rank') }}" class="custom-link">Closing Ranks (PG)</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('seat_matrix') }}" class="custom-link">Seat Matrix (PG)</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('fees_stipend_bond') }}" class="custom-link">Fee, Stipend and Bond (PG)</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('ug.state_wise_counselings') }}" class="custom-link">Allotment Mapping</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="custom-link">Counsellings</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="custom-link">Universities</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('college_list') }}" class="custom-link">Institutes</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('course') }}" class="custom-link">Courses</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('deemed_details') }}" class="custom-link">Deemed Details</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('get_college_hospital') }}" class="custom-link">College Hospital Details</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/dnb-beds" class="custom-link">DNB Hospital By Details</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('mark_vs_rank') }}" class="custom-link">College Hospital Rank Predictor</a>
+                                    </li>
+                                </ul>
+                            @elseif(Auth::user()->customer->exam_type == 'UG')
+                                <ul class="navbar-navs list hor-swipe c-scrollbar-light">
+                                    <!-- UG Exam Type Links -->
+                                    <li class="nav-item">
+                                        <a href="{{ route('ug.home_user') }}" class="custom-link">Allotments (UG)</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('ug.closing_rank') }}" class="custom-link">Closing Ranks (UG)</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('ug.seat_matrix') }}" class="custom-link">Seat Matrix (UG)</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('ug.fees_stipend_bond') }}" class="custom-link">Fee, Stipend and Bond (UG)</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="custom-link">Allotment Mapping</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="custom-link">Counsellings</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="custom-link">Universities</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('college_list') }}" class="custom-link">Institutes</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('course') }}" class="custom-link">Courses</a>
+                                    </li>
+                                </ul>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            @else
+                <!-- Payment failure message and button -->
+                <div class="section bg-header" style="border-bottom: 1px solid #dddddd6b;">
+                    <div class="container">
+                        <div class="bg-custom-theme">
+                            <p class="payment-failure-message">Data will be visible after subscribing to a plan.</p>
+                            <a href="{{ route('subscription_plans') }}" class="btn btn-primary">Subscribe Now</a>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        @endif
+    @endif
+
+
+    <!-- Other header content -->
+</header>

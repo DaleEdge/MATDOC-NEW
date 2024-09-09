@@ -1,18 +1,12 @@
-@extends('ug.frontend.layouts.front_app')
+@extends('frontend.layouts.front_app')
 
 <head>
    <!-- MDB -->
-   <link href="{{url("plugins/MDB5-7.2.0/css/mdb.min.css?v=2")}}" rel="stylesheet" />
-   <link rel="stylesheet" href="{{url("plugins/dataTables/datatables.min.css?v=2")}}" />
-   <link rel="stylesheet" href="{{url("plugins/select2/css/select2.min.css?v=2")}}" />
-
-   <!-- Font Awesome -->
-   <link rel="stylesheet" href="{{url("plugins/font-awesome/css/all.min.css?v=2")}}" />
-
+   <link href="{{url('plugins/MDB5-7.2.0/css/mdb.min.css?v=2')}}" rel="stylesheet" />
+   <link rel="stylesheet" href="{{url('plugins/dataTables/datatables.min.css?v=2')}}" />
+   <link rel="stylesheet" href="{{url('plugins/select2/css/select2.min.css?v=2')}}" />
 </head>
 
-<!-- Bootstrap -->
-<!-- <link href="{{url("plugins/bootstrap/css/bootstrap.min.css?v=2")}}" rel="stylesheet" /> -->
 <style>
    .header-top-wrapper .header-social ul li a {
       padding-top: 7px;
@@ -23,24 +17,21 @@
       color: #ff9529;
    }
 
-   /* Modal */
    .modal-content {
-      border: 3px solid rgb(213 213 213) !important;
+      border: 3px solid rgb(213, 213, 213) !important;
       background: white !important;
-      /* box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2); */
    }
 
    table.dataTable {
       border-radius: 14px;
    }
 
-   /* Table */
    table.dataTable thead th {
       color: white !important;
    }
 
    .dt-search input[type='search'] {
-      height: auto !important
+      height: auto !important;
    }
 
    .dt-length {
@@ -50,7 +41,6 @@
    .dt-length label {
       margin-top: auto;
       margin-bottom: auto;
-      /* Adjust spacing between label and input */
    }
 
    .dt-search {
@@ -60,7 +50,6 @@
    .dt-search label {
       margin-top: auto;
       margin-bottom: auto;
-      /* Adjust spacing between label and input */
    }
 
    .form-control {
@@ -69,41 +58,32 @@
       padding: 5px 10px !important;
    }
 
-   /* Select 2 */
    .select2-dropdown {
       z-index: 10000 !important;
    }
-
-   .select2-selection {
-      height: auto !important
+   
+   /* Button Styles */
+   .filter-btn {
+      height: 35px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 10px;
+      border: 1px solid #007bff;
+      color: #007bff;
+      background-color: transparent;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
    }
 
-   .select2-selection__arrow b {
-      margin-top: auto !important;
-      margin-bottom: auto !important;
+   .filter-btn:hover {
+      background-color: #007bff;
+      color: white;
    }
 
-   .select2-selection__clear {
-      margin-right: 5px !important;
-   }
-
-   .select2-results__options {
-      &[aria-multiselectable=true] {
-
-         .select2-results__option {
-            &[aria-selected=true]:before {
-               content: '☑';
-               font-size: 20px;
-               padding: 0 6px 0 4px;
-            }
-
-            &:before {
-               content: '◻';
-               font-size: 20px;
-               padding: 0 6px 0 4px;
-            }
-         }
-      }
+   .filter-btn i {
+      margin-right: 5px;
    }
 </style>
 
@@ -114,38 +94,65 @@
       <div class="neet-pg-layout">
          <div class="card shadow">
             <div class="card-body">
-               <div class="d-flex justify-content-end">
-                  <div id="outside_clear_filters"
-                     class="btn btn-outline-warning d-flex justify-content-center rounded align-items-center me-2 d-none"
-                     style="height:35px">
-                     <i class="fa-solid fa-filter-circle-xmark"></i>
-                  </div>
-                  <div class="btn btn-primary d-flex justify-content-center rounded align-items-center m-0"
-                     style="height:35px" data-bs-toggle="modal" data-bs-target="#filtersModal">
-                     <span><i class="fa fa-filter fs-6"></i></span>
-                     &nbsp;&nbsp;
-                     <span class="text-sm">Filter</span>
-                  </div>
+               <!-- Filter Button -->
+               <div class="d-flex justify-content-end mb-3">
+                  <button class="filter-btn" data-bs-toggle="modal" data-bs-target="#filtersModal">
+                     <i class="fa fa-filter"></i> Filter
+                  </button>
                </div>
 
-               <div class="mt-3">
-                  <table id="allotments" class="table display table-hover nowrap w-100">
-                     <thead class="w-auto">
-                        <tr>
-                           <th>Round</th>
-                           <th>All India Rank</th>
-                           <th>State Rank</th>
-                           <th>Neet SCore</th>
-                           <th>State</th>
-                           <th>Institute</th>
-                           <th>Course</th>
-                           <th>Quota</th>
-                           <th>Category</th>
-                           <th>Fee</th>
-                           <th>Beds</th>
-                        </tr>
-                     </thead>
-                  </table>
+               <!-- Tabs for All India Rank and State Rank -->
+               <ul class="nav nav-tabs" id="rankTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                     <button class="nav-link active" id="all-india-rank-tab" data-bs-toggle="tab" data-bs-target="#all-india-rank" type="button" role="tab" aria-controls="all-india-rank" aria-selected="true">All India Rank</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                     <button class="nav-link" id="state-rank-tab" data-bs-toggle="tab" data-bs-target="#state-rank" type="button" role="tab" aria-controls="state-rank" aria-selected="false">State Rank</button>
+                  </li>
+               </ul>
+
+               <div class="tab-content mt-3" id="rankTabContent">
+                  <!-- All India Rank Tab -->
+                  <div class="tab-pane fade show active" id="all-india-rank" role="tabpanel" aria-labelledby="all-india-rank-tab">
+                     <table id="allotments-air" class="table display table-hover nowrap w-100">
+                        <thead class="w-auto">
+                           <tr>
+                              <th>Round</th>
+                              <th>All India Rank</th>
+                              <th>Neet Score</th>
+                              <th>State</th>
+                              <th>Institute</th>
+                              <th>Institute Type</th>
+                              <th>Course</th>
+                              <th>Quota</th>
+                              <th>Category</th>
+                              <th>Fee</th>
+                              <th>Beds</th>
+                           </tr>
+                        </thead>
+                     </table>
+                  </div>
+
+                  <!-- State Rank Tab -->
+                  <div class="tab-pane fade" id="state-rank" role="tabpanel" aria-labelledby="state-rank-tab">
+                     <table id="allotments-sr" class="table display table-hover nowrap w-100">
+                        <thead class="w-auto">
+                           <tr>
+                              <th>Round</th>
+                              <th>State Rank</th>
+                              <th>Neet Score</th>
+                              <th>State</th>
+                              <th>Institute</th>
+                              <th>Institute Type</th>
+                              <th>Course</th>
+                              <th>Quota</th>
+                              <th>Category</th>
+                              <th>Fee</th>
+                              <th>Beds</th>
+                           </tr>
+                        </thead>
+                     </table>
+                  </div>
                </div>
             </div>
          </div>
@@ -154,101 +161,95 @@
 </div>
 
 <!-- Filter Modal -->
-<div class="modal fade" id="filtersModal" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel"
-   aria-hidden="true" data-backdrop="true" data-background=false data-keyboard="true">
-   <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+<!-- Filter Modal -->
+<div class="modal fade" id="filtersModal" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel" aria-hidden="true" data-backdrop="true" data-keyboard="true">
+   <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
-         <div class="modal-header mx-4 px-0">
+         <div class="modal-header">
             <h5 class="modal-title">Filters</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body">
-            <div class="row d-flex justify-content-between">
-               <div class="col-lg-4">
-                  <fieldset class="p-4 border border-grey rounded">
+            <div class="row">
+               <div class="col-lg-6">
+                  <fieldset class="p-3 border rounded">
                      <div class="form-group">
-                        <label class="fw-bold">Rank</label>
+                        <label for="rankRange">Rank Range</label>
                         <div class="d-flex align-items-center">
-                           <input id="rankStart" type="number" class="form-control" placeholder="0">
+                           <input id="rankStart" type="number" class="form-control me-2" placeholder="Min Rank">
                            <span class="mx-2">-</span>
-                           <input id="rankEnd" type="number" class="form-control" placeholder="100000">
+                           <input id="rankEnd" type="number" class="form-control ms-2" placeholder="Max Rank">
                         </div>
                      </div>
-
                      <div class="form-group mt-3">
-                        <label for="session" class="fw-bold">Session</label>
-                        <select class="form-control input-dropdown w-100" name="session" id="session">
+                        <label for="round">Round</label>
+                        <select class="form-control" id="round">
+                           <!-- Options go here -->
                         </select>
                      </div>
-
                      <div class="form-group mt-3">
-                        <label for="round" class="fw-bold">Round</label>
-                        <select class="form-control input-dropdown w-100" name="round" id="round">
+                        <label for="session">Session</label>
+                        <select class="form-control input-dropdown w-100" id="session">
+                           <!-- Options go here -->
                         </select>
                      </div>
-
                      <div class="form-group mt-3">
-                        <label for="quota" class="fw-bold">Quota</label>
-                        <select class="form-control input-dropdown w-100" name="quota" id="quota">
+                        <label for="quota">Quota</label>
+                        <select class="form-control input-dropdown w-100" id="quota">
+                           <!-- Options go here -->
                         </select>
                      </div>
-
                      <div class="form-group mt-3">
-                        <label for="category" class="fw-bold">Category</label>
-                        <select class="form-control input-dropdown w-100" name="category" id="category">
+                        <label for="category">Category</label>
+                        <select class="form-control input-dropdown w-100" id="category">
+                           <!-- Options go here -->
                         </select>
                      </div>
                   </fieldset>
                </div>
-               <div class="col-lg-4">
-                  <fieldset class="p-4 border border-grey rounded">
+               <div class="col-lg-6">
+                  <fieldset class="p-3 border rounded">
                      <div class="form-group">
-                        <label for="state" class="fw-bold">State</label>
-                        <select class="form-control input-dropdown w-100" name="state" id="state">
+                        <label for="state">State</label>
+                        <select class="form-control input-dropdown w-100" id="state">
+                           <!-- Options go here -->
                         </select>
                      </div>
-
                      <div class="form-group mt-3">
-                        <label for="institute" class="fw-bold">Institute</label>
-                        <select class="form-control input-dropdown w-100" name="institute" id="institute">
+                        <label for="institute">Institute</label>
+                        <select class="form-control input-dropdown w-100" id="institute">
+                           <!-- Options go here -->
                         </select>
                      </div>
-
                      <div class="form-group mt-3">
-                        <label class="fw-bold">Beds</label>
+                        <label for="instituteType">Institute Type</label>
+                        <select class="form-control input-dropdown w-100" id="institute_type">
+                           <!-- Options go here -->
+                        </select>
+                     </div>
+                     <div class="form-group mt-3">
+                        <label for="beds">Beds Range</label>
                         <div class="d-flex align-items-center">
-                           <input id="bedStart" type="number" class="form-control" placeholder="0">
+                           <input id="bedStart" type="number" class="form-control me-2" placeholder="Min Beds">
                            <span class="mx-2">-</span>
-                           <input id="bedEnd" type="number" class="form-control" placeholder="100000">
+                           <input id="bedEnd" type="number" class="form-control ms-2" placeholder="Max Beds">
                         </div>
                      </div>
-
                      <div class="form-group mt-3">
-                        <label class="fw-bold">Fee</label>
+                        <label for="feeRange">Fee Range</label>
                         <div class="d-flex align-items-center">
-                           <input id="feeStart" type="number" class="form-control" placeholder="0">
+                           <input id="feeStart" type="number" class="form-control me-2" placeholder="Min Fee">
                            <span class="mx-2">-</span>
-                           <input id="feeEnd" type="number" class="form-control" placeholder="1000000000">
+                           <input id="feeEnd" type="number" class="form-control ms-2" placeholder="Max Fee">
                         </div>
-                     </div>
-                  </fieldset>
-               </div>
-               <div class="col-lg-4 h-100">
-                  <fieldset class="p-4 border border-grey rounded">
-                     <div class="form-group">
-                        <label for="course" class="fw-bold">Course</label>
-                        <select class="form-control input-dropdown w-100" name="course" id="course">
-                        </select>
                      </div>
                   </fieldset>
                </div>
             </div>
-
          </div>
-         <div class="modal-footer mx-4 px-0">
-            <span id='clear_filters' style="font-weight:500;font-size:12px; cursor:pointer">Clear Filters</span>
-            <div id="view_results" class="btn btn-sm btn-primary d-flex align-items-center justify-content-center me-0">
-               View Results</div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Apply Filters</button>
          </div>
       </div>
    </div>
@@ -257,21 +258,13 @@
 @endsection
 
 @section('script')
-
 <!-- MDB -->
-<script src="{{url("plugins/MDB5-7.2.0/js/mdb.es.min.js?v=2")}}"></script>
-
-<!-- Bootstrap -->
-<!-- <script src="{{url("plugins/bootstrap/js/bootstrap.min.js?v=2")}}"></script> -->
-
+<script src="{{url('plugins/MDB5-7.2.0/js/mdb.es.min.js?v=2')}}"></script>
 <!-- Datatables -->
-<script src="{{url("plugins/dataTables/datatables.min.js?v=2")}}"></script>
-<!-- <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script> -->
-<script src="{{url("plugins/dataTables/dataTables.bootstrap5.min.js?v=2")}}"></script>
-
+<script src="{{url('plugins/dataTables/datatables.min.js?v=2')}}"></script>
+<script src="{{url('plugins/dataTables/dataTables.bootstrap5.min.js?v=2')}}"></script>
 <!-- Select2 -->
-<script src="{{url("plugins/select2/js/select2.min.js?v=2")}}"></script>
-
+<script src="{{url('plugins/select2/js/select2.min.js?v=2')}}"></script>
 
 <script>
    loadAllotmentsTable();
@@ -535,9 +528,50 @@
          },
       });
 
-      // Event listener to re-render the selection display on change
-      $('#institute').on('change', function () {
-         $(this).trigger('select2:select');
+      $("#institute_type").select2({
+         placeholder: "Choose a institute type",
+         dropdownParent: $("#filtersModal"),
+         allowClear: true,
+         multiple: true,
+         closeOnSelect: false,
+         ajax: {
+            url: "{{route('ug.get_institute_types')}}",
+            data: (params) => {
+               params.page = params.page || 1;
+               params.length = 25;
+               params.start = (params.page - 1) * params.length;
+
+               let query = {
+                  dropdownSearch: params.term,
+                  start: params.start,
+                  length: params.length,
+                  rankStart: $("#rankStart").val(),
+                  rankEnd: $("#rankEnd").val(),
+                  session: $("#session").val(),
+                  round: $("#round").val(),
+                  quota: $("#quota").val(),
+                  category: $("#category").val(),
+                  state: $("#state").val(),
+                  institute: $("#institute").val(),
+               };
+
+               // Query parameters will be ?search=[term]&page=[page]
+               return query;
+            },
+            processResults: (data, params) => {
+               return {
+                  results: $.map(data?.rows, (item) => {
+                     return {
+                        id: item.institute_type,
+                        text: item.institute_type,
+                     };
+                  }),
+                  pagination: {
+                     more: params.page * params.length < data?.count,
+                  },
+               };
+            },
+         },
       });
 
       $("#course").select2({
@@ -565,6 +599,7 @@
                   category: $("#category").val(),
                   state: $("#state").val(),
                   institute: $("#institute").val(),
+                  institute_type: $("#institute_type").val(),
                   bedStart: $("#bedStart").val(),
                   bedEnd: $("#bedEnd").val(),
                   feeStart: $("#feeStart").val(),
@@ -598,7 +633,7 @@
    });
 
    function checkFilter() {
-      if ($("#rankStart").val("") != "" || $("#rankEnd").val("") != "" || $("#session").val("") != "" || $("#round").val("") != "" || $("#quota").val("") != "" || $("#category").val("") != "" || $("#state").val("") != "" || $("#institute").val("") != "" || $("#bedStart").val("") != "" || $("#bedEnd").val("") != "" || $("#feeStart").val("") != "" || $("#feeEnd").val("") != "" || $("#course").val("") != "") {
+      if ($("#rankStart").val("") != "" || $("#rankEnd").val("") != "" || $("#session").val("") != "" || $("#round").val("") != "" || $("#quota").val("") != "" || $("#category").val("") != "" || $("#state").val("") != "" || $("#institute").val("") != "" || $("#institute_type").val("") != "" || $("#bedStart").val("") != "" || $("#bedEnd").val("") != "" || $("#feeStart").val("") != "" || $("#feeEnd").val("") != "" || $("#course").val("") != "") {
          $("#outside_clear_filters").removeClass("d-none");
       } else {
          $("#outside_clear_filters").addClass("d-none");
@@ -618,6 +653,7 @@
       $("#category").val("").trigger("change");
       $("#state").val("").trigger("change");
       $("#institute").val("").trigger("change");
+      $("#institute_type").val("").trigger("change");
       $("#course").val("").trigger("change");
 
       loadAllotmentsTable();
@@ -625,7 +661,7 @@
    })
 
    function loadAllotmentsTable() {
-      $("#allotments").DataTable({
+      $("#allotments-air").DataTable({
          destroy: true,
          responsive: false,
          processing: true,
@@ -649,6 +685,7 @@
                category: $("#category").val(),
                state: $("#state").val(),
                institute: $("#institute").val(),
+               institute_type: $("#institute_type").val(),
                bedStart: $("#bedStart").val(),
                bedEnd: $("#bedEnd").val(),
                feeStart: $("#feeStart").val(),
@@ -668,10 +705,65 @@
          columns: [
             { data: "round" },
             { data: "all_india_rank" },
+            { data: "neet_score" },
+            { data: "state" },
+            { data: "institute" },
+            { data: "institute_type" },
+            { data: "course" },
+            { data: "quota" },
+            { data: "category" },
+            { data: "fee" },
+            { data: "beds" },
+         ],
+      });
+      $("#allotments-sr").DataTable({
+         destroy: true,
+         responsive: false,
+         processing: true,
+         serverSide: true,
+         scrollX: true,
+         scrollCollapse: true,
+         scrollY: "60vh",
+         ordering: false,
+         language: {
+            searchPlaceholder: 'Global Search'
+         },
+         ajax: {
+            type: "GET",
+            url: "{{route('ug.home_user')}}",
+            data: {
+               rankStart: $("#rankStart").val(),
+               rankEnd: $("#rankEnd").val(),
+               session: $("#session").val(),
+               round: $("#round").val(),
+               quota: $("#quota").val(),
+               category: $("#category").val(),
+               state: $("#state").val(),
+               institute: $("#institute").val(),
+               institute_type: $("#institute_type").val(),
+               bedStart: $("#bedStart").val(),
+               bedEnd: $("#bedEnd").val(),
+               feeStart: $("#feeStart").val(),
+               feeEnd: $("#feeEnd").val(),
+               course: $("#course").val()
+            },
+            error: function (xhr) {
+               $("#allotments").DataTable().destroy();
+               $("#allotments").DataTable({ scrollX: true, ordering: false });
+            },
+            dataSrc: function (data) {
+               data.iTotalRecords = data?.rows?.length || 0;
+               data.iTotalDisplayRecords = data.count || 0;
+               return data?.rows || [];
+            }
+         },
+         columns: [
+            { data: "round" },
             { data: "state_rank" },
             { data: "neet_score" },
             { data: "state" },
             { data: "institute" },
+            { data: "institute_type" },
             { data: "course" },
             { data: "quota" },
             { data: "category" },
