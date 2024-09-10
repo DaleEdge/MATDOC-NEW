@@ -118,6 +118,7 @@
       <div class="neet-pg-layout">
          <div class="card shadow">
             <div class="card-body">
+               <!-- Filter Button -->
                <div class="d-flex justify-content-end">
                   <div id="outside_clear_filters"
                      class="btn btn-outline-warning d-flex justify-content-center rounded align-items-center me-2 d-none"
@@ -132,14 +133,50 @@
                   </div>
                </div>
 
-               <div class="mt-3">
-                  <table id="closing_rank" class="table display table-hover nowrap w-100">
+               <!-- Tabs for All India Rank and State Rank -->
+               <ul class="nav nav-tabs" id="rankTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                     <button class="nav-link active" id="all-india-rank-tab" data-bs-toggle="tab" data-bs-target="#all-india-rank" type="button" role="tab" aria-controls="all-india-rank" aria-selected="true">All India Rank</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                     <button class="nav-link" id="state-rank-tab" data-bs-toggle="tab" data-bs-target="#state-rank" type="button" role="tab" aria-controls="state-rank" aria-selected="false">State Rank</button>
+                  </li>
+               </ul>
+               
+
+               <div class="tab-content mt-3" id="rankTabContent">
+                  <!-- All India Rank Tab -->
+                  <div class="tab-pane fade show active" id="all-india-rank" role="tabpanel" aria-labelledby="all-india-rank-tab">
+                     <table id="closing_rank_air" class="table display table-hover nowrap w-100">
+                        <thead class="w-auto">
+                           <tr>
+                              <th>Quota</th>
+                              <th>Category</th>
+                              <th>State</th>
+                              <th>Institute</th>
+                              <th>Institute Type</th>
+                              <th>Course</th>
+                              <th>Fee</th>
+                              <th>Beds</th>
+                              <th>CR 2023 1</th>
+                              <th>CR 2023 2</th>
+                              <th>CR 2023 3</th>
+                              <th>CR 2023 4</th>
+                              <th>CR 2023 5</th>
+                              <th>CR 2023 6</th>
+                           </tr>
+                        </thead>
+                     </table>
+                  </div>
+            <div class="tab-pane fade" id="state-rank" role="tabpanel" aria-labelledby="state-rank-tab">
+                  <table id="closing_rank_sr" class="table display table-hover nowrap w-100">
                      <thead class="w-auto">
                         <tr>
                            <th>Quota</th>
                            <th>Category</th>
                            <th>State</th>
                            <th>Institute</th>
+                           <th>Institute Type</th>
                            <th>Course</th>
                            <th>Fee</th>
                            <th>Beds</th>
@@ -172,7 +209,7 @@
             <div class="row d-flex justify-content-between">
                <div class="col-lg-4">
                   <fieldset class="p-4 border border-grey rounded">
-                     <div class="form-group d-none">
+                     <div class="form-group">
                         <label class="fw-bold">Rank</label>
                         <div class="d-flex align-items-center">
                            <input id="rankStart" type="number" class="form-control" placeholder="0">
@@ -181,13 +218,13 @@
                         </div>
                      </div>
 
-                     <div class="form-group">
+                     <div class="form-group mt-3">
                         <label for="session" class="fw-bold">Session</label>
                         <select class="form-control input-dropdown w-100" name="session" id="session">
                         </select>
                      </div>
 
-                     <div class="form-group mt-3 d-none">
+                     <div class="form-group mt-3">
                         <label for="round" class="fw-bold">Round</label>
                         <select class="form-control input-dropdown w-100" name="round" id="round">
                         </select>
@@ -217,6 +254,12 @@
                      <div class="form-group mt-3">
                         <label for="institute" class="fw-bold">Institute</label>
                         <select class="form-control input-dropdown w-100" name="institute" id="institute">
+                        </select>
+                     </div>
+
+                     <div class="form-group mt-3">
+                        <label for="institute_type" class="fw-bold">Institute Type</label>
+                        <select class="form-control input-dropdown w-100" name="institute_type" id="institute_type">
                         </select>
                      </div>
 
@@ -278,10 +321,12 @@
                      <th>Category</th>
                      <th>State</th>
                      <th>Institute</th>
+                     <th>Institute Type</th>
                      <th>Course</th>
                      <th>Fee</th>
                      <th>Beds</th>
                      <th>All India Rank</th>
+                     <th>State Rank</th>
                   </tr>
                </thead>
             </table>
@@ -568,6 +613,52 @@
          },
       });
 
+      $("#institute_type").select2({
+         placeholder: "Choose a institute type",
+         dropdownParent: $("#filtersModal"),
+         allowClear: true,
+         multiple: true,
+         closeOnSelect: false,
+         ajax: {
+            url: "{{route('ug.get_institute_types')}}",
+            data: (params) => {
+               params.page = params.page || 1;
+               params.length = 25;
+               params.start = (params.page - 1) * params.length;
+
+               let query = {
+                  dropdownSearch: params.term,
+                  start: params.start,
+                  length: params.length,
+                  rankStart: $("#rankStart").val(),
+                  rankEnd: $("#rankEnd").val(),
+                  session: $("#session").val(),
+                  round: $("#round").val(),
+                  quota: $("#quota").val(),
+                  category: $("#category").val(),
+                  state: $("#state").val(),
+                  institute: $("#institute").val(),
+               };
+
+               // Query parameters will be ?search=[term]&page=[page]
+               return query;
+            },
+            processResults: (data, params) => {
+               return {
+                  results: $.map(data?.rows, (item) => {
+                     return {
+                        id: item.institute_type,
+                        text: item.institute_type,
+                     };
+                  }),
+                  pagination: {
+                     more: params.page * params.length < data?.count,
+                  },
+               };
+            },
+         },
+      });
+
       // // Event listener to re-render the selection display on change
       // $('#institute').on('change', function () {
       //    $(this).trigger('select2:select');
@@ -598,6 +689,7 @@
                   category: $("#category").val(),
                   state: $("#state").val(),
                   institute: $("#institute").val(),
+                  institute_type: $("#institute_type").val(),
                   bedStart: $("#bedStart").val(),
                   bedEnd: $("#bedEnd").val(),
                   feeStart: $("#feeStart").val(),
@@ -631,7 +723,7 @@
    });
 
    function checkFilter() {
-      if ($("#rankStart").val("") != "" || $("#rankEnd").val("") != "" || $("#session").val("") != "" || $("#round").val("") != "" || $("#quota").val("") != "" || $("#category").val("") != "" || $("#state").val("") != "" || $("#institute").val("") != "" || $("#bedStart").val("") != "" || $("#bedEnd").val("") != "" || $("#feeStart").val("") != "" || $("#feeEnd").val("") != "" || $("#course").val("") != "") {
+      if ($("#rankStart").val("") != "" || $("#rankEnd").val("") != "" || $("#session").val("") != "" || $("#round").val("") != "" || $("#quota").val("") != "" || $("#category").val("") != "" || $("#state").val("") != "" || $("#institute").val("") != "" || $("#institute_type").val("") != "" || $("#bedStart").val("") != "" || $("#bedEnd").val("") != "" || $("#feeStart").val("") != "" || $("#feeEnd").val("") != "" || $("#course").val("") != "") {
          $("#outside_clear_filters").removeClass("d-none");
       } else {
          $("#outside_clear_filters").addClass("d-none");
@@ -651,6 +743,7 @@
       $("#category").val("").trigger("change");
       $("#state").val("").trigger("change");
       $("#institute").val("").trigger("change");
+      $("#institute_type").val("").trigger("change");
       $("#course").val("").trigger("change");
 
       loadClosingRankTable();
@@ -682,6 +775,7 @@
                category: $("#category").val(),
                state: $("#state").val(),
                institute: $("#institute").val(),
+               institute_type: $("#institute_type").val(),
                bedStart: $("#bedStart").val(),
                bedEnd: $("#bedEnd").val(),
                feeStart: $("#feeStart").val(),
@@ -703,6 +797,7 @@
             { data: "category" },
             { data: "state" },
             { data: "institute" },
+            { data: "institute_type" },
             { data: "course" },
             { data: "fee" },
             { data: "beds" },
@@ -715,15 +810,16 @@
          ],
          columnDefs: [
             {
-               targets: [7, 8, 9, 10, 11, 12],
+               targets: [8, 9, 10, 11, 12, 13],
                render: function (data, type, row, meta) {
-                  const columnIndex = meta.col - 6;
+                  const columnIndex = meta.col - 7;
                   return data ? `<a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
                     data-bs-target="#closingRankDetailsModal" class="cr" 
                     data-quota="${row.quota}"
                     data-category="${row.category}"
                     data-state="${row.state}"
                     data-institute="${row.institute}"
+                    data-institute_type="${row.institute_type}"
                     data-course="${row.course}"
                     data-session="2023" 
                     data-round=${columnIndex}>
@@ -737,19 +833,21 @@
 
    $(document).on('click', '.cr', function (event) {
       event.preventDefault();
-      // $('.preloader').show();
+      event.stopImmediatePropagation()
 
       // Retrieve values from the data attributes of the clicked element
       var quota = $(this).data('quota');
       var category = $(this).data('category');
       var state = $(this).data('state');
       var institute = $(this).data('institute');
+      var institute_type = $(this).data('institute_type');
       var course = $(this).data('course');
       var session = $(this).data('session');
       var round = $(this).data('round');
 
-      $('#closingRankDetailsModal').on('shown.bs.modal', function () {
-         // $('.preloader').hide();
+      $('#closingRankDetailsModal').on('shown.bs.modal', function (event) {
+         event.preventDefault();
+         event.stopImmediatePropagation()
 
          $("#closing_rank_details").DataTable({
             destroy: true,
@@ -774,6 +872,7 @@
                   category,
                   state,
                   institute,
+                  institute_type,
                   course,
                   round,
                   session
@@ -804,10 +903,12 @@
                { data: "category" },
                { data: "state" },
                { data: "institute" },
+               { data: "institute_type" },
                { data: "course" },
                { data: "fee" },
                { data: "beds" },
                { data: "all_india_rank" },
+               { data: "state_rank" },
             ],
          });
       });

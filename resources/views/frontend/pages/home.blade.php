@@ -142,11 +142,20 @@
          <div class="card shadow">
             <div class="card-body">
                <!-- Filter Button -->
-               <div class="d-flex justify-content-end mb-3">
-                  <button class="filter-btn" data-bs-toggle="modal" data-bs-target="#filtersModal">
-                     <i class="fa fa-filter"></i> Filter
-                  </button>
+               <div class="d-flex justify-content-end">
+                  <div id="outside_clear_filters"
+                     class="btn btn-outline-warning d-flex justify-content-center rounded align-items-center me-2 d-none"
+                     style="height:35px">
+                     <i class="fa-solid fa-filter-circle-xmark"></i>
+                  </div>
+                  <div class="btn btn-primary d-flex justify-content-center rounded align-items-center m-0"
+                     style="height:35px" data-bs-toggle="modal" data-bs-target="#filtersModal">
+                     <span><i class="fa fa-filter fs-6"></i></span>
+                     &nbsp;&nbsp;
+                     <span class="text-sm">Filter</span>
+                  </div>
                </div>
+
 
                <!-- Tabs for All India Rank and State Rank -->
                <ul class="nav nav-tabs" id="rankTab" role="tablist">
@@ -157,14 +166,7 @@
                      <button class="nav-link" id="state-rank-tab" data-bs-toggle="tab" data-bs-target="#state-rank" type="button" role="tab" aria-controls="state-rank" aria-selected="false">State Rank</button>
                   </li>
                </ul>
-               <div class="d-flex justify-content-end d-none">
-                  <div class="btn btn-outline-primary d-flex justify-content-center rounded align-items-center"
-                     style="h eight:35px" data-bs-toggle="modal" data-bs-target="#filtersModal">
-                     <span><i class="fa fa-filter fs-6"></i></span>
-                     &nbsp;&nbsp;
-                     <span class="text-sm">Filter</span>
-                  </div>
-               </div>
+            
 
                <div class="tab-content mt-3" id="rankTabContent">
                   <!-- All India Rank Tab -->

@@ -1,3 +1,37 @@
+<style>
+    .payment-failure-section {
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #ddd;
+        padding: 20px 0;
+    }
+
+    .payment-failure-content {
+        text-align: center;
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .payment-failure-message {
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+</style>
 <div id="header" class="header section">
     <div class="header-top-section d-none d-lg-block">
         <div class="container">
@@ -215,18 +249,17 @@
                 </div>
             @else
                 <!-- Payment failure message and button -->
-                <div class="section bg-header" style="border-bottom: 1px solid #dddddd6b;">
-                    <div class="container">
-                        <div class="bg-custom-theme">
-                            <p class="payment-failure-message">Data will be visible after subscribing to a plan.</p>
-                            <a href="{{ route('subscription_plans') }}" class="btn btn-primary">Subscribe Now</a>
-                        </div>
+            <div class="section payment-failure-section">
+                 <div class="container">
+                     <div class="payment-failure-content">
+                        <p class="payment-failure-message">Access to this data is available only with a subscription plan.</p>
+                        <a href="{{ route('subscription_plans') }}" class="btn btn-primary">Subscribe Now</a>
                     </div>
                 </div>
+            </div>
             @endif
         @endif
     @endif
-
 
     <!-- Other header content -->
 </header>
