@@ -114,39 +114,74 @@
       <div class="neet-pg-layout">
          <div class="card shadow">
             <div class="card-body">
-               <div class="d-flex justify-content-end">
-                  <div id="outside_clear_filters"
-                     class="btn btn-outline-warning d-flex justify-content-center rounded align-items-center me-2 d-none"
-                     style="height:35px">
-                     <i class="fa-solid fa-filter-circle-xmark"></i>
-                  </div>
-                  <div class="btn btn-primary d-flex justify-content-center rounded align-items-center m-0"
-                     style="height:35px" data-bs-toggle="modal" data-bs-target="#filtersModal">
+               <!-- Filter Button -->
+               <div class="d-flex justify-content-end mb-3">
+                  <div class="btn btn-outline-primary d-flex justify-content-center rounded align-items-center"
+                     style="h eight:35px" data-bs-toggle="modal" data-bs-target="#filtersModal">
                      <span><i class="fa fa-filter fs-6"></i></span>
                      &nbsp;&nbsp;
                      <span class="text-sm">Filter</span>
                   </div>
                </div>
+               <!-- Filter Button End -->
 
-               <div class="mt-3">
-                  <table id="allotments" class="table display table-hover nowrap w-100">
-                     <thead class="w-auto">
-                        <tr>
-                           <th>Round</th>
-                           <th>All India Rank</th>
-                           <th>State Rank</th>
-                           <th>Neet SCore</th>
-                           <th>State</th>
-                           <th>Institute</th>
-                           <th>Institute Type</th>
-                           <th>Course</th>
-                           <th>Quota</th>
-                           <th>Category</th>
-                           <th>Fee</th>
-                           <th>Beds</th>
-                        </tr>
-                     </thead>
-                  </table>
+               <!-- Tabs for All India Rank and State Rank -->
+               <ul class="nav nav-tabs" id="rankTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                     <button class="nav-link active" id="all-india-rank-tab" data-bs-toggle="tab"
+                        data-bs-target="#all-india-rank" type="button" role="tab" aria-controls="all-india-rank"
+                        aria-selected="true">All India Rank</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                     <button class="nav-link" id="state-rank-tab" data-bs-toggle="tab" data-bs-target="#state-rank"
+                        type="button" role="tab" aria-controls="state-rank" aria-selected="false">State Rank</button>
+                  </li>
+               </ul>
+
+
+               <div class="tab-content mt-3" id="rankTabContent">
+                  <!-- All India Rank Tab -->
+                  <div class="tab-pane fade show active" id="all-india-rank" role="tabpanel"
+                     aria-labelledby="all-india-rank-tab">
+                     <table id="allotments-air" class="table display table-hover nowrap w-100">
+                        <thead class="w-auto">
+                           <tr>
+                              <th>Round</th>
+                              <th>All India Rank</th>
+                              <th>Neet Score</th>
+                              <th>State</th>
+                              <th>Institute</th>
+                              <th>Institute Type</th>
+                              <th>Course</th>
+                              <th>Quota</th>
+                              <th>Category</th>
+                              <th>Fee</th>
+                              <th>Beds</th>
+                           </tr>
+                        </thead>
+                     </table>
+                  </div>
+
+                  <!-- State Rank Tab -->
+                  <div class="tab-pane fade" id="state-rank" role="tabpanel" aria-labelledby="state-rank-tab">
+                     <table id="allotments-sr" class="table display table-hover nowrap w-100">
+                        <thead class="w-auto">
+                           <tr>
+                              <th>Round</th>
+                              <th>State Rank</th>
+                              <th>Neet Score</th>
+                              <th>State</th>
+                              <th>Institute</th>
+                              <th>Institute Type</th>
+                              <th>Course</th>
+                              <th>Quota</th>
+                              <th>Category</th>
+                              <th>Fee</th>
+                              <th>Beds</th>
+                           </tr>
+                        </thead>
+                     </table>
+                  </div>
                </div>
             </div>
          </div>
@@ -675,7 +710,7 @@
    })
 
    function loadAllotmentsTable() {
-      $("#allotments").DataTable({
+      $("#allotments-air").DataTable({
          destroy: true,
          responsive: false,
          processing: true,
@@ -691,6 +726,7 @@
             type: "GET",
             url: "{{route('ug.home_user')}}",
             data: {
+               rankType: "all_india_rank",
                rankStart: $("#rankStart").val(),
                rankEnd: $("#rankEnd").val(),
                session: $("#session").val(),
@@ -719,6 +755,61 @@
          columns: [
             { data: "round" },
             { data: "all_india_rank" },
+            { data: "neet_score" },
+            { data: "state" },
+            { data: "institute" },
+            { data: "institute_type" },
+            { data: "course" },
+            { data: "quota" },
+            { data: "category" },
+            { data: "fee" },
+            { data: "beds" },
+         ],
+      });
+      $("#allotments-sr").DataTable({
+         destroy: true,
+         responsive: false,
+         processing: true,
+         serverSide: true,
+         scrollX: true,
+         scrollCollapse: true,
+         scrollY: "60vh",
+         ordering: false,
+         language: {
+            searchPlaceholder: 'Global Search'
+         },
+         ajax: {
+            type: "GET",
+            url: "{{route('ug.home_user')}}",
+            data: {
+               rankType: "state_rank",
+               rankStart: $("#rankStart").val(),
+               rankEnd: $("#rankEnd").val(),
+               session: $("#session").val(),
+               round: $("#round").val(),
+               quota: $("#quota").val(),
+               category: $("#category").val(),
+               state: $("#state").val(),
+               institute: $("#institute").val(),
+               institute_type: $("#institute_type").val(),
+               bedStart: $("#bedStart").val(),
+               bedEnd: $("#bedEnd").val(),
+               feeStart: $("#feeStart").val(),
+               feeEnd: $("#feeEnd").val(),
+               course: $("#course").val()
+            },
+            error: function (xhr) {
+               $("#allotments").DataTable().destroy();
+               $("#allotments").DataTable({ scrollX: true, ordering: false });
+            },
+            dataSrc: function (data) {
+               data.iTotalRecords = data?.rows?.length || 0;
+               data.iTotalDisplayRecords = data.count || 0;
+               return data?.rows || [];
+            }
+         },
+         columns: [
+            { data: "round" },
             { data: "state_rank" },
             { data: "neet_score" },
             { data: "state" },

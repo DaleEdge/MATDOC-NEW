@@ -59,6 +59,7 @@ class UgFrontController extends Controller
         $start = $request->start;
         $length = $request->length;
         $search = $request['search']['value'] ?? '';
+        $rankType = $request->rankType ?? 'all_india_rank';
         $rankStart = $request->rankStart;
         $rankEnd = $request->rankEnd;
         $session = $request->session;
@@ -119,12 +120,12 @@ class UgFrontController extends Controller
                 'course',
                 'fee',
                 'beds',
-                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 1 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 1 THEN id END), ')') AS cr_2023_1"),
-                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 2 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 2 THEN id END), ')') AS cr_2023_2"),
-                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 3 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 3 THEN id END), ')') AS cr_2023_3"),
-                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 4 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 4 THEN id END), ')') AS cr_2023_4"),
-                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 5 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 5 THEN id END), ')') AS cr_2023_5"),
-                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 6 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 6 THEN id END), ')') AS cr_2023_6")
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 1 THEN $rankType END), '(', COUNT(CASE WHEN session = 2023 AND round = 1 THEN id END), ')') AS cr_2023_1"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 2 THEN $rankType END), '(', COUNT(CASE WHEN session = 2023 AND round = 2 THEN id END), ')') AS cr_2023_2"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 3 THEN $rankType END), '(', COUNT(CASE WHEN session = 2023 AND round = 3 THEN id END), ')') AS cr_2023_3"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 4 THEN $rankType END), '(', COUNT(CASE WHEN session = 2023 AND round = 4 THEN id END), ')') AS cr_2023_4"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 5 THEN $rankType END), '(', COUNT(CASE WHEN session = 2023 AND round = 5 THEN id END), ')') AS cr_2023_5"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 6 THEN $rankType END), '(', COUNT(CASE WHEN session = 2023 AND round = 6 THEN id END), ')') AS cr_2023_6")
             )
             ->when($search, function ($query, $search) { // Table Gloabl Search
                 return $query->where(function ($query) use ($search) {
@@ -185,6 +186,7 @@ class UgFrontController extends Controller
         $course = $request->course;
         $session = $request->session;
         $round = $request->round;
+        $rankType = $request->rankType ?? 'all_india_rank';
 
         $count = DB::table('ug_allotments')
             ->when($search, function ($query, $search) {
@@ -220,8 +222,7 @@ class UgFrontController extends Controller
                 'course',
                 'fee',
                 'beds',
-                'all_india_rank',
-                'state_rank',
+                DB::raw($rankType)
             )
             ->when($search, function ($query, $search) {
                 return $query->where(function ($query) use ($search) {
@@ -240,8 +241,7 @@ class UgFrontController extends Controller
             ->whereRaw("TRIM(REPLACE(REPLACE(course, '\r', ''), '\n', '')) = ?", $course)
             ->where('session', $session)
             ->where('round', $round)
-            ->orderBy('all_india_rank', 'desc')
-            ->orderBy('state_rank', 'desc')
+            ->orderBy(DB::raw($rankType), 'desc')
             ->limit($length > 0 ? $length : 10)
             ->offset($start)->get();
 
@@ -1915,6 +1915,7 @@ class UgFrontController extends Controller
         $start = $request->start;
         $length = $request->length;
         $search = $request['search']['value'] ?? '';
+        $rankType = $request->rankType ?? 'all_india_rank';
         $rankStart = $request->rankStart;
         $rankEnd = $request->rankEnd;
         $session = $request->session;
@@ -2011,7 +2012,7 @@ class UgFrontController extends Controller
                 return $query->whereBetween('fee', [$feeStart, $feeEnd]);
             })->when($course, function ($query) use ($course) { // Other field search
                 return $query->whereIn(DB::raw("TRIM(REPLACE(REPLACE(course, '\r', ''), '\n', ''))"), $course);
-            })->orderBy('state_rank', 'ASC')
+            })->orderBy(DB::raw($rankType), 'ASC')
             ->limit($length > 0 ? $length : 10)
             ->offset($start)->get();
 
