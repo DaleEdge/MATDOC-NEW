@@ -344,6 +344,11 @@ class UgFrontController extends Controller
         }
     }
 
+    public function choice_list()
+    {
+        return view('ug.frontend.pages.choice-list');
+        }
+
 
 
     public function send_otp_sms($to, $name, $text)

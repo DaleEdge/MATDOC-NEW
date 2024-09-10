@@ -75,6 +75,18 @@
                     <li><a href="{{ route('index') }}">Home</a></li>
                     <li><a href="{{ route('console') }}">Console</a></li>
                     <li><a href="{{ route('subscription_plans') }}">Packages </a></li>
+                    @if (Auth::check() && Auth::user()->user_type == 'admin')
+    <!-- Check if payment information is available -->
+    @if(isset(Auth::user()->payment->user_id))
+        @if(Auth::user()->customer->exam_type == 'UG')
+            <li><a href="{{ route('ug.choice_list') }}">My Choice List (UG)</a></li>
+        @elseif(Auth::user()->customer->exam_type == 'PG')
+            <li><a href="{{ route('pg.choice_list') }}">My Choice List (PG)</a></li>
+        @endif
+    @endif
+@endif
+
+
                     <li><a href="{{ route('about_us') }}">About Us</a></li>
                     <li><a href="{{ route('user_dashboard') }}">Profile</a></li>
                     <li><a href="{{ route('help') }}">Contact Us </a></li>

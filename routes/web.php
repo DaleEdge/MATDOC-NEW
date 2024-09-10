@@ -188,6 +188,8 @@ Route::group(['prefix' => 'ug'], function () {
     Route::get('/state-wise-counseling-details-andhra', [UgFrontController::class, 'state_wise_counseling_details'])->name('ug.state_wise_counseling_details_andhra');
     Route::get('/state-wise-counseling-details', [UgFrontController::class, 'state_wise_counseling_details'])->name('ug.state_wise_counseling_details')->middleware("checkSubscription");
     Route::get('/state-document', [UgFrontController::class, 'state_document'])->name('ug.state_document');
+    Route::get('/choice_list', [UgFrontController::class, 'choice_list'])->name('ug.choice_list');
+
 
 
     Route::get('/student-report', [UgFrontController::class, 'student_report'])->name('ug.student_report');
