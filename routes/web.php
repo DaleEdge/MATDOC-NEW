@@ -170,6 +170,16 @@ Route::get('/seat-matrix', [FrontController::class, 'seat_matrix'])->name('seat_
 Route::get('/seat-matrix-details', [FrontController::class, 'seat_matrix_details'])->name('seat_matrix_details');
 Route::get('/fees-stipend-bond', [FrontController::class, 'fees_stipend_bond'])->name('fees_stipend_bond');
 
+// Filters
+Route::get('/get_sessions', [FrontController::class, 'get_sessions'])->name('get_sessions');
+Route::get('/get_rounds', [FrontController::class, 'get_rounds'])->name('get_rounds');
+Route::get('/get_quota', [FrontController::class, 'get_quota'])->name('get_quota');
+Route::get('/get_categories', [FrontController::class, 'get_categories'])->name('get_categories');
+Route::get('/get_states', [FrontController::class, 'get_states'])->name('get_states');
+Route::get('/get_institutes', [FrontController::class, 'get_institutes'])->name('get_institutes');
+Route::get('/get_institute_types', [FrontController::class, 'get_institute_types'])->name('get_institute_types');
+Route::get('/get_courses', [FrontController::class, 'get_courses'])->name('get_courses');
+
 Route::group(['prefix' => 'ug'], function () {
 
     Route::get('/home', [UgFrontController::class, 'allotments_data'])->name('ug.home_user');

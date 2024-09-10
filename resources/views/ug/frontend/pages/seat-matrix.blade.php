@@ -113,43 +113,84 @@
       <div class="neet-pg-layout">
          <div class="card shadow">
             <div class="card-body">
-               <div class="d-flex justify-content-end">
-                  <div id="outside_clear_filters"
-                     class="btn btn-outline-warning d-flex justify-content-center rounded align-items-center me-2 d-none"
-                     style="height:35px">
-                     <i class="fa-solid fa-filter-circle-xmark"></i>
-                  </div>
-                  <div class="btn btn-primary d-flex justify-content-center rounded align-items-center m-0"
-                     style="height:35px" data-bs-toggle="modal" data-bs-target="#filtersModal">
+               <!-- Filter Button -->
+               <div class="d-flex justify-content-end mb-3">
+                  <div class="btn btn-outline-primary d-flex justify-content-center rounded align-items-center"
+                     style="h eight:35px" data-bs-toggle="modal" data-bs-target="#filtersModal">
                      <span><i class="fa fa-filter fs-6"></i></span>
                      &nbsp;&nbsp;
                      <span class="text-sm">Filter</span>
                   </div>
                </div>
+               <!-- Filter Button End -->
 
-               <div class="mt-3">
-                  <table id="seat_matrix" class="table display table-hover nowrap w-100">
-                     <thead class="w-auto">
-                        <tr>
-                           <th>Round</th>
-                           <th>Quota</th>
-                           <th>Category</th>
-                           <th>State</th>
-                           <th>Institute</th>
-                           <th>Institute Type</th>
-                           <th>Course</th>
-                           <th>Seats</th>
-                           <th>Fee</th>
-                           <th>Beds</th>
-                           <th>CR 2023 1</th>
-                           <th>CR 2023 2</th>
-                           <th>CR 2023 3</th>
-                           <th>CR 2023 4</th>
-                           <th>CR 2023 5</th>
-                           <th>CR 2023 6</th>
-                        </tr>
-                     </thead>
-                  </table>
+               <!-- Tabs for All India Rank and State Rank -->
+               <ul class="nav nav-tabs" id="rankTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                     <button class="nav-link active" id="all-india-rank-tab" data-bs-toggle="tab"
+                        data-bs-target="#all-india-rank" type="button" role="tab" aria-controls="all-india-rank"
+                        aria-selected="true">All India Rank</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                     <button class="nav-link" id="state-rank-tab" data-bs-toggle="tab" data-bs-target="#state-rank"
+                        type="button" role="tab" aria-controls="state-rank" aria-selected="false">State Rank</button>
+                  </li>
+               </ul>
+
+
+               <div class="tab-content mt-3" id="rankTabContent">
+                  <!-- All India Rank Tab -->
+                  <div class="tab-pane fade show active" id="all-india-rank" role="tabpanel"
+                     aria-labelledby="all-india-rank-tab">
+                     <table id="seat_matrix-air" class="table display table-hover nowrap w-100">
+                        <thead class="w-auto">
+                           <tr>
+                              <th>Round</th>
+                              <th>Quota</th>
+                              <th>Category</th>
+                              <th>State</th>
+                              <th>Institute</th>
+                              <th>Institute Type</th>
+                              <th>Course</th>
+                              <th>Seats</th>
+                              <th>Fee</th>
+                              <th>Beds</th>
+                              <th>CR 2023 1</th>
+                              <th>CR 2023 2</th>
+                              <th>CR 2023 3</th>
+                              <th>CR 2023 4</th>
+                              <th>CR 2023 5</th>
+                              <th>CR 2023 6</th>
+                           </tr>
+                        </thead>
+                     </table>
+                  </div>
+
+                  <!-- State Rank Tab -->
+                  <div class="tab-pane fade" id="state-rank" role="tabpanel" aria-labelledby="state-rank-tab">
+                     <table id="seat_matrix-sr" class="table display table-hover nowrap w-100">
+                        <thead class="w-auto">
+                           <tr>
+                              <th>Round</th>
+                              <th>Quota</th>
+                              <th>Category</th>
+                              <th>State</th>
+                              <th>Institute</th>
+                              <th>Institute Type</th>
+                              <th>Course</th>
+                              <th>Seats</th>
+                              <th>Fee</th>
+                              <th>Beds</th>
+                              <th>CR 2023 1</th>
+                              <th>CR 2023 2</th>
+                              <th>CR 2023 3</th>
+                              <th>CR 2023 4</th>
+                              <th>CR 2023 5</th>
+                              <th>CR 2023 6</th>
+                           </tr>
+                        </thead>
+                     </table>
+                  </div>
                </div>
             </div>
          </div>
@@ -288,8 +329,7 @@
                      <th>Seats</th>
                      <th>Fee</th>
                      <th>Beds</th>
-                     <th>All India Rank</th>
-                     <th>State Rank</th>
+                     <th id="rankColType">Rank</th>
                   </tr>
                </thead>
             </table>
@@ -711,7 +751,7 @@
    })
 
    function loadSeatMatrixTable() {
-      $("#seat_matrix").DataTable({
+      $("#seat_matrix-air").DataTable({
          destroy: true,
          responsive: false,
          processing: true,
@@ -727,6 +767,88 @@
             type: "GET",
             url: "{{route('ug.seat_matrix')}}",
             data: {
+               rankType: "all_india_rank",
+               rankStart: $("#rankStart").val(),
+               rankEnd: $("#rankEnd").val(),
+               session: $("#session").val(),
+               round: $("#round").val(),
+               quota: $("#quota").val(),
+               category: $("#category").val(),
+               state: $("#state").val(),
+               institute: $("#institute").val(),
+               bedStart: $("#bedStart").val(),
+               bedEnd: $("#bedEnd").val(),
+               feeStart: $("#feeStart").val(),
+               feeEnd: $("#feeEnd").val(),
+               course: $("#course").val()
+            },
+            error: function (xhr) {
+               $("#seat_matrix").DataTable().destroy();
+               $("#seat_matrix").DataTable({ scrollX: true, ordering: false });
+            },
+            dataSrc: function (data) {
+               data.iTotalRecords = data?.rows?.length || 0;
+               data.iTotalDisplayRecords = data.count || 0;
+               return data?.rows || [];
+            }
+         },
+         columns: [
+            { data: "round" },
+            { data: "quota" },
+            { data: "category" },
+            { data: "state" },
+            { data: "institute" },
+            { data: "institute_type" },
+            { data: "course" },
+            { data: "seats" },
+            { data: "fee" },
+            { data: "beds" },
+            { data: "cr_2023_1" },
+            { data: "cr_2023_2" },
+            { data: "cr_2023_3" },
+            { data: "cr_2023_4" },
+            { data: "cr_2023_5" },
+            { data: "cr_2023_6" }
+         ],
+         columnDefs: [
+            {
+               targets: [10, 11, 12, 13, 14, 15],
+               render: function (data, type, row, meta) {
+                  const columnIndex = meta.col - 9;
+                  return data ? `<a style="color:blue; text-decoration:underline" data-bs-toggle="modal"
+                    data-bs-target="#seatMatrixDetailsModal" class="cr" 
+                    data-quota="${row.quota}"
+                    data-category="${row.category}"
+                    data-state="${row.state}"
+                    data-institute="${row.institute}"
+                    data-course="${row.course}"
+                    data-seats="${row.seats}"
+                    data-session="2023" 
+                    data-round=${columnIndex}>
+                    ${data}
+                </a>` : '-';
+               }
+            },
+         ]
+      });
+
+      $("#seat_matrix-sr").DataTable({
+         destroy: true,
+         responsive: false,
+         processing: true,
+         serverSide: true,
+         scrollX: true,
+         scrollCollapse: true,
+         scrollY: "60vh",
+         ordering: false,
+         language: {
+            searchPlaceholder: 'Global Search'
+         },
+         ajax: {
+            type: "GET",
+            url: "{{route('ug.seat_matrix')}}",
+            data: {
+               rankType: "state_rank",
                rankStart: $("#rankStart").val(),
                rankEnd: $("#rankEnd").val(),
                session: $("#session").val(),
@@ -794,7 +916,8 @@
 
    $(document).on('click', '.cr', function (event) {
       event.preventDefault();
-      event.stopImmediatePropagation()
+
+      $("#rankColType").text($('.nav-tabs .active').text());
 
       // Retrieve values from the data attributes of the clicked element
       var quota = $(this).data('quota');
@@ -807,10 +930,8 @@
       var session = $(this).data('session');
       var round = $(this).data('round');
 
-      $('#seatMatrixDetailsModal').on('shown.bs.modal', function (event) {
+      $('#seatMatrixDetailsModal').one('shown.bs.modal', function (event) {
          event.preventDefault();
-         event.stopImmediatePropagation()
-
 
          $("#seat_matrix_details").DataTable({
             destroy: true,
@@ -822,7 +943,7 @@
             scrollY: "30vh",
             ordering: false,
             "oLanguage": {
-               "sSearch": "Filter All India Rank:"
+               "sSearch": "Filter " + $('.nav-tabs .active').text()
             },
             language: {
                searchPlaceholder: '10'
@@ -831,6 +952,7 @@
                type: "GET",
                url: "{{route('ug.seat_matrix_details')}}",
                data: {
+                  rankType: $('.nav-tabs .active').text().toLowerCase().replaceAll(" ", "_"),
                   quota,
                   category,
                   state,
@@ -873,8 +995,7 @@
                { data: "seats" },
                { data: "fee" },
                { data: "beds" },
-               { data: "all_india_rank" },
-               { data: "state_rank" },
+               { data: $('.nav-tabs .active').text().toLowerCase().replaceAll(" ", "_") },
             ],
          });
       });

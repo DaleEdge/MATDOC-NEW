@@ -942,7 +942,7 @@
             scrollY: "30vh",
             ordering: false,
             "oLanguage": {
-               "sSearch": "Filter All India Rank:"
+               "sSearch": "Filter " + $('.nav-tabs .active').text()
             },
             language: {
                searchPlaceholder: '10'
