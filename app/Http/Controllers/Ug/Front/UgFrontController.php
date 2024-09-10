@@ -67,13 +67,11 @@ class UgFrontController extends Controller
         $category = $request->category;
         $state = $request->state;
         $institute = $request->institute;
-        $institute_type = $request->institute_type;
         $bedStart = $request->bedStart;
         $bedEnd = $request->bedEnd;
         $feeStart = $request->feeStart;
         $feeEnd = $request->feeEnd;
         $course = $request->course;
-        $rankType = "state_rank";
 
         $count = DB::table('ug_allotments')
             ->select('quota', 'category', 'state', 'institute', 'course')
@@ -83,7 +81,6 @@ class UgFrontController extends Controller
                         ->orWhere('category', 'LIKE', "%{$search}%")
                         ->orWhere('state', 'LIKE', "%{$search}%")
                         ->orWhere('institute', 'LIKE', "%{$search}%")
-                        ->orWhere('institute_type', 'LIKE', "%{$search}%")
                         ->orWhere('course', 'LIKE', "%{$search}%");
                 });
             })->when($rankStart && $rankEnd, function ($query) use ($rankStart, $rankEnd) { // Other field search
@@ -100,8 +97,6 @@ class UgFrontController extends Controller
                 return $query->whereIn(DB::raw("TRIM(REPLACE(REPLACE(state, '\r', ''), '\n', ''))"), $state);
             })->when($institute, function ($query) use ($institute) {
                 return $query->whereIn(DB::raw("TRIM(REPLACE(REPLACE(institute, '\r', ''), '\n', ''))"), $institute);
-            })->when($institute_type, function ($query) use ($institute_type) {
-                return $query->whereIn(DB::raw("TRIM(REPLACE(REPLACE(institute_type, '\r', ''), '\n', ''))"), $institute_type);
             })->when($bedStart && $bedEnd, function ($query) use ($bedStart, $bedEnd) { // Other field search
                 return $query->whereBetween('beds', [$bedStart, $bedEnd]);
             })->when($feeStart && $feeEnd, function ($query) use ($feeStart, $feeEnd) { // Other field search
@@ -119,24 +114,23 @@ class UgFrontController extends Controller
                 'course',
                 'fee',
                 'beds',
-                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 1 THEN $rankType END), '(', COUNT(CASE WHEN session = 2023 AND round = 1 THEN id END), ')') AS cr_2023_1"),
-        DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 2 THEN $rankType END), '(', COUNT(CASE WHEN session = 2023 AND round = 2 THEN id END), ')') AS cr_2023_2"),
-        DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 3 THEN $rankType END), '(', COUNT(CASE WHEN session = 2023 AND round = 3 THEN id END), ')') AS cr_2023_3"),
-        DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 4 THEN $rankType END), '(', COUNT(CASE WHEN session = 2023 AND round = 4 THEN id END), ')') AS cr_2023_4"),
-        DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 5 THEN $rankType END), '(', COUNT(CASE WHEN session = 2023 AND round = 5 THEN id END), ')') AS cr_2023_5"),
-        DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 6 THEN $rankType END), '(', COUNT(CASE WHEN session = 2023 AND round = 6 THEN id END), ')') AS cr_2023_6")
-    )
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 1 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 1 THEN id END), ')') AS cr_2023_1"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 2 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 2 THEN id END), ')') AS cr_2023_2"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 3 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 3 THEN id END), ')') AS cr_2023_3"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 4 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 4 THEN id END), ')') AS cr_2023_4"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 5 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 5 THEN id END), ')') AS cr_2023_5"),
+                DB::raw("CONCAT(MAX(CASE WHEN session = 2023 AND round = 6 THEN all_india_rank END), '(', COUNT(CASE WHEN session = 2023 AND round = 6 THEN id END), ')') AS cr_2023_6")
+            )
             ->when($search, function ($query, $search) { // Table Gloabl Search
                 return $query->where(function ($query) use ($search) {
                     $query->where('quota', 'LIKE', "%{$search}%")
                         ->orWhere('category', 'LIKE', "%{$search}%")
                         ->orWhere('state', 'LIKE', "%{$search}%")
                         ->orWhere('institute', 'LIKE', "%{$search}%")
-                        ->orWhere('institute_type', 'LIKE', "%{$search}%")
                         ->orWhere('course', 'LIKE', "%{$search}%");
                 });
             })->when($rankStart && $rankEnd, function ($query) use ($rankStart, $rankEnd) { // Other field search
-                return $query->whereBetween($rankType, [$rankStart, $rankEnd]);
+                return $query->whereBetween('state_rank', [$rankStart, $rankEnd]);
             })->when($session, function ($query) use ($session) {
                 return $query->whereIn(DB::raw("TRIM(REPLACE(REPLACE(session, '\r', ''), '\n', ''))"), $session);
             })->when($round, function ($query) use ($round) {
@@ -149,8 +143,6 @@ class UgFrontController extends Controller
                 return $query->whereIn(DB::raw("TRIM(REPLACE(REPLACE(state, '\r', ''), '\n', ''))"), $state);
             })->when($institute, function ($query) use ($institute) {
                 return $query->whereIn(DB::raw("TRIM(REPLACE(REPLACE(institute, '\r', ''), '\n', ''))"), $institute);
-            })->when($institute_type, function ($query) use ($institute_type) {
-                return $query->whereIn(DB::raw("TRIM(REPLACE(REPLACE(institute_type, '\r', ''), '\n', ''))"), $institute_type);
             })->when($bedStart && $bedEnd, function ($query) use ($bedStart, $bedEnd) { // Other field search
                 return $query->whereBetween('beds', [$bedStart, $bedEnd]);
             })->when($feeStart && $feeEnd, function ($query) use ($feeStart, $feeEnd) { // Other field search
@@ -159,7 +151,6 @@ class UgFrontController extends Controller
                 return $query->whereIn(DB::raw("TRIM(REPLACE(REPLACE(course, '\r', ''), '\n', ''))"), $course);
             })->groupBy('quota', 'category', 'state', 'institute', 'course')
             ->orderBy('institute', 'ASC')
-            ->orderBy('institute_type', 'ASC')
             ->orderBy('category', 'ASC')
             ->limit($length > 0 ? $length : 10)
             ->offset($start)->get();
@@ -181,20 +172,27 @@ class UgFrontController extends Controller
         $category = $request->category;
         $state = $request->state;
         $institute = $request->institute;
-        $institute_type = $request->institute_type;
         $course = $request->course;
         $session = $request->session;
         $round = $request->round;
-        $rankType = $request->rankType;
 
         $count = DB::table('ug_allotments')
+            ->select(
+                'quota',
+                'category',
+                'state',
+                'institute',
+                'course',
+                'fee',
+                'beds',
+                'all_india_rank'
+            )
             ->when($search, function ($query, $search) {
                 return $query->where(function ($query) use ($search) {
                     $query->where('quota', 'LIKE', "%{$search}%")
                         ->orWhere('category', 'LIKE', "%{$search}%")
                         ->orWhere('state', 'LIKE', "%{$search}%")
                         ->orWhere('institute', 'LIKE', "%{$search}%")
-                        ->orWhere('institute_type', 'LIKE', "%{$search}%")
                         ->orWhere('course', 'LIKE', "%{$search}%");
                 });
             })
@@ -202,11 +200,6 @@ class UgFrontController extends Controller
             ->whereRaw("TRIM(REPLACE(REPLACE(category, '\r', ''), '\n', '')) = ?", $category)
             ->whereRaw("TRIM(REPLACE(REPLACE(state, '\r', ''), '\n', '')) = ?", $state)
             ->whereRaw("TRIM(REPLACE(REPLACE(institute, '\r', ''), '\n', '')) = ?", $institute)
-            ->when($institute_type, function ($query, $institute_type) {
-                return $query->where(function ($query) use ($institute_type) {
-                    $query->where('institute_type', 'LIKE', "%{$institute_type}%");
-                });
-            })
             ->whereRaw("TRIM(REPLACE(REPLACE(course, '\r', ''), '\n', '')) = ?", $course)
             ->where('session', $session)
             ->where('round', $round)->count();
@@ -217,36 +210,29 @@ class UgFrontController extends Controller
                 'category',
                 'state',
                 'institute',
-                'institute_type',
                 'course',
                 'fee',
                 'beds',
-                DB::raw("{$rankType} AS rank")
+                'all_india_rank'
             )
             ->when($search, function ($query, $search) {
                 return $query->where(function ($query) use ($search) {
-                    $query->where(DB::raw($rankType), 'LIKE', "%{$search}%");
+                    $query->where('all_india_rank', 'LIKE', "%{$search}%");
                 });
             })
             ->whereRaw("TRIM(REPLACE(REPLACE(quota, '\r', ''), '\n', '')) = ?", $quota)
             ->whereRaw("TRIM(REPLACE(REPLACE(category, '\r', ''), '\n', '')) = ?", $category)
             ->whereRaw("TRIM(REPLACE(REPLACE(state, '\r', ''), '\n', '')) = ?", $state)
             ->whereRaw("TRIM(REPLACE(REPLACE(institute, '\r', ''), '\n', '')) = ?", $institute)
-            ->when($institute_type, function ($query, $institute_type) {
-                return $query->where(function ($query) use ($institute_type) {
-                    $query->where('institute_type', 'LIKE', "%{$institute_type}%");
-                });
-            })
             ->whereRaw("TRIM(REPLACE(REPLACE(course, '\r', ''), '\n', '')) = ?", $course)
             ->where('session', $session)
             ->where('round', $round)
-            ->orderBy(DB::raw($rankType), 'desc')
+            ->orderBy('all_india_rank', 'desc')
             ->limit($length > 0 ? $length : 10)
             ->offset($start)->get();
 
         return response()->json(compact('count', 'rows'));
     }
-    
     public function closing_rank_details_old(Request $request)
     {
         $state = $request->state;

@@ -8,7 +8,7 @@
             <div class="container ">
                 <!-- Page Banner Content Start -->
                 <div class="page-banner-content">
-                    <h2 class="title">Package Policy</h2>
+                    <h2 class="title">Privacy Policy</h2>
                     <ul class="breadcrumb justify-content-center">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
                         <li class="breadcrumb-item active">Package Policy </li>
@@ -26,15 +26,15 @@
 
 
 
-<p>At MatDoc, accessible from matdoc.in, one of our main priorities is the Package of our visitors. This Package Policy document contains types of information that is collected and recorded by MatDoc and how we use it.</p>
+<p>At MatDoc, accessible from matdoc.in, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by MatDoc and how we use it.</p>
 
 
 
-<p>If you have additional questions or require more information about our Package Policy, do not hesitate to contact us.</p>
+<p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.</p>
 
 
 
-<p>This Package Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in MatDoc. This policy is not applicable to any information collected offline or via channels other than this website.</p>
+<p>This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in MatDoc. This policy is not applicable to any information collected offline or via channels other than this website.</p>
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<p>By using our website, you hereby consent to our Package Policy and agree to its terms.</p>
+<p>By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p>
 
 
 
@@ -90,11 +90,11 @@
 
 
 
-<h3 class="mt-2 mb-2">Advertising Partners Package Policies</h3>
+<h3 class="mt-2 mb-2">Advertising Partners Privacy Policies</h3>
 
 
 
-<p>You may consult this list to find the Package Policy for each of the advertising partners of MatDoc.</p>
+<p>You may consult this list to find the Privacy Policy for each of the advertising partners of MatDoc.</p>
 
 
 
@@ -106,11 +106,11 @@
 
 
 
-<h3 class="mt-2 mb-2">Third Party Package Policies</h3>
+<h3 class="mt-2 mb-2">Third Party Privacy Policies</h3>
 
 
 
-<p>MatDoc&#8217;s Package Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Package Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.</p>
+<p>MatDoc&#8217;s Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.</p>
 
 
 
@@ -118,7 +118,7 @@
 
 
 
-<h3 class="mt-2 mb-2">CCPA Package Rights (Do Not Sell My Personal Information)</h3>
+<h3 class="mt-2 mb-2">CCPA Privacy Rights (Do Not Sell My Personal Information)</h3>
 
 
 

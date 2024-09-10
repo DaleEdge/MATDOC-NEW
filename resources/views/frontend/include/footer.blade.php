@@ -22,7 +22,7 @@
                                 <li><a href="{{route('index')}}">Home</a></li>
                                 <li><a href="{{route('about_us')}}">About Us</a></li>
                                 <li><a href="{{route('college_list')}}">College</a></li>
-                                <li><a href="{{route('services')}}">Pricing</a></li>
+                                <li><a href="{{route('subscription_plans')}}">Packages</a></li>
                             </ul>
                         </div>
                     </div>
@@ -35,6 +35,7 @@
                         <div class="widget-link">
                             <ul class="link">
                                 <li><a href="{{route('privacy_policy')}}">Privacy & Policy</a></li>
+                                <li><a href="{{route('privacy_policy')}}">Package Policy</a></li>
                                 <li><a href="{{route('term_condition')}}">Terms & Condition</a></li>
                             </ul>
                         </div>

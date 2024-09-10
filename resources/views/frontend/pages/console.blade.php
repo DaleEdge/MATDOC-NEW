@@ -6,18 +6,11 @@
         <div class="container">
             <!-- Page Banner Content Start -->
             <div class="page-banner-content">
-                <h2 class="title">Console</h2>
-                <ul class="breadcrumb justify-content-center">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active">Console</li>
-                </ul>
-            </div>
-            <!-- Page Banner Content End -->
-        </div>
-    </div>
-    <!-- Page Banner End -->
+                
+        
 
    <!-- Main content based on user authentication and payment -->
+   
 @if (Auth::check())
     @if (Auth::user()->user_type == 'admin')
         @if (isset(Auth::user()->payment) && Auth::user()->payment->plan_status == 'success')
@@ -53,8 +46,7 @@
                     <li class="nav-item"><a href="{{ route('college_list') }}" class="custom-link">Institutes</a></li>
                     <li class="nav-item"><a href="{{ route('course') }}" class="custom-link">Courses</a></li>
                 </ul>
-</div>
-            @endif
+                @endif
         @else
             <!-- Payment failure message and button -->
             <div class="container d-flex justify-content-center align-items-center my-5">
@@ -66,7 +58,24 @@
                     </div>
                 </div>
             </div>
+            </div>
+            <!-- Page Banner Content End -->
+        </div>
+    </div>
+    <!-- Page Banner End -->
         @endif
+        
+    @else
+        <!-- Payment failure message if payment plan status is not 'success' -->
+        <div class="container d-flex justify-content-center align-items-center my-5">
+            <div class="card shadow-lg border-0 text-center p-4">
+                <div class="card-body">
+                    <h5 class="card-title text-danger mb-4">Subscription Required</h5>
+                    <p class="payment-failure-message mb-4">Data will be visible after subscribing to a plan.</p>
+                    <a href="{{ route('subscription_plans') }}" class="btn btn-primary btn-lg">Subscribe Now</a>
+                </div>
+            </div>
+        </div>
     @endif
 @endif
 @endsection

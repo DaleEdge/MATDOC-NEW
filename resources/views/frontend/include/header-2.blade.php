@@ -133,7 +133,6 @@
                 <!-- Main header for Console -->
                 <div class="section bg-header" style="border-bottom: 1px solid #dddddd6b;">
                     <div class="container">
-                        <h2 class="console-header">Console</h2> <!-- Title for the section -->
 
                         <div class="bg-custom-theme">
                             @if(Auth::user()->customer->exam_type == 'PG')
