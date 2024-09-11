@@ -109,7 +109,9 @@
 
       @yield('console-header')
 
-      @yield('content')
+      @if (Auth::check() && Auth::user()->customer->contains('exam_type', 'UG'))
+        @yield('content')
+     @endif
 
       @include('frontend.include.footer')
 
