@@ -44,9 +44,7 @@ Route::get('auth/google/callback', function () {
         }
 
         // Log in the existing user
-        // Auth::login($user, true);
-
-        auth()->login($user, true);
+        Auth::login($user, true);
 
         // Check if mobile number exists; if not, redirect to mobile update modal
         if (is_null($user->mobile)) {
@@ -62,9 +60,7 @@ Route::get('auth/google/callback', function () {
         ]);
 
         // Log in the newly created user
-        // Auth::login($user, true);
-
-        auth()->login($user, true);
+        Auth::login($user, true);
 
         // Redirect to the mobile update modal to capture the mobile number
         return redirect()->route('index');
