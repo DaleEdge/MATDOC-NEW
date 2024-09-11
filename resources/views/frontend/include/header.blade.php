@@ -99,13 +99,20 @@
                     <li><a href="{{ route('help') }}">Contact Us</a></li>
                 </ul>
             </div>
-            <div class="header-meta">
-                <div class="header-login d-none d-lg-flex">
+            <div class="">
+                <div class="d-none d-lg-flex">
                     @if (Auth::check())
                         <a class="link" href="{{ route('user_logout') }}"><i class="fa fa-sign-out"></i> Logout</a>
                     @else
-                        <a class="link" href="{{ route('user-login') }}"><i class="fa fa-user-o"></i> Login</a>
-                        <a class="link" href="{{ route('user-register') }}">Register</a>
+                        <div class="d-flex justify-content-center">
+                            <div class="btn btn-outline-primary rounded" style="padding-top:initial"><a
+                                    class="link fs-6" style="text-transform: none;"
+                                    href="{{ route('user-login') }}"><i class="fa fa-user-o"></i> Login</a></div>&nbsp;&nbsp;&nbsp;
+                            <div class="btn btn-primary rounded" style="padding-top:initial"><a class="link"
+                                    style="text-transform: none;" href="{{ route('user-register') }}">Register</a></div>
+                        </div>
+                        <!-- <a class="link" href="{{ route('user-login') }}"><i class="fa fa-user-o"></i> Login</a>
+                                                                                                                            <a class="link" href="{{ route('user-register') }}">Register</a> -->
                     @endif
                 </div>
                 <div class="header-toggle d-lg-none">

@@ -81,6 +81,11 @@
          color: white !important;
       }
 
+      .nav-tabs .nav-item.show .nav-link,
+      .nav-tabs .nav-link.active {
+         color: white !important;
+      }
+
       .text-secondary {
          color: #6c757d;
       }
@@ -93,6 +98,15 @@
          border: 1px solid grey;
          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
          transition: box-shadow 0.3s ease;
+      }
+
+      .header-social a,
+      .social a {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         align-content: center;
+         flex-wrap: nowrap;
       }
    </style>
 

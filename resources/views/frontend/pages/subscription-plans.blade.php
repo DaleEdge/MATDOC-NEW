@@ -47,13 +47,13 @@
                     </div>
                     <div class="pricing-footer text-center mt-2">
                         @if (empty(Auth::check() && optional(Auth::check() && Auth::user()->payment->user_id)))
-                            <!-- <form action="{{ route('subscription_plans_pay') }}" method="post"> -->
-                            <!-- @csrf -->
-                            <input type="hidden" name="user_id" value="{{ Auth::user() && Auth::user()->id }}">
-                            <input type="hidden" name="packages" value="3999">
-                            <button class="btn btn-outline-primary rounded" style="padding-top:initial" class="pay-now"
-                                type="submit">Pay Now</button>
-                            <!-- </form> -->
+                            <form action="{{ route('user-login') }}">
+                                @csrf
+                                <input type="hidden" name="user_id" value="{{ Auth::user() && Auth::user()->id }}">
+                                <input type="hidden" name="packages" value="3999">
+                                <button class="btn btn-outline-primary rounded" style="padding-top:initial" class="pay-now"
+                                    type="submit">Pay Now</button>
+                            </form>
                         @else
                             @if (optional(Auth::check() && Auth::user()->payment)->plan_name == 'Plan of 3999')
                                 <a class="btn btn-secondary">Subscribed</a>
@@ -91,14 +91,14 @@
                     </div>
                     <div class="pricing-footer text-center mt-4">
                         @if (empty(Auth::user()->payment->user_id))
-                            <!-- <form action="{{ route('subscription_plans_pay') }}" method="post"> -->
-                            <!-- @csrf -->
-                            <input type="hidden" name="user_id" value="{{ Auth::user() && Auth::user()->id }}">
-                            <input type="hidden" name="packages" value="24999">
-                            <button class="btn rounded btn-outline-primary pay-now" style="padding-top:initial"
-                                type="submit">Pay
-                                Now</button>
-                            <!-- </form> -->
+                            <form action="{{ route('user-login') }}">
+                                @csrf
+                                <input type="hidden" name="user_id" value="{{ Auth::user() && Auth::user()->id }}">
+                                <input type="hidden" name="packages" value="24999">
+                                <button class="btn rounded btn-outline-primary pay-now" style="padding-top:initial"
+                                    type="submit">Pay
+                                    Now</button>
+                            </form>
                         @else
                             @if (optional(Auth::user()->payment)->plan_name == 'Plan of 24999')
                                 <a class="btn btn-secondary">Subscribed</a>
