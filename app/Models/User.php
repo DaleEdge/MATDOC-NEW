@@ -25,9 +25,9 @@ class User extends Authenticatable
         'password',
         'google_id',
         'exam_type',
-        'score', 
+        'score',
         'phone',
-        ];
+    ];
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -48,23 +48,24 @@ class User extends Authenticatable
     ];
 
     /**
-         * checks if the user belongs to a particular group
-         * @param string|array $user_type
-         * @return bool
-    */
-    public function user_type($user_type) {
-        $user_type = (array)$user_type;
+     * checks if the user belongs to a particular group
+     * @param string|array $user_type
+     * @return bool
+     */
+    public function user_type($user_type)
+    {
+        $user_type = (array) $user_type;
         return in_array($this->user_type, $user_type);
     }
 
     public function customer()
     {
-        return $this->belongsTo(Customer::class,'id','user_id'); 
+        return $this->hasMany(Customer::class, 'user_id', 'id');
     }
 
     public function payment()
     {
-        return $this->hasOne(Payment::class); 
+        return $this->hasOne(Payment::class);
     }
 
 

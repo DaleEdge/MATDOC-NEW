@@ -116,7 +116,7 @@
 <div class="section counter-section mb-5">
    <div class="container mt-5" style="margin-bottom:100px;">
       <div class="neet-pg-layout">
-         <div class="card shadow">
+         <div class="card border">
             <div class="card-body">
                <!-- Filter Button -->
                <div class="d-flex justify-content-end mb-3">

@@ -320,7 +320,7 @@ textarea:-ms-input-placeholder {
 	background-color: #4267B2;
 }
 .bg-primary {
-	background-color: #4267B2; !important
+	background-color: #4267B2 !important;
 }
 
 .border-bottom {
@@ -6369,7 +6369,7 @@ only screen and (min-width: 992px) and (max-width: 1199px) {
 .feature-section {
     background-color: #4267B2;
     padding-top: 5px;
-    padding-bottom: 30px;s
+    padding-bottom: 30px;
 }
 
 .single-feature {
@@ -10242,9 +10242,9 @@ only screen and (max-width: 767px) {
 }
 
 
-only screen and (max-width: 767px) {
+@media only screen and (max-width: 767px) {
 	.single-pricing.active1 {
-		margin-top: 30px
+		margin-top: 30px;
 	}
 }
 
@@ -12302,9 +12302,10 @@ only screen and (max-width: 575px) {
 }
 
 .custom-link {
-	color: #fff;
+	/* color: #fff; */
     display: inline-block;
-    padding: 10px 8px 10px 7px;
+    /* padding: 10px 8px 10px 7px; */
+	border-radius: 6px;
 }
 .custom-link.active {
     background: #19a752;

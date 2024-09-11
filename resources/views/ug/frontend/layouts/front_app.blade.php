@@ -38,6 +38,49 @@
       gtag('js', new Date());
       gtag('config', 'G-1FFXRTE23D');
    </script>
+
+   <style>
+      .custom-menu-link {
+         transition: all 0.3s ease;
+         color: black !important
+      }
+
+      .custom-menu-link:hover:not(.nav-link.active) {
+         /* transform: scale(1.05); */
+         background-color: rgba(0, 0, 255, 0.4);
+         text-decoration: none;
+         color: black
+      }
+
+      .nav-link.active {
+         /* transform: scale(1.05); */
+         text-decoration: none;
+         --bs-text-opacity: 1;
+
+      }
+
+      .nav-link.active i {
+         color: #ffcc00;
+      }
+
+      .nav-link.active span {
+         color: white !important;
+      }
+
+      .text-secondary {
+         color: #6c757d;
+      }
+
+      .text-danger {
+         color: #dc3545;
+      }
+
+      .neet-pg-layout card {
+         border: 1px solid grey;
+         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+         transition: box-shadow 0.3s ease;
+      }
+   </style>
 </head>
 
 <body oncopy="return false" oncut="return false" onselectstart="return false">
@@ -49,6 +92,8 @@
       <!-- Preloader End  -->
 
       @include('frontend.include.header')
+
+      @yield('console-header')
 
       @yield('content')
 
