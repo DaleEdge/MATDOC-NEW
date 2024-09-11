@@ -25,7 +25,7 @@
             <!-- Pricing Card Start -->
             <div class="col-lg-5 col-md-6 col-sm-12 mt-5">
                 <div class="pricing-card shadow-lg p-4 rounded fixed-height">
-                    <div class="pricing-header text-center mt-4">
+                    <div class="pricing-header text-center mb-4">
                         <h3 class="title">Basic Plan</h3>
                         <p class="price">₹<span>3999</span> + 18% tax</p>
                     </div>
