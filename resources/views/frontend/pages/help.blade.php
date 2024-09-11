@@ -135,7 +135,8 @@
                                     <div class="col-md-12">
                                         <!-- Single Form Start -->
                                         <div class="single-form text-center">
-                                            <button type="submit" class="btn btn-primary btn-hover-heading-color">Send
+                                            <button type="submit" class="btn btn-primary btn-hover-heading-color"
+                                                style="padding-top:initial">Send
                                                 Message</button>
                                         </div>
                                         <!-- Single Form End -->
