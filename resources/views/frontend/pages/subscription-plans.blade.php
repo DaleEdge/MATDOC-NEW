@@ -46,7 +46,7 @@
                         </ul>
                     </div>
                     <div class="pricing-footer text-center mt-2">
-                        @if (empty(Auth::check() && optional(Auth::check() && Auth::user()->payment->user_id)))
+                        @if (empty(Auth::check() && optional(Auth::check() && Auth::user()->payment && Auth::user()->payment->user_id)))
                             <form action="{{ route('user-login') }}">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::user() && Auth::user()->id }}">
@@ -90,7 +90,7 @@
                         </ul>
                     </div>
                     <div class="pricing-footer text-center mt-4">
-                        @if (empty(Auth::user()->payment->user_id))
+                        @if (empty(Auth::check() && Auth::user()->payment && Auth::user()->payment->user_id))
                             <form action="{{ route('user-login') }}">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::user() && Auth::user()->id }}">
@@ -100,7 +100,7 @@
                                     Now</button>
                             </form>
                         @else
-                            @if (optional(Auth::user()->payment)->plan_name == 'Plan of 24999')
+                            @if (optional(Auth::check() && Auth::user() && Auth::user()->payment)->plan_name == 'Plan of 24999')
                                 <a class="btn btn-secondary">Subscribed</a>
                             @endif
                         @endif
