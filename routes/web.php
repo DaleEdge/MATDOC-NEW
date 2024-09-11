@@ -19,6 +19,13 @@ use App\Models\User;
 |
 */
 
+// Headers
+Route::get('/', [FrontController::class, 'index'])->name('index');
+Route::get('/console', [FrontController::class, 'console'])->name('console');
+Route::get('/subscription-plans', [FrontController::class, 'subscription_plans'])->name('subscription_plans');
+Route::get('/about-us', [FrontController::class, 'about_us'])->name('about_us');
+Route::get('/contact-us', [FrontController::class, 'help'])->name('help');
+
 // Redirect to Google OAuth
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 
@@ -84,10 +91,9 @@ Route::delete('/aiz-uploader/destroy/{id}', [AizUploadController::class, 'destro
 Route::post('/aiz-uploader/get_file_by_ids', [AizUploadController::class, 'get_preview_files']);
 Route::get('/aiz-uploader/download/{id}', [AizUploadController::class, 'attachment_download'])->name('download_attachment');
 
-Route::get('/', [App\Http\Controllers\Front\FrontController::class, 'index'])->name('index');
+
 Route::get('/home', [App\Http\Controllers\Front\FrontController::class, 'allotments_data'])->name('home_user');
-Route::get('/contact-us', [FrontController::class, 'help'])->name('help');
-Route::get('/subscription-plans', [FrontController::class, 'subscription_plans'])->name('subscription_plans');
+
 Route::post('/subscription-plans-pay', [FrontController::class, 'subscription_plans_pay'])->name('subscription_plans_pay');
 
 Route::get('/all-india-counselings', [FrontController::class, 'all_india_counselings'])->name('all_india_counselings');
@@ -100,7 +106,6 @@ Route::get('/fee-details', [FrontController::class, 'fee_details'])->name('fee_d
 Route::get('/state-wise-counselings', [FrontController::class, 'state_wise_counselings'])->name('state_wise_counselings');
 Route::get('/state-wise-counseling-details-andhra', [FrontController::class, 'state_wise_counseling_details'])->name('state_wise_counseling_details_andhra');
 Route::get('/state-wise-counseling-details', [FrontController::class, 'state_wise_counseling_details'])->name('state_wise_counseling_details')->middleware("checkSubscription");
-Route::get('/about-us', [FrontController::class, 'about_us'])->name('about_us');
 Route::get('/college-list', [FrontController::class, 'collage_list'])->name('college_list');
 Route::get('/college-details/{id}', [FrontController::class, 'collage_details'])->name('college_details');
 Route::get('/term-and-condition', [FrontController::class, 'term_condition'])->name('term_condition');

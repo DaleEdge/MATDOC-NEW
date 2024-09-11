@@ -10,6 +10,7 @@
       content="neet pg counselling 2024, neet pg counselling 2024 schedule, all india neet pg counselling 2024, neet pg counselling 2024 dates,neet pg counselling 2024 registration,neet pg counselling 2024 latest news,neet pg counselling 2024 result ">
    <meta name="description"
       content="neet pg counselling 2024, best neet pg colleges maharashtra neet pg counselling 2024, bihar neet pg counselling 2024, haryana neet pg counselling 2024,tamil nadu neet pg counselling 2024,karnataka neet pg counselling 2024,mp neet pg counselling 2024,rajasthan neet pg counselling 2024,up neet pg counselling 2024,assam neet pg counselling 2024,karnatka neet pg counselling 2024">
+
    <!-- Favicon -->
    <link rel="shortcut icon" type="image/x-icon" href="{{asset('front_css/assets/images/favicon.png')}}">
    <!-- Icon Font CSS -->
@@ -40,7 +41,9 @@
       </div>
       <!-- Preloader End  -->
 
-      @include('frontend.include.header-2')
+      @include('frontend.include.header')
+
+      @yield('console-header')
 
       @yield('content')
 

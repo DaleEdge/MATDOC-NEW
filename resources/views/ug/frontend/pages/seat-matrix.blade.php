@@ -106,6 +106,10 @@
    }
 </style>
 
+@section('console-header')
+@include('frontend.pages.console') <!-- This includes the content from console-header.blade.php -->
+@endsection
+
 @section('content')
 <!-- Counter Start -->
 <div class="section counter-section mb-5">

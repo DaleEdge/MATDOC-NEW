@@ -1,218 +1,184 @@
 @extends('frontend.layouts.front_app')
+
+
 @section('content')
-    <!-- Page Banner Start -->
-    <div class="section page-banner-section bg-color-1">
-        <img class="shape-4" src="{{ asset('front_css/assets/images/shape/shape-21.png') }}" alt="shape">
-        <img class="shape-5" src="{{ asset('front_css/assets/images/shape/shape-21.png') }}" alt="shape">
-
-        <div class="container">
-            <!-- Page Banner Content Start -->
-            <div class="page-banner-content">
-                <h2 class="title">Plan</h2>
-                <ul class="breadcrumb justify-content-center">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active">Subsciption Plan </li>
-                </ul>
-            </div>
-            <!-- Page Banner Content End -->
+<!-- Page Banner Start -->
+<div class="section page-banner-section bg-color-1">
+    <div class="container">
+        <!-- Page Banner Content Start -->
+        <div class="page-banner-content text-center py-2">
+            <h2 class="">Subscription Plans</h2>
+            <!-- <ul class="breadcrumb justify-content-center">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active">Subscription Plans</li>
+            </ul> -->
         </div>
+        <!-- Page Banner Content End -->
     </div>
-    <!-- Page Banner End -->
-    <!-- Pricing Start -->
-    <div class="section mb-5">
-        <div class="container mb-5">
-            <!-- Pricing Wrapper End -->
-            <div class="pricing-wrapper">
-                <div class="tab-content">
-                    <div class="tab-pane fade show active">
-                        <div class="row justify-content-center gx-0">
-                            <div class="col-lg-6 col-md-8 mb-3">
-                                <!-- Single Pricing Start -->
-                                <div class="single-pricing active">
-                                    <div class="pricig-header">
-                                        <h3 class="title">Subsciption</h3>
-                                        <p>₹<span>3999</span> + 18% tax/-</p>
-                                        <hr>
-                                    </div>
+</div>
+<!-- Page Banner End -->
 
-                                    <div class="pricig-body">
-                                        <p>Access to complete College wise Cutoffs, Fees Structure.</p>
-                                        <p>Access to all Updated Bond & Stipends.</p>
-                                        <p>Personalized Student Report – Just Put your Rank, Branch Wanted, Budget Allowed &
-                                            your Category and get the Complete PDF report, made just for you. All your major
-                                            doubts will be cleared after seeing this.</p>
-                                        <p>Complete Choice Filling from team MatDoc.</p>
-                                        <p>You’ll be added to our Premium Telegram group made just for paid members.</p>
-                                        <ul class="pricig-list">
-                                            <p>Get all College Department wise details, like - </p>
-                                            <li>Radio –Daily Basis CT Scans, MRI, Ultrasounds,</li>
-                                            <li>Gen surgery – IPD Details – Daily Basis Major Surgery, Minor Surgery</li>
-                                            <li>Gen Medicine –Daily Basis OPD Details, Hospital ICU Beds.</li>
-                                            <li>Etc for all Departments.</li>
-                                        </ul><br>
-                                        <p>Access to Website till Admission Process.</p>
-                                    </div><br><br>
-                                    <div class="pricig-header">
-                                        @if (empty(optional(Auth::user()->payment)->user_id))
-                                        <form action="{{route('subscription_plans_pay')}}" method="post">
-                                            @csrf()
-                                                <input type="hidden" name="user_id"  value="{{Auth::user()->id}}">
-                                                <input type="hidden" name="packages" value="3999">
-                                                <!-- <a class="btn btn-white btn-hover-heading-color" href="{{route('subscription_plans_pay')}}" id="pay-btn">Pay
-                                                Now</a> -->
-                                                <button class="btn btn-white btn-hover-heading-color">Pay
-                                                Now</button>
-                                            </form>
-
-                                        @else
-                                        @if (optional(Auth::user()->payment)->plan_name=='Plan of 3999')
-                                        <a class="btn btn-white btn-hover-heading-color">Subscribed</a>
-                                     @endif
-                                        @endif
-                                    </div>
-
-
-                                </div>
-                                <!-- Single Pricing End -->
-                            </div>
-                            <div class="col-lg-6 col-md-8">
-                                <!-- Single Pricing Start -->
-                                <div class="single-pricing active1">
-                                    <div class="pricig-header">
-                                        <h3 class="title">Subsciption</h3>
-                                        <p>₹<span>24,999</span>/-</p>
-                                        <hr>
-                                    </div>
-                                    <div class="pricig-body">
-                                        <p>One to One Consulting – A personalized mentor to guide you.</p>
-                                        <p>Admission Support.</p>
-                                        <p>24x7 Assistance on Call.</p>
-                                        <p>Documentation Support.</p>
-                                        <p>Access to complete College wise Cutoffs, Fees Structure.</p>
-                                        <p>Access to all Updated Bond & Stipends.</p>
-                                        <p>Personalized Student Report – Just Put your Rank, Branch Wanted, Budget Allowed &
-                                            your Category and get the Complete PDF report, made just for you. All your major
-                                            doubts will be cleared after seeing this.</p>
-                                        <ul class="pricig-list">
-                                            <p>Get all College Department wise details, like - </p>
-                                            <li>Radio –Daily Basis CT Scans, MRI, Ultrasounds.</li>
-                                            <li>Gen surgery – IPD Details – Daily Basis Major Surgery, Minor Surgery.</li>
-                                            <li>Gen Medicine –Daily Basis OPD Details, Hospital ICU Beds.</li>
-                                            <li>Etc for all the departments.</li><br>
-                                            <p>You’ll be added to our Premium Telegram group made just for paid members.
-                                                Complete Choice Filling from team MatDoc.</p>
-                                        </ul>
-                                        </ul>
-                                        <div class="pricig-header">
-                                            @if (empty(optional(Auth::user()->payment)->user_id))
-                                            <form action="{{route('subscription_plans_pay')}}" method="post">
-                                            @csrf()
-                                                <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-                                                <input type="hidden" name="packages" value="24999">
-                                                <!-- <a class="btn btn-white btn-hover-heading-color" href="{{route('subscription_plans_pay')}}" id="pay-btn">Pay
-                                                Now</a> -->
-                                                <button class="btn btn-white btn-hover-heading-color">Pay
-                                                Now</button>
-                                            </form>
-                                        @else
-                                         @if (optional(Auth::user()->payment)->plan_name=='Plan of 24999')
-                                            <a class="btn btn-white btn-hover-heading-color">Subscribed</a>
-                                         @endif
-                                        @endif
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Single Pricing End -->
-                            </div>
-                        </div>
+<!-- Pricing Start -->
+<div class="section pricing-section mb-5">
+    <div class="container">
+        <div class="row d-flex justify-content-around mb-4">
+            <!-- Pricing Card Start -->
+            <div class="col-lg-5 col-md-6 col-sm-12 mt-5">
+                <div class="pricing-card shadow-lg p-4 rounded fixed-height">
+                    <div class="pricing-header text-center mt-4">
+                        <h3 class="title">Basic Plan</h3>
+                        <p class="price">₹<span>3999</span> + 18% tax</p>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="list-unstyled">
+                            <li><i class="fa fa-check-circle text-success"></i> Access to complete College wise Cutoffs,
+                                Fees Structure</li>
+                            <li><i class="fa fa-check-circle text-success"></i> Access to all Updated Bond & Stipends
+                            </li>
+                            <li><i class="fa fa-check-circle text-success"></i> Personalized Student Report</li>
+                            <li><i class="fa fa-check-circle text-success"></i> Complete Choice Filling from team MatDoc
+                            </li>
+                            <li><i class="fa fa-check-circle text-success"></i> Premium Telegram group access</li>
+                            <li><i class="fa fa-check-circle text-success"></i> Detailed College Department wise
+                                information</li>
+                            <li><i class="fa fa-check-circle text-success"></i> Access to Website till Admission Process
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pricing-footer text-center mt-2">
+                        @if (empty(Auth::check() && optional(Auth::check() && Auth::user()->payment->user_id)))
+                            <!-- <form action="{{ route('subscription_plans_pay') }}" method="post"> -->
+                            <!-- @csrf -->
+                            <input type="hidden" name="user_id" value="{{ Auth::user() && Auth::user()->id }}">
+                            <input type="hidden" name="packages" value="3999">
+                            <button class="btn btn-outline-primary rounded" style="padding-top:initial" class="pay-now"
+                                type="submit">Pay Now</button>
+                            <!-- </form> -->
+                        @else
+                            @if (optional(Auth::check() && Auth::user()->payment)->plan_name == 'Plan of 3999')
+                                <a class="btn btn-secondary">Subscribed</a>
+                            @endif
+                        @endif
                     </div>
                 </div>
-
             </div>
-            <!-- Pricing Wrapper End -->
+            <!-- Pricing Card End -->
 
-        </div>
-    </div>
-    <!-- Pricing End -->
-    <!-- The Modal -->
-    <div class="modal" id="myModal">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                {{-- <div class="modal-header">
-              <h4 class="modal-title">Payment Success</h4>
-              <button type="button" class="close" id="close">&times;</button>
-            </div> --}}
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <a type="button" class="close" id="close"
-                        style="right: 10px;top: 0px;position: absolute;font-size: 20px;">
-                        <li class="fa fa-close"></li>
-                    </a>
-                    <center>
-                        <h4 class="modal-title">Payment Success</h4> <br>
-                        <img src="http://craftizen.org/wp-content/uploads/2019/02/successful_payment_388054.png"
-                            style="width: 70px;"><br>
-                        <p id="payment_id"></p>
-                        You Have Successfully Paid ₹ 1990
-                    </center>
+            <!-- Pricing Card Start -->
+            <div class="col-lg-5 col-md-6 col-sm-12 mt-5">
+                <div class="pricing-card shadow-lg p-4 rounded fixed-height">
+                    <div class="pricing-header text-center mb-4">
+                        <h3 class="title">Premium Plan</h3>
+                        <p class="price">₹<span>24,999</span></p>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="list-unstyled">
+                            <li><i class="fa fa-check-circle text-success"></i> One to One Consulting</li>
+                            <li><i class="fa fa-check-circle text-success"></i> Admission Support</li>
+                            <li><i class="fa fa-check-circle text-success"></i> 24x7 Assistance on Call</li>
+                            <li><i class="fa fa-check-circle text-success"></i> Documentation Support</li>
+                            <li><i class="fa fa-check-circle text-success"></i> Access to complete College wise Cutoffs,
+                                Fees Structure</li>
+                            <li><i class="fa fa-check-circle text-success"></i> Access to all Updated Bond & Stipends
+                            </li>
+                            <li><i class="fa fa-check-circle text-success"></i> Personalized Student Report</li>
+                            <li><i class="fa fa-check-circle text-success"></i> Detailed College Department wise
+                                information</li>
+                            <li><i class="fa fa-check-circle text-success"></i> Premium Telegram group access</li>
+                            <li><i class="fa fa-check-circle text-success"></i> Complete Choice Filling from team MatDoc
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pricing-footer text-center mt-4">
+                        @if (empty(Auth::user()->payment->user_id))
+                            <!-- <form action="{{ route('subscription_plans_pay') }}" method="post"> -->
+                            <!-- @csrf -->
+                            <input type="hidden" name="user_id" value="{{ Auth::user() && Auth::user()->id }}">
+                            <input type="hidden" name="packages" value="24999">
+                            <button class="btn rounded btn-outline-primary pay-now" style="padding-top:initial"
+                                type="submit">Pay
+                                Now</button>
+                            <!-- </form> -->
+                        @else
+                            @if (optional(Auth::user()->payment)->plan_name == 'Plan of 24999')
+                                <a class="btn btn-secondary">Subscribed</a>
+                            @endif
+                        @endif
+                    </div>
                 </div>
+            </div>
+            <!-- Pricing Card End -->
+        </div>
+    </div>
+</div>
+<!-- Pricing End -->
 
+<!-- Modals -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <!-- Modal Body -->
+            <div class="modal-body text-center">
+                <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Payment Success</h4>
+                <img src="http://craftizen.org/wp-content/uploads/2019/02/successful_payment_388054.png"
+                    style="width: 70px;">
+                <p id="payment_id"></p>
+                You Have Successfully Paid ₹3999
             </div>
         </div>
     </div>
+</div>
 
-
-    <div class="modal" id="paymentmodel" style="background: #212529cf;">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <div id="payment-form"></div>
-                </div>
-
+<div class="modal fade" id="paymentmodel" tabindex="-1" role="dialog" aria-labelledby="paymentmodelLabel"
+    aria-hidden="true" style="background: #212529cf;">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <div id="payment-form"></div>
             </div>
         </div>
     </div>
+</div>
+
 @endsection
 
 @section('script')
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="https://sdk.cashfree.com/js/ui/1.0.26/dropinClient.prod.js"></script>
-    <script>
-        $("#close").click(function() {
-            $('#myModal').hide();
-            location.reload();
-        });
-    </script>
-    {{-- <script>
-        let orderToken = "";
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://sdk.cashfree.com/js/ui/1.0.26/dropinClient.prod.js"></script>
+<script>
+    $("#close").click(function () {
+        $('#myModal').modal('hide');
+        location.reload();
+    });
+
+    $('#paymentmodel').on('show.bs.modal', function (e) {
+        const orderToken = "";
         const cashfree = new Cashfree();
         const paymentDom = document.getElementById("payment-form");
-        const success = function(data) {
+        const success = function (data) {
             if (data.order && data.order.status == "PAID") {
                 $.ajax({
                     url: "{{ route('checkstatus') }}" + '?order_id=' + data.order.orderId,
-                    success: function(result) {
+                    success: function (result) {
                         if (result.order_status == "PAID") {
-                            $('#paymentmodel').hide();
-                            $('#myModal').show();
+                            $('#paymentmodel').modal('hide');
+                            $('#myModal').modal('show');
                         }
                     },
                 });
             } else {
-                //order is still active
                 alert("Order is ACTIVE")
             }
         }
-        let failure = function(data) {
+        let failure = function (data) {
             alert(data.order.errorText)
         }
         document.getElementById("pay-btn").addEventListener("click", () => {
-            $('#paymentmodel').show();
+            $('#paymentmodel').modal('show');
             const dropConfig = {
                 "components": [
                     "order-details",
@@ -229,43 +195,22 @@
                     "fontFamily": "Lato",
                     "fontSize": "14px",
                     "errorColor": "#ff0000",
-                    "theme": "light", //(or dark)
+                    "theme": "light",
                 }
             }
             if (orderToken == "") {
                 $.ajax({
                     url: "{{ route('fetchtoken') }}",
-                    success: function(result) {
+                    success: function (result) {
                         orderToken = result["order_token"];
-                        const dropConfig = {
-                            "components": [
-                                "order-details",
-                                "card",
-                                "netbanking",
-                                "app",
-                                "upi"
-                            ],
-                            "orderToken": orderToken,
-                            "onSuccess": success,
-                            "onFailure": failure,
-                            "style": {
-                                "backgroundColor": "#ffffff",
-                                "color": "#11385b",
-                                "fontFamily": "Lato",
-                                "fontSize": "14px",
-                                "errorColor": "#ff0000",
-                                "theme": "light", //(or dark)
-                            }
-                        }
                         const cashfree = new Cashfree();
-                        const paymentDom = document.getElementById("payment-form");
                         cashfree.initialiseDropin(paymentDom, dropConfig);
                     },
                 });
             } else {
                 cashfree.initialiseDropin(paymentDom, dropConfig);
             }
-
         })
-    </script> --}}
+    });
+</script>
 @endsection

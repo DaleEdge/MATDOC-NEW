@@ -39,6 +39,10 @@ class FrontController extends Controller
     {
         return view('frontend.pages.index');
     }
+    public function console()
+    {
+        return view('frontend.pages.console');
+    }
     public function home()
     {
         return view('frontend.pages.home');
@@ -506,7 +510,7 @@ class FrontController extends Controller
                     }
                     Session::flash('success', 'Login Successfully !');
 
-                    return redirect()->route($user->customer->exam_type == "UG" ? 'ug.home_user' : "home_user");
+                    return redirect()->route('console');
                 } else {
                     $validator->getMessageBag()->add('password', 'Password Wrong');
                     return back()->withErrors($validator)->withInput();
@@ -526,7 +530,7 @@ class FrontController extends Controller
                 } else {
                     auth()->login($user, false);
                 }
-                return redirect()->route('home_user');
+                return redirect()->route('console');
             }
         } else {
         }

@@ -8,7 +8,8 @@
                     <div class="footer-widget">
                         <h4 class="footer-widget-title">About MatDoc</h4>
                         <div class="widget-info">
-                            <p> We at MatDoc, help students in getting the best possible college in their desired Branch.</p>
+                            <p> We at MatDoc, help students in getting the best possible college in their desired
+                                Branch.</p>
                         </div>
                     </div>
                     <!-- Footer Widget End -->
@@ -22,7 +23,7 @@
                                 <li><a href="{{route('index')}}">Home</a></li>
                                 <li><a href="{{route('about_us')}}">About Us</a></li>
                                 <li><a href="{{route('college_list')}}">College</a></li>
-                                <li><a href="{{route('services')}}">Pricing</a></li>
+                                <li><a href="{{route('subscription_plans')}}">Packages</a></li>
                             </ul>
                         </div>
                     </div>
@@ -35,6 +36,7 @@
                         <div class="widget-link">
                             <ul class="link">
                                 <li><a href="{{route('privacy_policy')}}">Privacy & Policy</a></li>
+                                <li><a href="{{route('privacy_policy')}}">Package Policy</a></li>
                                 <li><a href="{{route('term_condition')}}">Terms & Condition</a></li>
                             </ul>
                         </div>
@@ -45,10 +47,13 @@
                     <div class="footer-widget">
                         <h4 class="footer-widget-title">Contact Us</h4>
                         <div class="widget-info">
-                            <p><i class="flaticon-phone-call"></i> <a href="tel:+91-6369149396" style="color:#c3bfbf">+91-6369149396</a>, <a href="tel:+91-8015958614" style="color:#c3bfbf">+91-8015958614</a></p>
-                            <p><i class="flaticon-placeholder"></i> <a
-                                    href="mailto:info@matdoc.in" style="color:#c3bfbf">info@matdoc.in</a></p>
-                            <p><i class="flaticon-open-mail"></i> <span>639, Veeravanji St Vandiyur Madurai TamilNadu (625020)</span>
+                            <p><i class="flaticon-phone-call"></i> <a href="tel:+91-6369149396"
+                                    style="color:#c3bfbf">+91-6369149396</a>, <a href="tel:+91-8015958614"
+                                    style="color:#c3bfbf">+91-8015958614</a></p>
+                            <p><i class="flaticon-placeholder"></i> <a href="mailto:info@matdoc.in"
+                                    style="color:#c3bfbf">info@matdoc.in</a></p>
+                            <p><i class="flaticon-open-mail"></i> <span>639, Veeravanji St Vandiyur Madurai TamilNadu
+                                    (625020)</span>
                             </p>
                             <ul class="social">
                                 <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
@@ -71,7 +76,7 @@
 
 
 
-<div class="whatsp">
+<div class="whatsp" style="z-index:99999">
     <!--- whatsapp icon start here -->
     <a href="https://wa.me/6369149396" target="_blank">
         <img src="{{ asset('front_css/assets/images/neet-whatsapp.png') }}">
@@ -80,12 +85,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!--Shailesh -->
 <script>
-    jQuery(function($) {
+    jQuery(function ($) {
         var path = window.location.href;
-        if (path == 'https://matdoc.in/') {} else {
+        if (path == 'https://matdoc.in/') { } else {
             // because the 'href' property of the DOM element is the absolute path
             $('.main-menu li a').removeClass('active');
-            $('.main-menu li a').each(function() {
+            $('.main-menu li a').each(function () {
                 if (this.href === path) {
                     $(this).addClass('active');
                 }
@@ -93,25 +98,25 @@
         }
     });
 
-    jQuery(function($) {
+    jQuery(function ($) {
         var path = window.location.href;
         // because the 'href' property of the DOM element is the absolute path
         $('.navbar-navs li a').removeClass('active');
-        $('.navbar-navs li a').each(function() {
+        $('.navbar-navs li a').each(function () {
             if (this.href === path) {
                 $(this).addClass('active');
             }
         });
     });
 
-    $(function() {
-        $('.single-form a').click(function(e) {
+    $(function () {
+        $('.single-form a').click(function (e) {
             $('.single-form a').removeClass('active');
             $(this).addClass('active');
         });
     });
-    $(function() {
-        $('.single-category-items a').click(function(e) {
+    $(function () {
+        $('.single-category-items a').click(function (e) {
             $('.single-category-items a').removeClass('current');
             $(this).addClass('current');
         });
