@@ -27,13 +27,14 @@
         <div class="row d-flex justify-content-center">
             <!-- PG Section -->
             @if (Auth::user()->customer->contains('exam_type', 'PG'))
-                <div class="rounded p-0 mt-4" style="border:1px solid #4267B2">
-                    <div class="text-center rounded-top text-white mb-1 fs-5 fw-bold" style="background-color:#4267B2">PG</div>
+                <div class="col-lg-6 col-md-12 col-sm-12 rounded p-0 mt-4" style="border:1px solid #e7bb75">
+                    <div class="text-center rounded-top text-white mb-1 fs-6 py-1 fw-bold" style="background-color:#e7bb75">PG
+                    </div>
                     <div class="nav d-flex justify-content-center">
                         @foreach ([['route' => 'home_user', 'icon' => 'calendar-alt', 'text' => 'Allotments', 'color' => 'text-primary'], ['route' => 'closing_rank', 'icon' => 'ranking-star', 'text' => 'Closing Ranks', 'color' => 'text-warning'], ['route' => 'seat_matrix', 'icon' => 'th', 'text' => 'Seat Matrix', 'color' => 'text-success'], ['route' => 'fees_stipend_bond', 'icon' => 'money-bill-wave', 'text' => 'Fee, Stipend and Bond', 'color' => 'text-info']] as $item)
-                            <div class="col nav-item p-1">
+                            <div class="nav-item p-1">
                                 <a href="{{ route($item['route']) }}"
-                                    class="nav-link text-center custom-menu-link pt-3 {{ request()->routeIs($item['route']) ? 'active' : '' }}">
+                                    class="nav-link text-center custom-menu-link pt-3 border-0 {{ request()->routeIs($item['route']) ? 'active' : '' }}">
                                     <i class="fas fa-{{ $item['icon'] }} fs-5"></i>
                                     <span class="d-block">{{ $item['text'] }}</span>
                                 </a>
@@ -45,13 +46,14 @@
 
             <!-- UG Section -->
             @if (Auth::user()->customer->contains('exam_type', 'UG'))
-                <div class="rounded p-0 mt-4" style="border:1px solid #a047d2">
-                    <div class="text-center rounded-top text-white mb-1 fs-5 fw-bold" style="background-color:#4267B2">UG</div>
-                    <div class="nav d-flex justify-content-between">
+                <div class="col-lg-6 col-md-12 col-sm-12 rounded p-0 mt-4" style="border:1px solid #e7bb75">
+                    <div class="text-center rounded-top text-white mb-1 fs-6 py-1 fw-bold" style="background-color:#e7bb75">UG
+                    </div>
+                    <div class="nav d-flex justify-content-center">
                         @foreach ([['route' => 'ug.home_user', 'icon' => 'calendar-alt', 'text' => 'Allotments', 'color' => 'text-secondary'], ['route' => 'ug.closing_rank', 'icon' => 'ranking-star', 'text' => 'Closing Ranks', 'color' => 'text-danger'], ['route' => 'ug.seat_matrix', 'icon' => 'th', 'text' => 'Seat Matrix', 'color' => 'text-info'], ['route' => 'ug.fees_stipend_bond', 'icon' => 'money-bill-wave', 'text' => 'Fee, Stipend and Bond', 'color' => 'text-warning']] as $item)
-                            <div class="col nav-item p-1">
+                            <div class="nav-item p-1">
                                 <a href="{{ route($item['route']) }}"
-                                    class="nav-link text-center custom-menu-link pt-3 {{ request()->routeIs($item['route']) ? 'active' : '' }}">
+                                    class="nav-link text-center custom-menu-link pt-3 border-0 {{ request()->routeIs($item['route']) ? 'active' : '' }}">
                                     <i class="fas fa-{{ $item['icon'] }} fs-5"></i>
                                     <span class="d-block">{{ $item['text'] }}</span>
                                 </a>

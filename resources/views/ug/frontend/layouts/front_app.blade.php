@@ -54,6 +54,7 @@
 
       .nav-link.active {
          /* transform: scale(1.05); */
+         background-color: #678edd !important;
          text-decoration: none;
          --bs-text-opacity: 1;
 

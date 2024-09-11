@@ -95,7 +95,7 @@
                     <li><a href="{{ route('console') }}">Console</a></li>
                     <li><a href="{{ route('subscription_plans') }}">Packages</a></li>
                     <li><a href="{{ route('about_us') }}">About Us</a></li>
-                    <li><a href="{{ route('user_dashboard') }}">Profile</a></li>
+                    <!-- <li><a href="{{ route('user_dashboard') }}">Profile</a></li> -->
                     <li><a href="{{ route('help') }}">Contact Us</a></li>
                 </ul>
             </div>
