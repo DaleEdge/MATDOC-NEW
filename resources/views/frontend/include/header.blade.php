@@ -104,49 +104,49 @@
                     @if (Auth::check())
                         <a class="link" href="{{ route('user_logout') }}"><i class="fa fa-sign-out"></i> Logout</a>
                     @else
-                        <div class="d-flex justify-content-center">
-                            <div class="btn btn-outline-primary rounded" style="padding-top:initial"><a
-                                    class="link fs-6" style="text-transform: none;"
-                                    href="{{ route('user-login') }}"><i class="fa fa-user-o"></i> Login</a></div>&nbsp;&nbsp;&nbsp;
-                            <div class="btn btn-primary rounded" style="padding-top:initial"><a class="link"
-                                    style="text-transform: none;" href="{{ route('user-register') }}">Register</a></div>
-                        </div>
-                        <!-- <a class="link" href="{{ route('user-login') }}"><i class="fa fa-user-o"></i> Login</a>
-                                                                                                                            <a class="link" href="{{ route('user-register') }}">Register</a> -->
+                        <!-- <div class="d-flex justify-content-center"> -->
+                        <div class="btn btn-primary rounded" style="padding-top:initial"><a class="link fs-6"
+                                style="text-transform: none;" href="{{ route('user-login') }}"><i class="fa fa-user-o"></i>
+                                Login</a>
+                            <!-- <div class="btn btn-primary rounded" style="padding-top:initial"><a class="link"
+                                                        style="text-transform: none;" href="{{ route('user-register') }}">Register</a></div> -->
+                            <!-- </div> -->
+                            <!-- <a class="link" href="{{ route('user-login') }}"><i class="fa fa-user-o"></i> Login</a>
+                                                                                                                                                <a class="link" href="{{ route('user-register') }}">Register</a> -->
                     @endif
-                </div>
-                <div class="header-toggle d-lg-none">
-                    <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
+                    </div>
+                    <div class="header-toggle d-lg-none">
+                        <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="offcanvas offcanvas-start" id="offcanvasMenu">
-    <div class="offcanvas-header">
-        <div class="offcanvas-logo">
-            <a href="/"><img src="{{ asset('front_css/assets/images/logo.png') }}" alt="Logo"></a>
+    <div class="offcanvas offcanvas-start" id="offcanvasMenu">
+        <div class="offcanvas-header">
+            <div class="offcanvas-logo">
+                <a href="/"><img src="{{ asset('front_css/assets/images/logo.png') }}" alt="Logo"></a>
+            </div>
+            <button class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
-        <button class="btn-close" data-bs-dismiss="offcanvas"></button>
-    </div>
-    <div class="offcanvas-body">
-        <div class="offcanvas-menu">
-            <ul class="main-menu">
-                @if (Auth::check())
-                    @if(Auth::user()->user_type != 'admin')
-                        <li><a href="{{ route('user_dashboard') }}">Profile</a></li>
+        <div class="offcanvas-body">
+            <div class="offcanvas-menu">
+                <ul class="main-menu">
+                    @if (Auth::check())
+                        @if(Auth::user()->user_type != 'admin')
+                            <li><a href="{{ route('user_dashboard') }}">Profile</a></li>
+                        @endif
+                        <li><a href="{{ route('user_logout') }}">Logout</a></li>
+                    @else
+                        <li><a href="{{ route('user-login') }}">Login</a></li>
+                        <li><a href="{{ route('user-register') }}">Register</a></li>
                     @endif
-                    <li><a href="{{ route('user_logout') }}">Logout</a></li>
-                @else
-                    <li><a href="{{ route('user-login') }}">Login</a></li>
-                    <li><a href="{{ route('user-register') }}">Register</a></li>
-                @endif
-            </ul>
+                </ul>
+            </div>
         </div>
     </div>
-</div>

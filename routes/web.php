@@ -30,26 +30,46 @@ Route::get('/contact-us', [FrontController::class, 'help'])->name('help');
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 
 Route::get('auth/google/callback', function () {
+    // Fetch Google user data
     $googleUser = Socialite::driver('google')->stateless()->user();
 
-    // Check if the user already exists
+    // Check if the user already exists by email
     $user = User::where('email', $googleUser->getEmail())->first();
 
     if ($user) {
+        // Update google_user_id if it's not set
+        if (!$user->google_user_id) {
+            $user->google_user_id = $googleUser->getId();
+            $user->save();
+        }
+
         // Log in the existing user
         Auth::login($user, true);
+
+        // Check if mobile number exists; if not, redirect to mobile update modal
+        if (is_null($user->mobile)) {
+            return redirect()->route('index'); // Redirect to the mobile update modal
+        }
+
     } else {
-        // Store Google user data temporarily in session
-        session([
-            'google_user' => $googleUser
+        // User doesn't exist, create a new user
+        $user = User::create([
+            'name' => $googleUser->getName(),
+            'email' => $googleUser->getEmail(),
+            'google_user_id' => $googleUser->getId(),
         ]);
 
-        // Redirect to a form to capture additional fields
-        return redirect('/user-register');
+        // Log in the newly created user
+        Auth::login($user, true);
+
+        // Redirect to the mobile update modal to capture the mobile number
+        return redirect()->route('index');
     }
 
-    return redirect('/user_dashboard');
+    // If the user is logged in, redirect to the dashboard
+    return redirect()->route('index');
 });
+
 
 // Route to show the additional registration form
 Route::get('/user-register', function () {
@@ -184,6 +204,8 @@ Route::get('/get_states', [FrontController::class, 'get_states'])->name('get_sta
 Route::get('/get_institutes', [FrontController::class, 'get_institutes'])->name('get_institutes');
 Route::get('/get_institute_types', [FrontController::class, 'get_institute_types'])->name('get_institute_types');
 Route::get('/get_courses', [FrontController::class, 'get_courses'])->name('get_courses');
+
+Route::get('/mobile-number-update', [FrontController::class, 'mobile_number_update'])->name('mobile_number_update');
 
 Route::group(['prefix' => 'ug'], function () {
 

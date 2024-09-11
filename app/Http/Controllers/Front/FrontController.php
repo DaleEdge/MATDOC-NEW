@@ -52,6 +52,11 @@ class FrontController extends Controller
         return view('frontend.pages.help');
     }
 
+    public function mobile_number_update()
+    {
+        return view('frontend.user.mobile_number_update');
+    }
+
     public function subscription_plans()
     {
         return view('frontend.pages.subscription-plans');
@@ -510,7 +515,11 @@ class FrontController extends Controller
                     }
                     Session::flash('success', 'Login Successfully !');
 
-                    return redirect()->route('console');
+                    if ($user->phone == null) {
+                        return redirect()->route('mobile_number_update');
+                    }
+
+                    return redirect()->route('index');
                 } else {
                     $validator->getMessageBag()->add('password', 'Password Wrong');
                     return back()->withErrors($validator)->withInput();
@@ -616,7 +625,7 @@ class FrontController extends Controller
         $user->email = $request->email;
         $user->save();
         $customer = Customer::where('user_id', $user->id)->first();
-        $customer->dob = $request->dob;
+        // $customer->dob = $request->dob;
         $customer->state = $request->state;
         $customer->score = $request->score;
         if (Auth::user()->id == 13) {

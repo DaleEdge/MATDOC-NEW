@@ -6,11 +6,7 @@
                 <td>:</td>
                 <td><b>{{ Auth::user()->name }}</b></td>
             </tr>
-            <tr>
-                <td>Date Of Birth</td>
-                <td>:</td>
-                <td><b>{{ Auth::user()->customer->dob }}</b></td>
-            </tr>
+
             <tr>
                 <td>Email Address</td>
                 <td>:</td>
@@ -21,11 +17,7 @@
                 <td>:</td>
                 <td><b>{{ Auth::user()->phone }}</b></td>
             </tr>
-            <tr>
-                <td>State</td>
-                <td>:</td>
-                <td><b>{{ Auth::user()->customer->state }}</b></td>
-            </tr>
+
             <tr>
                 <td>Date Joined</td>
                 <td>:</td>

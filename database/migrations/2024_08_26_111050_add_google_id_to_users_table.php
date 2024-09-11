@@ -14,6 +14,7 @@ class AddGoogleIdToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
+            $table->string('google_user_id')->nullable();
             $table->string('exam_type')->nullable();
             $table->integer('score')->nullable();
             // $table->string('phone')->nullable();
@@ -23,7 +24,7 @@ class AddGoogleIdToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['exam_type', 'score']);
+            $table->dropColumn(['google_user_id', 'exam_type', 'score']);
         });
     }
 }
