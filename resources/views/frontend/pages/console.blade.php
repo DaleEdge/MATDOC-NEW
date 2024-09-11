@@ -50,7 +50,8 @@
                     <div class="nav d-flex justify-content-between">
                         @foreach ([['route' => 'ug.home_user', 'icon' => 'calendar-alt', 'text' => 'Allotments', 'color' => 'text-secondary'], ['route' => 'ug.closing_rank', 'icon' => 'ranking-star', 'text' => 'Closing Ranks', 'color' => 'text-danger'], ['route' => 'ug.seat_matrix', 'icon' => 'th', 'text' => 'Seat Matrix', 'color' => 'text-info'], ['route' => 'ug.fees_stipend_bond', 'icon' => 'money-bill-wave', 'text' => 'Fee, Stipend and Bond', 'color' => 'text-warning']] as $item)
                             <div class="col nav-item p-1">
-                                <a href="{{ route($item['route']) }}" class="nav-link text-center custom-menu-link pt-3">
+                                <a href="{{ route($item['route']) }}"
+                                    class="nav-link text-center custom-menu-link pt-3 {{ request()->routeIs($item['route']) ? 'active' : '' }}">
                                     <i class="fas fa-{{ $item['icon'] }} fs-5"></i>
                                     <span class="d-block">{{ $item['text'] }}</span>
                                 </a>
