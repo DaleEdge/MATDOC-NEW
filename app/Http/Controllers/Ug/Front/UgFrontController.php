@@ -162,6 +162,29 @@ class UgFrontController extends Controller
         return view('ug.frontend.pages.closing-rank');
     }
 
+    public function choice_list()
+    {
+
+        return view('ug.frontend.pages.choice-list');
+        }
+
+        public function choice_list_dropdown()
+        {
+    
+            $rows = DB::table('ug_allotments')
+            ->select(
+                'course',
+            )
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                });
+            })
+            ->orderBy('course', 'desc')
+            ->limit($length > 0 ? $length : 10)
+            ->offset($start)->get();
+
+        return response()->json(compact('rows'));
+    }
     public function closing_rank_details(Request $request)
     {
 
@@ -344,10 +367,7 @@ class UgFrontController extends Controller
         }
     }
 
-    public function choice_list()
-    {
-        return view('ug.frontend.pages.choice-list');
-        }
+  
 
 
 
@@ -2718,6 +2738,28 @@ class UgFrontController extends Controller
         return response()->json(compact('count', 'rows'));
         // }
     }
+    public function cl_get_courses(Request $request)
+{
+    $start = $request->start;
+    $length = $request->length;
+
+    // Get the total count of courses without applying any filters
+    $count = DB::table('ug_allotments')
+        ->groupBy('course')
+        ->get()->count();
+
+    // Get the rows of courses without applying any filters
+    $rows = DB::table('ug_allotments')
+        ->select('course')
+        ->groupBy('course')
+        ->orderBy('course', 'ASC')
+        ->limit($length > 0 ? $length : 10)
+        ->offset($start)
+        ->get();
+
+    // Return the count and rows as JSON response
+    return response()->json(compact('count', 'rows'));
+}
 
     public function get_courses(Request $request)
     {

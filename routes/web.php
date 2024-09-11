@@ -189,6 +189,7 @@ Route::group(['prefix' => 'ug'], function () {
     Route::get('/state-wise-counseling-details', [UgFrontController::class, 'state_wise_counseling_details'])->name('ug.state_wise_counseling_details')->middleware("checkSubscription");
     Route::get('/state-document', [UgFrontController::class, 'state_document'])->name('ug.state_document');
     Route::get('/choice_list', [UgFrontController::class, 'choice_list'])->name('ug.choice_list');
+    Route::get('/choice_list_dropdown', [UgFrontController::class, 'choice_list_dropdown'])->name('ug.choice_list_dropdown');
 
 
 
@@ -214,6 +215,7 @@ Route::group(['prefix' => 'ug'], function () {
     Route::get('/get_institutes', [UgFrontController::class, 'get_institutes'])->name('ug.get_institutes');
     Route::get('/get_institute_types', [UgFrontController::class, 'get_institute_types'])->name('ug.get_institute_types');
     Route::get('/get_courses', [UgFrontController::class, 'get_courses'])->name('ug.get_courses');
+    Route::get('/cl_get_courses', [UgFrontController::class, 'cl_get_courses'])->name('ug.cl_get_courses');
 
 });
 
