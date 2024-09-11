@@ -63,7 +63,7 @@
                             </div>
                             <div class="text-center">
                                 <!-- <p class="mt-2">Don't have an account ? <a href="{{route('user-register')}}"> Register -->
-                                Now</a></p>
+                                <!-- Now</a></p> -->
                                 <p>Lost your password ? <a href="{{route('forgot_password')}}"> Click Here</a></p>
                                 <p class="mt-2">Want to login in with Google account? <a
                                         href="{{ url('auth/google') }}"> Login with Google</a></p>
