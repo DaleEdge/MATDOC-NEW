@@ -27,7 +27,13 @@ class User extends Authenticatable
         'exam_type',
         'score', 
         'phone',
+<<<<<<< Updated upstream
         ];
+=======
+        'avatar',
+        ];
+        
+>>>>>>> Stashed changes
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -69,3 +75,4 @@ class User extends Authenticatable
 
 
 }
+

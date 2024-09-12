@@ -9,6 +9,10 @@ use App\Http\Controllers\ConsoleController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Ug\FilterController;
 use App\Models\User;
+use App\Http\Controllers\Auth\OAuthController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +27,10 @@ use App\Models\User;
 
 // Redirect to Google OAuth
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('/auth/google/callback', [OAuthController::class, 'handleGoogleCallback']);
 
-Route::get('auth/google/callback', function () {
+/*Route::get('auth/google/callback', function () {
+    // Fetch Google user data
     $googleUser = Socialite::driver('google')->stateless()->user();
 
     // Check if the user already exists
@@ -74,7 +80,7 @@ Route::post('/user-register', function (Request $request) {
 
     return redirect('/user_dashboard');
 });
-
+*/
 //Route::get('/deemed', [App\Http\Controllers\Front\FrontController::class, 'new_deemed']);
 Route::get('/deemed_fees', [App\Http\Controllers\Front\FrontController::class, 'deemed_fees'])->name('deemed_fees');
 Route::get('/deemed_details', [App\Http\Controllers\Front\FrontController::class, 'deemed_details'])->name('deemed_details');

@@ -13,7 +13,7 @@
         "illuminate/support": "*",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
-        "laravel/socialite": "^5.15",
+        "laravel/socialite": "^5.16",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
         "laravelcollective/html": "^6.4",

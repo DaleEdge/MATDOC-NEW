@@ -6,38 +6,56 @@ use App\Http\Controllers\Controller;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Exception;
 
 class GoogleController extends Controller
 {
+    /**
+     * Redirect the user to the Google authentication page.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function redirectToGoogle()
     {
         return Socialite::driver('google')->redirect();
     }
 
+    /**
+     * Handle the Google callback.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function handleGoogleCallback()
     {
         try {
-            $googleUser = Socialite::driver('google')->user();
-            
-            $user = User::where('email', $googleUser->getEmail())->first();
+            $user = Socialite::driver('google')->user();
 
-            if ($user) {
-                Auth::login($user);
+            // Check if user exists
+            $existingUser = User::where('google_id', $user->getId())->first();
+
+            if ($existingUser) {
+                // Log in the user
+                Auth::login($existingUser);
             } else {
-                $user = User::create([
-                    'name' => $googleUser->getName(),
-                    'email' => $googleUser->getEmail(),
-                    'google_id' => $googleUser->getId(),
-                    'password' => bcrypt('google_auth'), // Random password
+                // Create a new user
+                $newUser = User::create([
+                    'name' => $user->getName(),
+                    'email' => $user->getEmail(),
+                    'google_id' => $user->getId(),
+                    'avatar' => $user->getAvatar(), // optional
                 ]);
 
-                Auth::login($user);
+                Auth::login($newUser);
             }
 
-            return redirect()->intended('dashboard');
+            return redirect()->route('dashboard');
         } catch (Exception $e) {
-            return redirect('/auth/google');
+            // Log the exception details for debugging
+            Log::error('Google OAuth Error: ' . $e->getMessage());
+
+            // Handle exception or error
+            return redirect()->route('login')->withErrors('Unable to authenticate using Google.');
         }
     }
 }
