@@ -18,26 +18,46 @@ class GoogleController extends Controller
     public function handleGoogleCallback()
     {
         try {
-            $googleUser = Socialite::driver('google')->user();
-            
+            // Fetch Google user data
+            $googleUser = Socialite::driver('google')->stateless()->user();
+
+            // Check if the user already exists by email
             $user = User::where('email', $googleUser->getEmail())->first();
 
             if ($user) {
-                Auth::login($user);
+                // Update google_user_id if it's not set
+                if (!$user->google_user_id) {
+                    $user->google_user_id = $googleUser->getId();
+                    $user->save();
+                }
+
+                // Log in the existing user
+                Auth::login($user, true);
+
+                // Check if mobile number exists; if not, redirect to mobile update modal
+                if (is_null($user->mobile)) {
+                    return redirect()->route('index'); // Redirect to the mobile update modal
+                }
+
             } else {
+                // User doesn't exist, create a new user
                 $user = User::create([
                     'name' => $googleUser->getName(),
                     'email' => $googleUser->getEmail(),
-                    'google_id' => $googleUser->getId(),
-                    'password' => bcrypt('google_auth'), // Random password
+                    'google_user_id' => $googleUser->getId(),
                 ]);
 
-                Auth::login($user);
+                // Log in the newly created user
+                Auth::login($user, true);
+
+                // Redirect to the mobile update modal to capture the mobile number
+                return redirect()->route('index');
             }
 
-            return redirect()->intended('dashboard');
+            // If the user is logged in, redirect to the dashboard
+            return redirect()->route('index');
         } catch (Exception $e) {
-            return redirect('/auth/google');
+            return redirect()->route('index');
         }
     }
 }

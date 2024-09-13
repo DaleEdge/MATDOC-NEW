@@ -46,7 +46,7 @@
                         <li><a href="{{route('user_logout')}}">Logout</a></li>
                     @else
                         <li><a href="{{route('user-login')}}">Login</a></li>
-                        <li><a href="{{route('user-register')}}">Register</a></li>
+                        <!-- <li><a href="{{route('user-register')}}">Register</a></li> -->
                     @endif
                     <li>
                         <div class="text-box toplink">
@@ -95,7 +95,7 @@
                     <li><a href="{{route('user_logout')}}">Logout</a></li>
                 @else
                     <li><a href="{{route('user-login')}}">Login</a></li>
-                    <li><a href="{{route('user-register')}}">Register</a></li>
+                    <!-- <li><a href="{{route('user-register')}}">Register</a></li> -->
                 @endif
                 <li>
                     <a href="https://careermedia.ai/">NEET PG Counselling</a>

@@ -109,10 +109,10 @@
                                 style="text-transform: none;" href="{{ route('user-login') }}"><i class="fa fa-user-o"></i>
                                 Login</a>
                             <!-- <div class="btn btn-primary rounded" style="padding-top:initial"><a class="link"
-                                                        style="text-transform: none;" href="{{ route('user-register') }}">Register</a></div> -->
+                                                                style="text-transform: none;" href="{{ route('user-register') }}">Register</a></div> -->
                         </div>
                         <!-- <a class="link" href="{{ route('user-login') }}"><i class="fa fa-user-o"></i> Login</a>
-                                                                                                                                                <a class="link" href="{{ route('user-register') }}">Register</a> -->
+                                                                                                                                                        <a class="link" href="{{ route('user-register') }}">Register</a> -->
                     @endif
                 </div>
                 <div class="header-toggle d-lg-none">
@@ -144,7 +144,7 @@
                     <li><a href="{{ route('user_logout') }}">Logout</a></li>
                 @else
                     <li><a href="{{ route('user-login') }}">Login</a></li>
-                    <li><a href="{{ route('user-register') }}">Register</a></li>
+                    <!-- <li><a href="{{ route('user-register') }}">Register</a></li> -->
                 @endif
             </ul>
         </div>

@@ -168,6 +168,7 @@
                               <th>CR 2023 4</th>
                               <th>CR 2023 5</th>
                               <th>CR 2023 6</th>
+                              <th>Choice</th>
                            </tr>
                         </thead>
                      </table>
@@ -192,6 +193,7 @@
                               <th>CR 2023 4</th>
                               <th>CR 2023 5</th>
                               <th>CR 2023 6</th>
+                              <th>Choice</th>
                            </tr>
                         </thead>
                      </table>
@@ -894,6 +896,7 @@
             { data: "cr_2023_4" },
             { data: "cr_2023_5" },
             { data: "cr_2023_6" }
+            { data: null }
          ],
          columnDefs: [
             {
@@ -912,6 +915,13 @@
                     data-round=${columnIndex}>
                     ${data}
                 </a>` : '-';
+               }
+            },
+            {
+               targets: [14],
+               render: function (data, type, row, meta) {
+                  const columnIndex = meta.col - 7;
+                  return `<i class="fa fa-heart"></i>`;
                }
             },
          ]

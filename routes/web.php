@@ -27,78 +27,8 @@ Route::get('/about-us', [FrontController::class, 'about_us'])->name('about_us');
 Route::get('/contact-us', [FrontController::class, 'help'])->name('help');
 
 // Redirect to Google OAuth
-Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
-
-Route::get('auth/google/callback', function () {
-    // Fetch Google user data
-    $googleUser = Socialite::driver('google')->stateless()->user();
-
-    // Check if the user already exists by email
-    $user = User::where('email', $googleUser->getEmail())->first();
-
-    if ($user) {
-        // Update google_user_id if it's not set
-        if (!$user->google_user_id) {
-            $user->google_user_id = $googleUser->getId();
-            $user->save();
-        }
-
-        // Log in the existing user
-        Auth::login($user, true);
-
-        // Check if mobile number exists; if not, redirect to mobile update modal
-        if (is_null($user->mobile)) {
-            return redirect()->route('index'); // Redirect to the mobile update modal
-        }
-
-    } else {
-        // User doesn't exist, create a new user
-        $user = User::create([
-            'name' => $googleUser->getName(),
-            'email' => $googleUser->getEmail(),
-            'google_user_id' => $googleUser->getId(),
-        ]);
-
-        // Log in the newly created user
-        Auth::login($user, true);
-
-        // Redirect to the mobile update modal to capture the mobile number
-        return redirect()->route('index');
-    }
-
-    // If the user is logged in, redirect to the dashboard
-    return redirect()->route('index');
-});
-
-
-// Route to show the additional registration form
-Route::get('/user-register', function () {
-    $googleUser = session('google_user');
-
-    return view('auth.user-register', ['googleUser' => $googleUser]);
-});
-
-// Route to handle the form submission
-Route::post('/user-register', function (Request $request) {
-    $googleUser = session('google_user');
-
-    // Create a new user with the additional fields
-    $user = User::create([
-        'name' => $request->name,
-        'email' => $googleUser->getEmail(),
-        'google_id' => $googleUser->getId(),
-        'avatar' => $googleUser->getAvatar(),
-        'password' => bcrypt(str_random(16)),
-        'exam_type' => $request->exam_type,
-        'score' => $request->score,
-        'phone' => $request->phone,
-    ]);
-
-    // Log in the new user
-    Auth::login($user, true);
-
-    return redirect('/user_dashboard');
-});
+Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google_auth');
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google_auth_callback');
 
 //Route::get('/deemed', [App\Http\Controllers\Front\FrontController::class, 'new_deemed']);
 Route::get('/deemed_fees', [App\Http\Controllers\Front\FrontController::class, 'deemed_fees'])->name('deemed_fees');

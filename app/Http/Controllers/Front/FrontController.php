@@ -515,9 +515,9 @@ class FrontController extends Controller
                     }
                     Session::flash('success', 'Login Successfully !');
 
-                    // if ($user->phone == null) {
-                    //     return redirect()->route('mobile_number_update');
-                    // }
+                    if ($user->phone == null) {
+                        return redirect()->route('mobile_number_update');
+                    }
 
                     return redirect()->route('index');
                 } else {

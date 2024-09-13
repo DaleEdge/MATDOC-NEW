@@ -23,9 +23,7 @@ class User extends Authenticatable
         'user_type',
         'email',
         'password',
-        'google_id',
-        'exam_type',
-        'score',
+        'google_user_id',
         'phone',
     ];
     /**
