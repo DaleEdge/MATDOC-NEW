@@ -815,7 +815,8 @@
             { data: "cr_2023_3" },
             { data: "cr_2023_4" },
             { data: "cr_2023_5" },
-            { data: "cr_2023_6" }
+            { data: "cr_2023_6" },
+            { data: null },
          ],
          columnDefs: [
             {
@@ -834,6 +835,14 @@
                     data-round=${columnIndex}>
                     ${data}
                 </a>` : '-';
+               }
+            },
+             {
+               targets: [14],
+               class: 'text-center fs-4',
+               render: function (data, type, row, meta) {
+                  const columnIndex = meta.col - 7;
+                  return `<i class="fa fa-heart-o"></i>`;
                }
             },
          ]
@@ -895,7 +904,7 @@
             { data: "cr_2023_3" },
             { data: "cr_2023_4" },
             { data: "cr_2023_5" },
-            { data: "cr_2023_6" }
+            { data: "cr_2023_6" },
             { data: null }
          ],
          columnDefs: [
@@ -919,9 +928,10 @@
             },
             {
                targets: [14],
+               class: 'text-center fs-4',
                render: function (data, type, row, meta) {
                   const columnIndex = meta.col - 7;
-                  return `<i class="fa fa-heart"></i>`;
+                  return `<i class="fa fa-heart-o"></i>`;
                }
             },
          ]
