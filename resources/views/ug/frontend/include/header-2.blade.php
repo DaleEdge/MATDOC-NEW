@@ -36,8 +36,7 @@
             <!-- Header Menu Start -->
             <div class="header-menu d-none d-lg-block">
                 <ul class="main-menu">
-                    <li><a href="@if(Auth::check()) {{route('home_user')}} @else {{route('index')}} @endif"
-                            class="active">Home </a></li>
+                    <li><a href="https://matdoc.in">Home </a></li>
                     <li><a href="{{route('about_us')}}">About Us</a></li>
                     <li><a href="{{route('contact')}}">Contact </a></li>
                     @if(Auth::check())
@@ -86,7 +85,7 @@
     <div class="offcanvas-body">
         <div class="offcanvas-menu">
             <ul class="main-menu">
-                <li><a href="@if(Auth::check()) {{route('home_user')}} @else {{'/'}} @endif">Home </a></li>
+                <li><a href="https://matdoc.in">Home </a></li>
                 <li><a href="{{route('about_us')}}">About Us</a></li>
                 <li><a href="{{route('contact')}}">Contact </a></li>
                 @if(Auth::check())
