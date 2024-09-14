@@ -87,7 +87,7 @@
 <script>
     jQuery(function ($) {
         var path = window.location.href;
-        if (path == 'https://matdoc.in/') { } else {
+        if (path == 'https://console.matdoc.in/') { } else {
             // because the 'href' property of the DOM element is the absolute path
             $('.main-menu li a').removeClass('active');
             $('.main-menu li a').each(function () {

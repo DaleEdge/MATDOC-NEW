@@ -36,7 +36,7 @@ class GoogleController extends Controller
 
                 // Check if mobile number exists; if not, redirect to mobile update modal
                 if (is_null($user->mobile)) {
-                    return redirect()->route('index'); // Redirect to the mobile update modal
+                    return redirect()->route('console'); // Redirect to the mobile update modal
                 }
 
             } else {
@@ -51,7 +51,7 @@ class GoogleController extends Controller
                 Auth::login($user, true);
 
                 // Redirect to the mobile update modal to capture the mobile number
-                return redirect()->route('index');
+                return redirect()->route('console');
             }
 
             // If the user is logged in, redirect to the dashboard

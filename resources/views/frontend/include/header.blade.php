@@ -86,12 +86,11 @@
     <div class="container">
         <div class="header-wrapper">
             <div class="header-logo">
-                <a href="{{ route('index') }}"><img src="{{ asset('front_css/assets/images/logo.png') }}"
-                        alt="Logo"></a>
+                <a href="https://matdoc.in"><img src="{{ asset('front_css/assets/images/logo.png') }}" alt="Logo"></a>
             </div>
             <div class="header-menu d-none d-lg-block">
                 <ul class="main-menu">
-                    <li><a href="{{ route('index') }}">Home</a></li>
+                    <li><a href="https://matdoc.in">Home</a></li>
                     <li><a href="{{ route('console') }}">Console</a></li>
                     <li><a href="{{ route('subscription_plans') }}">Packages</a></li>
                     <li><a href="{{ route('about_us') }}">About Us</a></li>
@@ -109,10 +108,10 @@
                                 style="text-transform: none;" href="{{ route('user-login') }}"><i class="fa fa-user-o"></i>
                                 Login</a>
                             <!-- <div class="btn btn-primary rounded" style="padding-top:initial"><a class="link"
-                                                                style="text-transform: none;" href="{{ route('user-register') }}">Register</a></div> -->
+                                                                            style="text-transform: none;" href="{{ route('user-register') }}">Register</a></div> -->
                         </div>
                         <!-- <a class="link" href="{{ route('user-login') }}"><i class="fa fa-user-o"></i> Login</a>
-                                                                                                                                                        <a class="link" href="{{ route('user-register') }}">Register</a> -->
+                                                                                                                                                                    <a class="link" href="{{ route('user-register') }}">Register</a> -->
                     @endif
                 </div>
                 <div class="header-toggle d-lg-none">

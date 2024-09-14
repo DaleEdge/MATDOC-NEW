@@ -519,7 +519,7 @@ class FrontController extends Controller
                         return redirect()->route('mobile_number_update');
                     }
 
-                    return redirect()->route('index');
+                    return redirect()->route('console');
                 } else {
                     $validator->getMessageBag()->add('password', 'Password Wrong');
                     return back()->withErrors($validator)->withInput();
