@@ -20,7 +20,7 @@ use App\Models\User;
 */
 
 // Headers
-Route::get('/', [FrontController::class, 'index'])->name('index');
+Route::get('/', [FrontController::class, 'console'])->name('index');
 Route::get('/console', [FrontController::class, 'console'])->name('console');
 Route::get('/subscription-plans', [FrontController::class, 'subscription_plans'])->name('subscription_plans');
 Route::get('/about-us', [FrontController::class, 'about_us'])->name('about_us');
